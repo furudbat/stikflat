@@ -7,7 +7,7 @@
 
     {%- include header.html -%}
 
-    <div class="py-5">
+    <div class="py-5" id="main-content">
       <div class="container page-content">
           {{ content }}
       </div>
@@ -15,6 +15,24 @@
 
     {%- include footer.html -%}
 
+    <script src="{{ "/assets/js/jquery-ui.min.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/bootstrap.bundle.min.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/bootstrap-toggle.min.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/fontawesome/all.min.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/mustache.min.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/codemirror.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/mode/javascript/javascript.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/mode/htmlmixed/htmlmixed.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/mode/xml/xml.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/mode/css/css.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/addon/edit/matchbrackets.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/addon/lint/json-lint.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/addon/lint/html-lint.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/addon/lint/css-lint.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/froala_editor.pkgd.min.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/plugins/code_view.min.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/third_party/font_awesome.min.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/third_party/spell_checker.min.js" | relative_url }}"></script>
   </body>
 
 </html>

@@ -4,14 +4,27 @@
 
 rm -rf node_modules package-lock.json
 npm install bootstrap@4 jquery@3
+npm install bootstrap-toggle font-awesome jquery-ui
+npm install froala-editor codemirror codemirror-spell-checker
+npm install mustache
 
-rm -rf _sass/bootstrap
-mkdir -p _sass/bootstrap
 cp -r node_modules/bootstrap/scss/* _sass/bootstrap
-touch _sass/bootstrap/__DO_NOT_MODIFY
+cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.* assets/js/
+cp node_modules/jquery/dist/jquery.min.* assets/js/
 
-rm -rf assets/javascript/bootstrap
-mkdir -p assets/javascript/bootstrap
-cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.* assets/javascript/bootstrap/
-cp node_modules/jquery/dist/jquery.min.* assets/javascript/bootstrap/
-touch assets/javascript/bootstrap/__DO_NOT_MODIFY
+cp node_modules/bootstrap-toggle/js/bootstrap-toggle.min.* assets/js/
+cp node_modules/bootstrap-toggle/css/bootstrap-toggle.min.* assets/css/
+
+cp node_modules/froala-editor/js/froala_editor.pkgd.min.* assets/js/
+cp node_modules/froala-editor/js/plugins/*.min.js assets/js/plugins/
+cp node_modules/froala-editor/js/third_party/*.min.css assets/js/third_party/
+cp node_modules/froala-editor/css/froala_editor.pkgd.min.* assets/css/
+cp node_modules/froala-editor/css/plugins/*.min.css assets/css/plugins/
+cp node_modules/froala-editor/css/themes/*.min.css assets/css/themes/
+
+cp node_modules/mustache/mustache.min.* assets/js/
+
+cp node_modules/codemirror/lib/*.js assets/js/
+cp node_modules/codemirror/mode/ assets/js/
+cp node_modules/codemirror/addon/ assets/js/
+cp node_modules/codemirror/lib/*.css assets/css/

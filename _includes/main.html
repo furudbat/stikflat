@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <label for="preview-html">Preview</label>
+        <div class="border border-white embed-responsive embed-responsive-16by9">
+            <div class="p-4 embed-responsive-item" id="preview-html"></div>
+        </div>
+    </div>
+</div>
+<div class="row m-4">
+    <div class="col-sm-12 col-md-8 main-template-editors-container">
+        <ul class="nav nav-tabs" id="templateTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="template-tab" data-toggle="tab" href="#templateTabContent" role="tab" aria-controls="template"
+                aria-selected="true">Template</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="css-tab" data-toggle="tab" href="#cssTabContent" role="tab" aria-controls="css"
+                aria-selected="false">CSS</a>
+            </li>
+         </ul>
+        <div class="tab-content" id="templateTabsContent">
+            <div class="tab-pane fade show active" id="templateTabContent" role="tabpanel" aria-labelledby="template-tab">
+                <div class="form-group">
+                    <textarea id="txtTemplate" aria-describedby="templateHelp"></textarea>
+                    <small id="templateHelp" class="form-text text-muted">put your mustache template here</small>
+                    <div id="templateError" class="alert alert-danger" role="alert"></div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="cssTabContent" role="tabpanel" aria-labelledby="css-tab">
+                <div class="form-group">
+                    <textarea id="txtCSS" aria-describedby="cssHelp"></textarea>
+                    <small id="cssHelp" class="form-text text-muted">put your css here</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4 main-config-editors-container">
+        <div class="form-group mt-2">
+            <label for="txtConfig">Config/Content</label>
+            <textarea id="txtConfig" aria-describedby="configHelp">{}</textarea>
+            <small id="configHelp" class="form-text text-muted">put your config/content (json) here</small>
+            <div id="configError" class="alert alert-danger" role="alert"></div>
+        </div>
+    </div>
+    <div class="col-12 main-generate">
+        <div class="form-group">
+            <button type="button" id="generate" class="btn btn-primary btn-lg btn-block">Generate</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-12 main-preview-code-container">
+        <label for="preview-code">Code</label>
+        <textarea id="preview-code" readoly></textarea>
+    </div>
+</div>
+
+<script src="{{ "/assets/js/main.js" | relative_url }}"></script>
