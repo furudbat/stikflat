@@ -1,28 +1,56 @@
-<div class="row">
+<h2>Layouts</h2>
+<div class="row mb-4 ml-2">
+    <div class="col-12">
+        {% assign templates_url = 'templates/' | absolute_url %}
+        {% for template in site.data.templates %}
+            <button type="button" class="btn btn-primary layout-pattern" style="{{ template.style }}"
+                data-name="{{ template.name | escape }}" 
+                data-author="{{ template.author | escape }}"
+                data-author-link="{{ template.author_link }}"
+                data-template="{{ template.template | prepend: templates_url }}"
+                data-css="{{ template.css | prepend: templates_url }}"
+                data-config="{{ template.config | prepend: templates_url }}" 
+                data-license="{{ template.license | escape }}"
+                data-link="{{ template.link }}" 
+                data-description="{{ template.description | escape }}">
+                {{ template.name | escape }} <span class="badge badge-light">{{ template.author | escape }}</span>
+            </button>
+        {% endfor %}
+    </div>
+    <div class="col-12">
+        <div id="layout-pattern-info" class="alert alert-danger invisible" role="alert"></div>
+    </div>
+</div>
+
+
+<h3 class="mt-4">Preview</h3>
+<div class="row mb-4">
     <div class="col-sm-12 col-md-12">
-        <label for="preview-html">Preview</label>
         <div class="border border-white embed-responsive embed-responsive-16by9">
             <div class="p-4 embed-responsive-item" id="preview-html"></div>
         </div>
     </div>
 </div>
-<div class="row m-4">
+
+<h2>Editor</h2>
+<div class="row mb-4">
     <div class="col-sm-12 col-md-8 main-template-editors-container">
         <ul class="nav nav-tabs" id="templateTabs" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="template-tab" data-toggle="tab" href="#templateTabContent" role="tab" aria-controls="template"
-                aria-selected="true">Template</a>
+                <a class="nav-link active" id="template-tab" data-toggle="tab" href="#templateTabContent" role="tab"
+                    aria-controls="template" aria-selected="true">Template</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="css-tab" data-toggle="tab" href="#cssTabContent" role="tab" aria-controls="css"
-                aria-selected="false">CSS</a>
+                    aria-selected="false">CSS</a>
             </li>
-         </ul>
+        </ul>
         <div class="tab-content" id="templateTabsContent">
-            <div class="tab-pane fade show active" id="templateTabContent" role="tabpanel" aria-labelledby="template-tab">
+            <div class="tab-pane fade show active" id="templateTabContent" role="tabpanel"
+                aria-labelledby="template-tab">
                 <div class="form-group">
                     <textarea id="txtTemplate" aria-describedby="templateHelp"></textarea>
-                    <small id="templateHelp" class="form-text text-muted">put your mustache template here</small>
+                    <small id="templateHelp" class="form-text text-muted">put your <a href="https://mustache.github.io/" target="_blank">mustache</a> template here</small>
                     <div id="templateError" class="alert alert-danger" role="alert"></div>
                 </div>
             </div>
@@ -49,11 +77,11 @@
     </div>
 </div>
 
-<div class="row">
+<h3>Code</h3>
+<div class="row mb-4">
     <div class="col-sm-12 col-md-12 main-preview-code-container">
-        <label for="preview-code">Code</label>
         <textarea id="preview-code" readoly></textarea>
     </div>
 </div>
 
-<script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>

@@ -4,7 +4,7 @@ var generateHTMLFromTemplate = function (template, jsonstring, css) {
 
     var json = {};
     try {
-        if(jsonstring != "") {
+        if (jsonstring != "") {
             json = JSON.parse(jsonstring);
         }
     } catch (error) {
@@ -19,7 +19,7 @@ var generateHTMLFromTemplate = function (template, jsonstring, css) {
             setHTMLPreview(htmlstr, css);
             codePreview.setValue(htmlstr);
 
-            console.debug({template, json, css}, htmlstr);
+            console.debug({ template, json, css }, htmlstr);
         } catch (error) {
             var html = error.toString();
             console.error(error);
@@ -31,9 +31,23 @@ var generateHTMLFromTemplate = function (template, jsonstring, css) {
     }
 };
 
+var setHTMLPreviewFromTemplate = function (template, json, css) {
+    if (json != null) {
+        try {
+            var htmlstr = Mustache.render(template, json);
+            setHTMLPreview(htmlstr, css);
+        } catch (error) {
+            var html = error.toString();
+            console.error(error);
+
+            setHTMLPreview(html, css);
+        }
+    }
+};
+
 var setHTMLPreview = function (htmlstr, cssstr) {
     var html = $.parseHTML('<style>' + cssstr + '</style>' + htmlstr);
-    console.debug({cssstr, htmlstr}, html);
+    console.debug({ cssstr, htmlstr }, html);
 
     /*
     var sandbox = $('<html><head></head><body><div id="main-content"></div></body></html>');
@@ -63,26 +77,53 @@ var setConfigError = function (error) {
     $('#configError').addClass('visible').removeClass('invisible').html(error)
 };
 var clearConfigError = function () {
-    $('#configError').removeClass('visible').addClass('invisible').html('')
+    $('#configError').removeClass('visible').addClass('invisible').empty()
 };
 
 var setTemplateError = function (error) {
     $('#configError').addClass('visible').removeClass('invisible').html(error)
 };
 var clearTemplateError = function () {
-    $('#templateError').removeClass('visible').addClass('invisible').html('')
+    $('#templateError').removeClass('visible').addClass('invisible').empty()
+};
+
+
+var clearLayoutInfo = function () {
+    $('#layout-pattern-info').removeClass('visible').addClass('invisible').empty()
+}
+var updateLayoutInfo = function (pattern) {
+    var name = $(pattern).data('name');
+    var author = $(pattern).data('author');
+    var authorLink = $(pattern).data('author-link');
+    var description = $(pattern).data('description');
+    var link = $(pattern).data('link');
+    var license = $(pattern).data('license');
+
+    var header = '<p>';
+    header += name + ' by ' + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
+    if (link != "") {
+        header += ' - ' + '<a href="' + link + '" target="_blank">' + link + '</a>';
+    }
+    header += '</p>';
+
+    $('#layout-pattern-info').addClass('visible').removeClass('invisible').empty()
+        .append(header)
+        .append('<p class="text-justify">' + description + '</p>')
+        .append('<p class="font-italic">' + license + '</p>');
+
 };
 
 $(document).ready(function () {
     clearConfigError();
     clearTemplateError();
+    clearLayoutInfo();
 
     $('#generate').click(function () {
         generateHTML();
     });
 
     templateEditor = new FroalaEditor('#txtTemplate', {
-        theme: 'dark', 
+        theme: 'dark',
         iconsTemplate: 'font_awesome_5',
         heightMin: 300,
         toolbarButtons: [
@@ -93,23 +134,23 @@ $(document).ready(function () {
             'help'
         ],
         events: {
-            contentChanged: function () {
+            contentsChanged: function () {
                 generateHTML();
             }
         }
     });
     configEditor = CodeMirror.fromTextArea(document.getElementById('txtConfig'), {
-        value: "{}",
-        mode: "application/json",
+        value: '{}',
+        mode: 'application/json',
         lineNumbers: true,
         linter: true
     });
-    configEditor.on("changes", function (cm, change) {
+    configEditor.on('changes', function (cm, change) {
         generateHTML();
     })
-    
+
     cssEditor = CodeMirror.fromTextArea(document.getElementById('txtCSS'), {
-        mode: "text/css",
+        mode: 'text/css',
         lineNumbers: true,
         linter: true
     });
@@ -118,8 +159,50 @@ $(document).ready(function () {
     })
 
     codePreview = CodeMirror.fromTextArea(document.getElementById('preview-code'), {
-        mode: "text/html",
+        mode: 'text/html',
         lineNumbers: true,
         readOnly: true
+    });
+
+    /*
+    $('.template-pattern').dblclick(function () {
+        var name = $(this).data('name');
+        var getTemplate = $.get($(this).data('template'));
+        var getConfig = $.get($(this).data('config'));
+        var getCSS = $.get($(this).data('css'));
+
+        $.when(getTemplate, getConfig, getCSS).done((templateRes, configRes, cssRes) => {
+            console.debug(name);
+
+            var template = templateRes[0];
+            var config = configRes[0];
+            var css = cssRes[0];
+
+            templateEditor.html.set(template);
+            configEditor.setValue(JSON.stringify(config, null, 4));
+            cssEditor.setValue(css);
+
+            setHTMLPreviewFromTemplate(template, config, css);
+        });
+        updateLayoutInfo(this);
+    });
+    */
+    $('.template-pattern').click(function () {
+        var name = $(this).data('name');
+        var getTemplate = $.get($(this).data('template'));
+        var getConfig = $.get($(this).data('config'));
+        var getCSS = $.get($(this).data('css'));
+        console.debug(name);
+
+        $.when(getTemplate, getConfig, getCSS).done((templateRes, configRes, cssRes) => {
+            console.debug(name);
+
+            var template = templateRes[0];
+            var config = configRes[0];
+            var css = cssRes[0];
+
+            setHTMLPreviewFromTemplate(template, config, css);
+        });
+        updateLayoutInfo(this);
     });
 });

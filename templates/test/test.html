@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-4">
+        <img src="{{ images.avatar }}" class="img-fluid rounded-circle" alt="Avatar">
+        <h4>{{ name }}</h4>
+    </div>
+    <div class="col-8">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="basic-info-tab" data-toggle="tab" href="#my-basic-info" role="tab" aria-controls="my-basic-info"
+                    aria-selected="true">Basic Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="marks-tab" data-toggle="tab" href="#my-marks" role="tab"
+                    aria-controls="profile" aria-selected="false">Marks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="personality-tab" data-toggle="tab" href="#my-personality" role="tab"
+                    aria-controls="my-personality" aria-selected="false">Personality</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="bio-tab" data-toggle="tab" href="#my-bio" role="tab"
+                    aria-controls="my-bio" aria-selected="false">Bio</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="my-basic-info" role="tabpanel" aria-labelledby="basic-info-tab">
+                1
+            </div>
+            <div class="tab-pane fade" id="my-marks" role="tabpanel" aria-labelledby="marks-tab">
+                2
+            </div>
+            <div class="tab-pane fade" id="my-personality" role="tabpanel" aria-labelledby="marks-personality">
+                3
+            </div>
+            <div class="tab-pane fade" id="my-bio" role="tabpanel" aria-labelledby="bio-tab">
+                {{bio}}
+            </div>
+        </div>
+    </div>
+</div>
