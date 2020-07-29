@@ -22,22 +22,16 @@
     </div>
 </div>
 
-
-<h3 class="mt-4">Preview</h3>
-<div class="row mb-4">
-    <div class="col-sm-12 col-md-12">
-        <div class="border border-white embed-responsive embed-responsive-16by9">
-            <div class="p-4 embed-responsive-item" id="preview-html"></div>
-        </div>
-    </div>
-</div>
-
 <h2>Editor</h2>
 <div class="row mb-4">
-    <div class="col-sm-12 col-md-8 main-template-editors-container">
+    <div class="col-md-8 main-template-editors-container">
         <ul class="nav nav-tabs" id="templateTabs" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="template-tab" data-toggle="tab" href="#templateTabContent" role="tab"
+                <a class="nav-link active" id="preview-tab" data-toggle="tab" href="#previewTabContent" role="tab" aria-controls="preview"
+                    aria-selected="false">Preview</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="template-tab" data-toggle="tab" href="#templateTabContent" role="tab"
                     aria-controls="template" aria-selected="true">Template</a>
             </li>
             <li class="nav-item">
@@ -46,7 +40,13 @@
             </li>
         </ul>
         <div class="tab-content" id="templateTabsContent">
-            <div class="tab-pane fade show active" id="templateTabContent" role="tabpanel"
+            <div class="tab-pane fade show active" id="previewTabContent" role="tabpanel"
+                aria-labelledby="preview-tab">
+                <div class="border border-white embed-responsive embed-responsive-16by9">
+                    <div class="p-4 embed-responsive-item" id="preview-html"></div>
+                </div>
+            </div>
+            <div class="tab-pane fade show" id="templateTabContent" role="tabpanel"
                 aria-labelledby="template-tab">
                 <div class="form-group">
                     <textarea id="txtTemplate" aria-describedby="templateHelp"></textarea>
@@ -62,24 +62,32 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-md-4 main-config-editors-container">
+    <div class="col-md-4 main-config-editors-container">
         <div class="form-group mt-2">
-            <label for="txtConfig">Config/Content</label>
-            <textarea id="txtConfig" aria-describedby="configHelp">{}</textarea>
+            <div class="row">
+                <div class="col-10"><label for="txtConfig">Config/Content</label></div>
+                <div class="col-2">
+                    <button id="btnLockConfig" type="button" class="btn"><i class="fas fa-lock"></i></button>
+                    <button id="btnUnlockConfig" type="button" class="btn"><i class="fas fa-lock-open"></i></button>
+                </div>
+            </div>
+            <small id="lockConfigHelp" class="form-text text-muted">Don't override config when selecting Layout</small>
+
+            <textarea id="txtConfig" aria-describedby="configHelp"></textarea>
             <small id="configHelp" class="form-text text-muted">put your config/content (json) here</small>
             <div id="configError" class="alert alert-danger" role="alert"></div>
         </div>
     </div>
-    <div class="col-12 main-generate">
+    <div class="col-12 mt-2 main-generate-container">
         <div class="form-group">
-            <button type="button" id="generate" class="btn btn-primary btn-lg btn-block">Generate</button>
+            <button type="button" id="btnGenerateBottom" class="btn btn-primary btn-lg btn-block generate-btn">Generate</button>
         </div>
     </div>
 </div>
 
 <h3>Code</h3>
 <div class="row mb-4">
-    <div class="col-sm-12 col-md-12 main-preview-code-container">
+    <div class="col-md-12 main-preview-code-container">
         <textarea id="preview-code" readoly></textarea>
     </div>
 </div>

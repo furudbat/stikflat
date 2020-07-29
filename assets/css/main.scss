@@ -13,4 +13,19 @@
     .tab-content {
         min-height: 536px;
     }
+    
+    .CodeMirror {
+        height: 500px;
+    }
+}
+.main-config-editors-container {
+    .CodeMirror {
+        height: 500px;
+    }
+}
+
+.main-preview-code-container {
+    .CodeMirror {
+        height: 600px;
+    }
 }

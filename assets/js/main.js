@@ -1,3 +1,65 @@
+'use strict';
+
+const STORAGE_KEY_TEMPLATE_CODE = 'template_code';
+const STORAGE_KEY_CONFIG_CODE = 'config_code';
+const STORAGE_KEY_CSS_CODE = 'css_code';
+const STORAGE_KEY_LOCK_CONFIG_CODE = 'lock_config_code';
+const STORAGE_KEY_DISABLE_WYSIWYG_TEMPLATE_EDITOR = 'disable_WYSIWYG_template_editor';
+
+var _templateEditor = null;
+var _configEditor = null;
+var _cssEditor = null;
+var _codePreviewEditor = null;
+
+var _templateCode = '';
+var _configCode = '';
+var _cssCode = '';
+var _codePreview = '';
+var _currentPattern = '';
+var _lockConfigCode = false;
+var _disableWYSIWYGTemplateEditor = true;
+
+//console.debug({ _templateCode, _configCode, _codePreview, _currentPattern, _lockConfigCode, _disableWYSIWYGTemplateEditor });
+
+var loadFromStorage = function () {
+    _templateCode = localStorage.getItem(STORAGE_KEY_TEMPLATE_CODE) || '';
+    _configCode = localStorage.getItem(STORAGE_KEY_CONFIG_CODE) || '';
+    _cssCode = localStorage.getItem(STORAGE_KEY_CSS_CODE) || '';
+    _lockConfigCode = localStorage.getItem(STORAGE_KEY_LOCK_CONFIG_CODE) == "true" || false;
+    _disableWYSIWYGTemplateEditor = localStorage.getItem(STORAGE_KEY_DISABLE_WYSIWYG_TEMPLATE_EDITOR) || true;
+};
+
+var getTemplateCode = function () {
+    return _templateCode;
+}
+var getConfigCode = function () {
+    return _configCode;
+}
+var getCssCode = function () {
+    return _cssCode;
+}
+
+var setTemplateCode = function (code) {
+    _templateCode = code;
+    localStorage.setItem(STORAGE_KEY_TEMPLATE_CODE, code);
+    _templateEditor.html.set(code);
+}
+var setConfigCode = function (code) {
+    _configCode = code;
+    localStorage.setItem(STORAGE_KEY_CONFIG_CODE, code);
+    _configEditor.setValue(code);
+}
+var setCssCode = function (code) {
+    _cssCode = code;
+    localStorage.setItem(STORAGE_KEY_CSS_CODE, code);
+    _cssEditor.setValue(code);
+}
+var setCodePreview = function (code) {
+    _codePreview = code;
+    _codePreviewEditor.setValue(code);
+}
+
+
 var generateHTMLFromTemplate = function (template, jsonstring, css) {
     clearTemplateError();
     clearConfigError();
@@ -17,15 +79,15 @@ var generateHTMLFromTemplate = function (template, jsonstring, css) {
         try {
             var htmlstr = Mustache.render(template, json);
             setHTMLPreview(htmlstr, css);
-            codePreview.setValue(htmlstr);
+            setCodePreview(html_beautify(htmlstr));
 
-            console.debug({ template, json, css }, htmlstr);
+            //console.debug({ template, json, css }, htmlstr);
         } catch (error) {
             var html = error.toString();
             console.error(error);
 
             setHTMLPreview(html, css);
-            codePreview.setValue(html);
+            setCodePreview(html);
             setTemplateError(html);
         }
     }
@@ -46,30 +108,17 @@ var setHTMLPreviewFromTemplate = function (template, json, css) {
 };
 
 var setHTMLPreview = function (htmlstr, cssstr) {
+    //console.debug({ _templateCode, _configCode, _codePreview, _currentPattern, _lockConfigCode, _disableWYSIWYGTemplateEditor });
+
     var html = $.parseHTML('<style>' + cssstr + '</style>' + htmlstr);
-    console.debug({ cssstr, htmlstr }, html);
-
-    /*
-    var sandbox = $('<html><head></head><body><div id="main-content"></div></body></html>');
-    var head = sandbox.find("head");
-    var headlinklast = head.find("link[rel='stylesheet']:last");
-    if (headlinklast.length){
-        headlinklast.after('<style>' + cssstr + '</style>');
-    } else {
-        head.append('<style>' + cssstr + '</style>');
-    }
-    sandbox.find('#main-content').html(html);
-
-    console.log(sandbox.html());
-    */
 
     $('#preview-html').html(html);
 }
 
 var generateHTML = function () {
-    var template = templateEditor.html.get();
-    var json = configEditor.getValue();
-    var css = cssEditor.getValue();
+    var template = getTemplateCode();
+    var json = getConfigCode();
+    var css = getCssCode();
     generateHTMLFromTemplate(template, json, css);
 };
 
@@ -81,6 +130,13 @@ var clearConfigError = function () {
 };
 
 var setTemplateError = function (error) {
+    $('#configError').addClass('visible').removeClass('invisible').html(error)
+};
+var clearTemplateError = function () {
+    $('#templateError').removeClass('visible').addClass('invisible').empty()
+};
+
+var setTemplateError = function () {
     $('#configError').addClass('visible').removeClass('invisible').html(error)
 };
 var clearTemplateError = function () {
@@ -99,30 +155,24 @@ var updateLayoutInfo = function (pattern) {
     var link = $(pattern).data('link');
     var license = $(pattern).data('license');
 
-    var header = '<p>';
+    var header = '<p class="text-bold">';
     header += name + ' by ' + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
     if (link != "") {
         header += ' - ' + '<a href="' + link + '" target="_blank">' + link + '</a>';
     }
     header += '</p>';
 
-    $('#layout-pattern-info').addClass('visible').removeClass('invisible').empty()
+    $('#layout-pattern-info').addClass('d-inline').removeClass('d-none').empty()
         .append(header)
         .append('<p class="text-justify">' + description + '</p>')
         .append('<p class="font-italic">' + license + '</p>');
 
 };
 
-$(document).ready(function () {
-    clearConfigError();
-    clearTemplateError();
-    clearLayoutInfo();
 
-    $('#generate').click(function () {
-        generateHTML();
-    });
 
-    templateEditor = new FroalaEditor('#txtTemplate', {
+var generateTemplateEditor = function () {
+    _templateEditor = new FroalaEditor('#txtTemplate', {
         theme: 'dark',
         iconsTemplate: 'font_awesome_5',
         heightMin: 300,
@@ -134,37 +184,126 @@ $(document).ready(function () {
             'help'
         ],
         events: {
-            contentsChanged: function () {
+            contentsChanged: function (e, editor) {
+                _templateCode = editor.html.get();
                 generateHTML();
             }
         }
     });
-    configEditor = CodeMirror.fromTextArea(document.getElementById('txtConfig'), {
-        value: '{}',
+    //_templateEditor.html.set(_templateCode);
+};
+
+var generateConfigEditor = function () {
+    _configEditor = CodeMirror.fromTextArea(document.getElementById('txtConfig'), {
+        value: _configCode,
         mode: 'application/json',
         lineNumbers: true,
         linter: true
     });
-    configEditor.on('changes', function (cm, change) {
+    _configEditor.on('changes', function (cm, changes) {
+        _configCode = cm.getValue();
         generateHTML();
-    })
+    });
+};
 
-    cssEditor = CodeMirror.fromTextArea(document.getElementById('txtCSS'), {
+var generateCssEditor = function () {
+    _cssEditor = CodeMirror.fromTextArea(document.getElementById('txtCSS'), {
+        value: _cssCode,
         mode: 'text/css',
-        lineNumbers: true,
+        //lineNumbers: true,
         linter: true
     });
-    cssEditor.on("changes", function (cm, change) {
+    _cssEditor.on("changes", function (cm, changes) {
+        _cssCode = cm.getValue();
         generateHTML();
-    })
+    });
+};
 
-    codePreview = CodeMirror.fromTextArea(document.getElementById('preview-code'), {
+var generateCodePreviewEditor = function () {
+    _codePreviewEditor = CodeMirror.fromTextArea(document.getElementById('preview-code'), {
         mode: 'text/html',
         lineNumbers: true,
         readOnly: true
     });
+};
 
+var lockConfig = function () {
+    _lockConfigCode = true;
+    localStorage.setItem(STORAGE_KEY_LOCK_CONFIG_CODE, _lockConfigCode);
     
+    $('#btnLockConfig').addClass('visible').removeClass('invisible').removeClass('d-none');
+    $('#btnUnlockConfig').addClass('invisible').removeClass('visible').addClass('d-none');
+    $('#lockConfigHelp').html("Config Locked, Don't override config when selecting Layout");
+
+    console.debug({_lockConfigCode});
+};
+
+var unlockConfig = function () {
+    _lockConfigCode = false;
+    localStorage.setItem(STORAGE_KEY_LOCK_CONFIG_CODE, _lockConfigCode);
+
+    $('#btnLockConfig').removeClass('visible').addClass('invisible').addClass('d-none');
+    $('#btnUnlockConfig').removeClass('invisible').addClass('visible').removeClass('d-none');
+    $('#lockConfigHelp').html("Config Unlocked, Override config when selecting Layout");
+
+    console.debug({_lockConfigCode});
+};
+
+$(document).ready(function () {
+    loadFromStorage();
+
+    var hideConfigEditor = function (e) {
+        $('.main-template-editors-container').removeClass('col-md-8').addClass('col-md-12').addClass('d-inline');
+        $('.main-config-editors-container').removeClass('d-inline').addClass('d-none');
+    };
+    var showConfigEditor = function (e) {
+        $('.main-template-editors-container').addClass('col-md-8').removeClass('col-md-12').addClass('d-inline');
+        $('.main-config-editors-container').addClass('d-inline').removeClass('d-none');
+    };
+    var showPreview = function () {
+        hideConfigEditor();
+        $('#templateTabs a[href="#previewTabContent"]').tab('show');
+    };
+
+    clearConfigError();
+    clearTemplateError();
+    clearLayoutInfo();
+
+    generateTemplateEditor();
+    generateConfigEditor();
+    generateCssEditor();
+    generateCodePreviewEditor();
+
+    if (_lockConfigCode == true) {
+        lockConfig();
+    } else {
+        unlockConfig();
+    }
+    showPreview();
+
+    $('#templateTabs a[href="#previewTabContent"]').on('click', function (e) {
+        hideConfigEditor(e);
+        $(this).tab('show');
+    });
+    $('#templateTabs a[href="#templateTabContent"]').on('click', function (e) {
+        showConfigEditor(e);
+        $(this).tab('show');
+    });
+    $('#templateTabs a[href="#cssTabContent"]').on('click', function (e) {
+        showConfigEditor(e);
+        $(this).tab('show');
+    });
+
+    $('#btnLockConfig').click(function(){
+        lockConfig();
+    });
+    $('#btnUnlockConfig').click(function(){
+        unlockConfig();
+    });
+    $('.generate-btn').click(function () {
+        generateHTML();
+    });
+
     $('.layout-pattern').dblclick(function () {
         var name = $(this).data('name');
         var getTemplate = $.get($(this).data('template'));
@@ -172,15 +311,17 @@ $(document).ready(function () {
         var getCSS = $.get($(this).data('css'));
 
         $.when(getTemplate, getConfig, getCSS).done((templateRes, configRes, cssRes) => {
-            console.debug(name);
-
+            _currentPattern = name;
             var template = templateRes[0];
-            var config = configRes[0];
+            var config = _configCode;
+            if (_lockConfigCode == false) {
+                config = configRes[0];
+            }
             var css = cssRes[0];
 
-            templateEditor.html.set(template);
-            configEditor.setValue(JSON.stringify(config, null, 4));
-            cssEditor.setValue(css);
+            setTemplateCode(template);
+            setConfigCode(JSON.stringify(config, null, 4));
+            setCssCode(css_beautify(css));
 
             setHTMLPreviewFromTemplate(template, config, css);
         });
@@ -191,16 +332,16 @@ $(document).ready(function () {
         var getTemplate = $.get($(this).data('template'));
         var getConfig = $.get($(this).data('config'));
         var getCSS = $.get($(this).data('css'));
-        console.debug(name);
 
         $.when(getTemplate, getConfig, getCSS).done((templateRes, configRes, cssRes) => {
-            console.debug(name);
+            _currentPattern = name;
 
             var template = templateRes[0];
             var config = configRes[0];
             var css = cssRes[0];
 
             setHTMLPreviewFromTemplate(template, config, css);
+            showPreview();
         });
         updateLayoutInfo(this);
     });
