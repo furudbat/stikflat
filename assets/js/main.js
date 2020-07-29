@@ -67,7 +67,7 @@ var setHTMLPreview = function (htmlstr, cssstr) {
 }
 
 var generateHTML = function () {
-    var template = templateEditor.codeBeautifier.run(templateEditor.html.get());
+    var template = templateEditor.html.get();
     var json = configEditor.getValue();
     var css = cssEditor.getValue();
     generateHTMLFromTemplate(template, json, css);
@@ -164,8 +164,8 @@ $(document).ready(function () {
         readOnly: true
     });
 
-    /*
-    $('.template-pattern').dblclick(function () {
+    
+    $('.layout-pattern').dblclick(function () {
         var name = $(this).data('name');
         var getTemplate = $.get($(this).data('template'));
         var getConfig = $.get($(this).data('config'));
@@ -186,8 +186,7 @@ $(document).ready(function () {
         });
         updateLayoutInfo(this);
     });
-    */
-    $('.template-pattern').click(function () {
+    $('.layout-pattern').click(function () {
         var name = $(this).data('name');
         var getTemplate = $.get($(this).data('template'));
         var getConfig = $.get($(this).data('config'));
