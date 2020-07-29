@@ -189,8 +189,9 @@ var generateTemplateEditor = function () {
                 generateHTML();
             }
         }
+    }, function () {
+        _templateEditor.html.set(_templateCode);
     });
-    //_templateEditor.html.set(_templateCode);
 };
 
 var generateConfigEditor = function () {
@@ -227,26 +228,40 @@ var generateCodePreviewEditor = function () {
     });
 };
 
+var initEditors = function () {
+    setTimeout(function () {
+        _templateEditor.html.set(_templateCode);
+        _cssEditor.setValue(_cssCode);
+        _configEditor.setValue(_configCode);
+
+        console.debug({ _templateCode, _cssCode, _configCode });
+    }, 500);
+};
+
 var lockConfig = function () {
     _lockConfigCode = true;
     localStorage.setItem(STORAGE_KEY_LOCK_CONFIG_CODE, _lockConfigCode);
-    
-    $('#btnLockConfig').addClass('visible').removeClass('invisible').removeClass('d-none');
-    $('#btnUnlockConfig').addClass('invisible').removeClass('visible').addClass('d-none');
+
+    //$('.main-config-unlock-container').removeClass('d-inline');
+    //$('.main-config-unlock-container').addClass('d-none');
+    //$('.main-config-lock-container').removeClass('d-none');
+    //$('.main-config-lock-container').addClass('d-inline');
     $('#lockConfigHelp').html("Config Locked, Don't override config when selecting Layout");
 
-    console.debug({_lockConfigCode});
+    console.log({ _lockConfigCode });
 };
 
 var unlockConfig = function () {
     _lockConfigCode = false;
     localStorage.setItem(STORAGE_KEY_LOCK_CONFIG_CODE, _lockConfigCode);
 
-    $('#btnLockConfig').removeClass('visible').addClass('invisible').addClass('d-none');
-    $('#btnUnlockConfig').removeClass('invisible').addClass('visible').removeClass('d-none');
+    //$('.main-config-lock-container').removeClass('d-inline');
+    //$('.main-config-lock-container').addClass('d-none');
+    //$('.main-config-unlock-container').removeClass('d-none');
+    //$('.main-config-unlock-container').addClass('d-inline');
     $('#lockConfigHelp').html("Config Unlocked, Override config when selecting Layout");
 
-    console.debug({_lockConfigCode});
+    console.log({ _lockConfigCode });
 };
 
 $(document).ready(function () {
@@ -274,6 +289,8 @@ $(document).ready(function () {
     generateCssEditor();
     generateCodePreviewEditor();
 
+    initEditors();
+
     if (_lockConfigCode == true) {
         lockConfig();
     } else {
@@ -294,10 +311,10 @@ $(document).ready(function () {
         $(this).tab('show');
     });
 
-    $('#btnLockConfig').click(function(){
+    $('#btnLockConfig').click(function () {
         lockConfig();
     });
-    $('#btnUnlockConfig').click(function(){
+    $('#btnUnlockConfig').click(function () {
         unlockConfig();
     });
     $('.generate-btn').click(function () {
@@ -319,8 +336,14 @@ $(document).ready(function () {
             }
             var css = cssRes[0];
 
+            if (!(typeof config === 'string' || config instanceof String)) {
+                config = JSON.stringify(configRes[0], null, 4);
+            }
+
+            console.log({ template, config, css });
+
             setTemplateCode(template);
-            setConfigCode(JSON.stringify(config, null, 4));
+            setConfigCode(js_beautify(config, { indent_size: 4, space_in_empty_paren: true }));
             setCssCode(css_beautify(css));
 
             setHTMLPreviewFromTemplate(template, config, css);
