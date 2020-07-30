@@ -1,4 +1,5 @@
 <h2>Layouts</h2>
+<small class="text-muted">Select a Layout by one-clicking to preview or double-click to edit.</small>
 <div class="row mb-4 ml-2">
     <div class="col-12">
         {% assign templates_url = 'templates/' | absolute_url %}
@@ -18,7 +19,7 @@
         {% endfor %}
     </div>
     <div class="col-12 mt-2">
-        <div id="layout-pattern-info" class="alert alert-info invisible" role="alert"></div>
+        <div id="layout-pattern-info" class="alert alert-info" role="alert"></div>
     </div>
 </div>
 
@@ -49,6 +50,9 @@
             <div class="tab-pane fade show" id="templateTabContent" role="tabpanel"
                 aria-labelledby="template-tab">
                 <div class="form-group">
+                    <button id="btnEnableWYSIWYGEditor" type="button" class="btn btn-outline-secondary"></button>
+                </div>
+                <div class="form-group">
                     <textarea id="txtTemplate" aria-describedby="templateHelp"></textarea>
                     <small id="templateHelp" class="form-text text-muted">put your <a href="https://mustache.github.io/" target="_blank">mustache</a> template here</small>
                     <div id="templateError" class="alert alert-danger" role="alert"></div>
@@ -67,10 +71,7 @@
             <div class="row">
                 <div class="col-10"><label for="txtConfig">Config/Content</label></div>
                 <div class="col-2 main-config-lock-container">
-                    <button id="btnLockConfig" type="button" class="btn"><i class="fas fa-lock"></i></button>
-                </div>
-                <div class="col-2 main-config-unlock-container">
-                    <button id="btnUnlockConfig" type="button" class="btn"><i class="fas fa-lock-open"></i></button>
+                    <input id="btnLockConfig"  type="checkbox" checked data-toggle="toggle" data-on="<i class='fa fa-lock'></i>" data-off="<i class='fa fa-unlock'></i>">
                 </div>
             </div>
             <small id="lockConfigHelp" class="form-text text-muted">Don't override config when selecting Layout</small>

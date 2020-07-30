@@ -1,0 +1,18 @@
+- name: jquery UI
+  link: https://jqueryui.com/
+- name: Bootstrap
+  link: https://getbootstrap.com/
+- name: Bootstrap Toggle
+  link: https://www.bootstraptoggle.com/
+- name: Font Awesome
+  link: https://github.com/FortAwesome/Font-Awesome
+- name: Codemirror
+  link: https://github.com/codemirror/codemirror
+- name: Codemirror spellchecker
+  link: https://github.com/sparksuite/codemirror-spell-checker
+- name: Mustache
+  link: https://github.com/janl/mustache.js
+- name: beautify-web
+  link: https://github.com/beautify-web/js-beautify
+- name: Froala Editor
+  link: https://froala.com/wysiwyg-editor/

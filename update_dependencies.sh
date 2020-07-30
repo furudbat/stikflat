@@ -6,7 +6,7 @@ rm -rf node_modules package-lock.json
 npm i bootstrap@4 jquery@3 jquery-ui
 npm i bootstrap-toggle
 npm i @fortawesome/fontawesome-free
-npm i froala-editor codemirror codemirror-spell-checker
+npm i tinymce froala-editor codemirror codemirror-spell-checker 
 npm i mustache
 npm i js-beautify
 

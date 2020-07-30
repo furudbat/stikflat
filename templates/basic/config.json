@@ -1,4 +1,5 @@
 {
+    "title": "Max the Doggo",
     "name": "Max",
     "sex": "male",
     "species": "Dog",
@@ -18,6 +19,13 @@
         ],
         "cons": [
             "lazy"
+        ],
+        "likes": [
+            "bones",
+            "food"
+        ],
+        "dislikes": [
+            "cars"
         ]
     },
     "images": {

@@ -1,0 +1,16 @@
+ul.personality-pros {
+    list-style-type: disc;
+}
+ul.personality-cons {
+    list-style-type: circle;
+}
+
+ul.personality-likes,
+ul.personality-dislikes {
+    list-style-type: none;
+}
+
+.personality-likes li,
+.personality-dislikes li {
+    margin-left: -1.2em;
+}

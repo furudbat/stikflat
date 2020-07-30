@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-2">
         <img src="{{&images.avatar}}" class="img-fluid rounded-circle" alt="Avatar">
-        <h4 class="mt-1 text-center">{{ name }}</h4>
+        <h4 class="mt-1 text-center">{{ title }}</h4>
     </div>
     <div class="col-10">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -79,18 +79,42 @@
             <div class="tab-pane fade" id="my-personality" role="tabpanel" aria-labelledby="marks-personality">
                 <div class="m-2 profile-content-content user-content fr-view">
                     <p><strong>{{ personality.personality }}</strong></p>
-                    <h5>Pros</h5>
-                    <ul style="list-style-type:disc;">
-                        {{#personality.pros}}
-                            <li>{{.}}</li>
-                        {{/personality.pros}}
-                    </ul>
-                    <h5 class="mt-1">Cons</h5>
-                    <ul style="list-style-type:circle;">
-                        {{#personality.cons}}
-                            <li>{{.}}</li>
-                        {{/personality.cons}}
-                    </ul>
+                    {{#personality.pros.length}}
+                        <h5>Pros</h5>
+                        <ul class="personality-pros">
+                            {{#personality.pros}}
+                                <li>{{.}}</li>
+                            {{/personality.pros}}
+                        </ul>
+                    {{/personality.pros.length}}
+                    
+                    {{#personality.cons.length}}
+                        <h5 class="mt-1">Cons</h5>
+                        <ul class="personality-cons">
+                            {{#personality.cons}}
+                                <li>{{.}}</li>
+                            {{/personality.cons}}
+                        </ul>
+                    {{/personality.cons.length}}
+
+                    {{#personality.likes.length}}
+                        <h5>Likes</h5>
+                        <ul class="personality-likes">
+                            {{#personality.likes}}
+                                <li><i class="fas fa-heart"></i><span class="mx-1">{{.}}</span></li>
+                            {{/personality.likes}}
+                        </ul>
+                    {{/personality.likes.length}}
+
+                    
+                    {{#personality.dislikes.length}}
+                        <h5 class="mt-1">Dislikes</h5>
+                        <ul class="personality-dislikes">
+                            {{#personality.dislikes}}
+                                <li><i class="fas fa-heart-broken"></i><span class="mx-1">{{.}}</span></li>
+                            {{/personality.dislikes}}
+                        </ul>
+                    {{/personality.dislikes.length}}
                 </div>
             </div>
             <div class="tab-pane fade" id="my-bio" role="tabpanel" aria-labelledby="bio-tab">
