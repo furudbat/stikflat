@@ -197,6 +197,10 @@ var generateTemplateWYSIWYGEditor = function () {
         }, function () {
             _templateEditor.html.set(getTemplateCode());
         });
+    } else {
+        _templateEditor = tinymce.init({
+            selector: '#txtTemplate'
+        });
     }
 };
 
@@ -335,7 +339,9 @@ $(document).ready(function () {
     $('#templateTabs a[href="#templateTabContent"]').on('click', function (e) {
         $(this).tab('show');
         showConfigEditor(e);
-        _templateEditor.refresh();
+        if(_enableWYSIWYGTemplateEditor == false) {
+            _templateEditor.refresh();
+        }
     });
     $('#templateTabs a[href="#cssTabContent"]').on('click', function (e) {
         $(this).tab('show');

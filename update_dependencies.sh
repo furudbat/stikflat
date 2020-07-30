@@ -58,6 +58,16 @@ cp node_modules/codemirror-spell-checker/dist/*.min.css assets/css/codemirror
 cp node_modules/codemirror/theme/*.css assets/css/codemirror/theme
 
 
+mkdir assets/js/tinymce
+mkdir assets/js/tinymce/themes
+mkdir assets/js/tinymce/icons
+mkdir assets/css/tinymce
+cp node_modules/tinymce/*.min.js assets/js/tinymce
+cp -r node_modules/tinymce/themes/ assets/js/tinymce
+cp -r node_modules/tinymce/icons/ assets/js/tinymce
+cp -r node_modules/tinymce/skins/ assets/js/tinymce
+
+
 cp node_modules/mustache/mustache.min.* assets/js
 
 
