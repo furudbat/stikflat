@@ -24,6 +24,7 @@ var _currentPattern = '';
 var _lockConfigCode = false;
 var _enableWYSIWYGTemplateEditor = false;
 var _currentTemplateEditorName = '';
+var _currentWYSIWYGTemplateEditorName = '';
 
 var loadFromStorage = function () {
     _templateCode = localStorage.getItem(STORAGE_KEY_TEMPLATE_CODE) || '';
@@ -196,7 +197,7 @@ var generateTemplateWYSIWYGEditor = function () {
         }, function () {
             _templateWYSIWYGEditor.html.set(getTemplateCode());
         });
-        _currentTemplateEditorName = TEMPLATE_EDITOR_NAME_FROALAEDITOR;
+        _currentWYSIWYGTemplateEditorName = TEMPLATE_EDITOR_NAME_FROALAEDITOR;
     } else {
         tinymce.init({
             selector: '#txtTemplateWYSIWYG',
@@ -219,9 +220,9 @@ var generateTemplateWYSIWYGEditor = function () {
                 });
             }
         });
-        _templateWYSIWYGEditor = tinymce.activeEditor;
+        _templateWYSIWYGEditor = tinymce.get('txtTemplateWYSIWYG');
         _templateWYSIWYGEditor.setContent(getTemplateCode());
-        _currentTemplateEditorName = TEMPLATE_EDITOR_NAME_TINYMCE;
+        _currentWYSIWYGTemplateEditorName = TEMPLATE_EDITOR_NAME_TINYMCE;
     }
 };
 
@@ -229,6 +230,7 @@ var generateTemplateEditor = function () {
     _templateEditor = CodeMirror.fromTextArea(document.getElementById('txtTemplate'), {
         value: getCssCode(),
         mode: 'text/html',
+        //theme: 'dracula',
         lineNumbers: true,
         autoRefresh: true
     });
@@ -236,15 +238,17 @@ var generateTemplateEditor = function () {
         setTemplateCode(cm.getValue());
         generateHTML();
     });
-    _currentTemplateEditorName = TEMPLATE_EDITOR_NAME_CODEMIRROR;
+    _currentTemplateEditorName = TEMPLATE_EDITOR_NAME_CODEMIRROR
 };
 
 var generateConfigEditor = function () {
     _configEditor = CodeMirror.fromTextArea(document.getElementById('txtConfig'), {
         value: getConfigCode(),
         mode: 'application/json',
+        //theme: 'dracula',
         lineNumbers: true,
         linter: true,
+        spellcheck: true,
         autoRefresh: true
     });
     _configEditor.on('changes', function (cm, changes) {
@@ -264,6 +268,7 @@ var generateCssEditor = function () {
     _cssEditor = CodeMirror.fromTextArea(document.getElementById('txtCSS'), {
         value: getCssCode(),
         mode: 'text/css',
+        //theme: 'dracula',
         //lineNumbers: true,
         linter: true,
         autoRefresh: true
@@ -277,6 +282,7 @@ var generateCssEditor = function () {
 var generateCodePreviewEditor = function () {
     _codePreviewEditor = CodeMirror.fromTextArea(document.getElementById('preview-code'), {
         mode: 'text/html',
+        //theme: 'dracula',
         lineNumbers: true,
         readOnly: true,
         autoRefresh: true
@@ -284,13 +290,17 @@ var generateCodePreviewEditor = function () {
 };
 
 var setTemplateEditorValue = function(code){
-    if (_currentTemplateEditorName == TEMPLATE_EDITOR_NAME_TINYMCE) {
+    if (_currentWYSIWYGTemplateEditorName == TEMPLATE_EDITOR_NAME_TINYMCE) {
         _templateWYSIWYGEditor.setContent(code);
-    } else if (_currentTemplateEditorName == TEMPLATE_EDITOR_NAME_FROALAEDITOR) {
+    } else if (_currentWYSIWYGTemplateEditorName == TEMPLATE_EDITOR_NAME_FROALAEDITOR) {
         _templateWYSIWYGEditor.html.set(code);
     }
     
     _templateEditor.setValue(code);
+    
+    setTimeout(function () {
+        _templateEditor.refresh();
+    }, 200);
 };
 
 var initEditors = function () {
@@ -300,7 +310,6 @@ var initEditors = function () {
         _configEditor.setValue(getConfigCode());
 
         setTimeout(function () {
-            _templateEditor.refresh();
             _cssEditor.refresh();
             _configEditor.refresh();
         }, 200);
@@ -308,11 +317,11 @@ var initEditors = function () {
 };
 
 
-var hideConfigEditor = function (e) {
+var hideConfigEditor = function () {
     $('.main-template-editors-container').removeClass('col-md-8').addClass('col-md-12').show()
     $('.main-config-editors-container').hide();
 };
-var showConfigEditor = function (e) {
+var showConfigEditor = function () {
     $('.main-template-editors-container').addClass('col-md-8').removeClass('col-md-12').show();
     $('.main-config-editors-container').show();
 
@@ -329,6 +338,8 @@ var enableWYSIWYGEditor = function () {
     _enableWYSIWYGTemplateEditor = true;
     localStorage.setItem(STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR, _enableWYSIWYGTemplateEditor);
 
+    initEditors();
+
     $('.main-template-editors-editor-container').hide();
     $('.main-template-editors-WYSIWYG-editor-container').show();
     $('#btnEnableWYSIWYGEditor').html('WYSIWYG Editor enabled').attr('class', 'btn btn-secondary');
@@ -337,6 +348,8 @@ var disableWYSIWYGEditor = function () {
     _enableWYSIWYGTemplateEditor = false;
     localStorage.setItem(STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR, _enableWYSIWYGTemplateEditor);
 
+    initEditors();
+    
     $('.main-template-editors-editor-container').show();
     $('.main-template-editors-WYSIWYG-editor-container').hide();
     $('#btnEnableWYSIWYGEditor').html('WYSIWYG Editor disabled').attr('class', 'btn btn-outline-secondary');
@@ -356,13 +369,38 @@ var unlockConfig = function () {
 };
 
 
+var selectPreviewTab = function() {
+    $('#templateTabs a[href="#previewTabContent"]').tab('show');
+    hideConfigEditor();
+};
+var selectTemplateTab = function() {
+    $('#templateTabs a[href="#templateTabContent"]').tab('show');
+    showConfigEditor();
+    
+    setTimeout(function () {
+        _templateEditor.refresh();
+    }, 200);
+};
+var selectCssTab = function () {
+    $('#templateTabs a[href="#cssTabContent"]').tab('show');
+    showConfigEditor();
+    
+    setTimeout(function () {
+        _cssEditor.refresh();
+    }, 200);
+};
+
+
 $(document).ready(function () {
     loadFromStorage();
+    
+    setTemplateCode(_templateCode);
+    setConfigJson(_configJson);
+    setCssCode(_cssCode);
 
     clearConfigError();
     clearTemplateError();
     clearLayoutInfo();
-
     
     generateTemplateEditor();
     generateTemplateWYSIWYGEditor();
@@ -370,13 +408,10 @@ $(document).ready(function () {
     generateCssEditor();
     generateCodePreviewEditor();
 
-    if (_enableWYSIWYGTemplateEditor == true) {
-        enableWYSIWYGEditor();
-    } else {
-        disableWYSIWYGEditor();
-    }
     initEditors();
-
+    generateHTML();
+    
+    
     if (_lockConfigCode == true) {
         $('#btnLockConfig').bootstrapToggle('on');
         lockConfig();
@@ -384,27 +419,28 @@ $(document).ready(function () {
         $('#btnLockConfig').bootstrapToggle('off');
         unlockConfig();
     }
-    showPreview();
+    if (_enableWYSIWYGTemplateEditor == true) {
+        enableWYSIWYGEditor();
+    } else {
+        disableWYSIWYGEditor();
+    }
+
+    if (getTemplateCode() == "") {
+        selectPreviewTab();
+    } else {
+        selectTemplateTab();
+    }
+
+
 
     $('#templateTabs a[href="#previewTabContent"]').on('click', function (e) {
-        $(this).tab('show');
-        hideConfigEditor(e);
+        selectPreviewTab();
     });
     $('#templateTabs a[href="#templateTabContent"]').on('click', function (e) {
-        $(this).tab('show');
-        showConfigEditor(e);
-        
-        setTimeout(function () {
-            _templateEditor.refresh();
-        }, 200);
+        selectTemplateTab();
     });
     $('#templateTabs a[href="#cssTabContent"]').on('click', function (e) {
-        $(this).tab('show');
-        showConfigEditor(e);
-        
-        setTimeout(function () {
-            _cssEditor.refresh();
-        }, 200);
+        selectCssTab();
     });
 
     $('#btnEnableWYSIWYGEditor').click(function () {
