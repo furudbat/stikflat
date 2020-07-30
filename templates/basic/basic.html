@@ -23,7 +23,7 @@
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active m-1" id="my-basic-info" role="tabpanel" aria-labelledby="basic-info-tab">
+            <div class="tab-pane fade show active m-3" id="my-basic-info" role="tabpanel" aria-labelledby="basic-info-tab">
                 <dl class="profile-fields-content fields">
                     <div class="row fields-field">
                         <dt class="field-title col-lg-3 col-md-4 fr-view">
@@ -67,8 +67,8 @@
                     </div>
                 </dl>
             </div>
-            <div class="tab-pane fade" id="my-marks" role="tabpanel" aria-labelledby="marks-tab">
-                <div class="m-2 profile-content-content user-content fr-view">
+            <div class="tab-pane fade m-3" id="my-marks" role="tabpanel" aria-labelledby="marks-tab">
+                <div class="profile-content-content user-content fr-view">
                     <ul style="list-style-type:square;">
                         {{#marks}}
                             <li>{{.}}</li>
@@ -76,8 +76,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="tab-pane fade" id="my-personality" role="tabpanel" aria-labelledby="marks-personality">
-                <div class="m-2 profile-content-content user-content fr-view">
+            <div class="tab-pane fade m-3" id="my-personality" role="tabpanel" aria-labelledby="marks-personality">
+                <div class="profile-content-content user-content fr-view">
                     <p><strong>{{ personality.personality }}</strong></p>
                     {{#personality.pros.length}}
                         <h5>Pros</h5>

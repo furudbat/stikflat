@@ -6,7 +6,12 @@ const STORAGE_KEY_CSS_CODE = 'css_code';
 const STORAGE_KEY_LOCK_CONFIG_CODE = 'lock_config_code';
 const STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR = 'enable_WYSIWYG_template_editor';
 
+const TEMPLATE_EDITOR_NAME_CODEMIRROR = 'CodeMirror';
+const TEMPLATE_EDITOR_NAME_TINYMCE = 'TinyMCE';
+const TEMPLATE_EDITOR_NAME_FROALAEDITOR = 'FroalaEditor';
+
 var _templateEditor = null;
+var _templateWYSIWYGEditor = null;
 var _configEditor = null;
 var _cssEditor = null;
 var _codePreviewEditor = null;
@@ -18,6 +23,7 @@ var _codePreview = '';
 var _currentPattern = '';
 var _lockConfigCode = false;
 var _enableWYSIWYGTemplateEditor = false;
+var _currentTemplateEditorName = '';
 
 var loadFromStorage = function () {
     _templateCode = localStorage.getItem(STORAGE_KEY_TEMPLATE_CODE) || '';
@@ -31,46 +37,39 @@ var loadFromStorage = function () {
     _lockConfigCode = localStorage.getItem(STORAGE_KEY_LOCK_CONFIG_CODE) == "true" || false;
     _enableWYSIWYGTemplateEditor = localStorage.getItem(STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR) == "true" || false;
 
-    console.log('loadFromStorage', {_templateCode, _configJson, _cssCode, _lockConfigCode, _enableWYSIWYGTemplateEditor});
+    console.log('loadFromStorage', { _templateCode, _configJson, _cssCode, _lockConfigCode, _enableWYSIWYGTemplateEditor });
 };
 
 var getTemplateCode = function () {
     return _templateCode;
-}
+};
 var getConfigCode = function () {
     return JSON.stringify(_configJson, null, 4);
-}
+};
 var getCssCode = function () {
     return _cssCode;
-}
+};
 
 var setTemplateCode = function (code) {
     _templateCode = code;
     localStorage.setItem(STORAGE_KEY_TEMPLATE_CODE, code);
-}
+};
 var setConfigJson = function (json) {
     _configJson = json;
     localStorage.setItem(STORAGE_KEY_CONFIG_CODE, JSON.stringify(json));
-}
+};
 var setCssCode = function (code) {
     _cssCode = code;
     localStorage.setItem(STORAGE_KEY_CSS_CODE, code);
-}
+};
 var setCodePreview = function (code) {
     _codePreview = code;
     _codePreviewEditor.setValue(code);
-    _codePreviewEditor.refresh();
-}
-var lockConfig = function () {
-    _lockConfigCode = true;
-    localStorage.setItem(STORAGE_KEY_LOCK_CONFIG_CODE, _lockConfigCode);
+    
+    setTimeout(function () {
+        _codePreviewEditor.refresh();
+    }, 200);
 };
-
-var unlockConfig = function () {
-    _lockConfigCode = false;
-    localStorage.setItem(STORAGE_KEY_LOCK_CONFIG_CODE, _lockConfigCode);
-};
-
 
 var generateHTMLFromTemplate = function (template, json, css, onlypreview = false) {
     clearTemplateError();
@@ -127,7 +126,7 @@ var generateHTML = function () {
 };
 
 var setConfigError = function (error) {
-    $('#configError').html(error.show());
+    $('#configError').html(error).show();
 };
 var clearConfigError = function () {
     $('#configError').hide().empty();
@@ -176,8 +175,8 @@ var updateLayoutInfo = function (pattern) {
 
 
 var generateTemplateWYSIWYGEditor = function () {
-    if(USE_FROLALA_EDITOR){
-        _templateEditor = new FroalaEditor('#txtTemplate', {
+    if (USE_FROLALA_EDITOR) {
+        _templateWYSIWYGEditor = new FroalaEditor('#txtTemplateWYSIWYG', {
             theme: 'dark',
             iconsTemplate: 'font_awesome_5',
             heightMin: 300,
@@ -195,12 +194,34 @@ var generateTemplateWYSIWYGEditor = function () {
                 }
             }
         }, function () {
-            _templateEditor.html.set(getTemplateCode());
+            _templateWYSIWYGEditor.html.set(getTemplateCode());
         });
+        _currentTemplateEditorName = TEMPLATE_EDITOR_NAME_FROALAEDITOR;
     } else {
-        _templateEditor = tinymce.init({
-            selector: '#txtTemplate'
+        tinymce.init({
+            selector: '#txtTemplateWYSIWYG',
+            height: 500,
+            menubar: false,
+            skin: 'oxide-dark',
+            plugins: [
+              'advlist autolink lists link image charmap print preview anchor',
+              'searchreplace visualblocks code fullscreen',
+              'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar: 'undo redo | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+            setup: function(ed) {
+                ed.on('change', function(e) {
+                    setTemplateCode(ed.getContent());
+                    generateHTML();
+                });
+            }
         });
+        _templateWYSIWYGEditor = tinymce.activeEditor;
+        _templateWYSIWYGEditor.setContent(getTemplateCode());
+        _currentTemplateEditorName = TEMPLATE_EDITOR_NAME_TINYMCE;
     }
 };
 
@@ -215,6 +236,7 @@ var generateTemplateEditor = function () {
         setTemplateCode(cm.getValue());
         generateHTML();
     });
+    _currentTemplateEditorName = TEMPLATE_EDITOR_NAME_CODEMIRROR;
 };
 
 var generateConfigEditor = function () {
@@ -261,22 +283,28 @@ var generateCodePreviewEditor = function () {
     });
 };
 
+var setTemplateEditorValue = function(code){
+    if (_currentTemplateEditorName == TEMPLATE_EDITOR_NAME_TINYMCE) {
+        _templateWYSIWYGEditor.setContent(code);
+    } else if (_currentTemplateEditorName == TEMPLATE_EDITOR_NAME_FROALAEDITOR) {
+        _templateWYSIWYGEditor.html.set(code);
+    }
+    
+    _templateEditor.setValue(code);
+};
+
 var initEditors = function () {
     setTimeout(function () {
-        if(_enableWYSIWYGTemplateEditor == false) {
-            _templateEditor.setValue(getTemplateCode());
-        }
+        setTemplateEditorValue(getTemplateCode());
         _cssEditor.setValue(getCssCode());
         _configEditor.setValue(getConfigCode());
 
         setTimeout(function () {
-            if(_enableWYSIWYGTemplateEditor == false) {
-                _templateEditor.refresh();
-            }
+            _templateEditor.refresh();
             _cssEditor.refresh();
             _configEditor.refresh();
-        }, 100);
-    }, 500);
+        }, 200);
+    }, 100);
 };
 
 
@@ -286,26 +314,47 @@ var hideConfigEditor = function (e) {
 };
 var showConfigEditor = function (e) {
     $('.main-template-editors-container').addClass('col-md-8').removeClass('col-md-12').show();
-    $('.main-config-editors-container').hide();
-    _configEditor.refresh();
+    $('.main-config-editors-container').show();
+
+    setTimeout(function () {
+        _configEditor.refresh();
+    }, 200);
 };
 var showPreview = function () {
     hideConfigEditor();
     $('#templateTabs a[href="#previewTabContent"]').tab('show');
 };
 
-var enableWYSIWYGEditor = function() {
+var enableWYSIWYGEditor = function () {
     _enableWYSIWYGTemplateEditor = true;
     localStorage.setItem(STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR, _enableWYSIWYGTemplateEditor);
-    generateTemplateWYSIWYGEditor();
+
+    $('.main-template-editors-editor-container').hide();
+    $('.main-template-editors-WYSIWYG-editor-container').show();
     $('#btnEnableWYSIWYGEditor').html('WYSIWYG Editor enabled').attr('class', 'btn btn-secondary');
 };
-var disableWYSIWYGEditor = function() {
+var disableWYSIWYGEditor = function () {
     _enableWYSIWYGTemplateEditor = false;
     localStorage.setItem(STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR, _enableWYSIWYGTemplateEditor);
-    generateTemplateEditor();
+
+    $('.main-template-editors-editor-container').show();
+    $('.main-template-editors-WYSIWYG-editor-container').hide();
     $('#btnEnableWYSIWYGEditor').html('WYSIWYG Editor disabled').attr('class', 'btn btn-outline-secondary');
 };
+
+
+var lockConfig = function () {
+    _lockConfigCode = true;
+    localStorage.setItem(STORAGE_KEY_LOCK_CONFIG_CODE, _lockConfigCode);
+    $('#lblLockConfig').html("Config Locked, Don't override config when selecting Layout");
+};
+
+var unlockConfig = function () {
+    _lockConfigCode = false;
+    localStorage.setItem(STORAGE_KEY_LOCK_CONFIG_CODE, _lockConfigCode);
+    $('#lblLockConfig').html("Config Unlocked, Override config when selecting Layout");
+};
+
 
 $(document).ready(function () {
     loadFromStorage();
@@ -314,20 +363,25 @@ $(document).ready(function () {
     clearTemplateError();
     clearLayoutInfo();
 
-    if(_enableWYSIWYGTemplateEditor == true) {
-        enableWYSIWYGEditor();
-    } else {
-        disableWYSIWYGEditor();
-    }
+    
+    generateTemplateEditor();
+    generateTemplateWYSIWYGEditor();
     generateConfigEditor();
     generateCssEditor();
     generateCodePreviewEditor();
 
+    if (_enableWYSIWYGTemplateEditor == true) {
+        enableWYSIWYGEditor();
+    } else {
+        disableWYSIWYGEditor();
+    }
     initEditors();
 
     if (_lockConfigCode == true) {
+        $('#btnLockConfig').bootstrapToggle('on');
         lockConfig();
     } else {
+        $('#btnLockConfig').bootstrapToggle('off');
         unlockConfig();
     }
     showPreview();
@@ -339,14 +393,18 @@ $(document).ready(function () {
     $('#templateTabs a[href="#templateTabContent"]').on('click', function (e) {
         $(this).tab('show');
         showConfigEditor(e);
-        if(_enableWYSIWYGTemplateEditor == false) {
+        
+        setTimeout(function () {
             _templateEditor.refresh();
-        }
+        }, 200);
     });
     $('#templateTabs a[href="#cssTabContent"]').on('click', function (e) {
         $(this).tab('show');
         showConfigEditor(e);
-        _cssEditor.refresh();
+        
+        setTimeout(function () {
+            _cssEditor.refresh();
+        }, 200);
     });
 
     $('#btnEnableWYSIWYGEditor').click(function () {
@@ -362,10 +420,8 @@ $(document).ready(function () {
         _lockConfigCode = $(this).prop('checked');
         if (_lockConfigCode == true) {
             lockConfig();
-            $('#lockConfigHelp').html("Config Locked, Don't override config when selecting Layout");
         } else {
             unlockConfig();
-            $('#lockConfigHelp').html("Config Unlocked, Override config when selecting Layout");
         }
     });
     $('.generate-btn').click(function () {
@@ -393,7 +449,7 @@ $(document).ready(function () {
                 if (typeof config === 'string' || config instanceof String) {
                     configJson = $.parseJSON(config, null, 4);
                 } else {
-                    configJson = config; 
+                    configJson = config;
                 }
             } catch (e) {
                 console.log(e);
