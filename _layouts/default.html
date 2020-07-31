@@ -6,15 +6,7 @@
   <body>
 
     {%- include header.html -%}
-
-    <div class="py-5 px-2" id="main-content">
-      <div class="container-fluid page-content">
-          {{ content }}
-      </div>
-    </div>
-
-    {%- include footer.html -%}
-    <script type='text/javascript' > 
+    <script type='text/javascript' >  
       {%- if site.options.withWYSIWYGEditor -%}
       const WITH_WYSIWYG_EDITOR = true;
       {%- else -%}
@@ -25,7 +17,22 @@
       {%- else -%}
       const USE_FROLALA_EDITOR = false;
       {%- endif -%}
+
+      var initSite = function(){};
+      var site = {};
+      site.data = {};
+      site.data.strings = {{ site.data.strings | jsonify }};
+
+      console.debug({site});
     </script>
+
+    <div class="py-5 px-2" id="main-content">
+      <div class="container-fluid page-content">
+          {{ content }}
+      </div>
+    </div>
+
+    {%- include footer.html -%}
 
     <script src="{{ '/assets/js/jquery-ui.min.js' | relative_url }}"></script>
 
@@ -33,6 +40,7 @@
     <script src="{{ '/assets/js/bootstrap/bootstrap-toggle.min.js' | relative_url }}"></script>
 
     <script src="{{ '/assets/js/mustache.min.js' | relative_url }}"></script>
+
     <script src="{{ '/assets/js/beautify/beautify.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/beautify/beautify-css.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/beautify/beautify-html.js' | relative_url }}"></script>

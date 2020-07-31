@@ -173,8 +173,8 @@
         var license = $(pattern).data('license');
 
         var header = '<p class="text-bold">';
-        header += name + ' by ' + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
-        if (link != "") {
+        header += name + site.data.strings.layouts.by_author + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
+        if (link != '') {
             header += ' - ' + '<a href="' + link + '" target="_blank">' + link + '</a>';
         }
         header += '</p>';
@@ -361,7 +361,7 @@
 
         $('.main-template-editors-editor-container').hide();
         $('.main-template-editors-WYSIWYG-editor-container').show();
-        $('#chbEnableWYSIWYGEditor').html('WYSIWYG Editor enabled').attr('class', 'btn btn-secondary');
+        $('#btnEnableWYSIWYGEditor').html(site.data.strings.editor.template.enabled_WYSIWYG_editor_btn).attr('class', 'btn btn-secondary');
     }
     function disableWYSIWYGEditor() {
         _enableWYSIWYGTemplateEditor = false;
@@ -371,30 +371,30 @@
 
         $('.main-template-editors-editor-container').show();
         $('.main-template-editors-WYSIWYG-editor-container').hide();
-        $('#chbEnableWYSIWYGEditor').html('WYSIWYG Editor disabled').attr('class', 'btn btn-outline-secondary');
+        $('#btnEnableWYSIWYGEditor').html(site.data.strings.editor.template.disabled_WYSIWYG_editor_btn).attr('class', 'btn btn-outline-secondary');
     }
 
     function enableLivePreview() {
         _enableLivePreview = true;
         localStorage.setItem(STORAGE_KEY_ENABLE_LIVE_PREVIEW, _enableLivePreview);
-        $('#chbLivePreviewHelp').html("Update preview while editing");
+        $('#chbLivePreviewHelp').html(site.data.strings.editor.template.enabled_live_preview_help);
     }
     function disableLivePreview() {
         _enableLivePreview = false;
         localStorage.setItem(STORAGE_KEY_ENABLE_LIVE_PREVIEW, _enableLivePreview);
-        $('#chbLivePreviewHelp').html("Don't update preview while editing");
+        $('#chbLivePreviewHelp').html(site.data.strings.editor.template.disabled_live_preview_help);
     }
 
 
     function lockConfig() {
         _lockConfigCode = true;
         localStorage.setItem(STORAGE_KEY_LOCK_CONFIG_CODE, _lockConfigCode);
-        $('#chbLockConfigHelp').html("Config Locked, Don't override config when selecting Layout");
+        $('#chbLockConfigHelp').html(site.data.strings.editor.config.lock_config_help);
     }
     function unlockConfig() {
         _lockConfigCode = false;
         localStorage.setItem(STORAGE_KEY_LOCK_CONFIG_CODE, _lockConfigCode);
-        $('#chbLockConfigHelp').html("Config Unlocked, Override config when selecting Layout");
+        $('#chbLockConfigHelp').html(site.data.strings.editor.config.unlock_config_help);
     }
 
 
@@ -451,10 +451,10 @@
             unlockConfig();
         }
         if (_enableLivePreview == true) {
-            $('#chbLivePreview').prop( "checked", true );
+            $('#chbLivePreview').prop( 'checked', true );
             enableLivePreview();
         } else {
-            $('#chbLivePreview').prop( "checked", false );
+            $('#chbLivePreview').prop( 'checked', false );
             disableLivePreview();
         }
         if (WITH_WYSIWYG_EDITOR == true) {
@@ -486,7 +486,7 @@
         });
 
         if (WITH_WYSIWYG_EDITOR == true) {
-            $('#chbEnableWYSIWYGEditor').click(function () {
+            $('#btnEnableWYSIWYGEditor').click(function () {
                 enableWYSIWYGTemplateEditor = !_enableWYSIWYGTemplateEditor;
                 if (_enableWYSIWYGTemplateEditor == true) {
                     enableWYSIWYGEditor();

@@ -1,44 +1,40 @@
-<h2>Layouts</h2>
+<h2>{{ site.data.strings.layouts.header }}</h2>
 <div class="row mb-4 mx-2">
-    <div class="row"> 
-        <div class="col-12">
-            <small class="text-muted">Select a Layout by one-clicking to preview or double-click to edit.</small>
-        </div>
+    <div class="col-12">
+        <small class="text-muted">{{ site.data.strings.layouts.header_help }}</small>
     </div>
-    <div class="row">
-        <div class="col-12">
-            {%- assign templates_url = 'templates/' | absolute_url -%}
-            {%- for template in site.data.templates -%}
-            <button type="button" class="mr-1 btn layout-pattern" style="{{ template.style }}"
-                data-name="{{ template.name | escape }}" data-author="{{ template.author | escape }}"
-                data-author-link="{{ template.author_link }}"
-                data-template="{{ template.template | prepend: templates_url }}"
-                data-css="{{ template.css | prepend: templates_url }}"
-                data-config="{{ template.config | prepend: templates_url }}"
-                data-license="{{ template.license | escape }}" data-link="{{ template.link }}"
-                data-description="{{ template.description | escape }}">
-                {{ template.name | escape }} <span class="badge badge-light">{{ template.author | escape }}</span>
-            </button>
-            {%- endfor -%}
-        </div>
+    <div class="col-12 mt-2">
+        {%- assign templates_url = 'templates/' | absolute_url -%}
+        {%- for template in site.data.templates -%}
+        <button type="button" class="mr-1 btn layout-pattern" style="{{ template.style }}"
+            data-name="{{ template.name | escape }}" data-author="{{ template.author | escape }}"
+            data-author-link="{{ template.author_link }}"
+            data-template="{{ template.template | prepend: templates_url }}"
+            data-css="{{ template.css | prepend: templates_url }}"
+            data-config="{{ template.config | prepend: templates_url }}"
+            data-license="{{ template.license | escape }}" data-link="{{ template.link }}"
+            data-description="{{ template.description | escape }}">
+            {{ template.name | escape }} <span class="badge badge-light">{{ template.author | escape }}</span>
+        </button>
+        {%- endfor -%}
     </div>
 </div>
 
-<h2>Editor</h2>
+<h2>{{ site.data.strings.editor.header}}</h2>
 <div class="row mb-4">
     <div class="col-md-8 main-template-editors-container">
         <ul class="nav nav-tabs" id="templateTabs" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="preview-tab" data-toggle="tab" href="#previewTabContent" role="tab"
-                    aria-controls="preview" aria-selected="false">Preview</a>
+                    aria-controls="preview" aria-selected="false">{{ site.data.strings.editor.preview_tab }}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="template-tab" data-toggle="tab" href="#templateTabContent" role="tab"
-                    aria-controls="template" aria-selected="true">Template</a>
+                    aria-controls="template" aria-selected="true">{{ site.data.strings.editor.template_tab }}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="css-tab" data-toggle="tab" href="#cssTabContent" role="tab" aria-controls="css"
-                    aria-selected="false">CSS</a>
+                    aria-selected="false">{{ site.data.strings.editor.css_tab }}</a>
             </li>
         </ul>
         <div class="tab-content" id="templateTabsContent">
@@ -57,7 +53,7 @@
                             <span id="chbLivePreviewHelp"></span>
                         </label>
                     </div>
-                    <button id="chbEnableWYSIWYGEditor" type="button" class="btn btn-outline-secondary"></button>
+                    <button id="btnEnableWYSIWYGEditor" type="button" class="btn btn-outline-secondary"></button>
                 </div>
                 <div class="form-group">
                     <div class="main-template-editors-editor-container">
@@ -66,8 +62,7 @@
                     <div class="main-template-editors-WYSIWYG-editor-container">
                         <textarea id="txtTemplateWYSIWYG" aria-describedby="templateHelp"></textarea>
                     </div>
-                    <small id="templateHelp" class="form-text text-muted">put your <a href="https://mustache.github.io/"
-                            target="_blank">mustache</a> template here</small>
+                    <small id="templateHelp" class="form-text text-muted">{{ site.data.strings.editor.template.template_help }}</small>
                     <div id="templateError" class="alert alert-danger" role="alert"></div>
                 </div>
                 {% else %}
@@ -81,8 +76,7 @@
                     <div class="mt-1 pt-2 main-template-editors-editor-container main-template-editors-no-WYSIWYG-container">
                         <textarea id="txtTemplate" aria-describedby="templateHelp"></textarea>
                     </div>
-                    <small id="templateHelp" class="form-text text-muted">put your <a href="https://mustache.github.io/"
-                            target="_blank">mustache</a> hash here</small>
+                    <small id="templateHelp" class="form-text text-muted">{{ site.data.strings.editor.template.template_help }}</small>
                     <div id="templateError" class="alert alert-danger" role="alert"></div>
                 </div>
                 {% endif %}
@@ -92,7 +86,7 @@
                 </div>
                 <div class="form-group pt-4">
                     <textarea id="txtCSS" aria-describedby="cssHelp"></textarea>
-                    <small id="cssHelp" class="form-text text-muted">put your css here</small>
+                    <small id="cssHelp" class="form-text text-muted">{{ site.data.strings.editor.template.css_help }}</small>
                 </div>
             </div>
         </div>
@@ -100,20 +94,20 @@
     <div class="col-md-4 main-config-editors-container">
         <div class="form-group mt-2">
             <div class="row">
-                <div class="col-12 mt-1"><label for="txtConfig">Config/Content</label></div>
+                <div class="col-12 mt-1"><label for="txtConfig">{{ site.data.strings.editor.config.header }}</label></div>
             </div>
             <div class="row my-3 main-config-lock-container">
                 <div class="col-2">
                     <input id="chbLockConfig" class="mt-1" data-size="small" type="checkbox" checked
                         data-toggle="toggle" data-on="<i class='fa fa-lock'></i>"
-                        data-off="<i class='fa fa-unlock'></i>" data-onstyle="outline-secondary" data-offstyle="outline-success">
+                        data-off="<i class='fa fa-unlock'></i>" data-offstyle="outline-secondary" data-onstyle="outline-success">
                 </div>
                 <div class="col-10">
                     <small id="chbLockConfigHelp" class="form-text text-muted mt-0"></small>
                 </div>
             </div>
             <textarea id="txtConfig" aria-describedby="configHelp"></textarea>
-            <small id="configHelp" class="form-text text-muted">put your config/content (json) here</small>
+            <small id="configHelp" class="form-text text-muted">{{ site.data.strings.editor.config.help }}</small>
             <div id="configError" class="alert alert-danger" role="alert"></div>
         </div>
     </div>
@@ -123,23 +117,25 @@
     <div class="col-12 mt-2 main-generate-container">
         <div class="form-group">
             <button type="button" id="btnGenerateBottom"
-                class="btn btn-primary btn-lg btn-block generate-btn">Generate</button>
+                class="btn btn-primary btn-lg btn-block generate-btn">{{ site.data.strings.editor.generate_btn }}</button>
         </div>
     </div>
 </div>
 
-<h3>Code</h3>
+<h3>{{ site.data.strings.code.header }}</h3>
 <div class="row mb-4">
     <div class="col-md-12 main-preview-code-container">
         <div class="form-group">
-            <small id="previewCodeHelp" class="form-text text-muted">Here is your finished code to copy.</small>
+            <small id="previewCodeHelp" class="form-text text-muted">{{ site.data.strings.code.help }}</small>
             <textarea id="preview-code" aria-describedby="previewCodeHelp" readonly></textarea>
         </div>
     </div>
+</div>
+<div class="row mb-2">
     <div class="col-md-12 main-misc-container">
         <div class="form-group">
-            <button id="btnClearStorage" type="button" class="btn btn-warning" aria-describedby="clearStorageHelp">Clear Local Storage</button>
-            <small id="clearStorageHelp" class="form-text text-muted">Delete all Settings and saved Templates from local storage.</small>
+            <button id="btnClearStorage" type="button" class="btn btn-warning" aria-describedby="clearStorageHelp">{{ site.data.strings.misc.clear_storage_btn }}</button>
+            <small id="clearStorageHelp" class="form-text text-muted">{{ site.data.strings.misc.clear_storage_help }}</small>
         </div>
     </div>
 </div>

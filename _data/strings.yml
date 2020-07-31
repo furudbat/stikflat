@@ -1,0 +1,28 @@
+layouts:
+  header: Layouts
+  header_help: Select a Layout by one-clicking to preview or double-click to edit.
+  by_author: " by "
+editor:
+  header: Editor
+  preview_tab: Preview
+  template_tab: Template
+  css_tab: CSS
+  template:
+    template_help: 'put your <a href="https://mustache.github.io/" target="_blank">mustache</a> template here.'
+    css_help: "put your css here."
+    enabled_WYSIWYG_editor_btn: WYSIWYG Editor enabled
+    disabled_WYSIWYG_editor_btn: WYSIWYG Editor disabled
+    enabled_live_preview_help: "Update preview while editing."
+    disabled_live_preview_help: "Don't update preview while editing."
+  config:
+    header: Config/Content
+    help: 'put your <a href="https://mustache.github.io/" target="_blank">mustache</a> hash (json) here.'
+    lock_config_help: "Config Locked, Don't override config when selecting Layout."
+    unlock_config_help: "Config Unlocked, Override config when selecting Layout."
+  generate_btn: Generate
+code:
+  header: Code
+  help: "Here is your finished code to copy."
+misc:
+  clear_storage_btn: Clear Local Storage
+  clear_storage_help: "Delete all Settings and saved Templates from local storage."
