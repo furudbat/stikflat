@@ -10,7 +10,7 @@ editor:
   template_tab: Template
   css_tab: CSS
   template:
-    template_help: 'Put your <a href="https://mustache.github.io/" target="_blank">mustache</a> template here.<br>Use <code>{{name}}</code> as an tag from your Config or <code>{{{name}}}</code> for an unescape tag (for URLS, HTML, ...).'
+    template_help: 'Put your <a href="https://mustache.github.io/" target="_blank">mustache</a> template here.<br>Use <code>{{name}}</code> as an tag from your Config or <code>{{{name}}}</code> for an unescape tag (for URLS, HTML, ...). Some HTML tags are filterd by <a href ="https://toyhou.se/~forums/16.htmlcss-graphics/16.html-css-whitelist-tweaks">toyhou.se</a> like <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code> or <code>&lt;dl&gt;</code> be aware.'
     css_help: "Put your css here."
     enabled_WYSIWYG_editor_btn: WYSIWYG Editor enabled
     disabled_WYSIWYG_editor_btn: WYSIWYG Editor disabled

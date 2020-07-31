@@ -94,10 +94,8 @@
     }
 
     function generateHTMLFromTemplate(template, json, css, onlypreview = false) {
-        clearTemplateError();
-        clearConfigError();
-
         if (typeof json === 'string' || json instanceof String) {
+            clearConfigError();
             try {
                 if (json != '') {
                     json = JSON.parse(json);
@@ -114,6 +112,7 @@
         }
 
         if (json != null) {
+            clearTemplateError();
             try {
                 var htmlstr = Mustache.render(template, json);
                 setHTMLPreview(htmlstr, css);
