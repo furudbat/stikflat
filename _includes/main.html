@@ -69,7 +69,7 @@
                         </div>
                         <small id="templateHelp"
                             class="form-text text-muted">{{ site.data.strings.editor.template.template_help }}</small>
-                        <div id="templateError" class="alert alert-danger" role="alert"></div>
+                        <div id="templateError" class="mt-1 alert alert-danger" role="alert"></div>
                     </div>
                     {% else %}
                     <div class="form-group">
@@ -85,7 +85,7 @@
                         </div>
                         <small id="templateHelp"
                             class="form-text text-muted">{{ site.data.strings.editor.template.template_help }}</small>
-                        <div id="templateError" class="alert alert-danger" role="alert"></div>
+                        <div id="templateError" class="mt-1 alert alert-danger" role="alert"></div>
                     </div>
                     {% endif %}
                 </div>
@@ -100,35 +100,35 @@
                 </div>
             </div>
         </div>
-        {% if site.options.withWYSIWYGEditor %}
-        <div class="col-md-4 mt-1 main-config-editors-container">
-            {% else %}
-            <div class="col-md-4 mt-1 main-config-editors-no-WYSIWYG-container">
-                {% endif %}
-                <div class="form-group">
-                    <div class="row my-2">
-                        <div class="col-12 mt-1">
-                            <label for="txtConfig">{{ site.data.strings.editor.config.header }}</label>
-                        </div>
+        {%- if site.options.withWYSIWYGEditor -%}
+        {%- assign main_config_editors_container = "main-config-editors-container" -%}
+        {%- else %}
+        {%- assign main_config_editors_container = "main-config-editors-container main-config-editors-no-WYSIWYG-container" -%}
+        {%- endif -%}
+        <div class="col-md-4 mt-1 {{ main_config_editors_container }}">
+            <div class="form-group">
+                <div class="row my-2">
+                    <div class="col-12 mt-1">
+                        <label for="txtConfig">{{ site.data.strings.editor.config.header }}</label>
                     </div>
-                    <div class="row mt-3 mb-2 main-config-lock-container">
-                        <div class="col-2">
-                            <input id="chbLockConfig" class="mt-1" data-size="small" type="checkbox" checked
-                                data-toggle="toggle" data-on="<i class='fa fa-lock'></i>"
-                                data-off="<i class='fa fa-unlock'></i>" data-offstyle="outline-secondary"
-                                data-onstyle="outline-success">
-                        </div>
-                        <div class="col-10">
-                            <small id="chbLockConfigHelp" class="form-text text-muted mt-0"></small>
-                        </div>
+                </div>
+                <div class="row mt-3 mb-2 main-config-lock-container">
+                    <div class="col-2">
+                        <input id="chbLockConfig" class="mt-1" data-size="small" type="checkbox" checked
+                            data-toggle="toggle" data-on="<i class='fa fa-lock'></i>"
+                            data-off="<i class='fa fa-unlock'></i>" data-offstyle="outline-secondary"
+                            data-onstyle="outline-success">
                     </div>
-                    <div class="row mt-2 main-config-container">
-                        <div class="col-12">
-                            <textarea id="txtConfig" aria-describedby="configHelp"></textarea>
-                            <small id="configHelp"
-                                class="form-text text-muted">{{ site.data.strings.editor.config.help }}</small>
-                            <div id="configError" class="alert alert-danger" role="alert"></div>
-                        </div>
+                    <div class="col-10">
+                        <small id="chbLockConfigHelp" class="form-text text-muted mt-0"></small>
+                    </div>
+                </div>
+                <div class="row mt-2 main-config-container">
+                    <div class="col-12">
+                        <textarea id="txtConfig" aria-describedby="configHelp"></textarea>
+                        <small id="configHelp"
+                            class="form-text text-muted">{{ site.data.strings.editor.config.help }}</small>
+                        <div id="configError" class="mt-1 alert alert-danger" role="alert"></div>
                     </div>
                 </div>
             </div>
