@@ -579,7 +579,7 @@
                 var css = cssRes[0];
 
                 generateHTMLFromTemplate(template, config, css, true);
-                //selectPreviewTab();
+                selectPreviewTab();
             });
             updateLayoutInfo(layout);
         };
@@ -590,17 +590,18 @@
             var delay = 250;
             var prevent = false;
 
-            element.on('click', function () {
-                timer = setTimeout(function () {
+            element.on('click', function (e) {
+                var that = this;
+                timer = setTimeout(() => {
                     if (!prevent) {
-                        doClickAction(element);
+                        doClickAction(that);
                     }
                     prevent = false;
                 }, delay);
-            }).on('dblclick', function () {
+            }).on('dblclick', function (e) {
                 clearTimeout(timer);
                 prevent = true;
-                doDoubleClickAction(element);
+                doDoubleClickAction(this);
             });
         };
         makeDoubleClick($('.layout-pattern'), overrideLayout, previewLayout);
