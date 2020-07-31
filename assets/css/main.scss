@@ -15,15 +15,21 @@
     }
     
     .CodeMirror {
-        height: 500px;
-    }
-}
-.main-template-editors-no-WYSIWYG-container {
-    .CodeMirror {
-        height: 550px;
+        height: 400px;
     }
 }
 .main-config-editors-container {
+    .CodeMirror {
+        height: 400px;
+    }
+}
+
+.main-template-editors-no-WYSIWYG-container {
+    .CodeMirror {
+        height: 500px;
+    }
+}
+.main-config-editors-no-WYSIWYG-container {
     .CodeMirror {
         height: 500px;
     }
@@ -31,6 +37,6 @@
 
 .main-preview-code-container {
     .CodeMirror {
-        height: 600px;
+        height: 500px;
     }
 }

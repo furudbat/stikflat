@@ -2,21 +2,23 @@ layouts:
   header: Layouts
   header_help: Select a Layout by one-clicking to preview or double-click to edit.
   by_author: " by "
+preview:
+  help: 'This preview is using the default bootstrap Style, preview may varies from your theme.'
 editor:
   header: Editor
   preview_tab: Preview
   template_tab: Template
   css_tab: CSS
   template:
-    template_help: 'put your <a href="https://mustache.github.io/" target="_blank">mustache</a> template here.'
-    css_help: "put your css here."
+    template_help: 'Put your <a href="https://mustache.github.io/" target="_blank">mustache</a> template here.<br>Use <code>{{name}}</code> as an tag from your Config or <code>{{{name}}}</code> for an unescape tag (for URLS, HTML, ...).'
+    css_help: "Put your css here."
     enabled_WYSIWYG_editor_btn: WYSIWYG Editor enabled
     disabled_WYSIWYG_editor_btn: WYSIWYG Editor disabled
     enabled_live_preview_help: "Update preview while editing."
     disabled_live_preview_help: "Don't update preview while editing."
   config:
     header: Config/Content
-    help: 'put your <a href="https://mustache.github.io/" target="_blank">mustache</a> hash (json) here.'
+    help: 'Put your <a href="https://mustache.github.io/" target="_blank">mustache</a> hash/object (<a href="https://www.w3schools.com/js/js_json_syntax.asp" target="_blank">json</a>) here.<br>Mustache works by expanding tags from your template by using values provided from thsi config.'
     lock_config_help: "Config Locked, Don't override config when selecting Layout."
     unlock_config_help: "Config Unlocked, Override config when selecting Layout."
   generate_btn: Generate

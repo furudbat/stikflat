@@ -44,3 +44,5 @@ exclude:
 options:
   withWYSIWYGEditor: false
   useFroalaEditor: false
+
+version: '0.1.0'

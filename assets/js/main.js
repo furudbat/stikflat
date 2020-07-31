@@ -552,9 +552,11 @@
 
                 initEditors();
                 generateHTML();
+                /*
                 if ($('#previewTabContent').hasClass('show')) {
                     selectTemplateTab();
                 }
+                */
             });
             updateLayoutInfo(this);
         });
