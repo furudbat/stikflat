@@ -24,54 +24,54 @@
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active m-3" id="my-basic-info" role="tabpanel" aria-labelledby="basic-info-tab">
-                <dl class="profile-fields-content fields">
+                <div class="profile-fields-content fields">
                     <div class="row fields-field">
-                        <dt class="field-title col-lg-3 col-md-4 fr-view">
+                        <div class="field-title col-lg-3 col-md-4 fr-view">
                             <p>Name</p>
-                        </dt>
-                        <dd class="field-value col-lg-9 col-md-8 fr-view">
+                        </div>
+                        <div class="field-value col-lg-9 col-md-8 fr-view">
                             <p>{{ name }}</p>
-                        </dd>
+                        </div>
                     </div>
                     <div class="row fields-field">
-                        <dt class="field-title col-lg-3 col-md-4 fr-view">
+                        <div class="field-title col-lg-3 col-md-4 fr-view">
                             <p>Sex</p>
-                        </dt>
-                        <dd class="field-value col-lg-9 col-md-8 fr-view">
+                        </div>
+                        <div class="field-value col-lg-9 col-md-8 fr-view">
                             <p>{{ sex }}</p>
-                        </dd>
+                        </div>
                     </div>
                     <div class="row fields-field">
-                        <dt class="field-title col-lg-3 col-md-4 fr-view">
+                        <div class="field-title col-lg-3 col-md-4 fr-view">
                             <p>Species</p>
-                        </dt>
-                        <dd class="field-value col-lg-9 col-md-8 fr-view">
+                        </div>
+                        <div class="field-value col-lg-9 col-md-8 fr-view">
                             <p>{{ species }}</p>
-                        </dd>
+                        </div>
                     </div>
                     <div class="row fields-field">
-                        <dt class="field-title col-lg-3 col-md-4 fr-view">
+                        <div class="field-title col-lg-3 col-md-4 fr-view">
                             <p>Weight</p>
-                        </dt>
-                        <dd class="field-value col-lg-9 col-md-8 fr-view">
+                        </div>
+                        <div class="field-value col-lg-9 col-md-8 fr-view">
                             <p>{{ weight }}</p>
-                        </dd>
+                        </div>
                     </div>
                     <div class="row fields-field">
-                        <dt class="field-title col-lg-3 col-md-4 fr-view">
+                        <div class="field-title col-lg-3 col-md-4 fr-view">
                             <p>Height</p>
-                        </dt>
-                        <dd class="field-value col-lg-9 col-md-8 fr-view">
+                        </div>
+                        <div class="field-value col-lg-9 col-md-8 fr-view">
                             <p>{{ height }}</p>
-                        </dd>
+                        </div>
                     </div>
-                </dl>
+                </div>
             </div>
             <div class="tab-pane fade m-3" id="my-marks" role="tabpanel" aria-labelledby="marks-tab">
                 <div class="profile-content-content user-content fr-view">
                     <ul style="list-style-type:square;">
                         {{#marks}}
-                            <li>{{.}}</li>
+                            <li>{{{.}}}</li>
                         {{/marks}}
                     </ul>
                 </div>
@@ -83,7 +83,7 @@
                         <h5>Pros</h5>
                         <ul class="personality-pros">
                             {{#personality.pros}}
-                                <li>{{.}}</li>
+                                <li>{{{.}}}</li>
                             {{/personality.pros}}
                         </ul>
                     {{/personality.pros.length}}
@@ -92,7 +92,7 @@
                         <h5 class="mt-1">Cons</h5>
                         <ul class="personality-cons">
                             {{#personality.cons}}
-                                <li>{{.}}</li>
+                                <li>{{{.}}}</li>
                             {{/personality.cons}}
                         </ul>
                     {{/personality.cons.length}}
@@ -101,7 +101,7 @@
                         <h5>Likes</h5>
                         <ul class="personality-likes">
                             {{#personality.likes}}
-                                <li><i class="fas fa-heart"></i><span class="mx-1">{{.}}</span></li>
+                                <li><i class="fas fa-heart"></i><span class="mx-1">{{{.}}}</span></li>
                             {{/personality.likes}}
                         </ul>
                     {{/personality.likes.length}}
@@ -111,7 +111,7 @@
                         <h5 class="mt-1">Dislikes</h5>
                         <ul class="personality-dislikes">
                             {{#personality.dislikes}}
-                                <li><i class="fas fa-heart-broken"></i><span class="mx-1">{{.}}</span></li>
+                                <li><i class="fas fa-heart-broken"></i><span class="mx-1">{{{.}}}</span></li>
                             {{/personality.dislikes}}
                         </ul>
                     {{/personality.dislikes.length}}
@@ -119,7 +119,7 @@
             </div>
             <div class="tab-pane fade" id="my-bio" role="tabpanel" aria-labelledby="bio-tab">
                 <div class="m-2 profile-content-content user-content fr-view">
-                    {{bio}}
+                   {{{bio}}}
                 </div>
             </div>
         </div>
