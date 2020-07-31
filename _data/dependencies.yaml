@@ -8,11 +8,13 @@
   link: https://github.com/FortAwesome/Font-Awesome
 - name: Codemirror
   link: https://github.com/codemirror/codemirror
-- name: Codemirror spellchecker
-  link: https://github.com/sparksuite/codemirror-spell-checker
 - name: Mustache
   link: https://github.com/janl/mustache.js
 - name: beautify-web
   link: https://github.com/beautify-web/js-beautify
 - name: Froala Editor
   link: https://froala.com/wysiwyg-editor/
+  isWYSIWYG: true
+- name: TinyMCE
+  link: https://github.com/tinymce/tinymce
+  isWYSIWYG: true

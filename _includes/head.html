@@ -10,10 +10,12 @@
   <link rel="stylesheet" type="text/css" href="{{ '/assets/css/codemirror/codemirror.css' | relative_url }}">
   <link rel="stylesheet" type="text/css" href="{{ '/assets/css/codemirror/spell-checker.min.css' | relative_url }}">
 
-  {% if site.options.useFroalaEditor %}
+  {% if site.options.withWYSIWYGEditor %}
+    {% if site.options.useFroalaEditor %}
   <link rel="stylesheet" type="text/css" href="{{ '/assets/css/froala-editor/froala_editor.pkgd.min.css' | relative_url }}">
   <link rel="stylesheet" type="text/css" href="{{ '/assets/css/froala-editor/themes/dark.min.css' | relative_url }}">
   <link rel="stylesheet" type="text/css" href="{{ '/assets/css/froala-editor/plugins/code_view.min.css' | relative_url }}">
+    {% endif %}
   {% endif %}
 
   <link rel="stylesheet" type="text/css" href="{{ '/assets/css/bootstrap/bootstrap-toggle.min.css' | relative_url }}">

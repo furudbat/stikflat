@@ -1,25 +1,26 @@
 <h2>Layouts</h2>
-<small class="text-muted">Select a Layout by one-clicking to preview or double-click to edit.</small>
-<div class="row mb-4 ml-2">
-    <div class="col-12">
-        {% assign templates_url = 'templates/' | absolute_url %}
-        {% for template in site.data.templates %}
-            <button type="button" class="btn btn-primary layout-pattern" style="{{ template.style }}"
-                data-name="{{ template.name | escape }}" 
-                data-author="{{ template.author | escape }}"
+<div class="row mb-4 mx-2">
+    <div class="row"> 
+        <div class="col-12">
+            <small class="text-muted">Select a Layout by one-clicking to preview or double-click to edit.</small>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {%- assign templates_url = 'templates/' | absolute_url -%}
+            {%- for template in site.data.templates -%}
+            <button type="button" class="mr-1 btn layout-pattern" style="{{ template.style }}"
+                data-name="{{ template.name | escape }}" data-author="{{ template.author | escape }}"
                 data-author-link="{{ template.author_link }}"
                 data-template="{{ template.template | prepend: templates_url }}"
                 data-css="{{ template.css | prepend: templates_url }}"
-                data-config="{{ template.config | prepend: templates_url }}" 
-                data-license="{{ template.license | escape }}"
-                data-link="{{ template.link }}" 
+                data-config="{{ template.config | prepend: templates_url }}"
+                data-license="{{ template.license | escape }}" data-link="{{ template.link }}"
                 data-description="{{ template.description | escape }}">
                 {{ template.name | escape }} <span class="badge badge-light">{{ template.author | escape }}</span>
             </button>
-        {% endfor %}
-    </div>
-    <div class="col-12 mt-2">
-        <div id="layout-pattern-info" class="alert alert-info" role="alert"></div>
+            {%- endfor -%}
+        </div>
     </div>
 </div>
 
@@ -28,8 +29,8 @@
     <div class="col-md-8 main-template-editors-container">
         <ul class="nav nav-tabs" id="templateTabs" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="preview-tab" data-toggle="tab" href="#previewTabContent" role="tab" aria-controls="preview"
-                    aria-selected="false">Preview</a>
+                <a class="nav-link active" id="preview-tab" data-toggle="tab" href="#previewTabContent" role="tab"
+                    aria-controls="preview" aria-selected="false">Preview</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="template-tab" data-toggle="tab" href="#templateTabContent" role="tab"
@@ -47,10 +48,16 @@
                     <div class="embed-responsive-item" id="preview-html"></div>
                 </div>
             </div>
-            <div class="mt-3 tab-pane fade show" id="templateTabContent" role="tabpanel"
-                aria-labelledby="template-tab">
+            <div class="mt-3 tab-pane fade show" id="templateTabContent" role="tabpanel" aria-labelledby="template-tab">
+                {% if site.options.withWYSIWYGEditor %}
                 <div class="form-group">
-                    <button id="btnEnableWYSIWYGEditor" type="button" class="btn btn-outline-secondary"></button>
+                    <div class="checkbox">
+                        <label class="checkbox-inline">
+                            <input id="chbLivePreview" type="checkbox" data-toggle="toggle">
+                            <span id="chbLivePreviewHelp"></span>
+                        </label>
+                    </div>
+                    <button id="chbEnableWYSIWYGEditor" type="button" class="btn btn-outline-secondary"></button>
                 </div>
                 <div class="form-group">
                     <div class="main-template-editors-editor-container">
@@ -59,14 +66,31 @@
                     <div class="main-template-editors-WYSIWYG-editor-container">
                         <textarea id="txtTemplateWYSIWYG" aria-describedby="templateHelp"></textarea>
                     </div>
-                    <small id="templateHelp" class="form-text text-muted">put your <a href="https://mustache.github.io/" target="_blank">mustache</a> template here</small>
+                    <small id="templateHelp" class="form-text text-muted">put your <a href="https://mustache.github.io/"
+                            target="_blank">mustache</a> template here</small>
                     <div id="templateError" class="alert alert-danger" role="alert"></div>
                 </div>
+                {% else %}
+                <div class="form-group">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="chbLivePreview">
+                        <label id="chbLivePreviewHelp" class="custom-control-label" for="chbLivePreview"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="mt-1 pt-2 main-template-editors-editor-container main-template-editors-no-WYSIWYG-container">
+                        <textarea id="txtTemplate" aria-describedby="templateHelp"></textarea>
+                    </div>
+                    <small id="templateHelp" class="form-text text-muted">put your <a href="https://mustache.github.io/"
+                            target="_blank">mustache</a> hash here</small>
+                    <div id="templateError" class="alert alert-danger" role="alert"></div>
+                </div>
+                {% endif %}
             </div>
             <div class="mt-3 tab-pane fade" id="cssTabContent" role="tabpanel" aria-labelledby="css-tab">
-                <div class="form-group">
+                <div class="form-group pt-3">
                 </div>
-                <div class="form-group mt-5">
+                <div class="form-group pt-4">
                     <textarea id="txtCSS" aria-describedby="cssHelp"></textarea>
                     <small id="cssHelp" class="form-text text-muted">put your css here</small>
                 </div>
@@ -80,10 +104,12 @@
             </div>
             <div class="row my-3 main-config-lock-container">
                 <div class="col-2">
-                    <input id="btnLockConfig" class="mt-1" data-size="small" type="checkbox" checked data-toggle="toggle" data-on="<i class='fa fa-lock'></i>" data-off="<i class='fa fa-unlock'></i>">
+                    <input id="chbLockConfig" class="mt-1" data-size="small" type="checkbox" checked
+                        data-toggle="toggle" data-on="<i class='fa fa-lock'></i>"
+                        data-off="<i class='fa fa-unlock'></i>" data-onstyle="outline-secondary" data-offstyle="outline-success">
                 </div>
                 <div class="col-10">
-                    <small id="lblLockConfig" class="form-text text-muted mt-0"></small>
+                    <small id="chbLockConfigHelp" class="form-text text-muted mt-0"></small>
                 </div>
             </div>
             <textarea id="txtConfig" aria-describedby="configHelp"></textarea>
@@ -91,9 +117,13 @@
             <div id="configError" class="alert alert-danger" role="alert"></div>
         </div>
     </div>
+    <div class="col-12 mt-2 main-info-container">
+        <div id="msglayoutPatternInfo" class="alert alert-info" role="alert"></div>
+    </div>
     <div class="col-12 mt-2 main-generate-container">
         <div class="form-group">
-            <button type="button" id="btnGenerateBottom" class="btn btn-primary btn-lg btn-block generate-btn">Generate</button>
+            <button type="button" id="btnGenerateBottom"
+                class="btn btn-primary btn-lg btn-block generate-btn">Generate</button>
         </div>
     </div>
 </div>
@@ -104,6 +134,12 @@
         <div class="form-group">
             <small id="previewCodeHelp" class="form-text text-muted">Here is your finished code to copy.</small>
             <textarea id="preview-code" aria-describedby="previewCodeHelp" readonly></textarea>
+        </div>
+    </div>
+    <div class="col-md-12 main-misc-container">
+        <div class="form-group">
+            <button id="btnClearStorage" type="button" class="btn btn-warning" aria-describedby="clearStorageHelp">Clear Local Storage</button>
+            <small id="clearStorageHelp" class="form-text text-muted">Delete all Settings and saved Templates from local storage.</small>
         </div>
     </div>
 </div>

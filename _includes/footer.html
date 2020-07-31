@@ -39,9 +39,15 @@
     </div>
     <div class="row">
       <div class="col-sm">
-        {% for dep in site.data.dependencies %}
+        {%- for dep in site.data.dependencies -%}
+          {%- if site.options.withWYSIWYGEditor == false and dep.isWYSIWYG -%}
+            {%- continue -%}
+          {%- endif -%}
+          {% if site.options.useFroalaEditor == false and dep.name == 'Froala Editor' %}
+            {%- continue -%}
+          {%- endif -%}
         <span class="mx-2 text-monospace"><a href="{{dep.link}}" target="_blank">{{ dep.name | escape }}</a></span> -
-        {% endfor %}
+        {%- endfor -%}
       </div>
     </div>
   </div>

@@ -42,4 +42,5 @@ exclude:
   - update_boostrap.sh
 
 options:
-  - useFroalaEditor: true
+  withWYSIWYGEditor: false
+  useFroalaEditor: false

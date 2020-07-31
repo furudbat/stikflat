@@ -7,19 +7,24 @@
 
     {%- include header.html -%}
 
-    <div class="py-5" id="main-content">
-      <div class="container page-content">
+    <div class="py-5 px-2" id="main-content">
+      <div class="container-fluid page-content">
           {{ content }}
       </div>
     </div>
 
     {%- include footer.html -%}
     <script type='text/javascript' > 
-      {% if site.options.useFroalaEditor %}
+      {%- if site.options.withWYSIWYGEditor -%}
+      const WITH_WYSIWYG_EDITOR = true;
+      {%- else -%}
+      const WITH_WYSIWYG_EDITOR = false;
+      {%- endif %}
+      {%- if site.options.useFroalaEditor -%}
       const USE_FROLALA_EDITOR = true;
-      {% else %}
+      {%- else -%}
       const USE_FROLALA_EDITOR = false;
-      {% endif %}
+      {%- endif -%}
     </script>
 
     <script src="{{ '/assets/js/jquery-ui.min.js' | relative_url }}"></script>
@@ -43,8 +48,9 @@
     <script src="{{ '/assets/js/codemirror/addon/lint/json-lint.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/codemirror/addon/lint/html-lint.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/codemirror/addon/lint/css-lint.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/codemirror/spell-checker.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/display/autorefresh.js' | relative_url }}"></script>
     
+    {% if site.options.withWYSIWYGEditor %}
     <script src="{{ '/assets/js/tinymce/tinymce.min.js' | relative_url }}"></script>
 
     {% if site.options.useFroalaEditor %}
@@ -52,6 +58,7 @@
     <script src="{{ '/assets/js/froala-editor/plugins/code_view.min.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/froala-editor/third_party/font_awesome.min.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/froala-editor/third_party/spell_checker.min.js' | relative_url }}"></script>
+    {% endif %}
     {% endif %}
   </body>
 

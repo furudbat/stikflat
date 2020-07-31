@@ -6,7 +6,7 @@ rm -rf node_modules package-lock.json
 npm i bootstrap@4 jquery@3 jquery-ui
 npm i bootstrap-toggle
 npm i @fortawesome/fontawesome-free
-npm i tinymce5 froala-editor codemirror codemirror-spell-checker 
+npm i tinymce5 froala-editor codemirror 
 npm i mustache
 npm i js-beautify
 
@@ -50,11 +50,9 @@ mkdir assets/css/codemirror
 mkdir assets/css/codemirror/theme
 cp node_modules/codemirror/lib/*.js assets/js/codemirror
 cp node_modules/codemirror/keymap/*.js assets/js/codemirror/keymap
-cp node_modules/codemirror-spell-checker/dist/*.min.js assets/js/codemirror
 cp -r node_modules/codemirror/mode/ assets/js/codemirror
 cp -r node_modules/codemirror/addon/ assets/js/codemirror
 cp node_modules/codemirror/lib/*.css assets/css/codemirror
-cp node_modules/codemirror-spell-checker/dist/*.min.css assets/css/codemirror
 cp node_modules/codemirror/theme/*.css assets/css/codemirror/theme
 
 
