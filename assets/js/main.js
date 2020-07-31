@@ -90,7 +90,7 @@
 
         setTimeout(function () {
             _codePreviewEditor.refresh();
-        }, 200);
+        }, 100);
     }
 
     function generateHTMLFromTemplate(template, json, css, onlypreview = false) {
@@ -145,45 +145,6 @@
         var css = getCssCode();
 
         generateHTMLFromTemplate(template, json, css);
-    }
-
-    function setConfigError(error) {
-        $('#configError').html(error).show();
-    }
-    function clearConfigError() {
-        $('#configError').hide().empty();
-    }
-
-    function setTemplateError(error) {
-        $('#configError').html(error).show();
-    }
-    function clearTemplateError() {
-        $('#templateError').hide().empty();
-    }
-
-    function clearLayoutInfo() {
-        $('#msglayoutPatternInfo').hide().empty();
-    }
-    function updateLayoutInfo(pattern) {
-        var name = $(pattern).data('name');
-        var author = $(pattern).data('author');
-        var authorLink = $(pattern).data('author-link');
-        var description = $(pattern).data('description');
-        var link = $(pattern).data('link');
-        var license = $(pattern).data('license');
-
-        var header = '<p class="text-bold">';
-        header += name + site.data.strings.layouts.by_author + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
-        if (link != '') {
-            header += ' - ' + '<a href="' + link + '" target="_blank">' + link + '</a>';
-        }
-        header += '</p>';
-
-        $('#msglayoutPatternInfo').empty()
-            .append(header)
-            .append('<p class="text-justify">' + description + '</p>')
-            .append('<p class="font-italic">' + license + '</p>')
-            .show();
     }
 
     function generateTemplateWYSIWYGEditor() {
@@ -323,19 +284,17 @@
 
         setTimeout(function () {
             _templateEditor.refresh();
-        }, 200);
+        }, 100);
     }
 
     function initEditors() {
-        setTimeout(function () {
-            setTemplateEditorValue(getTemplateCode());
-            _cssEditor.setValue(getCssCode());
-            _configEditor.setValue(getConfigCode());
+        setTemplateEditorValue(getTemplateCode());
+        _cssEditor.setValue(getCssCode());
+        _configEditor.setValue(getConfigCode());
 
-            setTimeout(function () {
-                _cssEditor.refresh();
-                _configEditor.refresh();
-            }, 200);
+        setTimeout(function () {
+            _cssEditor.refresh();
+            _configEditor.refresh();
         }, 100);
     }
 
@@ -350,7 +309,7 @@
 
         setTimeout(function () {
             _configEditor.refresh();
-        }, 200);
+        }, 100);
     }
 
     function enableWYSIWYGEditor() {
@@ -408,7 +367,7 @@
 
         setTimeout(function () {
             _templateEditor.refresh();
-        }, 200);
+        }, 100);
     }
     function selectCssTab() {
         $('#templateTabs a[href="#cssTabContent"]').tab('show');
@@ -416,9 +375,49 @@
 
         setTimeout(function () {
             _cssEditor.refresh();
-        }, 200);
+        }, 100);
     }
 
+
+
+    function setConfigError(error) {
+        $('#configError').html(error).show();
+    }
+    function clearConfigError() {
+        $('#configError').hide().empty();
+    }
+
+    function setTemplateError(error) {
+        $('#configError').html(error).show();
+    }
+    function clearTemplateError() {
+        $('#templateError').hide().empty();
+    }
+
+    function clearLayoutInfo() {
+        $('#msgLayoutPatternInfo').hide().empty();
+    }
+    function updateLayoutInfo(pattern) {
+        var name = $(pattern).data('name');
+        var author = $(pattern).data('author');
+        var authorLink = $(pattern).data('author-link');
+        var description = $(pattern).data('description');
+        var link = $(pattern).data('link');
+        var license = $(pattern).data('license');
+
+        var header = '<p class="text-bold">';
+        header += name + site.data.strings.layouts.by_author + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
+        if (link != '') {
+            header += ' - ' + '<a href="' + link + '" target="_blank">' + link + '</a>';
+        }
+        header += '</p>';
+
+        $('#msgLayoutPatternInfo').empty()
+            .append(header)
+            .append('<p class="text-justify">' + description + '</p>')
+            .append('<p class="font-italic">' + license + '</p>')
+            .show();
+    }
 
     $(document).ready(function () {
         loadFromStorage();
@@ -451,10 +450,10 @@
             unlockConfig();
         }
         if (_enableLivePreview == true) {
-            $('#chbLivePreview').prop( 'checked', true );
+            $('#chbLivePreview').prop('checked', true);
             enableLivePreview();
         } else {
-            $('#chbLivePreview').prop( 'checked', false );
+            $('#chbLivePreview').prop('checked', false);
             disableLivePreview();
         }
         if (WITH_WYSIWYG_EDITOR == true) {
@@ -515,15 +514,18 @@
         $('.generate-btn').click(function () {
             generateHTML();
         });
-        $('#btnClearStorage').click(function(){
+        $('#btnClearStorage').click(function () {
             clearStorage();
         });
 
-        $('.layout-pattern').dblclick(function () {
-            var name = $(this).data('name');
-            var getTemplate = $.get($(this).data('template'));
-            var getConfig = $.get($(this).data('config'));
-            var getCSS = $.get($(this).data('css'));
+
+        var overrideLayout = function (layout) {
+            console.debug('layout-pattern dblclick', layout);
+
+            var name = $(layout).data('name');
+            var getTemplate = $.get($(layout).data('template'));
+            var getConfig = $.get($(layout).data('config'));
+            var getCSS = $.get($(layout).data('css'));
 
             $.when(getTemplate, getConfig, getCSS).done((templateRes, configRes, cssRes) => {
                 _currentPattern = name;
@@ -558,13 +560,16 @@
                 }
                 */
             });
-            updateLayoutInfo(this);
-        });
-        $('.layout-pattern').click(function () {
-            var name = $(this).data('name');
-            var getTemplate = $.get($(this).data('template'));
-            var getConfig = $.get($(this).data('config'));
-            var getCSS = $.get($(this).data('css'));
+            updateLayoutInfo(layout);
+        };
+
+        var previewLayout = function (layout) {
+            console.debug('layout-pattern click', layout);
+
+            var name = $(layout).data('name');
+            var getTemplate = $.get($(layout).data('template'));
+            var getConfig = $.get($(layout).data('config'));
+            var getCSS = $.get($(layout).data('css'));
 
             $.when(getTemplate, getConfig, getCSS).done((templateRes, configRes, cssRes) => {
                 _currentPattern = name;
@@ -574,9 +579,30 @@
                 var css = cssRes[0];
 
                 generateHTMLFromTemplate(template, config, css, true);
-                selectPreviewTab();
+                //selectPreviewTab();
             });
-            updateLayoutInfo(this);
-        });
+            updateLayoutInfo(layout);
+        };
+
+        /// https://css-tricks.com/snippets/javascript/bind-different-events-to-click-and-double-click/
+        var makeDoubleClick = function (element, doDoubleClickAction, doClickAction) {
+            var timer = 0;
+            var delay = 250;
+            var prevent = false;
+
+            element.on('click', function () {
+                timer = setTimeout(function () {
+                    if (!prevent) {
+                        doClickAction(element);
+                    }
+                    prevent = false;
+                }, delay);
+            }).on('dblclick', function () {
+                clearTimeout(timer);
+                prevent = true;
+                doDoubleClickAction(element);
+            });
+        };
+        makeDoubleClick($('.layout-pattern'), overrideLayout, previewLayout);
     });
 }());
