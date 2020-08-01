@@ -17,7 +17,8 @@ editor:
     enabled_live_preview_help: "Update preview while editing."
     disabled_live_preview_help: "Don't update preview while editing."
   config:
-    header: Config/Content
+    header: 'Config <i class="fas fa-compress-alt"></i>'
+    header_short: '<i class="fas fa-expand-alt"></i>'
     help: 'Put your <a href="https://mustache.github.io/" target="_blank">mustache</a> hash/object (<a href="https://www.w3schools.com/js/js_json_syntax.asp" target="_blank">json</a>) here.<br>Mustache works by expanding tags from your template by using values provided from thsi config.'
     lock_config_help: "Config Locked, Don't override config when selecting Layout."
     unlock_config_help: "Config Unlocked, Override config when selecting Layout."
