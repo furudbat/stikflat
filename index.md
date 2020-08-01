@@ -2,12 +2,17 @@
 layout: home
 ---
 
-**@TODO: Description and Help**
+**@TODO: Description and Help**, spelling, grammer, ...
 
-Just an Tool for generating HTML with template engine magic.  
+### Help 
+A Tool for generating HTML with template engine magic.  
 There are some basic Layouts you can use and edit.  
 
-Edit your Content once and change the template, same Content different Layouts.  
+ 1. Select a layout by double-click
+ 2. Edit the Config
+ 3. generate HTML Code
+
+Edit your Content once and change the layouts. Same Content, different Layouts.  
 
 #### Links
 
