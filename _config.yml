@@ -23,6 +23,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: furudbat
 github_username:  furudbat
 author: FurudBat
+github_link: "https://github.com/furudbat/thhg"
 
 # Build settings
 plugins:
