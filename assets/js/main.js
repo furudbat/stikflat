@@ -9,6 +9,8 @@
     const STORAGE_KEY_LOCK_CONFIG_CODE = 'lock_config_code';
     const STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR = 'enable_WYSIWYG_template_editor';
     const STORAGE_KEY_ENABLE_LIVE_PREVIEW = 'enable_live_preview';
+    const STORAGE_KEY_CURRENT_CONFIG_INDEX = 'current_config_index';
+    const STORAGE_KEY_SAVED_CONFIGS = 'saved_configs';
 
     const TEMPLATE_EDITOR_NAME_CODEMIRROR = 'CodeMirror';
     const TEMPLATE_EDITOR_NAME_TINYMCE = 'TinyMCE';
@@ -31,28 +33,50 @@
     var _currentTemplateEditorName = '';
     var _currentWYSIWYGTemplateEditorName = '';
 
+    var _currentConfigIndex = null;
+    var _savedConfigs = [];
+
     function loadFromStorage() {
-        if (STORAGE_AVAILABLE == true) {
+        if (STORAGE_AVAILABLE === true) {
             _templateCode = localStorage.getItem(STORAGE_KEY_TEMPLATE_CODE) || _templateCode;
+
             try {
                 _configJson = $.parseJSON(localStorage.getItem(STORAGE_KEY_CONFIG_CODE)) || _configJson;
             } catch (e) {
                 console.error({ loadFromStorage: 'parse CONFIG_CODE', e });
                 _configJson = {};
             }
-            _cssCode = localStorage.getItem(STORAGE_KEY_CSS_CODE) || _cssCode;
-            _lockConfigCode = localStorage.getItem(STORAGE_KEY_LOCK_CONFIG_CODE) == 'true' || _lockConfigCode;
-            _enableWYSIWYGTemplateEditor = localStorage.getItem(STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR) == 'true' || _enableWYSIWYGTemplateEditor;
-            _enableLivePreview = localStorage.getItem(STORAGE_KEY_ENABLE_LIVE_PREVIEW) == 'true' || _enableLivePreview;
 
-            console.debug('loadFromStorage', { _templateCode, _configJson, _cssCode, _lockConfigCode, _enableWYSIWYGTemplateEditor, _enableLivePreview });
+            _cssCode = localStorage.getItem(STORAGE_KEY_CSS_CODE) || _cssCode;
+            _lockConfigCode = localStorage.getItem(STORAGE_KEY_LOCK_CONFIG_CODE) === 'true' || _lockConfigCode;
+            _enableWYSIWYGTemplateEditor = localStorage.getItem(STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR) === 'true' || _enableWYSIWYGTemplateEditor;
+            _enableLivePreview = localStorage.getItem(STORAGE_KEY_ENABLE_LIVE_PREVIEW) === 'true' || _enableLivePreview;
+
+            try {
+                _currentConfigIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT_CONFIG_INDEX)) || _currentConfigIndex;
+            } catch (e) {
+                console.error({ loadFromStorage: 'parse CURRENT_CONFIG_INDEX', e });
+                _currentConfigIndex = null;
+            }
+            try {
+                _savedConfigs = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_CONFIGS)) || _savedConfigs;
+                if (!$.isArray(_savedConfigs)) {
+                    console.error({ loadFromStorage: 'parse SAVED_CONFIGS', message: 'not an array' });
+                    _savedConfigs = [];
+                }
+            } catch (e) {
+                console.error({ loadFromStorage: 'parse SAVED_CONFIGS', e });
+                _savedConfigs = [];
+            }
+
+            console.debug('loadFromStorage', { _templateCode, _configJson, _cssCode, _lockConfigCode, _enableWYSIWYGTemplateEditor, _enableLivePreview, _currentConfigIndex, _savedConfigs });
         } else {
             console.log('no local storage available');
         }
     }
 
-    function clearStorage() {
-        if (STORAGE_AVAILABLE == true) {
+    function clearTemplateStorage() {
+        if (STORAGE_AVAILABLE === true) {
             localStorage.removeItem(STORAGE_KEY_TEMPLATE_CODE);
             localStorage.removeItem(STORAGE_KEY_CONFIG_CODE);
             localStorage.removeItem(STORAGE_KEY_CSS_CODE);
@@ -61,9 +85,18 @@
             localStorage.removeItem(STORAGE_KEY_ENABLE_LIVE_PREVIEW);
         }
     }
+    function clearSavedConfigsStorage() {
+        if (STORAGE_AVAILABLE === true) {
+            localStorage.removeItem(STORAGE_KEY_CURRENT_CONFIG_INDEX);
+            localStorage.removeItem(STORAGE_KEY_SAVED_CONFIGS);
+        }
+    }
 
     function getTemplateCode() {
         return _templateCode;
+    }
+    function getConfigJson() {
+        return _configJson;
     }
     function getConfigCode() {
         return JSON.stringify(_configJson, null, 4);
@@ -77,8 +110,10 @@
         localStorage.setItem(STORAGE_KEY_TEMPLATE_CODE, code);
     }
     function setConfigJson(json) {
-        _configJson = json;
-        localStorage.setItem(STORAGE_KEY_CONFIG_CODE, JSON.stringify(json));
+        if (json !== null) {
+            _configJson = json;
+            localStorage.setItem(STORAGE_KEY_CONFIG_CODE, JSON.stringify(json));
+        }
     }
     function setCssCode(code) {
         _cssCode = code;
@@ -93,17 +128,46 @@
         }, 100);
     }
 
+
+    function getSavedConfigsArray() {
+        return _savedConfigs;
+    }
+    function getCurrentSavedConfigJson() {
+        return (_currentConfigIndex !== null && _currentConfigIndex < _savedConfigs.length) ? _savedConfigs[_currentConfigIndex] : null;
+    }
+    function getCurrentSavedConfigCode() {
+        var config = getCurrentSavedConfigJson();
+        return (config !== null) ? JSON.stringify(config, null, 4) : '';
+    }
+    function saveConfigs() {
+        localStorage.setItem(STORAGE_KEY_CURRENT_CONFIG_INDEX, _currentConfigIndex);
+        localStorage.setItem(STORAGE_KEY_SAVED_CONFIGS, JSON.stringify(_savedConfigs));
+    }
+    function addConfig(json) {
+        if (json !== null) {
+            _savedConfigs.push(json);
+            _currentConfigIndex = _savedConfigs.length - 1;
+            saveConfigs();
+        }
+    }
+    function saveConfig(index, json) {
+        if (index < _savedConfigs.length) {
+            _savedConfigs[index] = json;
+            saveConfigs();
+        }
+    }
+
     function generateHTMLFromTemplate(template, json, css, onlypreview = false) {
         if (typeof json === 'string' || json instanceof String) {
             clearConfigError();
             try {
-                if (json != '') {
+                if (json !== '') {
                     json = JSON.parse(json);
                 }
             } catch (error) {
                 json = {};
                 var html = error.toString();
-                if (onlypreview == true) {
+                if (onlypreview === true) {
                     setHTMLPreview(html, css);
                 } else {
                     setConfigError(html);
@@ -111,18 +175,18 @@
             }
         }
 
-        if (json != null) {
+        if (json !== null) {
             clearTemplateError();
             try {
                 var htmlstr = Mustache.render(template, json);
                 setHTMLPreview(htmlstr, css);
-                if (onlypreview == false) {
+                if (onlypreview === false) {
                     setCodePreview(html_beautify(htmlstr));
                 }
             } catch (error) {
                 console.error(error);
 
-                if (onlypreview == true) {
+                if (onlypreview === true) {
                     setHTMLPreview(error.toString(), css);
                 } else {
                     setTemplateError(error.toString());
@@ -162,7 +226,7 @@
                 events: {
                     contentsChanged: function (e, editor) {
                         setTemplateCode(editor.html.get());
-                        if (_enableLivePreview == true) {
+                        if (_enableLivePreview === true) {
                             generateHTML();
                         }
                     }
@@ -189,7 +253,7 @@
                 setup: function (ed) {
                     ed.on('change', function (e) {
                         setTemplateCode(ed.getContent());
-                        if (_enableLivePreview == true) {
+                        if (_enableLivePreview === true) {
                             generateHTML();
                         }
                     });
@@ -211,7 +275,7 @@
         });
         _templateEditor.on('changes', function (cm, changes) {
             setTemplateCode(cm.getValue());
-            if (_enableLivePreview == true) {
+            if (_enableLivePreview === true) {
                 generateHTML();
             }
         });
@@ -231,9 +295,9 @@
         _configEditor.on('changes', function (cm, changes) {
             var jsonstring = cm.getValue();
             try {
-                if (jsonstring != '') {
+                if (jsonstring !== '') {
                     setConfigJson($.parseJSON(jsonstring));
-                    if (_enableLivePreview == true) {
+                    if (_enableLivePreview === true) {
                         generateHTML();
                     }
                 }
@@ -254,7 +318,7 @@
         });
         _cssEditor.on('changes', function (cm, changes) {
             setCssCode(cm.getValue());
-            if (_enableLivePreview == true) {
+            if (_enableLivePreview === true) {
                 generateHTML();
             }
         });
@@ -271,10 +335,10 @@
     }
 
     function setTemplateEditorValue(code) {
-        if (WITH_WYSIWYG_EDITOR == true) {
-            if (_currentWYSIWYGTemplateEditorName == TEMPLATE_EDITOR_NAME_TINYMCE) {
+        if (WITH_WYSIWYG_EDITOR === true) {
+            if (_currentWYSIWYGTemplateEditorName === TEMPLATE_EDITOR_NAME_TINYMCE) {
                 _templateWYSIWYGEditor.setContent(code);
-            } else if (_currentWYSIWYGTemplateEditorName == TEMPLATE_EDITOR_NAME_FROALAEDITOR) {
+            } else if (_currentWYSIWYGTemplateEditorName === TEMPLATE_EDITOR_NAME_FROALAEDITOR) {
                 _templateWYSIWYGEditor.html.set(code);
             }
         }
@@ -365,9 +429,11 @@
 
     function setConfigError(error) {
         $('#configError').html(error).show();
+        updateSaveConfigControls();
     }
     function clearConfigError() {
         $('#configError').hide().empty();
+        updateSaveConfigControls();
     }
 
     function setTemplateError(error) {
@@ -381,6 +447,11 @@
         $('#msgLayoutPatternInfo').hide().empty();
     }
     function updateLayoutInfo(pattern) {
+        if (pattern === null) {
+            console.log('updateLayoutInfo', { pattern });
+            return;
+        }
+
         var name = $(pattern).data('name');
         var author = $(pattern).data('author');
         var authorLink = $(pattern).data('author-link');
@@ -390,7 +461,7 @@
 
         var header = '<p class="text-bold">';
         header += name + site.data.strings.layouts.by_author + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
-        if (link != '') {
+        if (link !== '') {
             header += ' - ' + '<a href="' + link + '" target="_blank">' + link + '</a>';
         }
         header += '</p>';
@@ -402,6 +473,187 @@
             .show();
     }
 
+
+    const SAVED_CONFIG_SELECTED_BUTTON_CLASS = 'btn-primary';
+    const SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS = 'btn-outline-secondary';
+    const SAVED_CONFIG_BUTTON_CLASS = 'saved-content-content';
+
+    function generateButtonFromConfig(config, index = '') {
+        var cssclass = 'mr-1 mt-1 btn ' + SAVED_CONFIG_BUTTON_CLASS + ' ' + SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS
+        var name = site.data.strings.content.content_default_prefix + ((index !== '') ? ' ' + (index + 1) : '');
+        if (config) {
+            if ('title' in config && config.title !== '') {
+                name = config.title;
+            } else if ('name' in config && config.name !== '') {
+                name = config.name;
+            }
+        }
+
+        var configButton = $('<button type="button" class="' + cssclass + '" data-index="' + index + '">' + name + '</button>');
+        return configButton;
+    }
+    
+    var overrideConfig = function (configButton) {
+        var index = $(configButton).data('index');
+        if (index === null || index === '') {
+            return;
+        }
+
+        console.debug('overrideConfig', {index, configButton});
+
+        _currentConfigIndex = parseInt(index);
+
+        var config = getCurrentSavedConfigJson();
+        if (config !== null) {
+            setConfigJson(config);
+
+            initEditors();
+            generateHTML();
+        } else {
+            _currentConfigIndex = null;
+        }
+
+        updateSaveConfigControls();
+        updateSavedConfigsSelection(_currentConfigIndex);
+    };
+
+    var previewWithConfig = function (configButton) {
+        var index = $(configButton).data('index');
+        if (index === null || index === '') {
+            return;
+        }
+
+        console.debug('previewWithConfig', {index, configButton});
+
+        _currentConfigIndex = parseInt(index);
+
+        var config = getCurrentSavedConfigJson();
+        if (config !== null) {
+            var template = getTemplateCode();
+            var css = getCssCode();
+
+            generateHTMLFromTemplate(template, config, css, true);
+            selectPreviewTab();
+        }
+    };
+    function addSavedConfigToList(config, index) {
+        if (config === null || index === null) {
+            return;
+        }
+        var configButton = generateButtonFromConfig(config, index);
+        $('.saved-content-list').append(configButton);
+        makeDoubleClick($('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + index + "']"), overrideConfig, previewWithConfig);
+
+        console.debug('addSavedConfigToList', index, config, configButton, $('.saved-content-list').find('.' + SAVED_CONFIG_BUTTON_CLASS).last());
+    }
+    function generateSavedConfigsFromList() {
+        if (_savedConfigs.length > 0) {
+            $('.saved-content-list').empty();
+            for (var i = 0; i < _savedConfigs.length; i++) {
+                var config = _savedConfigs[i];
+                console.log(i, config);
+                addSavedConfigToList(config, i);
+            }
+            $('.saved-content-container').show();
+        } else {
+            $('.saved-content-list').empty();
+            $('.saved-content-container').hide();
+        }
+
+        updateSavedConfigsSelection(_currentConfigIndex);
+    }
+    function updateSaveConfigControls() {
+        if (_currentConfigIndex !== null && _currentConfigIndex < _savedConfigs.length) {
+            $('#btnSaveConfig').show();
+        } else {
+            $('#btnSaveConfig').hide();
+        }
+        if ($('#configError').is(":visible")) {
+            $('.main-config-controls').each(function () {
+                $(this).prop('disabled', true);
+            });
+        } else {
+            $('.main-config-controls').each(function () {
+                $(this).prop('disabled', false);
+            });
+        }
+    }
+    function updateSavedConfigsSelection(index) {
+        if (_savedConfigs.length > 0) {
+            $('.saved-content-container').show();
+        } else {
+            $('.saved-content-container').hide();
+        }
+
+        $('.' + SAVED_CONFIG_BUTTON_CLASS).each(function (i) {
+            $(this).removeClass(SAVED_CONFIG_SELECTED_BUTTON_CLASS).removeClass(SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS);
+            if($(this).data('index') == index){
+                $(this).addClass(SAVED_CONFIG_SELECTED_BUTTON_CLASS);
+            } else {
+                $(this).addClass(SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS);
+            }
+        });
+    }
+
+    function initSaveConfigControls() {
+        var savedConfigs = $('.' + SAVED_CONFIG_BUTTON_CLASS);
+
+        if (savedConfigs && savedConfigs.length) {
+            savedConfigs.each(function () {
+                makeDoubleClick($(this), overrideConfig, previewWithConfig);
+            });
+        }
+        $('#btnAddConfig').click(function () {
+            addConfig(getConfigJson());
+            console.debug('btnAddConfig', {_currentConfigIndex});
+
+            var config = getCurrentSavedConfigJson();
+            if (config !== null) {
+                addSavedConfigToList(config, _currentConfigIndex);
+            }
+            updateSavedConfigsSelection(_currentConfigIndex);
+        });
+
+        $('#btnSaveConfig').click(function () {
+            saveConfig(_currentConfigIndex, getConfigJson());
+
+            var config = getCurrentSavedConfigJson();
+            if (config !== null) {
+                var savedConfig = $('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + _currentConfigIndex + "']");
+                if(savedConfig) {
+                    var configButton = generateButtonFromConfig(config, _currentConfigIndex);
+                    savedConfig.replaceWith(configButton);
+                    makeDoubleClick($('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + _currentConfigIndex + "']"), overrideConfig, previewWithConfig);
+                }
+            }
+            updateSavedConfigsSelection(_currentConfigIndex);
+        });
+
+        updateSaveConfigControls();
+    }
+
+
+
+    /// https://css-tricks.com/snippets/javascript/bind-different-events-to-click-and-double-click/
+    var makeDoubleClick = function (element, doDoubleClickAction, doClickAction) {
+        var timer = 0;
+        var delay = 250;
+        var prevent = false;
+
+        element.on('click', function (e) {
+            var that = this;
+            timer = setTimeout(() => {
+                if (!prevent) {
+                    doClickAction(that);
+                }
+                prevent = false;
+            }, delay);
+        }).on('dblclick', function (e) {
+            clearTimeout(timer);
+            prevent = true;
+            doDoubleClickAction(this);
+        });
+    };
     $(document).ready(function () {
         loadFromStorage();
 
@@ -409,12 +661,14 @@
         setConfigJson(_configJson);
         setCssCode(_cssCode);
 
+        generateSavedConfigsFromList();
+
         clearConfigError();
         clearTemplateError();
         clearLayoutInfo();
 
         generateTemplateEditor();
-        if (WITH_WYSIWYG_EDITOR == true) {
+        if (WITH_WYSIWYG_EDITOR === true) {
             generateTemplateWYSIWYGEditor();
         }
         generateConfigEditor();
@@ -424,23 +678,24 @@
         initEditors();
         generateHTML();
 
+        initSaveConfigControls();
 
-        if (_lockConfigCode == true) {
+        if (_lockConfigCode === true) {
             $('#chbLockConfig').bootstrapToggle('on');
             lockConfig();
         } else {
             $('#chbLockConfig').bootstrapToggle('off');
             unlockConfig();
         }
-        if (_enableLivePreview == true) {
+        if (_enableLivePreview === true) {
             $('#chbLivePreview').prop('checked', true);
             enableLivePreview();
         } else {
             $('#chbLivePreview').prop('checked', false);
             disableLivePreview();
         }
-        if (WITH_WYSIWYG_EDITOR == true) {
-            if (_enableWYSIWYGTemplateEditor == true) {
+        if (WITH_WYSIWYG_EDITOR === true) {
+            if (_enableWYSIWYGTemplateEditor === true) {
                 enableWYSIWYGEditor();
             } else {
                 disableWYSIWYGEditor();
@@ -450,7 +705,7 @@
         }
 
         /*
-        if (getTemplateCode() == '') {
+        if (getTemplateCode() === '') {
             selectPreviewTab();
         } else {
             selectTemplateTab();
@@ -468,10 +723,10 @@
             selectCssTab();
         });
 
-        if (WITH_WYSIWYG_EDITOR == true) {
+        if (WITH_WYSIWYG_EDITOR === true) {
             $('#btnEnableWYSIWYGEditor').click(function () {
                 enableWYSIWYGTemplateEditor = !_enableWYSIWYGTemplateEditor;
-                if (_enableWYSIWYGTemplateEditor == true) {
+                if (_enableWYSIWYGTemplateEditor === true) {
                     enableWYSIWYGEditor();
                 } else {
                     disableWYSIWYGEditor();
@@ -481,7 +736,7 @@
 
         $('#chbLivePreview').change(function () {
             var checked = $(this).prop('checked');
-            if (checked == true) {
+            if (checked === true) {
                 enableLivePreview();
             } else {
                 disableLivePreview();
@@ -489,21 +744,28 @@
         });
         $('#chbLockConfig').change(function () {
             var checked = $(this).prop('checked');
-            if (checked == true) {
+            if (checked === true) {
                 lockConfig();
             } else {
                 unlockConfig();
             }
         });
-        $('.generate-btn').click(function () {
-            generateHTML();
+        $('.generate-btn').each(function (index) {
+            $(this).click(function () {
+                generateHTML();
+            });
         });
-        $('#btnClearStorage').click(function () {
-            clearStorage();
+        $('#btnClearTemplateStorage').click(function () {
+            clearTemplateStorage();
+        });
+        $('#btnClearSavedConfigsStorage').click(function () {
+            clearSavedConfigsStorage();
         });
 
         $('#collapseConfig').on('shown.bs.collapse', function () {
             $('#btnCollapseConfig').html(site.data.strings.editor.config.header).attr('class', 'btn btn-primary');
+            $('.main-config-add-container').show();
+            updateSaveConfigControls();
 
             $('.main-config-editors-container').removeClass(function (index, className) {
                 return (className.match(/(^|\s)col-\S+/g) || []).join(' ');
@@ -514,6 +776,7 @@
         });
         $('#collapseConfig').on('hidden.bs.collapse', function () {
             $('#btnCollapseConfig').html(site.data.strings.editor.config.header_short).attr('class', 'btn btn-secondary');
+            $('.main-config-add-container').hide();
 
             $('.main-config-editors-container').removeClass(function (index, className) {
                 return (className.match(/(^|\s)col-\S+/g) || []).join(' ');
@@ -522,6 +785,7 @@
                 return (className.match(/(^|\s)col-\S+/g) || []).join(' ');
             }).addClass('col-md-10');
         });
+
 
         var overrideLayout = function (layout) {
             console.debug('layout-pattern dblclick', layout);
@@ -537,7 +801,7 @@
                 var css = cssRes[0];
 
                 var config = configRes[0];
-                if (_lockConfigCode == true) {
+                if (_lockConfigCode === true) {
                     config = _configJson;
                 }
 
@@ -586,27 +850,6 @@
                 selectPreviewTab();
             });
             updateLayoutInfo(layout);
-        };
-
-        /// https://css-tricks.com/snippets/javascript/bind-different-events-to-click-and-double-click/
-        var makeDoubleClick = function (element, doDoubleClickAction, doClickAction) {
-            var timer = 0;
-            var delay = 250;
-            var prevent = false;
-
-            element.on('click', function (e) {
-                var that = this;
-                timer = setTimeout(() => {
-                    if (!prevent) {
-                        doClickAction(that);
-                    }
-                    prevent = false;
-                }, delay);
-            }).on('dblclick', function (e) {
-                clearTimeout(timer);
-                prevent = true;
-                doDoubleClickAction(this);
-            });
         };
         makeDoubleClick($('.layout-pattern'), overrideLayout, previewLayout);
     });
