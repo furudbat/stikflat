@@ -545,6 +545,8 @@
         makeDoubleClick($('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + index + "']"), overrideConfig, previewWithConfig);
 
         console.debug('addSavedConfigToList', index, config, configButton, $('.saved-content-list').find('.' + SAVED_CONFIG_BUTTON_CLASS).last());
+        
+        updateSaveConfigControls();
     }
     function generateSavedConfigsFromList() {
         if (_savedConfigs.length > 0) {
