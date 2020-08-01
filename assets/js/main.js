@@ -69,7 +69,7 @@
                 _savedConfigs = [];
             }
 
-            console.debug('loadFromStorage', { _templateCode, _configJson, _cssCode, _lockConfigCode, _enableWYSIWYGTemplateEditor, _enableLivePreview, _currentConfigIndex, _savedConfigs });
+            //console.debug('loadFromStorage', { _templateCode, _configJson, _cssCode, _lockConfigCode, _enableWYSIWYGTemplateEditor, _enableLivePreview, _currentConfigIndex, _savedConfigs });
         } else {
             console.log('no local storage available');
         }
@@ -499,7 +499,7 @@
             return;
         }
 
-        console.debug('overrideConfig', {index, configButton});
+        //console.debug('overrideConfig', {index, configButton});
 
         _currentConfigIndex = parseInt(index);
 
@@ -523,7 +523,7 @@
             return;
         }
 
-        console.debug('previewWithConfig', {index, configButton});
+        //console.debug('previewWithConfig', {index, configButton});
 
         _currentConfigIndex = parseInt(index);
 
@@ -544,7 +544,7 @@
         $('.saved-content-list').append(configButton);
         makeDoubleClick($('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + index + "']"), overrideConfig, previewWithConfig);
 
-        console.debug('addSavedConfigToList', index, config, configButton, $('.saved-content-list').find('.' + SAVED_CONFIG_BUTTON_CLASS).last());
+        //console.debug('addSavedConfigToList', index, config, configButton, $('.saved-content-list').find('.' + SAVED_CONFIG_BUTTON_CLASS).last());
         
         updateSaveConfigControls();
     }
@@ -607,7 +607,7 @@
         }
         $('#btnAddConfig').click(function () {
             addConfig(getConfigJson());
-            console.debug('btnAddConfig', {_currentConfigIndex});
+            //console.debug('btnAddConfig', {_currentConfigIndex});
 
             var config = getCurrentSavedConfigJson();
             if (config !== null) {
@@ -790,7 +790,7 @@
 
 
         var overrideLayout = function (layout) {
-            console.debug('layout-pattern dblclick', layout);
+            //console.debug('layout-pattern dblclick', layout);
 
             var name = $(layout).data('name');
             var getTemplate = $.get($(layout).data('template'));
@@ -834,7 +834,7 @@
         };
 
         var previewLayout = function (layout) {
-            console.debug('layout-pattern click', layout);
+            //console.debug('layout-pattern click', layout);
 
             var name = $(layout).data('name');
             var getTemplate = $.get($(layout).data('template'));
