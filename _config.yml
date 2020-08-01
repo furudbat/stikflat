@@ -36,10 +36,13 @@ header_pages:
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
 exclude:
+  - .gitignore
   - Gemfile
   - Gemfile.lock
+  - package-lock.json
   - node_modules
-  - update_boostrap.sh
+  - scripts
+  - update_dependencies.sh
 
 options:
   withWYSIWYGEditor: false

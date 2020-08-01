@@ -479,7 +479,7 @@
     const SAVED_CONFIG_BUTTON_CLASS = 'saved-content-content';
 
     function generateButtonFromConfig(config, index = '') {
-        var cssclass = 'mr-1 mt-1 btn ' + SAVED_CONFIG_BUTTON_CLASS + ' ' + SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS
+        var cssclass = 'mr-1 mt-1 mb-2 btn ' + SAVED_CONFIG_BUTTON_CLASS + ' ' + SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS
         var name = site.data.strings.content.content_default_prefix + ((index !== '') ? ' ' + (index + 1) : '');
         if (config) {
             if ('title' in config && config.title !== '') {

@@ -8,6 +8,7 @@ content:
   content_default_prefix: 'Content #'
 preview:
   help: 'This preview is using the default bootstrap Style, preview may varies from your theme.'
+  goto_preview_code: 'Go to generated Code <i class="fas fa-arrow-down"></i>'
 editor:
   header: Editor
   preview_tab: Preview
