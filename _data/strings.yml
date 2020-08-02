@@ -7,7 +7,7 @@ content:
   header_help: Select a Config by clicking to preview or double-click to edit.<br>Configs are saved localy, but don't relay on it. It is recommended to also save your Templates and Configs somewhere else as backup.
   content_default_prefix: 'Content #'
 preview:
-  help: 'This preview is using the default bootstrap theme and may vary from TOYHOU.SE theme.'
+  help: "This preview is using the default bootstrap theme and may vary from TOYHOU.SE theme.<br>Not all Font Awesome are avaiable, you can use Pro ones but it didn't get shown in the preview."
   goto_preview_code: 'Go to "generated Code" <i class="fas fa-arrow-down"></i>'
 editor:
   header: Editor
