@@ -1,61 +1,72 @@
-<div class="card" style="width: 20rem;">
-    <img src="{{{images.avatar}}}" class="card-img-top" alt="Avatar">
-    <div class="card-body">
-        <h5 class="card-title">{{title}}</h5>
-        <p class="card-text">{{{bio}}}</p>
+<div class="row">
+    <div col="col-4">
+        <div class="card">
+            <img src="{{{images.avatar}}}" class="rounded-circle mx-auto d-block" alt="Avatar">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text">{{{description}}}</p>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    {{#links.twitter}}
+                    <div class="col-2">
+                        <a href="{{{links.twitter}}}" class="card-link" target="_blank">
+                            <i class="fab fa-2x fa-twitter"></i>
+                        </a>
+                    </div>
+                    {{/links.twitter}}
+
+                    {{#links.facebook}}
+                    <div class="col-2">
+                        <a href="{{{links.facebook}}}" class="card-link" target="_blank">
+                            <i class="fab fa-2x fa-facebook"></i>
+                        </a>
+                    </div>
+                    {{/links.facebook}}
+
+                    {{#links.instagram}}
+                    <div class="col-2">
+                        <a href="{{{links.instagram}}}" class="card-link" target="_blank">
+                            <i class="fab fa-2x fa-instagram"></i>
+                        </a>
+                    </div>
+                    {{/links.instagram}}
+
+                    {{#links.deviantart}}
+                    <div class="col-2">
+                        <a href="{{{links.deviantart}}}" class="card-link" target="_blank">
+                            <i class="fab fa-2x fa-deviantart"></i>
+                        </a>
+                    </div>
+                    {{/links.deviantart}}
+
+                    {{#links.youtube}}
+                    <div class="col-2">
+                        <a href="{{{links.youtube}}}" class="card-link" target="_blank">
+                            <i class="fab fa-2x fa-youtube"></i>
+                        </a>
+                    </div>
+                    {{/links.youtube}}
+                </div>
+            </div>
+        </div>
     </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-            {{name}}
-        </li>
-        <li class="list-group-item">
-            {{gender}}
-        </li>
-        <li class="list-group-item">
-            {{age}}
-        </li>
-    </ul>
-    <div class="card-body">
-        <div class="row">
-            {{#links.twitter}}
-            <div class="col">
-                <a href="{{{links.twitter}}}" class="card-link" target="_blank">
-                    <i class="fab fa-2x fa-twitter"></i>
-                </a>
-            </div>
-            {{/links.twitter}}
-
-            {{#links.facebook}}
-            <div class="col">
-                <a href="{{{links.facebook}}}" class="card-link" target="_blank">
-                    <i class="fab fa-2x fa-facebook"></i>
-                </a>
-            </div>
-            {{/links.facebook}}
-
-            {{#links.instagram}}
-            <div class="col">
-                <a href="{{{links.instagram}}}" class="card-link" target="_blank">
-                    <i class="fab fa-2x fa-instagram"></i>
-                </a>
-            </div>
-            {{/links.instagram}}
-
-            {{#links.deviantart}}
-            <div class="col">
-                <a href="{{{links.deviantart}}}" class="card-link" target="_blank">
-                    <i class="fab fa-2x fa-deviantart"></i>
-                </a>
-            </div>
-            {{/links.deviantart}}
-
-            {{#links.youtube}}
-            <div class="col">
-                <a href="{{{links.youtube}}}" class="card-link" target="_blank">
-                    <i class="fab fa-2x fa-youtube"></i>
-                </a>
-            </div>
-            {{/links.youtube}}
+    <div col="col-6">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                {{name}}
+            </li>
+            <li class="list-group-item">
+                {{gender}}
+            </li>
+            <li class="list-group-item">
+                {{age}}
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div col="col-12">
+            {{bio}}
         </div>
     </div>
 </div>

@@ -1,33 +1,30 @@
-- name: 'Basic Infos'
-  description: 'Simple Character Profile Layout'
-  style: 'background-color: #1190FF; color: #c7cd95'
-  template: 'basic/template.html'
-  css: 'basic/template.css'
-  config: 'basic/config.json'
-  author: 'furudbat'
-  author_link: 'https://toyhou.se/FurudBat'
-  license: 'free to use and modify'
-  link: 'https://toyhou.se/FurudBat'
-
-- name: 'Basic with Tabs'
-  description: 'Simple Character Profile Layout with Tabs'
-  style: 'background-color: #1a4a6e; color: #95b58c'
-  template: 'basic_with_tabs/template.html'
-  css: 'basic_with_tabs/template.css'
-  config: 'basic_with_tabs/config.json'
-  author: 'furudbat'
-  author_link: 'https://toyhou.se/FurudBat'
-  license: 'free to use and modify'
-  link: 'https://toyhou.se/FurudBat'
-
-  
-- name: 'Minimal Card'
-  description: 'Minimal Card Character Profile Layout'
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: basic/config.json
+  css: basic/template.css
+  description: Simple Basic Character Profile Layout with Tabs
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates/basic
+  name: Simple Character Profile
+  style: 'background-color: #1190FF; color: #f7fd95'
+  template: basic/template.html
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: basic_with_tabs/config.json
+  css: basic_with_tabs/template.css
+  description: Simple Basic Character Profile Layout with Tabs
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates/basic_with_tabs
+  name: Simple Character Profile with Tabs
+  style: 'background-color: #1a4a6e; color: #f7fd95'
+  template: basic_with_tabs/template.html
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: simple_card/config.json
+  css: simple_card/template.css
+  description: Minimal Card Character Profile Layout
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates/simple_card
+  name: Minimal Card
   style: 'background-color: #fdcf08; color: #4c4346'
-  template: 'simple_card/template.html'
-  css: 'simple_card/template.css'
-  config: 'simple_card/config.json'
-  author: 'furudbat'
-  author_link: 'https://toyhou.se/FurudBat'
-  license: 'free to use and modify'
-  link: 'https://toyhou.se/FurudBat'
+  template: simple_card/template.html

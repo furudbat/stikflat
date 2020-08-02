@@ -173,7 +173,7 @@
 
 <section id="sectionPreviewCode">
     <h3>{{ site.data.strings.code.header }}</h3>
-    <div class="row mb-4">
+    <div class="row mb-1">
         <div class="col-md-12 main-preview-code-container">
             <div class="form-group">
                 <small id="previewCodeHelp" class="form-text text-muted">{{ site.data.strings.code.help }}</small>
@@ -181,9 +181,18 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 mt-2 main-generate-container">
+            <div class="form-group">
+                <button type="button" id="btnGenerateBottom"
+                    class="btn btn-primary btn-lg btn-block generate-btn">{{ site.data.strings.editor.generate_btn }}</button>
+            </div>
+        </div>
+    </div>
 </section>
+
 <section>
-    <div class="row mb-2">
+    <div class="row mb-2 mt-5">
         <div class="col-md-12 main-misc-container">
             <div class="row">
                 <div class="col-3">

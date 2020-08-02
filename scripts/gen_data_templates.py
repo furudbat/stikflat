@@ -17,48 +17,50 @@ Options:
 from docopt import docopt
 import os
 
-import json
 import yaml
 
+
 def main(args):
-  print(args)
+    output_filename = args['--output']
+    input_path = args['--input']
+    input_paths = []
+    templates = []
+    templates_target_path = args['--target-templates-path']
 
-  output_filename = args['--output']
-  input_path = args['--input']
-  input_paths = []
-  templates = []
-  templates_target_path = args['--target-templates-path']
+    templates = []
 
-  templates = []
+    for root, directories, files in os.walk(input_path, topdown=False):
+        for name in directories:
+            input_paths.append(os.path.join(root, name))
 
-  for root, directories, files in os.walk(input_path, topdown=False):
-    for name in directories:
-      input_paths.append(os.path.join(root, name))
+    for path in input_paths:
+        for root, directories, files in os.walk(path, topdown=False):
+            template = {}
+            for file in files:
+                ext = os.path.splitext(file)[-1].lower()
 
-  for path in input_paths:
-    for root, directories, files in os.walk(path, topdown=False):
-      template = {}
-      for file in files:
-        ext = os.path.splitext(file)[-1].lower()
+                if ext == '.html' or ext == '.mustache':
+                    template['template'] = os.path.relpath(os.path.abspath(
+                        os.path.join(root, file)), templates_target_path).replace('\\', '/')
+                elif ext == '.css':
+                    template['css'] = os.path.relpath(os.path.abspath(
+                        os.path.join(root, file)), templates_target_path).replace('\\', '/')
+                elif ext == '.json':
+                    template['config'] = os.path.relpath(os.path.abspath(
+                        os.path.join(root, file)), templates_target_path).replace('\\', '/')
+                elif file == 'meta.yml':
+                    meta_yml_filename = os.path.abspath(
+                        os.path.join(root, file))
+                    with open(meta_yml_filename) as yml_file:
+                        meta = yaml.load(yml_file, Loader=yaml.FullLoader)
+                        for key, value in meta.items():
+                            template[key] = value
 
-        if ext == '.html' or ext == '.mustache':
-          template['template'] = os.path.relpath(os.path.abspath(os.path.join(root, file)), templates_target_path).replace('\\', '/')
-        elif ext == '.css':
-          template['css'] = os.path.relpath(os.path.abspath(os.path.join(root, file)), templates_target_path).replace('\\', '/')
-        elif ext == '.json':
-          template['config'] = os.path.relpath(os.path.abspath(os.path.join(root, file)), templates_target_path).replace('\\', '/')
-        elif file == 'meta.yml':
-          meta_yml_filename = os.path.abspath(os.path.join(root, file))
-          with open(meta_yml_filename) as yml_file:
-            meta = yaml.load(yml_file, Loader=yaml.FullLoader)
-            for key, value in meta.items():
-              template[key] = value
-          
-      templates.append(template)                  
+            templates.append(template)
 
-  with open(output_filename, 'w') as output:
-    documents = yaml.dump(templates, output)
-        
+    with open(output_filename, 'w') as output:
+        yaml.dump(templates, output)
+        print('Done ' + output_filename)
 
 
 if __name__ == '__main__':

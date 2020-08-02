@@ -715,6 +715,8 @@
         */
         $('#collapseConfig').collapse('show');
 
+        $( ".main-template-editors-preview-container" ).resizable();
+
         $('#templateTabs a[href="#previewTabContent"]').on('click', function (e) {
             selectPreviewTab();
         });
