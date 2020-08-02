@@ -1,30 +1,40 @@
+- author: <i class="fas fa-skull user-name-icon"></i>Eggy
+  author_link: https://toyhou.se/Eggy
+  config: scale_by_eggy/configs.json
+  css: scale_by_eggy/scale.css
+  description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
+  link: https://toyhou.se/5662687.-freebie-scale
+  name: Scale
+  style: 'background-color: #f8b526; color: #070a05'
+  template: scale_by_eggy/scale.html
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: basic/config.json
-  css: basic/template.css
+  config: z_basic/config.json
+  css: z_basic/template.css
   description: Simple Basic Character Profile Layout with Tabs
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/basic
   name: Simple Character Profile
   style: 'background-color: #1190FF; color: #f7fd95'
-  template: basic/template.html
+  template: z_basic/template.html
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: basic_with_tabs/config.json
-  css: basic_with_tabs/template.css
+  config: z_basic_with_tabs/config.json
+  css: z_basic_with_tabs/template.css
   description: Simple Basic Character Profile Layout with Tabs
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/basic_with_tabs
   name: Simple Character Profile with Tabs
   style: 'background-color: #1a4a6e; color: #f7fd95'
-  template: basic_with_tabs/template.html
+  template: z_basic_with_tabs/template.html
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: simple_card/config.json
-  css: simple_card/template.css
+  config: z_simple_card/config.json
+  css: z_simple_card/template.css
   description: Minimal Card Character Profile Layout
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/simple_card
   name: Minimal Card
   style: 'background-color: #fdcf08; color: #4c4346'
-  template: simple_card/template.html
+  template: z_simple_card/template.html
