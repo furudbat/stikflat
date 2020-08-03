@@ -1,0 +1,83 @@
+<div class="container px-0">
+    <div class="card border-0">
+       <div class="card-header py-5" style="background: url(https://s3.pixers.pics/pixers/700/FO/12/62/11/84/4/700_FO126211844_eb541531c72c1833cce5a390e80927b0.jpg) fixed;">
+         
+          <div class="col-md-8 col-9 d-block mx-auto text-center p-1" style="border: 2px solid #fff; color: #fff; background: rgba(255,255,255,.5);">
+             <h1 style="font-size:3em; letter-spacing:1px;">{{title}}</h1>
+          </div>
+       </div>
+       
+       <div class="card-block rounded-bottom" style="background: #222; color: #fff;">
+          <div class="row">
+             <div class="col-12 mb-2">
+                <div class="card-block rounded col-lg-4 col-md-5 float-md-left mr-md-4 mb-2" style="background: #444;">
+                   <h1 class="display-4"><i class="fas fa-user-astronaut mr-1"></i>{{name}}</h1>
+                   <!--------------- 200 x 200 AVATAR IMAGE ---- SET BORDER COLOR HERE-------------------------------------->
+                   <img src="{{{images.avatar}}}" class="d-block mx-auto my-3 rounded-circle img-thumbnail" style="background:none; border-color: #fff;">
+                   <p style="letter-spacing:1px;" class="text-center">{{age}} . {{gender}} . {{description}}</p>
+                </div>
+                
+                <h1><i class="fas fa-rocket pull-right"></i>About Me</h1>
+                <p>{{{about}}}</p>
+                
+                <h1 class="mt-3"><i class="far fa-space-shuttle pull-right"></i>Links</h1>
+                <div class="row justify-content-between text-center">
+                    {{#links.deviantart}}
+                   <div class="col-sm-2 col-6 mb-2">
+                      <a href="{{{links.deviantart}}}" style="color: #999;"><i class="fab fa-deviantart fa-3x m-1"></i></a>
+                      <br><small>Deviantart</small>
+                   </div>
+                   {{/links.deviantart}}
+
+                   {{#links.furaffinity}}
+                   <div class="col-sm-2 col-6 mb-2">
+                      <a href="{{{links.furaffinity}}}" style="color: #999;"><i class="fa fa-paw fa-3x m-1"></i></a>
+                      <br><small>Furaffinity</small>
+                   </div>
+                   {{/links.furaffinity}}
+
+                   {{#links.twitter}}
+                   <div class="col-sm-2 col-6 mb-2">
+                      <a href="{{{links.twitter}}}" style="color: #999;"><i class="fab fa-twitter fa-3x m-1"></i></a>
+                      <br><small>Twitter</small>
+                   </div>
+                   {{/links.twitter}}
+
+                   {{#links.tumblr}}
+                   <div class="col-sm-2 col-6 mb-2">
+                      <a href="{{{links.tumblr}}}" style="color: #999;"><i class="fab fa-tumblr fa-3x m-1"></i></a>
+                      <br><small>Tumblr</small>
+                   </div>
+                   {{/links.tumblr}}
+
+                   {{#links.discord}}
+                   <div class="col-sm-2 col-6 mb-2">
+                      <i class="fab fa-discord fa-3x m-1" style="color: #999;"></i>
+                      <br><small>{{{links.discord}}}</small>
+                   </div>
+                   {{/links.discord}}
+
+                   <!---------- LINK BLOCK ----- CREDIT DO NOT ERASE------------>
+                   <div class="col-sm-2 col-6 mb-2">
+                      <a href="https://toyhou.se/Eggy" style="color: #999;"><i class="fas fa-code fa-3x m-1"></i></a>
+                      <br><small>Credit</small>
+                   </div>
+                </div>
+             </div>
+          </div>
+          
+          {{#characters.length}}
+          <h1><i class="fas fa-star pull-right"></i>Featured Characters</h1>
+          <div class="row text-center">
+             {{#characters}}
+             <div class="col-sm-3 mb-2">
+                <a href="{{{link}}}">
+                <img src="{{{img}}}" class="img-thumbnail" style="background:none; border-color: #999;">
+                </a>
+             </div>
+             {{/characters}}
+          </div>
+          {{/characters.length}}
+       </div>
+    </div>
+ </div>

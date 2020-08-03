@@ -1,11 +1,21 @@
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
+  config: lil_bit_by_eggy/config.json
+  css: lil_bit_by_eggy/lilbit.css
+  description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
+  link: https://toyhou.se/3431124.-freebie-lil-bit
+  name: Character - Lil Bit
+  style: 'background-color: #f8b526; color: #070707'
+  template: lil_bit_by_eggy/lilbit.html
+- author: <i class="fas fa-skull user-name-icon"></i>Eggy
+  author_link: https://toyhou.se/Eggy
   config: open_by_eggy/config.json
   css: open_by_eggy/open.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/4556624.-freebie-open
-  name: Open - Grid Version
+  name: Character - Open - Grid Version
   style: 'background-color: #f8b526; color: #070707'
   template: open_by_eggy/open.html
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
@@ -15,7 +25,7 @@
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/4556624.-freebie-open
-  name: Open - Collapse Version
+  name: Character - Open - Collapse Version
   style: 'background-color: #f8b526; color: #070707'
   template: open_collapse_by_eggy/open.html
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
@@ -25,9 +35,19 @@
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/5662687.-freebie-scale
-  name: Scale
+  name: Character - Scale
   style: 'background-color: #f8b526; color: #070707'
   template: scale_by_eggy/scale.html
+- author: <i class="fas fa-skull user-name-icon"></i>Eggy
+  author_link: https://toyhou.se/Eggy
+  config: user_space_by_eggy/config.json
+  css: user_space_by_eggy/userspace.css
+  description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
+  link: https://toyhou.se/2493596.-freebie-user-space
+  name: User - User Space
+  style: 'background-color: #f8b526; color: #070707'
+  template: user_space_by_eggy/userspace.html
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
   config: z_basic/config.json
