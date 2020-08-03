@@ -307,14 +307,16 @@
                     {{/character.humour.length}}
                 </div>
 
-                {{#trivias}}
+                {{#trivias.length}}
                 <div class="col-md-7 mb-4">
                     <h1 class="text-primary mb-2" style="letter-spacing: 1px; font-weight: 300;">
                         <i class="fas fa-list fa-fw"></i> Trivia</h1>
 
+                    {{#trivias}}
                     <p class="mb-2"><i class="fal fa-thumbtack fa-fw mr-1"></i>{{{.}}}</p>
+                    {{/trivias}}
                 </div>
-                {{/trivias}}
+                {{/trivias.length}}
 
                 {{#relationships.length}}
                 <div class="col-12">

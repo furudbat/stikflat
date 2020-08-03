@@ -55,7 +55,7 @@
   description: Simple Basic Character Profile Layout with Tabs
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/basic
-  name: Simple Character Profile
+  name: Charaacter - Simple
   style: 'background-color: #1a4a6e; color: #f7fd95'
   template: z_basic/template.html
 - author: furudbat
@@ -65,7 +65,7 @@
   description: Simple Basic Character Profile Layout with Tabs
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/basic_with_tabs
-  name: Simple Character Profile with Tabs
+  name: Character - Simple with Tabs
   style: 'background-color: #1a4a6e; color: #f7fd95'
   template: z_basic_with_tabs/template.html
 - author: furudbat
@@ -75,6 +75,6 @@
   description: Minimal Card Character Profile Layout
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/simple_card
-  name: Minimal Card
+  name: Character - Minimal Card
   style: 'background-color: #1a4a6e; color: #f7fd95'
   template: z_simple_card/template.html
