@@ -1,0 +1,7 @@
+  name: 'Test'
+  description: 'Simple Test'
+  style: 'background-color: #1a4a6e; color: #f7fd95'
+  author: 'furudbat'
+  author_link: 'https://toyhou.se/FurudBat'
+  license: 'Free to use and modify'
+  link: 'https://github.com/furudbat/thhg/tree/master/templates/z_test'

@@ -1,5 +1,5 @@
 <div class="row">
-    <div col="col-4">
+    <div class="col-4">
         <div class="card">
             <img src="{{{images.avatar}}}" class="rounded-circle mx-auto d-block" alt="Avatar">
             <div class="card-body">
@@ -7,7 +7,7 @@
                 <p class="card-text">{{{description}}}</p>
             </div>
             <div class="card-body">
-                <div class="row">
+                <div class="row mr-1">
                     {{#links.twitter}}
                     <div class="col-2">
                         <a href="{{{links.twitter}}}" class="card-link" target="_blank">
@@ -59,27 +59,27 @@
             </div>
         </div>
     </div>
-    <div col="col-8">
+    <div class="col-8">
         <div class="row no-gutters mt-2 ml-4">
             <div class="col-12">
                 <div class="row">
-                    <div col="col-12">{{name}}</div>
+                    <div class="col-12">{{name}}</div>
                 </div>
                 <hr/>
                 <div class="row">
-                    <div col="col-12">{{gender}}</div>
+                    <div class="col-12">{{gender}}</div>
                 </div>
                 <hr/>
                 <div class="row">
-                    <div col="col-12">{{age}}</div>
+                    <div class="col-12">{{age}}</div>
                 </div>
                 <hr/>
+                <div class="row">
+                    <div class="col-12">
+                        {{{bio}}}
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div col="col-12">
-            {{bio}}
         </div>
     </div>
 </div>

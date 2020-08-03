@@ -38,3 +38,4 @@ misc:
   clear_template_storage_help: "Delete all Settings and Editor-Inputs from local storage."
   clear_saved_configs_storage_btn: Clear Saved Configs
   clear_saved_configs_storage_help: "Delete all Settings and Editor-Inputs from local storage."
+footer: "I'm not affiliated with Toyhou.se, this site is free to use and makes no profit."

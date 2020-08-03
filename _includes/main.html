@@ -7,6 +7,7 @@
         <div class="col-12 mt-2">
             {%- assign templates_url = 'templates/' | absolute_url -%}
             {%- for template in site.data.templates -%}
+            {%- unless template.disabled -%}
             <button type="button" class="mr-1 mt-1 mb-2 btn layout-pattern" style="{{ template.style }}"
                 data-name="{{ template.name | escape }}" data-author="{{ template.author | escape }}"
                 data-author-link="{{ template.author_link }}"
@@ -17,6 +18,7 @@
                 data-description="{{ template.description | escape }}">
                 {{ template.name | escape }} <span class="badge badge-light">{{ template.author }}</span>
             </button>
+            {%- endunless -%}
             {%- endfor -%}
         </div>
     </div>
