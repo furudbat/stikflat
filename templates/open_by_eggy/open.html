@@ -179,6 +179,21 @@
         </div>
         {{/personality.dislikes.length}}
 
+        {{#hobbies.length}}
+        <div class="col-md-6 pl-md-1 mb-3">
+            <div class="card card-block pb-1 border-0">
+                <h1 class="text-primary" style="letter-spacing:1px; font-weight:300;">
+                    <i class="fas fa-check fa-fw"></i> Hobbies
+                </h1>
+                <ul>
+                    {{#hobbies}}
+                    <li>{{{.}}}</li>
+                    {{/hobbies}}
+                </ul>
+            </div>
+        </div>
+        {{/hobbies.length}}
+
         {{#bio}}
         <div class="col-12 mb-3">
             <div class="card card-block border-0">
@@ -213,8 +228,21 @@
             </div>
         </div>
         {{/relationships.length}}
+        
+        {{#gallery.length}}
+        <div class="col-12">
+            <div>
+                <hr class="w-75 mb-4 mt-2">
+            </div>
+            <div class="row no-gutters modal-open" style="border-radius: 1em;">
+                <div class="col-md-3 col-6">
+                    <div style="background-image: url({{{.}}}); background-size: cover; background-position:center; height:200px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/gallery.length}}
     </div>
-
 </div>
 
 <div class="container-fluid px-0 mt-t" style="max-width: 1200px;">

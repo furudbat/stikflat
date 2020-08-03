@@ -5,7 +5,7 @@
     "pronounce": "content",
     "gender": "content",
     "dob": "content",
-    "sign": "content",
+    "demeanor": "content",
     "species": "(or species)",
     "height": "content",
     "build": "content",
@@ -27,6 +27,49 @@
     "hobbies": [
         "content",
         "content"
+    ],
+    "character": {
+        "charisma": [
+            "star",
+            "star",
+            "star",
+            "star",
+            "star"
+        ],
+        "kindness": [
+            "star",
+            "star",
+            "star",
+            "star",
+            "star-half"
+        ],
+        "intellect": [
+            "star",
+            "star",
+            "star-half"
+        ],
+        "honesty": [
+            "star",
+            "star",
+            "star"
+        ],
+        "courage": [
+            "star",
+            "star-half"
+        ],
+        "humour": [
+            "star",
+            "star",
+            "star",
+            "star"
+        ]
+    },
+    "trivias": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Suspendisse a felis molestie, porttitor est eget, euismod mauris.",
+        "Integer fermentum est vitae dui pretium fermentum.",
+        "Fusce quis velit vel sem pellentesque iaculis congue non lorem.",
+        "Aliquam vulputate lacus consequat, volutpat ex ut, blandit lacus."
     ],
     "relationships": [
         {
