@@ -1,0 +1,81 @@
+{
+    "title": "Name here",
+    "name": "content",
+    "age": "content",
+    "gender": "content",
+    "species": "(or species)",
+    "height": "content",
+    "build": "content",
+    "role": "what they do",
+    "demeanor": "content",
+    "mbti": "content",
+    "theme": "link a song",
+    "theme_link": "SONG LINK",
+    "quote": "Write a quote here....",
+    "description": "adjective &#8226 adjective &#8226 adjective",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.",
+    "character": {
+        "charisma": [
+            "star",
+            "star",
+            "star",
+            "star",
+            "star"
+        ],
+        "kindness": [
+            "star",
+            "star",
+            "star",
+            "star",
+            "star-half"
+        ],
+        "integrity": [
+            "star",
+            "star",
+            "star"
+        ],
+        "confidence": [
+            "star",
+            "star-half"
+        ],
+        "temper": [
+            "star",
+            "star",
+            "star",
+            "star"
+        ],
+        "intellect": [
+            "star",
+            "star",
+            "star-half"
+        ]
+    },
+    "personality": "You can write a small personality summary here, or just leave it at stats only.",
+    "notes": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Suspendisse a felis molestie, porttitor est eget, euismod mauris.",
+        "Integer fermentum est vitae dui pretium fermentum.",
+        "Fusce quis velit vel sem pellentesque iaculis congue non lorem.",
+        "Aliquam vulputate lacus consequat, volutpat ex ut, blandit lacus."
+    ],
+    "relationships": [
+        {
+            "img": "https://via.placeholder.com/250",
+            "character_name": "Character",
+            "character_link": "#LINK",
+            "status": "[ relationship ]",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        },
+        {
+            "img": "https://via.placeholder.com/250",
+            "character_name": "Character 2",
+            "character_link": "#LINK",
+            "status": "[ relationship ]",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        }
+    ],
+
+    "images": {
+        "avatar": "https://via.placeholder.com/550x700"
+    }
+}

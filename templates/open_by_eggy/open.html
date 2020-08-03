@@ -1,0 +1,233 @@
+<div class="container-fluid px-0" style="max-width: 1200px;">
+    <div class="row no-gutters">
+        <div class="col-md-4 push-md-8 pl-md-1 mb-3">
+            <div class="card h-100 p-1 modal-open">
+
+                <!---- focal image -- focus will be in the top center -- will scale and crop with screen -->
+                <div style="background-image:url({{{images.avatar}}});
+                background-size:cover; background-position:top-center; min-height:400px;"
+                    class="card-block rounded d-flex h-100 focalImg">
+                    <div class="card border-0 p-md-3 p-2 mb-2 mx-1 mt-auto" style="filter:opacity(80%);">
+                        {{#quote}}
+                        <p class="text-center small" style="letter-spacing:1px;">
+                            "{{{quote}}}"</p>
+                        {{/quote}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 pull-md-4 pr-md-1 mb-3">
+            <div class="card border-0 card-block">
+                <h1 class="text-center display-4">
+                    <i class="fas fa-crown fa-fw"></i>
+                </h1>
+
+                <h1 class="text-primary text-center display-4" style="letter-spacing: 1.5px;">
+                    {{title}}</h1>
+
+                {{#description}}
+                <h2 class="text-center text-uppercase small mb-4" style="font-weight: 300px; letter-spacing:1px;">
+                    {{{description}}}</h2>
+                {{/description}}
+
+                <div class="row">
+                    <div class="col-md-6 mb-1">
+                        <div class="d-flex justify-content-between p-2 one">
+                            <span class="text-uppercase text-muted">Name</span> content
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-1">
+                        <div class="d-flex justify-content-between p-2 two">
+                            <span class="text-uppercase text-muted">Called</span> content
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-1">
+                        <div class="d-flex justify-content-between p-2 three">
+                            <span class="text-uppercase text-muted">Gender</span> content
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-1">
+                        <div class="d-flex justify-content-between p-2 four">
+                            <span class="text-uppercase text-muted">Age</span> content
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-1">
+                        <div class="d-flex justify-content-between p-2 one">
+                            <span class="text-uppercase text-muted">DoB</span> content
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-1">
+                        <div class="d-flex justify-content-between p-2 two">
+                            <span class="text-uppercase text-muted">Sign</span> content
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-1">
+                        <div class="d-flex justify-content-between p-2 three">
+                            <span class="text-uppercase text-muted">Height</span> content
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-1">
+                        <div class="d-flex justify-content-between p-2 four">
+                            <span class="text-uppercase text-muted">Build</span> content
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-1">
+                        <div class="d-flex justify-content-between p-2 one">
+                            <span class="text-uppercase text-muted">Race</span> (or species)
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-1">
+                        <div class="d-flex justify-content-between p-2 two">
+                            <span class="text-uppercase text-muted">Role</span> what they do
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-1">
+                        <div class="d-flex justify-content-between p-2 three">
+                            <span class="text-uppercase text-muted">MBTI</span> content
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-1">
+                        <div class="d-flex justify-content-between p-2 four">
+                            <span class="text-uppercase text-muted">Theme</span> <a href="{{{theme_link}}}"
+                                target="_BLANK">{{{theme}}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row no-gutters mt-2 p-1 bg-faded modal-open" style="height:25px;">
+                    <div style="background-color: #68393B;" class="col h-100">
+                    </div>
+                    <div style="background-color: #D78E7D;" class="col h-100">
+                    </div>
+                    <div style="background-color: #745341;" class="col h-100">
+                    </div>
+                    <div style="background-color: #E9D1C7;" class="col h-100">
+                    </div>
+                    <div style="background-color: #865366;" class="col h-100">
+                    </div>
+                    <div style="background-color: #512B37;" class="col h-100">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row no-gutters">
+        <div class="col-md-6 pr-md-1 mb-3">
+            <div class="card card-block pb-1 border-0">
+                <h1 class="text-primary" style="letter-spacing:1px; font-weight:300;">
+                    <i class="fas fa-heart fa-fw"></i> Likes
+                </h1>
+                <ul>
+                    <li>content</li>
+                    <li>content</li>
+                    <li>content</li>
+                    <li>content</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 pl-md-1 mb-3">
+            <div class="card card-block pb-1 border-0">
+                <h1 class="text-primary" style="letter-spacing:1px; font-weight:300;">
+                    <i class="fas fa-ban fa-fw"></i> Dislikes
+                </h1>
+                <ul>
+                    <li>content</li>
+                    <li>content</li>
+                    <li>content</li>
+                    <li>content</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-12 mb-3">
+            <div class="card card-block border-0">
+                <h1 class="display-4 text-center text-primary">About</h1>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a felis molestie, porttitor est
+                    eget, euismod mauris. Integer fermentum est vitae dui pretium fermentum. Fusce quis velit vel sem
+                    pellentesque iaculis congue non lorem. Aliquam vulputate lacus consequat, volutpat ex ut, blandit
+                    lacus. Sed egestas risus ut gravida blandit. In vitae nisi eu mi suscipit semper in eget justo. Sed
+                    feugiat dictum posuere. Suspendisse et accumsan leo. Phasellus mollis placerat libero, non euismod
+                    diam sodales eget. Pellentesque commodo, dolor nec tempor maximus, risus risus lobortis eros, vitae
+                    mollis felis odio vel nulla. Etiam sed libero laoreet ipsum lacinia sagittis eu non lectus. Fusce
+                    sit amet lectus nec massa auctor aliquam et molestie metus. Sed at est in ante egestas iaculis.
+                    Nullam varius gravida ligula nec malesuada.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a felis molestie, porttitor est
+                    eget, euismod mauris. Integer fermentum est vitae dui pretium fermentum. Fusce quis velit vel sem
+                    pellentesque iaculis congue non lorem. Aliquam vulputate lacus consequat, volutpat ex ut, blandit
+                    lacus. Sed egestas risus ut gravida blandit. In vitae nisi eu mi suscipit semper in eget justo. Sed
+                    feugiat dictum posuere. Suspendisse et accumsan leo. Phasellus mollis placerat libero, non euismod
+                    diam sodales eget. Pellentesque commodo, dolor nec tempor maximus, risus risus lobortis eros, vitae
+                    mollis felis odio vel nulla. Etiam sed libero laoreet ipsum lacinia sagittis eu non lectus. Fusce
+                    sit amet lectus nec massa auctor aliquam et molestie metus. Sed at est in ante egestas iaculis.
+                    Nullam varius gravida ligula nec malesuada.</p>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="card card-block pb-1 border-0">
+                <h1 class="text-primary" style="letter-spacing:1px; font-weight:300;">
+                    <i class="fas fa-users fa-fw"></i> Related
+                </h1>
+
+                <div class="row">
+                    <div class="col-md-4 text-center mb-2">
+                        <a href="#" target="_BLANK">
+                            <img src="IMG URL" class="d-block mx-auto mb-2 rounded-circle" style="max-height:150px;">
+                            <p style="font-weight:300; font-size: 1.25em" class="mb-0">Character Name</p>
+                        </a>
+                        <p class="mb-1 text-muted small">relationship</p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a felis molestie,
+                            porttitor est eget, euismod mauris. Integer fermentum est vitae dui pretium fermentum. Fusce
+                            quis velit vel sem pellentesque iaculis congue non lorem.
+                    </div>
+
+                    <div class="col-md-4 text-center mb-2">
+                        <a href="#" target="_BLANK">
+                            <img src="IMG URL" class="d-block mx-auto mb-2 rounded-circle" style="max-height:150px;">
+                            <p style="font-weight:300; font-size: 1.25em" class="mb-0">Character Name</p>
+                        </a>
+                        <p class="mb-1 text-muted small">relationship</p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a felis molestie,
+                            porttitor est eget, euismod mauris. Integer fermentum est vitae dui pretium fermentum. Fusce
+                            quis velit vel sem pellentesque iaculis congue non lorem.
+                    </div>
+
+                    <div class="col-md-4 text-center mb-2">
+                        <a href="#" target="_BLANK">
+                            <img src="IMG URL" class="d-block mx-auto mb-2 rounded-circle" style="max-height:150px;">
+                            <p style="font-weight:300; font-size: 1.25em" class="mb-0">Character Name</p>
+                        </a>
+                        <p class="mb-1 text-muted small">relationship</p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a felis molestie,
+                            porttitor est eget, euismod mauris. Integer fermentum est vitae dui pretium fermentum. Fusce
+                            quis velit vel sem pellentesque iaculis congue non lorem.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container-fluid px-0 mt-t" style="max-width: 1200px;">
+    <p class="text-right">
+        <a class="btn btn-primary" href="https://toyhou.se/Eggy" target="_BLANK"><i class="fas fa-code fa-fw"></i></a>
+    </p>
+</div>
