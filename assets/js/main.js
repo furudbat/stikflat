@@ -492,7 +492,7 @@
         var configButton = $('<button type="button" class="' + cssclass + '" data-index="' + index + '">' + name + '</button>');
         return configButton;
     }
-    
+
     var overrideConfig = function (configButton) {
         var index = $(configButton).data('index');
         if (index === null || index === '') {
@@ -545,7 +545,7 @@
         makeDoubleClick($('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + index + "']"), overrideConfig, previewWithConfig);
 
         //console.debug('addSavedConfigToList', index, config, configButton, $('.saved-content-list').find('.' + SAVED_CONFIG_BUTTON_CLASS).last());
-        
+
         updateSaveConfigControls();
     }
     function generateSavedConfigsFromList() {
@@ -589,7 +589,7 @@
 
         $('.' + SAVED_CONFIG_BUTTON_CLASS).each(function (i) {
             $(this).removeClass(SAVED_CONFIG_SELECTED_BUTTON_CLASS).removeClass(SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS);
-            if($(this).data('index') == index){
+            if ($(this).data('index') == index) {
                 $(this).addClass(SAVED_CONFIG_SELECTED_BUTTON_CLASS);
             } else {
                 $(this).addClass(SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS);
@@ -622,7 +622,7 @@
             var config = getCurrentSavedConfigJson();
             if (config !== null) {
                 var savedConfig = $('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + _currentConfigIndex + "']");
-                if(savedConfig) {
+                if (savedConfig) {
                     var configButton = generateButtonFromConfig(config, _currentConfigIndex);
                     savedConfig.replaceWith(configButton);
                     makeDoubleClick($('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + _currentConfigIndex + "']"), overrideConfig, previewWithConfig);
@@ -715,7 +715,7 @@
         */
         $('#collapseConfig').collapse('show');
 
-        $( ".main-template-editors-preview-container" ).resizable();
+        $('.main-template-editors-preview-container').resizable();
 
         $('#templateTabs a[href="#previewTabContent"]').on('click', function (e) {
             selectPreviewTab();
