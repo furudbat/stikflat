@@ -16,7 +16,6 @@ Options:
 """
 from docopt import docopt
 import os
-
 import yaml
 
 
