@@ -23,10 +23,21 @@ def sort_json(data):
     name = data.get('name', None)
     images = data.get('images', None)
     links = data.get('links', None)
+
+    theme = data.get('theme', None)
+    theme_link = data.get('theme_link', None)
+
     objects = {}
     arrays = {}
     others = {}
-    long_others = {}
+    others_ordered = collections.OrderedDict()
+    long_others = collections.OrderedDict()
+    newdata = collections.OrderedDict()
+
+    if theme is not None:
+        others_ordered['theme'] = theme
+    if theme_link is not None:
+        others_ordered['theme_link'] = theme_link
 
     if data.has_key('title'):
         data.pop('title')
@@ -36,8 +47,12 @@ def sort_json(data):
         data.pop('images')
     if data.has_key('links'):
         data.pop('links')
+    if data.has_key('theme'):
+        data.pop('theme')
+    if data.has_key('theme_link'):
+        data.pop('theme_link')
 
-    for key, value in data.items(): 
+    for key, value in data.items():
         if isinstance(value, dict):
             objects[key] = value
         elif isinstance(value, list):
@@ -59,29 +74,33 @@ def sort_json(data):
                 long_others[key] = value
             elif key == 'summary':
                 long_others[key] = value
+            elif key == 'trivia':
+                long_others[key] = value
             else:
                 others[key] = value
         data.pop(key)
 
-    newdata = collections.OrderedDict()
+    long_others = collections.OrderedDict(sorted(long_others.items(), key=lambda x: len(x[1])))
 
     if title is not None:
         newdata['title'] = title
     if name is not None:
         newdata['name'] = name
 
-    for key, value in others.items(): 
-        newdata[key] = value
-        
-    for key, value in long_others.items(): 
+    for key, value in others.items():
         newdata[key] = value
 
-    for key, value in objects.items(): 
+    for key, value in others_ordered.items():
         newdata[key] = value
-        
-    for key, value in arrays.items(): 
+
+    for key, value in long_others.items():
         newdata[key] = value
-        
+
+    for key, value in objects.items():
+        newdata[key] = value
+
+    for key, value in arrays.items():
+        newdata[key] = value
 
     if links is not None:
         newdata['links'] = links
@@ -109,10 +128,13 @@ def main(args):
                     with open(config_filename, 'r+') as json_file:
                         data = json.load(json_file)
                         data = sort_json(data)
-                        
+
+                        #print(json.dumps(data, indent=4, sort_keys=False))
+
                         json_file.seek(0)
-                        json_file.write(json.dumps(data, indent=4))
+                        json_file.write(json.dumps(data, indent=4, sort_keys=False))
                         json_file.truncate()
+                    print('Sorted - ' + config_filename)
 
 
 if __name__ == '__main__':
