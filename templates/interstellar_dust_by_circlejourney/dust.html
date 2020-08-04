@@ -1,0 +1,200 @@
+<!-- Interstellar Dust theme by Circlejourney. Editing is allowed. Just remember to credit me! -->
+<div
+    style="background: url({{{images.background}}}); background-size: cover; background-attachment: fixed; width: auto; padding: 32px; margin: -15px; position: relative;">
+    <div class="container bg-dark rounded d-lg-block d-flex flex-column pt-lg-0 pb-lg-3 py-3">
+        <div class="row">
+            <!-- Navigation bar start -->
+            <div class="col-12 nav nav-pills nav-fill text-uppercase p-3 flex-wrap order-1 order-lg-0">
+                <a class="nav-item btn-lg nav-link active" data-toggle="tab" href="#basics">Basics</a>
+                <a class="nav-item btn-lg nav-link" data-toggle="tab" href="#aesthetics">Aesthetics</a>
+                <a class="nav-item btn-lg btn-outline- nav-link" data-toggle="tab" href="#story">Story</a>
+                <a class="nav-item btn-lg nav-link" data-toggle="tab" href="#relationships">Relationships</a>
+                <a class="nav-item btn-lg nav-link" data-toggle="tab" href="#trivia">Trivia</a>
+            </div>
+            <!-- Navigation bar end -->
+
+            <div class="col-12 col-lg-4 order-0 order-lg-1">
+                <div class="bg-light text-dark" style="height: 70px;">
+                    <div class="text-center d-flex flex-column justify-content-center table-responsive"
+                        style="height: 100%;">
+                        <h4 class="text-dark text-uppercase font-weight-light mb-1" style=" letter-spacing: 1px;">
+                            {{name}}
+                        </h4>
+                        <div style="font-size: 10pt;">
+                            {{{description}}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-light"
+                    style="height: 335px; background: url({{{images.avatar}}}) no-repeat center; background-size: cover; background-position: top;">
+                </div>
+
+                {{#quote}}
+                <div class="bg-light text-dark text-center py-2 px-4 d-flex flex-column justify-content-center"
+                    style="height: 65px; letter-spacing: 0.5px; font-size: 12pt; line-height: 1em; overflow: hidden;">
+                    <p>{{quote}}</p>
+
+                    <i class="fas fa-quote-left" style="position: absolute; left: 22px; bottom: 25px;"></i>
+                    <i class="fas fa-quote-right" style="position: absolute; right: 22px; bottom: 25px;"></i>
+                </div>
+                {{/quote}}
+            </div>
+
+            <div class="col-12 col-lg-8 pl-lg-0 order-2 order-lg-2">
+                <div class="tab-content text-light table-responsive rounded-0 card card-outline-secondary"
+                    style="height: 470px;">
+                    <div class="tab-pane fade show active p-3" id="basics">
+                        <h2 class="display-4 text-center mb-4"><i class="fal fa-star"></i> Basics</h2>
+
+                        <div class="px-4 py-3 mb-4 text-center text-uppercase bg-faded text-muted" id="basic-info"
+                            style="font-size: 10pt;">
+                            <div class="row px-4">
+
+                                {{#name}}
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <p class="font-weight-bold text-primary mb-0">Name</p>
+                                    <p>{{name}}</p>
+                                </div>
+                                {{/name}}
+
+                                {{#aliases}}
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <p class="font-weight-bold text-primary mb-0">Called</p>
+                                    <p>{{aliases}}</p>
+                                </div>
+                                {{/aliases}}
+
+                                {{#age}}
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <p class="font-weight-bold text-primary mb-0">Age</p>
+                                    <p>{{age}}</p>
+                                </div>
+                                {{/age}}
+
+                                {{#pronouns}}
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <p class="font-weight-bold text-primary mb-0">Pronouns</p>
+                                    <p>{{pronouns}}</p>
+                                </div>
+                                {{/pronouns}}
+                            </div>
+                            <br>
+                            <div class="row px-4">
+                                {{#species}}
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <p class="font-weight-bold text-primary mb-0">Species</p>
+                                    <p>{{species}}</p>
+                                </div>
+                                {{/species}}
+
+                                {{#occupation}}
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <p class="font-weight-bold text-primary mb-0">Occupation</p>
+                                    <p>{{occupation}}</p>
+                                </div>
+                                {{/occupation}}
+
+                                {{#height}}
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <p class="font-weight-bold text-primary mb-0">Height</p>
+                                    <p>{{height}}</p>
+                                </div>
+                                {{/height}}
+
+                                {{#location}}
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <p class="font-weight-bold text-primary mb-0">Lives in</p>
+                                    <p>{{location}}</p>
+                                </div>
+                                {{/location}}
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <p>{{{summery}}}</p>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade p-3" id="story">
+                        <h2 class="display-4 text-center mb-4"><i class="fal fa-meteor"></i> Story</h2>
+                        <p>{{{bio}}}</p>
+                    </div>
+
+                    <div class="tab-pane fade p-3" id="relationships">
+                        <h2 class="display-4 text-center mb-4"><i class="fal fa-eclipse"></i> Relationships</h2>
+                        {{#relationships}}
+                        <div class="card-group d-flex mb-2 text-muted">
+                            <div class="card" style="flex-grow: 1; overflow: hidden">
+                                <img src="{{{img}}}">
+                            </div>
+                            <div class="card" style="flex-grow: 3;">
+                                <div class="card-header text-uppercase text-center text-muted">{{character_name}}</div>
+                                <div class="card-block">
+                                    <p>{{{summary}}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {{/relationships}}
+                    </div>
+
+                    <div class="tab-pane fade p-3" id="aesthetics">
+                        <h2 class="display-4 text-center mb-4"><i class="fal fa-stars"></i> Aesthetics</h2>
+                        {{#themes.length}}
+                        <h3 class="text-primary text-center mb-4">Theme
+                            {{#themes}}
+                            <a class="btn btn-primary" target="_blank" href="{{{theme_link}}}">{{theme}}</a>
+                            {{/themes}}
+                        </h3>
+                        {{/themes.length}}
+
+                        {{#moodboard.length}}
+                        <div class="row no-gutters text-center">
+                            {{#moodboard}}
+                            <div class="col-lg-3 col-md-6 col-12">
+                                <img src="{{{.}}}">
+                            </div>
+                            {{/moodboard}}
+                        </div>
+                        {{/moodboard.length}}
+                    </div>
+                    <div class="tab-pane fade fade p-3" id="trivia">
+                        <h2 class="display-4 text-center mb-4"><i class="fal fa-moon-stars"></i> Trivia</h2>
+                        <div class="row px-4 justify-content-center">
+                            {{#likes.length}}
+                            <div class="col-6">
+                                <h5 class="text-uppercase text-primary">Likes</h5>
+                                <ul>
+                                    {{#likes}}
+                                    <li>{{{.}}}</li>
+                                    {{/likes}}
+                                </ul>
+                            </div>
+                            {{/likes.length}}
+
+                            {{#dislikes.length}}
+                            <div class="col-6">
+                                <h5 class="text-uppercase text-primary">Dislikes</h5>
+                                <ul>
+                                    {{#dislikes}}
+                                    <li>{{{.}}}</li>
+                                    {{/dislikes}}
+                                </ul>
+                            </div>
+                            {{/dislikes.length}}
+                        </div>
+
+                        <hr>
+
+                        <p>{{{trivia}}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="credit" style="font-size: 10pt; position: absolute; bottom: 5px; right: 5px;">
+        <a href="https://toyhou.se/~forums/16.htmlcss-graphics/75580.circlejourney-s-code-creations-free-">Theme by
+            Circlejourney</a>
+        <!-- Do not remove credit info! -->
+    </div>
+</div>
