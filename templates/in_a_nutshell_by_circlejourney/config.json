@@ -1,0 +1,39 @@
+{
+    "name": "Name",
+    "age": "Age",
+    "pronouns": "Pronouns",
+    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque.",
+    "projects": [
+        {
+            "name": "Project 1",
+            "link": "LINK",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque."
+        },
+        {
+            "name": "Project 2",
+            "link": "LINK",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque."
+        },
+        {
+            "name": "Project 3",
+            "link": "LINK",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque."
+        }
+    ],
+    "notes": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    ],
+    "links": {
+        "deviantart": "https://www.deviantart.com/",
+        "instagram": "https://www.instagram.com/",
+        "twitter": "https://www.twitter.com/",
+        "tumblr": "https://www.tumblr.com/",
+        "discord": "Blabla#1234"
+    },
+    "images": {
+        "avatar": "https://via.placeholder.com/200x200",
+        "header": "https://via.placeholder.com/1000x250"
+    }
+}

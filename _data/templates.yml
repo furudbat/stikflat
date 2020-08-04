@@ -24,6 +24,20 @@
   name: Character - Interstellar Dust
   style: 'background-color: #eee; color: #333'
   template: interstellar_dust_by_circlejourney/dust.html
+- author: Circlejourney
+  author_link: https://toyhou.se/circlejourney
+  config: in_a_nutshell_by_circlejourney/config.json
+  css: in_a_nutshell_by_circlejourney/nutshell.css
+  description: Originally a custom for Historia. This user profile theme displays
+    a lot of text in a digestible way. It includes a space for a banner, a user icon,
+    social media, notes and a list of projects. Mobile responsive, organises profile
+    into main area and sidebar.
+  license: 100% free to use. You're allowed to edit them and frankenstein them with
+    other code. Please don't remove credit, that is all I ask.
+  link: https://toyhou.se/6351798.in-a-nutshell
+  name: User - In A Nutshell
+  style: 'background-color: #eee; color: #333'
+  template: in_a_nutshell_by_circlejourney/nutshell.html
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
   config: lil_bit_by_eggy/config.json
@@ -121,9 +135,9 @@
   author_link: https://toyhou.se/FurudBat
   config: z_test/config.json
   css: z_test/test.css
-  description: Test Preiview with Rich Config
+  description: Test Preview with Rich Config
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/z_test
-  name: Full Config
+  name: Character - Full Config
   style: 'background-color: #2a5a7e; color: #f7fd95'
   template: z_test/test.html
