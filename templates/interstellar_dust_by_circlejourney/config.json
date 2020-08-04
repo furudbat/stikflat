@@ -1,17 +1,27 @@
 {
     "name": "My name", 
+    "pronouns": "My Pronouns", 
     "age": "My Age", 
     "height": "My Height", 
-    "location": "My location", 
-    "pronouns": "My Pronouns", 
-    "aliases": "My nicknames", 
     "species": "My Species", 
+    "aliases": "My nicknames", 
+    "location": "My location", 
     "occupation": "My Occupation", 
     "description": "trait 1 \u22c6 trait 2 \u22c6 trait 3", 
     "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
     "trivia": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
     "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
+    "likes": [
+        "Like 1", 
+        "Like 2", 
+        "Like 3"
+    ], 
+    "dislikes": [
+        "Dislike 1", 
+        "Dislike 2", 
+        "Dislike 3"
+    ], 
     "relationships": [
         {
             "character_name": "Character", 
@@ -39,16 +49,6 @@
         "https://via.placeholder.com/300x200", 
         "https://via.placeholder.com/300x200", 
         "https://via.placeholder.com/300x200"
-    ], 
-    "dislikes": [
-        "Dislike 1", 
-        "Dislike 2", 
-        "Dislike 3"
-    ], 
-    "likes": [
-        "Like 1", 
-        "Like 2", 
-        "Like 3"
     ], 
     "images": {
         "avatar": "https://via.placeholder.com/250x250", 

@@ -1,16 +1,16 @@
 {
     "title": "Name here", 
     "name": "content", 
-    "dob": "content", 
     "gender": "content", 
     "age": "content", 
-    "pronounce": "content", 
     "height": "content", 
-    "demeanor": "content", 
-    "role": "what they do", 
     "build": "content", 
-    "mbti": "content", 
     "species": "(or species)", 
+    "dob": "content", 
+    "demeanor": "content", 
+    "mbti": "content", 
+    "role": "what they do", 
+    "pronounce": "content", 
     "theme": "link a song", 
     "theme_link": "SONG LINK", 
     "quote": "Write a quote here....", 
@@ -51,6 +51,18 @@
             "star-half"
         ]
     }, 
+    "likes": [
+        "content", 
+        "content"
+    ], 
+    "dislikes": [
+        "content", 
+        "content"
+    ], 
+    "hobbies": [
+        "content", 
+        "content"
+    ], 
     "relationships": [
         {
             "status": "[ relationship ]", 
@@ -80,18 +92,6 @@
         "Integer fermentum est vitae dui pretium fermentum.", 
         "Fusce quis velit vel sem pellentesque iaculis congue non lorem.", 
         "Aliquam vulputate lacus consequat, volutpat ex ut, blandit lacus."
-    ], 
-    "dislikes": [
-        "content", 
-        "content"
-    ], 
-    "likes": [
-        "content", 
-        "content"
-    ], 
-    "hobbies": [
-        "content", 
-        "content"
     ], 
     "moodboard": [
         "https://via.placeholder.com/300x200", 
