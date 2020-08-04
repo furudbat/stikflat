@@ -14,23 +14,21 @@
         "fluffy Tail",
         "white fur"
     ],
-    "personality": {
-        "personality": "INFP (introversion, intuition, feeling, perception)",
-        "pros": [
-            "shy",
-            "optimist"
-        ],
-        "cons": [
-            "lazy"
-        ],
-        "likes": [
-            "bones",
-            "food"
-        ],
-        "dislikes": [
-            "cars"
-        ]
-    },
+    "personality": "INFP (introversion, intuition, feeling, perception)",
+    "pros": [
+        "shy",
+        "optimist"
+    ],
+    "cons": [
+        "lazy"
+    ],
+    "likes": [
+        "bones",
+        "food"
+    ],
+    "dislikes": [
+        "cars"
+    ],
     "links": {
         "twitter": "https://www.twitter.com/",
         "facebook": "https://www.facebook.com/",

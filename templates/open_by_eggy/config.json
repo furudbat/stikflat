@@ -14,16 +14,14 @@
     "theme": "link a song",
     "theme_link": "SONG LINK",
     "quote": "Write a quote here....",
-    "personality": {
-        "likes": [
-            "content",
-            "content"
-        ],
-        "dislikes": [
-            "content",
-            "content"
-        ]
-    },
+    "likes": [
+        "content",
+        "content"
+    ],
+    "dislikes": [
+        "content",
+        "content"
+    ],
     "hobbies": [
         "content",
         "content"
@@ -51,7 +49,7 @@
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
         }
     ],    
-    "gallery": [
+    "moodboard": [
         "https://via.placeholder.com/300x200",
         "https://via.placeholder.com/300x200",
         "https://via.placeholder.com/300x200",

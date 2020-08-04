@@ -78,43 +78,43 @@
             </div>
             <div class="tab-pane fade m-3" id="my-personality" role="tabpanel" aria-labelledby="marks-personality">
                 <div class="profile-content-content user-content fr-view">
-                    <p><strong>{{ personality.personality }}</strong></p>
-                    {{#personality.pros.length}}
+                    <p><strong>{{ personality }}</strong></p>
+                    {{#pros.length}}
                         <h5>Pros</h5>
                         <ul class="personality-pros">
-                            {{#personality.pros}}
+                            {{#pros}}
                                 <li>{{{.}}}</li>
-                            {{/personality.pros}}
+                            {{/pros}}
                         </ul>
-                    {{/personality.pros.length}}
+                    {{/pros.length}}
                     
-                    {{#personality.cons.length}}
+                    {{#cons.length}}
                         <h5 class="mt-1">Cons</h5>
                         <ul class="personality-cons">
-                            {{#personality.cons}}
+                            {{#cons}}
                                 <li>{{{.}}}</li>
-                            {{/personality.cons}}
+                            {{/cons}}
                         </ul>
-                    {{/personality.cons.length}}
+                    {{/cons.length}}
 
-                    {{#personality.likes.length}}
+                    {{#likes.length}}
                         <h5>Likes</h5>
                         <ul class="personality-likes">
-                            {{#personality.likes}}
+                            {{#likes}}
                                 <li><i class="fas fa-heart"></i><span class="mx-1">{{{.}}}</span></li>
-                            {{/personality.likes}}
+                            {{/likes}}
                         </ul>
-                    {{/personality.likes.length}}
+                    {{/likes.length}}
 
                     
-                    {{#personality.dislikes.length}}
+                    {{#dislikes.length}}
                         <h5 class="mt-1">Dislikes</h5>
                         <ul class="personality-dislikes">
-                            {{#personality.dislikes}}
+                            {{#dislikes}}
                                 <li><i class="fas fa-heart-broken"></i><span class="mx-1">{{{.}}}</span></li>
-                            {{/personality.dislikes}}
+                            {{/dislikes}}
                         </ul>
-                    {{/personality.dislikes.length}}
+                    {{/dislikes.length}}
                 </div>
             </div>
             <div class="tab-pane fade" id="my-bio" role="tabpanel" aria-labelledby="bio-tab">

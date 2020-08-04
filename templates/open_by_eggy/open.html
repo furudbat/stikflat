@@ -149,35 +149,35 @@
     </div>
 
     <div class="row no-gutters">
-        {{#personality.likes.length}}
+        {{#likes.length}}
         <div class="col-md-4 pr-md-1 mb-3">
             <div class="card card-block pb-1 border-0">
                 <h1 class="text-primary" style="letter-spacing:1px; font-weight:300;">
                     <i class="fas fa-heart fa-fw"></i> Likes
                 </h1>
                 <ul>
-                    {{#personality.likes}}
+                    {{#likes}}
                     <li>{{{.}}}</li>
-                    {{/personality.likes}}
+                    {{/likes}}
                 </ul>
             </div>
         </div>
-        {{/personality.likes.length}}
+        {{/likes.length}}
 
-        {{#personality.dislikes.length}}
+        {{#dislikes.length}}
         <div class="col-md-4 pl-md-1 mb-3">
             <div class="card card-block pb-1 border-0">
                 <h1 class="text-primary" style="letter-spacing:1px; font-weight:300;">
                     <i class="fas fa-ban fa-fw"></i> Dislikes
                 </h1>
                 <ul>
-                    {{#personality.dislikes}}
+                    {{#dislikes}}
                     <li>{{{.}}}</li>
-                    {{/personality.dislikes}}
+                    {{/dislikes}}
                 </ul>
             </div>
         </div>
-        {{/personality.dislikes.length}}
+        {{/dislikes.length}}
 
         {{#hobbies.length}}
         <div class="col-md-4 pl-md-1 mb-3">
@@ -229,19 +229,21 @@
         </div>
         {{/relationships.length}}
         
-        {{#gallery.length}}
+        {{#moodboard.length}}
         <div class="col-12">
             <div>
                 <hr class="w-75 mb-4 mt-2">
             </div>
             <div class="row no-gutters modal-open" style="border-radius: 1em;">
+                {{#moodboard}}
                 <div class="col-md-3 col-6">
                     <div style="background-image: url({{{.}}}); background-size: cover; background-position:center; height:200px;">
                     </div>
                 </div>
+                {{/moodboard}}
             </div>
         </div>
-        {{/gallery.length}}
+        {{/moodboard.length}}
     </div>
 </div>
 

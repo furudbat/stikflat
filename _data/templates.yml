@@ -1,3 +1,16 @@
+- author: Circlejourney
+  author_link: https://toyhou.se/circlejourney
+  config: identity_by_circlejourney/config.json
+  css: identity_by_circlejourney/identity.css
+  description: A character profile theme inspired by identification cards. Mobile
+    responsive and interactive (flip the card!), with a space for a signature (if
+    you like) and background graphic.
+  license: 100% free to use. You're allowed to edit them and frankenstein them with
+    other code. Please don't remove credit, that is all I ask.
+  link: https://toyhou.se/3921250.identity
+  name: Character - Identity
+  style: 'background-color: #eee; color: #333'
+  template: identity_by_circlejourney/identity.html
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
   config: lil_bit_by_eggy/config.json
@@ -38,6 +51,19 @@
   name: Character - Scale
   style: 'background-color: #f8b526; color: #070707'
   template: scale_by_eggy/scale.html
+- author: Circlejourney
+  author_link: https://toyhou.se/circlejourney
+  config: super_special_double_deluxe_by_circlejourney/config.json
+  css: super_special_double_deluxe_by_circlejourney/ssdd.css
+  description: A custom for reinapepiada, this theme is designed to contain lots and
+    lots of text in multiple sections, and has slots for quote, stats, music themes,
+    and a moodboard.
+  license: 100% free to use. You're allowed to edit them and frankenstein them with
+    other code. Please don't remove credit, that is all I ask.
+  link: https://toyhou.se/6388687.super-special-double-deluxe
+  name: Character - Super Special Double Deluxe
+  style: 'background-color: #eee; color: #333'
+  template: super_special_double_deluxe_by_circlejourney/ssdd.html
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
   config: user_space_by_eggy/config.json
@@ -55,7 +81,7 @@
   description: Simple Basic Character Profile Layout with Tabs
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/basic
-  name: Charaacter - Simple
+  name: Character - Simple
   style: 'background-color: #1a4a6e; color: #f7fd95'
   template: z_basic/template.html
 - author: furudbat
@@ -64,7 +90,7 @@
   css: z_basic_with_tabs/template.css
   description: Simple Basic Character Profile Layout with Tabs
   license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates/basic_with_tabs
+  link: https://github.com/furudbat/thhg/tree/master/templates/z_basic_with_tabs
   name: Character - Simple with Tabs
   style: 'background-color: #1a4a6e; color: #f7fd95'
   template: z_basic_with_tabs/template.html
@@ -74,7 +100,17 @@
   css: z_simple_card/template.css
   description: Minimal Card Character Profile Layout
   license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates/simple_card
+  link: https://github.com/furudbat/thhg/tree/master/templates/z_simple_card
   name: Character - Minimal Card
   style: 'background-color: #1a4a6e; color: #f7fd95'
   template: z_simple_card/template.html
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: z_test/config.json
+  css: z_test/test.css
+  description: Test Preiview with Rich Config
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates/z_test
+  name: Full Config
+  style: 'background-color: #2a5a7e; color: #f7fd95'
+  template: z_test/test.html

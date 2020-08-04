@@ -152,20 +152,20 @@
                                 </div>
                             </div>
 
-                            {{#personality.likes.length}}
+                            {{#likes.length}}
                             <div class="col-md-6 mb-1">
                                 <div class="d-flex justify-content-between py-2 pr-md-2">
                                     <div class="text-uppercase text-muted">Likes</div>
                                     <div class="text-right">
-                                        {{#personality.likes}}
+                                        {{#likes}}
                                         {{{.}}}<br />
-                                        {{/personality.likes}}
+                                        {{/likes}}
                                     </div>
                                 </div>
                             </div>
-                            {{/personality.likes.length}}
+                            {{/likes.length}}
 
-                            {{#personality.dislikes.length}}
+                            {{#dislikes.length}}
                             <div class="col-md-6 mb-1">
                                 <div class="d-flex justify-content-between py-2 pl-md-2">
                                     <div class="text-uppercase text-muted">Dislikes</div>
@@ -176,7 +176,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{/personality.dislikes.length}}
+                            {{/dislikes.length}}
                         </div>
 
                         <div class="row no-gutters mt-2 modal-open" style="height:25px; border-radius: 1em;">
@@ -341,7 +341,7 @@
                 </div>
                 {{/relationships.length}}
 
-                {{#gallery.length}}
+                {{#moodboard.length}}
                 <div class="col-12">
                     <div>
                         <hr class="w-75 mb-4 mt-2">
@@ -353,7 +353,7 @@
                         </div>
                     </div>
                 </div>
-                {{/gallery.length}}
+                {{/moodboard.length}}
 
             </div>
         </div>
