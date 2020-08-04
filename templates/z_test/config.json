@@ -1,44 +1,44 @@
 {
-    "title": "Test Title",
-    "name": "Name Here",
-    "sex": "Male",
-    "species": "Dog",
-    "gender": "Cisgender",
-    "age": "24 y/o",
-    "weight": "58 kg (128 Ibs)",
-    "height": "1.82 m (6 ft.)",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "marks": [
-        "black spots",
-        "black nose",
-        "fluffy Tail",
-        "white fur"
-    ],
-    "personality": "INFP (introversion, intuition, feeling, perception)",
+    "title": "Test Title", 
+    "name": "Name Here", 
+    "weight": "58 kg (128 Ibs)", 
+    "gender": "Cisgender", 
+    "age": "24 y/o", 
+    "sex": "Male", 
+    "height": "1.82 m (6 ft.)", 
+    "species": "Dog", 
+    "personality": "INFP (introversion, intuition, feeling, perception)", 
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
     "pros": [
-        "shy",
+        "shy", 
         "optimist"
-    ],
+    ], 
     "cons": [
         "lazy"
-    ],
-    "likes": [
-        "bones",
-        "food"
-    ],
+    ], 
     "dislikes": [
         "cars"
-    ],
+    ], 
+    "likes": [
+        "bones", 
+        "food"
+    ], 
+    "marks": [
+        "black spots", 
+        "black nose", 
+        "fluffy Tail", 
+        "white fur"
+    ], 
     "links": {
-        "twitter": "https://www.twitter.com/",
-        "facebook": "https://www.facebook.com/",
-        "instagram": "https://www.instagram.com/",
-        "deviantart": "https://www.deviantart.com/",
-        "youtube": "https://www.youtube.com/",
-        "furaffinity": "https://furaffinity.net/"
-    },
+        "instagram": "https://www.instagram.com/", 
+        "twitter": "https://www.twitter.com/", 
+        "youtube": "https://www.youtube.com/", 
+        "facebook": "https://www.facebook.com/", 
+        "furaffinity": "https://furaffinity.net/", 
+        "deviantart": "https://www.deviantart.com/"
+    }, 
     "images": {
         "avatar": "https://via.placeholder.com/150"
-    },
-    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus."
+    }
 }

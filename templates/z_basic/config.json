@@ -1,10 +1,10 @@
 {
-    "title": "Max the Doggo",
-    "name": "Max",
-    "sex": "Male",
-    "species": "Dog",
-    "weight": "58 kg (128 Ibs)",
-    "height": "1.82 m (6 ft.)",
+    "title": "Max the Doggo", 
+    "name": "Max", 
+    "sex": "Male", 
+    "species": "Dog", 
+    "weight": "58 kg (128 Ibs)", 
+    "height": "1.82 m (6 ft.)", 
     "images": {
         "avatar": "https://via.placeholder.com/150"
     }
