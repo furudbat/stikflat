@@ -1,0 +1,218 @@
+<!-- Super Special Double Deluxe theme created by Circlejourney for Reinapepiada. Editing is allowed. Just remember to credit me! -->
+<div class="container">
+    <div class="row mx-0 my-4" style="font-size: 10pt;">
+        <div class="col-12 col-md-4 bg-faded py-4 rounded">
+            <div class="text-center">
+                <h1 class="display-2 text-center mb-2 text-break">My Name</h1>
+                <img class="rounded-circle img-thumbnail" style="max-height: 250px;"
+                    src="{{{images.avatar}}}">
+            </div>
+            <h2 class="text-center text-muted display-4 my-4">Basics</h2>
+
+            {{#name}}
+            <div class="row">
+                <div class="col-4 text-muted">Name</div>
+                <div class="col-8 text-right">{{name}}</div>
+            </div>
+            {{/name}}
+
+            {{#aliases}}
+            <hr class="my-2">
+            <div class="row">
+                <div class="col-4 text-muted">Aliases</div>
+                <div class="col-8 text-right">{{aliases}}</div>
+            </div>
+            {{/aliases}}
+
+            {{#age}}
+            <hr class="my-2">
+            <div class="row">
+                <div class="col-4 text-muted">Age</div>
+                <div class="col-8 text-right">{{age}}</div>
+            </div>
+            {{/age}}
+
+            {{#species}}
+            <hr class="my-2">
+            <div class="row">
+                <div class="col-4 text-muted">Species</div>
+                <div class="col-8 text-right">{{species}}</div>
+            </div>
+            {{/species}}
+
+            {{#pronouns}}
+            <hr class="my-2">
+            <div class="row">
+                <div class="col-4 text-muted">Pronouns</div>
+                <div class="col-8 text-right">{{pronouns}}</div>
+            </div>
+            {{/pronouns}}
+
+            {{#residence}}
+            <hr class="my-2">
+            <div class="row">
+                <div class="col-4 text-muted">Lives in</div>
+                <div class="col-8 text-right">{{residence}}</div>
+            </div>
+            {{/residence}}
+
+            {{#birthday}}
+            <hr class="my-2">
+            <div class="row">
+                <div class="col-4 text-muted">Birthday</div>
+                <div class="col-8 text-right">{{birthday}}</div>
+            </div>
+            {{/birthday}}
+
+            {{#info}}
+            <hr class="my-2">
+            <div class="row">
+                <div class="col-4 text-muted">Info</div>
+                <div class="col-8 text-right">{{{info}}}</div>
+            </div>
+            {{/info}}
+
+            {{#stats.length}}
+            <h2 class="text-center text-muted display-4 my-4">Stats</h2>
+
+            {{#stats}}
+            <div class="row my-2">
+                <div class="col-12 col-lg-4 text-lg-right text-muted">
+                    {{name}}
+                </div>
+                <div class="col-12 col-lg-8 flex-column justify-content-center">
+                    <div class="progress">
+                        <div class="progress-bar" style="width: {{{value}}}%" role="progressbar"></div>
+                    </div>
+                </div>
+            </div>
+            {{/stats}}
+            {{/stats.length}}
+
+            {{#themes.length}}
+            <h2 class="text-center text-muted display-4 my-4">Theme</h2>
+            <p class="text-center">
+                {{#themes}}
+                <a class="btn btn-primary" href="{{{theme_link}}}" target="_blank"><i class="fa fa-music"></i> {{theme}}</a>
+                {{/themes}}
+            </p>
+            {{/themes.length}}
+        </div>
+
+        <div class="col col-md-8 pb-3">
+
+            {{#quote}}
+            <p class="font-weight-light text-muted text-right p-4" style="font-size: 18pt;">
+                <i class="fa fa-quote-left"></i>
+                {{quote}}
+
+                <i class="fa fa-quote-right"></i>
+            </p>
+            <br>
+            {{/quote}}
+
+            {{#summary}}
+            <h2 class="text-secondary">Summary</h2>
+            <hr class="my-2">
+            <div class="ml-2">
+                <p>{{{summary}}}</p>
+            </div>
+            <br>
+            {{/summary}}
+
+            {{#appearance}}
+            <h2 class="text-secondary">Appearance</h2>
+            <hr class="my-2">
+            <div class="ml-2">
+                <p>{{{appearance}}}</p>
+            </div>
+            <br>
+            {{/appearance}}
+
+            {{#personality}}
+            <h2 class="text-secondary">Personality</h2>
+            <hr class="my-2">
+            <div class="ml-2">
+                <p>{{{personality}}}</p>
+            </div>
+            <br>
+            {{/personality}}
+
+            <div class="row">
+                {{#likes.length}}
+                <div class="col-12 col-md-6">
+                    <h2 class="text-secondary"><i class="fa fa-check"></i> Likes</h2>
+                    <hr class="my-2">
+                    <ul class="mb-0">
+                        {{#likes}}
+                        <li>{{{.}}}</li>
+                        {{/likes}}
+                    </ul>
+                </div>
+                {{/likes.length}}
+
+                {{#dislikes.length}}
+                <div class="col-12 col-md-6">
+                    <h2 class="text-secondary"><i class="fa fa-times"></i> Dislikes</h2>
+                    <hr class="my-2">
+                    <ul class="mb-0">
+                        {{#dislikes}}
+                        <li>{{{.}}}</li>
+                        {{/dislikes}}
+                    </ul>
+                </div>
+                {{/dislikes.length}}
+            </div>
+            <br>
+
+            {{#bio}}
+            <h2 class="text-secondary">Story</h2>
+            <hr class="my-2">
+            <div class="ml-2">
+                <p>{{{bio}}}</p>
+            </div>
+            <br>
+            {{/bio}}
+
+            {{#relationships.length}}
+            <h2 class="text-secondary">Relationships</h2>
+            <hr class="my-2">
+            {{#relationships}}
+            <div class="row no-gutters mt-2">
+                <div class="col-3 pr-2 flex-column justify-content-center">
+                    <a href="{{{character_link}}}">
+                        <img class="rounded-circle" src="{{{img}}}">
+                    </a>
+                </div>
+                <div class="col-9 flex-column justify-content-center">
+                    <h5>
+                        <a href="{{{character_link}}}">{{character_name}}</a>
+                    </h5>
+                    <p>{{{summary}}}</p>
+                </div>
+            </div>
+            {{/relationships}}
+            <br>
+            {{/relationships.length}}
+
+            {{#extra}}
+            <h2 class="text-secondary">Extra</h2>
+            <hr class="my-2">
+            <div class="ml-2">
+                <p>{{extra}}</p>
+            </div>
+            <br>
+            {{/extra}}
+
+            {{#moodboard}}
+            <div class="row no-gutters w-100 m-auto">
+                <div class="col-6 col-lg-3"><img src="{{{.}}}"></div>
+            </div>
+            {{/moodboard}}
+        </div>
+    </div>
+
+    <a style="float: right; font-size: 9pt;"
+        href="https://toyhou.se/~forums/16.htmlcss-graphics/75580.circlejourney-s-code-creations-free-">Theme by
+        Circlejourney</a>
+</div>
