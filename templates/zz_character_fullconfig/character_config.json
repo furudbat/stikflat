@@ -110,15 +110,15 @@
     ], 
     "relationships": [
         {
-            "character_name": "Character", 
+            "name": "Character", 
             "img": "https://via.placeholder.com/250", 
-            "character_link": "#LINK", 
+            "link": "#LINK", 
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
         }, 
         {
-            "character_name": "Character 2", 
+            "name": "Character 2", 
             "img": "https://via.placeholder.com/250", 
-            "character_link": "#LINK", 
+            "link": "#LINK", 
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
         }
     ], 
