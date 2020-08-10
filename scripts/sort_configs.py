@@ -16,6 +16,7 @@ from docopt import docopt
 import os
 import collections
 import json
+import yaml
 from jsonmerge import Merger
 
 
@@ -163,11 +164,14 @@ def sort_json(data):
 def main(args):
     input_path = args['--input']
     input_paths = []
+    character_merged_config = None
+    user_merged_config = None
     merged_config = None
 
     for root, directories, files in os.walk(input_path, topdown=False):
         for name in directories:
-            input_paths.append(os.path.join(root, name))
+            if name != 'zz_fullconfig':
+                input_paths.append(os.path.join(root, name))
 
     for path in input_paths:
         for root, directories, files in os.walk(path, topdown=False):
@@ -175,6 +179,10 @@ def main(args):
                 ext = os.path.splitext(file)[-1].lower()
 
                 if ext == '.json':
+                    meta = {}
+                    meta_yml_filename = os.path.abspath(os.path.join(root, 'meta.yml'))
+                    with open(meta_yml_filename) as yml_file:
+                        meta = yaml.load(yml_file, Loader=yaml.FullLoader)
                     config_filename = os.path.abspath(os.path.join(root, file))
                     with open(config_filename, 'r+') as json_file:
                         data = json.load(json_file)
@@ -182,14 +190,29 @@ def main(args):
 
                         #print(json.dumps(data, indent=4, sort_keys=False))
                         merger = Merger({}) 
-                        merged_config = merger.merge(merged_config, data)
+                        if meta.has_key('type') and meta['type'] == 'character':
+                            character_merged_config = merger.merge(character_merged_config, data)
+                        if meta.has_key('type') and meta['type'] == 'user':
+                            user_merged_config = merger.merge(user_merged_config, data)
+                        else:
+                            merged_config = merger.merge(merged_config, data)
 
                         json_file.seek(0)
                         json_file.write(json.dumps(data, indent=4, sort_keys=False))
                         json_file.truncate()
                     print('Sorted - ' + config_filename)
 
+    character_merged_config = sort_json(character_merged_config)
+    user_merged_config = sort_json(user_merged_config)
     merged_config = sort_json(merged_config)
+
+    character_merged_config_filename = os.path.abspath(os.path.join(input_path, 'character_config.json'))
+    with open(character_merged_config_filename, 'w') as character_merged_config_filename_file:
+        character_merged_config_filename_file.write(json.dumps(character_merged_config, indent=4, sort_keys=False))
+        
+    user_merged_config_filename = os.path.abspath(os.path.join(input_path, 'user_config.json'))
+    with open(user_merged_config_filename, 'w') as user_merged_config_filename_file:
+        user_merged_config_filename_file.write(json.dumps(user_merged_config, indent=4, sort_keys=False))
 
     merged_config_filename = os.path.abspath(os.path.join(input_path, 'config.json'))
     with open(merged_config_filename, 'w') as merged_config_filename_file:

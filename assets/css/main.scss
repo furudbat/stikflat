@@ -9,7 +9,7 @@
 @import "bootstrap_customization";
 
 .main-template-editors-preview-container {
-    height: 500px;
+    height: 800px;
 }
 
 .main-template-editors-container {
@@ -48,4 +48,8 @@
     .bigger-preview {
         width: 110%;
     }
+}
+
+.bg-faded {
+    background-color: lighten($body-bg, 10%);
 }

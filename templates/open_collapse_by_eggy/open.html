@@ -44,15 +44,15 @@
                             </div>
                             {{/name}}
 
-                            {{#pronounce}}
+                            {{#pronouns}}
                             <div class="col-md-6 mb-1">
                                 <div class="d-flex justify-content-between py-2 pl-md-2"><span
                                         class="text-uppercase text-muted">
                                         Called</span><span>
-                                        {{pronounce}}</span>
+                                        {{pronouns}}</span>
                                 </div>
                             </div>
-                            {{/pronounce}}
+                            {{/pronouns}}
 
                             {{#age}}
                             <div class="col-md-6 mb-1">
@@ -170,9 +170,9 @@
                                 <div class="d-flex justify-content-between py-2 pl-md-2">
                                     <div class="text-uppercase text-muted">Dislikes</div>
                                     <div class="text-right">
-                                        {{#personality.dislikes}}
+                                        {{#dislikes}}
                                         {{{.}}}<br />
-                                        {{/personality.dislikes}}
+                                        {{/dislikes}}
                                     </div>
                                 </div>
                             </div>

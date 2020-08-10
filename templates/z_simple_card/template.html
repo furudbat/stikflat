@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col-4">
-        <div class="card">
+    <div class="py-3 col-4 bg-faded">
+        <div class="card mx-auto">
             <img src="{{{images.avatar}}}" class="rounded-circle mx-auto d-block" alt="Avatar">
             <div class="card-body">
                 <h5 class="card-title">{{title}}</h5>
@@ -59,26 +59,34 @@
             </div>
         </div>
     </div>
-    <div class="col-8">
+    <div class="p-1 col-8 bg-faded">
         <div class="row no-gutters mt-2 ml-4">
             <div class="col-12">
+                {{#name}}
                 <div class="row">
                     <div class="col-12">{{name}}</div>
                 </div>
                 <hr/>
+                {{/name}}
+                {{#gender}}
                 <div class="row">
                     <div class="col-12">{{gender}}</div>
                 </div>
                 <hr/>
+                {{/gender}}
+                {{#age}}
                 <div class="row">
                     <div class="col-12">{{age}}</div>
                 </div>
                 <hr/>
+                {{/age}}
+                {{#about}}
                 <div class="row">
                     <div class="col-12">
-                        {{{bio}}}
+                        {{{about}}}
                     </div>
                 </div>
+                {{/about}}
             </div>
         </div>
     </div>

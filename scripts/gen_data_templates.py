@@ -48,8 +48,7 @@ def main(args):
                     template['config'] = os.path.relpath(os.path.abspath(
                         os.path.join(root, file)), templates_target_path).replace('\\', '/')
                 elif file == 'meta.yml':
-                    meta_yml_filename = os.path.abspath(
-                        os.path.join(root, file))
+                    meta_yml_filename = os.path.abspath(os.path.join(root, file))
                     with open(meta_yml_filename) as yml_file:
                         meta = yaml.load(yml_file, Loader=yaml.FullLoader)
                         for key, value in meta.items():
