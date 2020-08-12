@@ -7,7 +7,29 @@
         <div class="col-12 mt-2">
             {%- assign templates_url = 'templates/' | absolute_url -%}
             {%- for template in site.data.templates -%}
-            {%- unless template.disabled -%}
+            {%- unless template.disable or template.disabled -%}
+            {%- assign keywords_str = template.keywords | join: ", " -%}
+            {%- if template.preview -%}
+            <div class="d-inline" style="width: 14rem;">
+                <button type="button" class="btn btn-link card d-inline m-1 layout-pattern" style="width: 14rem; min-height: 300px; {{ template.style }}"
+                    data-name="{{ template.name | escape }}" data-author="{{ template.author | escape }}"
+                    data-author-link="{{ template.author_link }}"
+                    data-template="{{ template.template | prepend: templates_url }}"
+                    data-css="{{ template.css | prepend: templates_url }}"
+                    data-config="{{ template.config | prepend: templates_url }}"
+                    data-license="{{ template.license | escape }}" data-link="{{ template.link }}"
+                    data-description="{{ template.description | escape }}"
+                    data-keywords="{{ keywords_str | escape }}">
+                    <img class="card-img-top" style="width: 200px; max-height: 250px;" src="{{ template.preview }}" alt="Preview {{ template.name | escape }}">
+                    <div class="card-body">
+                        <h6 class="card-subtitle">{{ template.author }}</h6>
+                        <p class="card-text">
+                            {{ template.name | escape }}
+                        </p>
+                    </div>
+                </button>
+            </div>
+            {%- else -%}
             <button type="button" class="mr-1 mt-1 mb-2 btn layout-pattern" style="{{ template.style }}"
                 data-name="{{ template.name | escape }}" data-author="{{ template.author | escape }}"
                 data-author-link="{{ template.author_link }}"
@@ -18,6 +40,7 @@
                 data-description="{{ template.description | escape }}">
                 {{ template.name | escape }} <span class="badge badge-light">{{ template.author }}</span>
             </button>
+            {%- endif -%}
             {%- endunless -%}
             {%- endfor -%}
         </div>
@@ -152,6 +175,7 @@
                         <textarea id="txtConfig" aria-describedby="configHelp"></textarea>
                         <small id="configHelp"
                             class="form-text text-muted">{{ site.data.strings.editor.config.help }}</small>
+                        <small id="configHelpKeywords" class="form-text text-muted"></small>
                         <div id="configError" class="mt-1 alert alert-danger" role="alert"></div>
                     </div>
                 </div>

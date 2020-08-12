@@ -179,20 +179,14 @@
                             {{/dislikes.length}}
                         </div>
 
+                        {{#colorpallete.length}}
                         <div class="row no-gutters mt-2 modal-open" style="height:25px; border-radius: 1em;">
-                            <div style="background-color: #68393B;" class="col h-100">
+                            {{#colorpallete}}
+                            <div style="background-color: {{{.}}};" class="col h-100">
                             </div>
-                            <div style="background-color: #D78E7D;" class="col h-100">
-                            </div>
-                            <div style="background-color: #745341;" class="col h-100">
-                            </div>
-                            <div style="background-color: #E9D1C7;" class="col h-100">
-                            </div>
-                            <div style="background-color: #865366;" class="col h-100">
-                            </div>
-                            <div style="background-color: #512B37;" class="col h-100">
-                            </div>
+                            {{/colorpallete}}
                         </div>
+                        {{/colorpallete.length}}
 
                     </div>
                 </div>

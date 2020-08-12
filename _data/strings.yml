@@ -29,6 +29,7 @@ editor:
     unlock_config_help: "Config Unlocked, Override config when selecting Layout."
     add_btn: '<i class="fas fa-plus"></i>'
     save_btn: '<i class="fas fa-save"></i>'
+    keywords_help: 'Keywords available in this template: {}<br/>See <a href="{}" target="_blank">original config</a> for more details.'
   generate_btn: Generate
 code:
   header: Generated Code

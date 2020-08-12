@@ -5,10 +5,32 @@
   description: A character profile theme inspired by identification cards. Mobile
     responsive and interactive (flip the card!), with a space for a signature (if
     you like) and background graphic.
+  keywords:
+  - relationships
+  - bloodtype
+  - birthplace
+  - bio
+  - name
+  - family
+  - title
+  - theme_link
+  - residence
+  - age
+  - eyes
+  - height
+  - hair
+  - skills
+  - theme
+  - birthday
+  - background
+  - pronouns
+  - images
+  - icon
   license: 100% free to use. You're allowed to edit them and frankenstein them with
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/3921250.identity
   name: Character - Identity
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/3921250?1583384512
   style: 'background-color: #eee; color: #333'
   template: identity_by_circlejourney/identity.html
   type: character
@@ -19,10 +41,31 @@
   description: Originally a custom for Swissy, this character profile theme has dark
     colours as a base. It has tabs and a moodboard section. 100% mobile responsive
     with lots and lots of slots for character information.
+  keywords:
+  - relationships
+  - bio
+  - trivia
+  - likes
+  - name
+  - quote
+  - age
+  - description
+  - dislikes
+  - height
+  - themes
+  - images
+  - summary
+  - location
+  - pronouns
+  - moodboard
+  - occupation
+  - species
+  - aliases
   license: 100% free to use. You're allowed to edit them and frankenstein them with
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/6191922.interstellar-dust
   name: Character - Interstellar Dust
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6191922?1583386454
   style: 'background-color: #eee; color: #333'
   template: interstellar_dust_by_circlejourney/dust.html
   type: character
@@ -34,10 +77,20 @@
     a lot of text in a digestible way. It includes a space for a banner, a user icon,
     social media, notes and a list of projects. Mobile responsive, organises profile
     into main area and sidebar.
+  keywords:
+  - about
+  - name
+  - links
+  - age
+  - images
+  - pronouns
+  - notes
+  - projects
   license: 100% free to use. You're allowed to edit them and frankenstein them with
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/6351798.in-a-nutshell
   name: User - In A Nutshell
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6351798?1584758416
   style: 'background-color: #eee; color: #333'
   template: in_a_nutshell_by_circlejourney/nutshell.html
   type: character
@@ -51,9 +104,19 @@
     a pagedoll/other graphic- I'd reccomend using a portait image for the best effect.
     It's responsive, and you're free to do what you'd like with it as long as you
     maintain credit!
+  keywords:
+  - bio
+  - stats
+  - name
+  - notes
+  - entries
+  - images
+  - trivia
+  - description
   license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
   link: https://toyhou.se/7497816.layout-journal
   name: Character - journal
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7497816?1594383763
   style: 'background-color: #3a3639; color: #fcfbf6'
   template: journal_by_snail_legs/journal.html
   type: character
@@ -62,9 +125,21 @@
   config: lil_bit_by_eggy/config.json
   css: lil_bit_by_eggy/lilbit.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  keywords:
+  - bio
+  - name
+  - title
+  - gender
+  - age
+  - value
+  - role
+  - quote
+  - images
+  - species
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/3431124.-freebie-lil-bit
   name: Character - Lil Bit
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/3431124?1573423838
   style: 'background-color: #f8b526; color: #070707'
   template: lil_bit_by_eggy/lilbit.html
   type: character
@@ -73,9 +148,34 @@
   config: open_by_eggy/config.json
   css: open_by_eggy/open.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  keywords:
+  - dislikes
+  - height
+  - likes
+  - hobbies
+  - images
+  - species
+  - relationships
+  - title
+  - theme
+  - role
+  - build
+  - pronouns
+  - moodboard
+  - bio
+  - theme_link
+  - quote
+  - sign
+  - name
+  - dob
+  - gender
+  - age
+  - colorpallete
+  - mbti
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/4556624.-freebie-open
   name: Character - Open - Grid Version
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4556624?1591832733
   style: 'background-color: #f8b526; color: #070707'
   template: open_by_eggy/open.html
   type: character
@@ -84,9 +184,36 @@
   config: open_collapse_by_eggy/config.json
   css: open_collapse_by_eggy/open.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  keywords:
+  - trivias
+  - dislikes
+  - height
+  - demeanor
+  - likes
+  - hobbies
+  - images
+  - species
+  - relationships
+  - title
+  - character
+  - theme
+  - role
+  - build
+  - pronouns
+  - moodboard
+  - bio
+  - theme_link
+  - quote
+  - name
+  - dob
+  - gender
+  - age
+  - colorpallete
+  - mbti
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/4556624.-freebie-open
   name: Character - Open - Collapse Version
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4556624?1591832733
   style: 'background-color: #f8b526; color: #070707'
   template: open_collapse_by_eggy/open.html
   type: character
@@ -95,9 +222,31 @@
   config: scale_by_eggy/config.json
   css: scale_by_eggy/scale.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  keywords:
+  - relationships
+  - bio
+  - name
+  - images
+  - title
+  - theme_link
+  - gender
+  - age
+  - character
+  - height
+  - demeanor
+  - theme
+  - role
+  - build
+  - quote
+  - notes
+  - personality
+  - mbti
+  - species
+  - description
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/5662687.-freebie-scale
   name: Character - Scale
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/5662687?1577475276
   style: 'background-color: #f8b526; color: #070707'
   template: scale_by_eggy/scale.html
   type: character
@@ -108,10 +257,34 @@
   description: A custom for reinapepiada, this theme is designed to contain lots and
     lots of text in multiple sections, and has slots for quote, stats, music themes,
     and a moodboard.
+  keywords:
+  - extra
+  - dislikes
+  - themes
+  - likes
+  - images
+  - species
+  - aliases
+  - relationships
+  - stats
+  - title
+  - location
+  - pronouns
+  - moodboard
+  - personality
+  - bio
+  - quote
+  - birthday
+  - info
+  - name
+  - age
+  - appearance
+  - summary
   license: 100% free to use. You're allowed to edit them and frankenstein them with
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/6388687.super-special-double-deluxe
   name: Character - Super Special Double Deluxe
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6388687?1585115598
   style: 'background-color: #eee; color: #333'
   template: super_special_double_deluxe_by_circlejourney/ssdd.html
   type: character
@@ -120,9 +293,20 @@
   config: user_space_by_eggy/config.json
   css: user_space_by_eggy/userspace.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  keywords:
+  - about
+  - description
+  - links
+  - title
+  - gender
+  - age
+  - characters
+  - images
+  - name
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/2493596.-freebie-user-space
   name: User - User Space
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/2493596?1573439982
   style: 'background-color: #f8b526; color: #070707'
   template: user_space_by_eggy/userspace.html
   type: user
@@ -133,9 +317,28 @@
   description: Hello! This is a F2U profile code designed to mimic a wiki page. It's
     fully responsive, and you're free to do what you'd like with it as long as you
     maintain credit!
+  keywords:
+  - interests
+  - bio
+  - about
+  - name
+  - relationships
+  - gender
+  - age
+  - colorpallete
+  - summary
+  - birthday
+  - role
+  - location
+  - background
+  - personality
+  - images
+  - trivia
+  - aliases
   license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
   link: https://toyhou.se/7237649.layout-wikimania
   name: Character - wikimania
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7237649?1592426994
   style: 'background-color: #3a3639; color: #fcfbf6'
   template: wikimania_by_snail_legs/wikimania.html
   type: character
@@ -144,6 +347,66 @@
   config: zz_character_fullconfig/character_config.json
   css: zz_character_fullconfig/test.css
   description: Test Character Preview with Rich Config
+  disable: true
+  keywords:
+  - cons
+  - weight
+  - extra
+  - pros
+  - dislikes
+  - sign
+  - hair
+  - demeanor
+  - trivias
+  - likes
+  - hobbies
+  - images
+  - species
+  - aliases
+  - relationships
+  - birthplace
+  - stats
+  - family
+  - themes
+  - title
+  - character
+  - links
+  - theme
+  - role
+  - build
+  - marks
+  - pronouns
+  - moodboard
+  - occupation
+  - location
+  - interests
+  - bio
+  - eyes
+  - description
+  - theme_link
+  - quote
+  - birthday
+  - background
+  - sex
+  - projects
+  - icon
+  - info
+  - bloodtype
+  - about
+  - trivia
+  - name
+  - dob
+  - gender
+  - age
+  - appearance
+  - value
+  - summary
+  - height
+  - skills
+  - residence
+  - personality
+  - mbti
+  - notes
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/zz_character_fullconfig
   name: Character - Full Config
@@ -154,6 +417,18 @@
   config: zz_character_minimalconfig/minimal_character_config.json
   css: zz_character_minimalconfig/test.css
   description: Test Character Preview with Minimal Config
+  disable: true
+  keywords:
+  - bio
+  - name
+  - title
+  - age
+  - summary
+  - birthday
+  - location
+  - aliases
+  - mbti
+  - build
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/zz_character_minimalconfig
   name: Character - Minimal Config
@@ -164,6 +439,17 @@
   config: zz_user_fullconfig/user_config.json
   css: zz_user_fullconfig/test.css
   description: Test User Preview with Rich Config
+  disable: true
+  keywords:
+  - about
+  - description
+  - links
+  - title
+  - gender
+  - age
+  - characters
+  - images
+  - name
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/zz_user_fullconfig
   name: User - Full Config
@@ -174,6 +460,16 @@
   config: zz_user_minimalconfig/minimal_user_config.json
   css: zz_user_minimalconfig/test.css
   description: Test User Preview with minimal Config
+  disable: true
+  keywords:
+  - about
+  - description
+  - links
+  - title
+  - gender
+  - age
+  - images
+  - name
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/zz_user_minimalconfig
   name: User - Minimal Config
@@ -184,6 +480,14 @@
   config: z_basic/config.json
   css: z_basic/template.css
   description: Simple Basic Character Profile Layout with Tabs
+  keywords:
+  - name
+  - weight
+  - title
+  - height
+  - images
+  - sex
+  - species
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/basic
   name: Character - Simple
@@ -195,6 +499,21 @@
   config: z_basic_with_tabs/config.json
   css: z_basic_with_tabs/template.css
   description: Simple Basic Character Profile Layout with Tabs
+  keywords:
+  - bio
+  - cons
+  - name
+  - weight
+  - title
+  - dislikes
+  - pros
+  - height
+  - likes
+  - marks
+  - images
+  - sex
+  - species
+  - personality
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/z_basic_with_tabs
   name: Character - Simple with Tabs
@@ -206,6 +525,15 @@
   config: z_simple_card/config.json
   css: z_simple_card/template.css
   description: Minimal Card User Profile Layout
+  keywords:
+  - about
+  - description
+  - links
+  - title
+  - gender
+  - age
+  - images
+  - name
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/z_simple_card
   name: User - Minimal Card

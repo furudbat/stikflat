@@ -1,4 +1,29 @@
 /*global localStorage, console, $, CodeMirrorSpellChecker, CodeMirror, setTimeout, document, Mustache, html_beautify, js_beautify, css_beautify */
+
+/// https://stackoverflow.com/questions/13639464/javascript-equivalent-to-pythons-format
+String.prototype.format = function () {
+    var args = arguments;
+    var unkeyed_index = 0;
+    return this.replace(/\{(\w*)\}/g, (match, key) => {
+        if (key === '') {
+            key = unkeyed_index;
+            unkeyed_index++;
+        }
+        if (key == +key) {
+            return args[key] !== 'undefined'
+                ? args[key]
+                : match;
+        } else {
+            for (var i = 0; i < args.length; i++) {
+                if (typeof args[i] === 'object' && typeof args[i][key] !== 'undefined') {
+                    return args[i][key];
+                }
+            }
+            return match;
+        }
+    });
+};
+
 (function () {
     'use strict';
 
@@ -799,6 +824,8 @@
             //console.debug('layout-pattern dblclick', layout);
 
             var name = $(layout).data('name');
+            var keywordsStr = $(layout).data('keywords');
+            var configlink = $(layout).data('config');
             var getTemplate = $.get($(layout).data('template'));
             var getConfig = $.get($(layout).data('config'));
             var getCSS = $.get($(layout).data('css'));
@@ -830,6 +857,11 @@
 
                 initEditors();
                 generateHTML();
+
+                var keywordsArr = keywordsStr.split(", ").map(Function.prototype.call, String.prototype.trim);
+                var keywords = keywordsArr.map(it => `<code>${it}</code>`).join(', ');
+                $('#configHelpKeywords').html(site.data.strings.editor.config.keywords_help.format(keywords, configlink));
+
                 /*
                 if ($('#previewTabContent').hasClass('show')) {
                     selectTemplateTab();

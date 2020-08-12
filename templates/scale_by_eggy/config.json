@@ -54,16 +54,16 @@
     "relationships": [
         {
             "status": "[ relationship ]", 
+            "link": "#LINK", 
             "name": "Character", 
             "img": "https://via.placeholder.com/250", 
-            "link": "#LINK", 
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
         }, 
         {
             "status": "[ relationship ]", 
+            "link": "#LINK", 
             "name": "Character 2", 
             "img": "https://via.placeholder.com/250", 
-            "link": "#LINK", 
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
         }
     ], 

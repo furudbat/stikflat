@@ -8,24 +8,15 @@
                     {{#aliases}}<h6 style="text-align: center; line-height: 0px;">{{aliases}}</h6>{{/aliases}}
                 </div>
 
-                <!-- colour pallet- edit the background-color attribute to change the colours -->
+                {{#colorpallete.length}}
                 <div style="margin: auto; padding: 5px;">
+                    {{#colorpallete}}
                     <div
-                        style="background-color: #ea9248; height: 30px; width: 30px; border-radius: 50%; display: inline-block;">
+                        style="background-color: {{{.}}}; height: 30px; width: 30px; border-radius: 50%; display: inline-block;">
                     </div>
-                    <div
-                        style="background-color: #d17d74; height: 30px; width: 30px; border-radius: 50%; display: inline-block;">
-                    </div>
-                    <div
-                        style="background-color: #b869a1; height: 30px; width: 30px; border-radius: 50%; display: inline-block;">
-                    </div>
-                    <div
-                        style="background-color: #9e54cd; height: 30px; width: 30px; border-radius: 50%; display: inline-block;">
-                    </div>
-                    <div
-                        style="background-color: #853ff9; height: 30px; width: 30px; border-radius: 50%; display: inline-block;">
-                    </div>
+                    {{/colorpallete}}
                 </div>
+                {{/colorpallete.length}}
 
                 <ul class="list-group list-group-flush" style="margin: 0 10px 0 10px; padding-bottom: 30px;">
                     {{#gender}}

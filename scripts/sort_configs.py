@@ -63,7 +63,6 @@ def sort_json(data):
         first_ordered['species'] = data.get('species')
         data.pop('species')
 
-
     if data.has_key('theme'):
         others_ordered['theme'] = data.get('theme')
         data.pop('theme')
@@ -71,7 +70,6 @@ def sort_json(data):
         others_ordered['theme_link'] = data.get('theme_link')
         data.pop('theme_link')
 
-        
     if data.has_key('pros'):
         arrays_ordered['pros'] = data.get('pros')
         data.pop('pros')
@@ -126,8 +124,8 @@ def sort_json(data):
                 others[key] = value
         data.pop(key)
 
-    long_others = collections.OrderedDict(sorted(long_others.items(), key=lambda x: len(x[1])))
-
+    long_others = collections.OrderedDict(
+        sorted(long_others.items(), key=lambda x: len(x[1])))
 
     newdata = collections.OrderedDict()
     for key, value in first_ordered.items():
@@ -161,17 +159,10 @@ def sort_json(data):
     return newdata
 
 
-def main(args):
-    input_path = args['--input']
-    input_paths = []
-    character_merged_config = None
-    user_merged_config = None
+def sortConfig(input_path, input_paths, type=''):
     merged_config = None
-
-    for root, directories, files in os.walk(input_path, topdown=False):
-        for name in directories:
-            if name != 'zz_fullconfig':
-                input_paths.append(os.path.join(root, name))
+    keys = collections.OrderedDict()
+    files_counter = 0
 
     for path in input_paths:
         for root, directories, files in os.walk(path, topdown=False):
@@ -180,7 +171,8 @@ def main(args):
 
                 if ext == '.json':
                     meta = {}
-                    meta_yml_filename = os.path.abspath(os.path.join(root, 'meta.yml'))
+                    meta_yml_filename = os.path.abspath(
+                        os.path.join(root, 'meta.yml'))
                     with open(meta_yml_filename) as yml_file:
                         meta = yaml.load(yml_file, Loader=yaml.FullLoader)
                     config_filename = os.path.abspath(os.path.join(root, file))
@@ -189,34 +181,56 @@ def main(args):
                         data = sort_json(data)
 
                         #print(json.dumps(data, indent=4, sort_keys=False))
-                        merger = Merger({}) 
-                        if meta.has_key('type') and meta['type'] == 'character':
-                            character_merged_config = merger.merge(character_merged_config, data)
-                        if meta.has_key('type') and meta['type'] == 'user':
-                            user_merged_config = merger.merge(user_merged_config, data)
-                        else:
+                        merger = Merger({})
+                        if meta.has_key('type') and meta['type'] == type:
                             merged_config = merger.merge(merged_config, data)
+                            for key in data.keys():
+                                if keys.has_key(key):
+                                    keys[key] = keys[key] + 1
+                                else:
+                                    keys[key] = 1
+                            files_counter = files_counter+1
 
                         json_file.seek(0)
-                        json_file.write(json.dumps(data, indent=4, sort_keys=False))
+                        json_file.write(json.dumps(
+                            data, indent=4, sort_keys=False))
                         json_file.truncate()
                     print('Sorted - ' + config_filename)
 
-    character_merged_config = sort_json(character_merged_config)
-    user_merged_config = sort_json(user_merged_config)
     merged_config = sort_json(merged_config)
 
-    character_merged_config_filename = os.path.abspath(os.path.join(input_path, 'character_config.json'))
-    with open(character_merged_config_filename, 'w') as character_merged_config_filename_file:
-        character_merged_config_filename_file.write(json.dumps(character_merged_config, indent=4, sort_keys=False))
-        
-    user_merged_config_filename = os.path.abspath(os.path.join(input_path, 'user_config.json'))
-    with open(user_merged_config_filename, 'w') as user_merged_config_filename_file:
-        user_merged_config_filename_file.write(json.dumps(user_merged_config, indent=4, sort_keys=False))
+    sorted_keys = {k: v for k, v in sorted(
+        keys.items(), key=lambda item: item[1])}
+    max_sorted_keys = sorted_keys.values()[-1]
+    filter_keys = set({key: value for (key, value) in sorted_keys.items() if value == max_sorted_keys}.keys())
+    filter_keys.add('title')
+    filter_keys.add('name')
+    minimal_merged_config = collections.OrderedDict(filter(lambda elem: elem[0] in filter_keys, merged_config.items()))
 
-    merged_config_filename = os.path.abspath(os.path.join(input_path, 'config.json'))
-    with open(merged_config_filename, 'w') as merged_config_filename_file:
-        merged_config_filename_file.write(json.dumps(merged_config, indent=4, sort_keys=False))
+    minimal_merged_config_filename = os.path.abspath(
+        os.path.join(input_path, 'minimal_' + type + '_config.json'))
+    with open(minimal_merged_config_filename, 'w') as minimal_merged_config_file:
+        minimal_merged_config_file.write(json.dumps(
+            minimal_merged_config, indent=4, sort_keys=False))
+
+    merged_config_filename = os.path.abspath(
+        os.path.join(input_path, type + '_config.json'))
+    with open(merged_config_filename, 'w') as merged_config_file:
+        merged_config_file.write(json.dumps(
+            merged_config, indent=4, sort_keys=False))
+
+
+def main(args):
+    input_path = args['--input']
+    input_paths = []
+
+    for root, directories, files in os.walk(input_path, topdown=False):
+        for name in directories:
+            if name != 'zz_character_fullconfig' and name != 'zz_user_fullconfig' and name != 'zz_character_minimalconfig' and name != 'zz_user_minimalconfig':
+                input_paths.append(os.path.join(root, name))
+
+    sortConfig(input_path, input_paths, 'character')
+    sortConfig(input_path, input_paths, 'user')
 
 
 if __name__ == '__main__':

@@ -17,6 +17,7 @@ Options:
 from docopt import docopt
 import os
 import yaml
+import json
 
 
 def main(args):
@@ -35,6 +36,7 @@ def main(args):
     for path in input_paths:
         for root, directories, files in os.walk(path, topdown=False):
             template = {}
+            keywords = []
             for file in files:
                 ext = os.path.splitext(file)[-1].lower()
 
@@ -47,13 +49,18 @@ def main(args):
                 elif ext == '.json':
                     template['config'] = os.path.relpath(os.path.abspath(
                         os.path.join(root, file)), templates_target_path).replace('\\', '/')
+                    with open(os.path.abspath(os.path.join(root, file))) as json_file:
+                        data = json.load(json_file)
+                        keywords = [str(r) for r in data.keys()]
                 elif file == 'meta.yml':
-                    meta_yml_filename = os.path.abspath(os.path.join(root, file))
+                    meta_yml_filename = os.path.abspath(
+                        os.path.join(root, file))
                     with open(meta_yml_filename) as yml_file:
                         meta = yaml.load(yml_file, Loader=yaml.FullLoader)
                         for key, value in meta.items():
                             template[key] = value
 
+            template['keywords'] = keywords
             templates.append(template)
 
     with open(output_filename, 'w') as output:
