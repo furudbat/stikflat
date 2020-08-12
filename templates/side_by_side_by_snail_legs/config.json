@@ -1,0 +1,20 @@
+{
+    "name": "Character Name", 
+    "description": "pronouns | title/quote",
+    "bio": "Bio --- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", 
+    "trivias": [
+        "Lorem ipsum dolor sit amet", 
+        "Suspendisse a felis molestie", 
+        "Integer fermentum est vitae", 
+        "Fusce quis velit vel sem", 
+        "Aliquam vulputate lacus consequat"
+    ], 
+    "notes": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    ], 
+    "images": {
+        "avatar": "https://via.placeholder.com/200x300"
+    }
+}

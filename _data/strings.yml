@@ -2,6 +2,8 @@ layouts:
   header: Layouts
   header_help: Select a Layout by clicking to preview or double-click to edit.
   by_author: " by "
+  type_character: "Character"
+  type_user: "User"
 content:
   header: Saved Configs
   header_help: Select a Config by clicking to preview or double-click to edit.<br>Configs are saved localy, but don't relay on it. It is recommended to also save your Templates and Configs somewhere else as backup.

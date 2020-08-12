@@ -21,11 +21,20 @@
                     data-description="{{ template.description | escape }}"
                     data-keywords="{{ keywords_str | escape }}">
                     <img class="card-img-top" style="width: 200px; max-height: 250px;" src="{{ template.preview }}" alt="Preview {{ template.name | escape }}">
+                    <div class="card-img-overlay">
+                        {%- if template.type == 'character' -%}
+                        <p class="card-text text-right"><span class="badge badge-pill badge-primary">{{ site.data.strings.layouts.type_character }}</span></p>
+                        {%- elsif template.type == 'user' -%}
+                        <p class="card-text text-right"><span class="badge badge-pill badge-secondary">{{ site.data.strings.layouts.type_user }}</span></p>
+                        {%- else -%}
+                        <p class="card-text text-right"><span class="badge badge-pill badge-info">{{ template.type | escape}}</span></p>
+                        {%- endif -%}
+                    </div>
                     <div class="card-body">
-                        <h6 class="card-subtitle">{{ template.author }}</h6>
                         <p class="card-text">
                             {{ template.name | escape }}
                         </p>
+                        <h6 class="card-subtitle">{{ site.data.strings.layouts.by_author }}{{ template.author }}</h6>
                     </div>
                 </button>
             </div>
@@ -38,7 +47,14 @@
                 data-config="{{ template.config | prepend: templates_url }}"
                 data-license="{{ template.license | escape }}" data-link="{{ template.link }}"
                 data-description="{{ template.description | escape }}">
-                {{ template.name | escape }} <span class="badge badge-light">{{ template.author }}</span>
+                {{ template.name | escape }} <span class="badge badge-light">{{ site.data.strings.layouts.by_author }}{{ template.author }}</span>
+                {%- if template.type == 'character' -%}
+                <span class="badge badge-pill badge-primary">{{ site.data.strings.layouts.type_character }}</span>
+                {%- elsif template.type == 'user' -%}
+                <span class="badge badge-pill badge-secondary">{{ site.data.strings.layouts.type_user }}</span>
+                {%- else -%}
+                <span class="badge badge-pill badge-info">{{ template.type | escape}}</span>
+                {%- endif -%}
             </button>
             {%- endif -%}
             {%- endunless -%}
@@ -238,4 +254,4 @@
     </div>
 </section>
 
-<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/site.js' | relative_url }}"></script>

@@ -29,7 +29,7 @@
   license: 100% free to use. You're allowed to edit them and frankenstein them with
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/3921250.identity
-  name: Character - Identity
+  name: Identity
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/3921250?1583384512
   style: 'background-color: #eee; color: #333'
   template: identity_by_circlejourney/identity.html
@@ -64,7 +64,7 @@
   license: 100% free to use. You're allowed to edit them and frankenstein them with
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/6191922.interstellar-dust
-  name: Character - Interstellar Dust
+  name: Interstellar Dust
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6191922?1583386454
   style: 'background-color: #eee; color: #333'
   template: interstellar_dust_by_circlejourney/dust.html
@@ -89,7 +89,7 @@
   license: 100% free to use. You're allowed to edit them and frankenstein them with
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/6351798.in-a-nutshell
-  name: User - In A Nutshell
+  name: In A Nutshell
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6351798?1584758416
   style: 'background-color: #eee; color: #333'
   template: in_a_nutshell_by_circlejourney/nutshell.html
@@ -115,7 +115,7 @@
   - description
   license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
   link: https://toyhou.se/7497816.layout-journal
-  name: Character - journal
+  name: journal
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7497816?1594383763
   style: 'background-color: #3a3639; color: #fcfbf6'
   template: journal_by_snail_legs/journal.html
@@ -138,7 +138,7 @@
   - species
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/3431124.-freebie-lil-bit
-  name: Character - Lil Bit
+  name: Lil Bit
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/3431124?1573423838
   style: 'background-color: #f8b526; color: #070707'
   template: lil_bit_by_eggy/lilbit.html
@@ -174,7 +174,7 @@
   - mbti
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/4556624.-freebie-open
-  name: Character - Open - Grid Version
+  name: Open - Grid Version
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4556624?1591832733
   style: 'background-color: #f8b526; color: #070707'
   template: open_by_eggy/open.html
@@ -212,7 +212,7 @@
   - mbti
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/4556624.-freebie-open
-  name: Character - Open - Collapse Version
+  name: Open - Collapse Version
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4556624?1591832733
   style: 'background-color: #f8b526; color: #070707'
   template: open_collapse_by_eggy/open.html
@@ -245,10 +245,31 @@
   - description
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/5662687.-freebie-scale
-  name: Character - Scale
+  name: Scale
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/5662687?1577475276
   style: 'background-color: #f8b526; color: #070707'
   template: scale_by_eggy/scale.html
+  type: character
+- author: snail-legs
+  author_link: https://toyhou.se/snail-legs
+  config: side_by_side_by_snail_legs/config.json
+  css: side_by_side_by_snail_legs/side.css
+  description: Hello! This is a F2U profile code with room for a bit of written info
+    and a featured image. It's responsive, and you're free to do what you'd like with
+    it as long as you maintain credit!
+  keywords:
+  - bio
+  - trivias
+  - name
+  - notes
+  - images
+  - description
+  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
+  link: https://toyhou.se/7689827.layout-side-by-side
+  name: side by side
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7689827?1596293985
+  style: 'background-color: #3a3639; color: #fcfbf6'
+  template: side_by_side_by_snail_legs/side.html
   type: character
 - author: Circlejourney
   author_link: https://toyhou.se/circlejourney
@@ -283,7 +304,7 @@
   license: 100% free to use. You're allowed to edit them and frankenstein them with
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/6388687.super-special-double-deluxe
-  name: Character - Super Special Double Deluxe
+  name: Super Special Double Deluxe
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6388687?1585115598
   style: 'background-color: #eee; color: #333'
   template: super_special_double_deluxe_by_circlejourney/ssdd.html
@@ -305,7 +326,7 @@
   - name
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/2493596.-freebie-user-space
-  name: User - User Space
+  name: User Space
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/2493596?1573439982
   style: 'background-color: #f8b526; color: #070707'
   template: user_space_by_eggy/userspace.html
@@ -337,7 +358,7 @@
   - aliases
   license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
   link: https://toyhou.se/7237649.layout-wikimania
-  name: Character - wikimania
+  name: wikimania
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7237649?1592426994
   style: 'background-color: #3a3639; color: #fcfbf6'
   template: wikimania_by_snail_legs/wikimania.html
@@ -409,7 +430,7 @@
   - notes
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/zz_character_fullconfig
-  name: Character - Full Config
+  name: Full Config
   style: 'background-color: #2a5a7e; color: #f7fd95'
   template: zz_character_fullconfig/test.html
 - author: furudbat
@@ -431,7 +452,7 @@
   - build
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/zz_character_minimalconfig
-  name: Character - Minimal Config
+  name: Minimal Config
   style: 'background-color: #2a5a7e; color: #f7fd95'
   template: zz_character_minimalconfig/test.html
 - author: furudbat
@@ -452,7 +473,7 @@
   - name
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/zz_user_fullconfig
-  name: User - Full Config
+  name: Full Config
   style: 'background-color: #2a5a7e; color: #f7fd95'
   template: zz_user_fullconfig/test.html
 - author: furudbat
@@ -472,7 +493,7 @@
   - name
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/zz_user_minimalconfig
-  name: User - Minimal Config
+  name: Minimal Config
   style: 'background-color: #2a5a7e; color: #f7fd95'
   template: zz_user_minimalconfig/test.html
 - author: furudbat
@@ -490,7 +511,7 @@
   - species
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/basic
-  name: Character - Simple
+  name: Simple
   style: 'background-color: #1a4a6e; color: #f7fd95'
   template: z_basic/template.html
   type: character
@@ -516,7 +537,7 @@
   - personality
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/z_basic_with_tabs
-  name: Character - Simple with Tabs
+  name: Simple with Tabs
   style: 'background-color: #1a4a6e; color: #f7fd95'
   template: z_basic_with_tabs/template.html
   type: character

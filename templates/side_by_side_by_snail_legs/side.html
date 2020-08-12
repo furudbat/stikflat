@@ -1,0 +1,62 @@
+<div class="container" style="max-width: 60em; margin: auto;">
+    <div class="row no-gutters">
+
+        <div class="col-sm-5">
+            <!-- there are technically two images here,
+          which image is shown depends on the device that the viewer is using
+          you can use different images here, or the same one! -->
+            <!-- this image should be visible on tablets/desktops -->
+            <div style="background: url({{{images.avatar}}}); background-size: cover; background-position; center; height: 30em;"
+                class="d-none d-sm-block"></div>
+
+            <!-- this image should be visible on mobile -->
+            <div style="background: url({{{images.avatar}}}); background-size: cover; background-position; center; height: 15em;"
+                class="d-sm-none"></div>
+        </div>
+
+        <div class="col-sm-7 card bg-faded" style="height: 30em; overflow-y: scroll; border: 0; border-radius: 0;">
+
+            <div class="card-header" style="line-height: 0.2em;padding-bottom: 2em;">
+                <h1 class="display-4 text-primary">{{name}}</h1>
+                <p class="text-secondary">{{{description}}}</p>
+            </div>
+
+            <div style="padding: 1em 2em;">
+                {{#bio}}
+                <h3 class="text-primary">Biography</h3>
+                <p>{{{bio}}}</p>
+                <hr style="width: 90%; padding: 0.1em;">
+                {{/bio}}
+
+                <div class="row">
+
+                    {{#trivias.length}}
+                    <div class="col-sm-6">
+                        <h3 class="text-primary">Trivia</h3>
+                        <ul class="fa-ul">
+                            {{#trivias}}
+                            <li><span class="fa-li text-primary"><i class="fad fa-stars"></i></span>{{{.}}}</li>
+                            {{/trivias}}
+                        </ul>
+                    </div>
+                    {{/trivias.length}}
+
+                    {{#notes.length}}
+                    <div class="col-sm-6">
+                        <h3 class="text-primary">Design Notes</h3>
+                        <ul class="fa-ul">
+                            {{#notes}}
+                            <li><span class="fa-li text-primary"><i class="fad fa-stars"></i></span>{{{.}}}</li>
+                            {{/notes}}
+                        </ul>
+                    </div>
+                    {{/notes.length}}
+                </div>
+            </div>
+
+            <!-- footer/code credit, please keep the credit intact!!  this is probably a good place to add image credit as well, if you need to. -->
+            <p class="text-secondary card-footer" style="text-align: center; padding-bottom: 1em;">code by [<a
+                    href="https://toyhou.se/snail-legs">snail-legs</a>]</p>
+        </div>
+    </div>
+</div>
