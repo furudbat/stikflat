@@ -6,7 +6,7 @@ rm -rf node_modules package-lock.json
 npm i bootstrap@4 jquery@3 jquery-ui
 npm i bootstrap-toggle
 npm i @fortawesome/fontawesome-free
-npm i tinymce5 froala-editor codemirror 
+npm i tinymce froala-editor codemirror 
 npm i mustache
 npm i js-beautify
 npm install linkifyjs

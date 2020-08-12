@@ -12,6 +12,8 @@
   link: https://github.com/janl/mustache.js
 - name: beautify-web
   link: https://github.com/beautify-web/js-beautify
+- name: Linkify
+  link: https://github.com/SoapBox/linkifyjs
 - name: Froala Editor
   link: https://froala.com/wysiwyg-editor/
   isWYSIWYG: true
