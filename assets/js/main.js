@@ -491,10 +491,12 @@ String.prototype.format = function () {
         }
         header += '</p>';
 
+        var options = {/* … */};
+
         $('#msgLayoutPatternInfo').empty()
             .append(header)
-            .append('<p class="text-justify">' + description + '</p>')
-            .append('<p class="font-italic">' + license + '</p>')
+            .append('<p class="text-justify">' + description.linkify(options) + '</p>')
+            .append('<p class="font-italic">' + license.linkify(options) + '</p>')
             .show();
     }
 

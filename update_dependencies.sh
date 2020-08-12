@@ -9,6 +9,7 @@ npm i @fortawesome/fontawesome-free
 npm i tinymce5 froala-editor codemirror 
 npm i mustache
 npm i js-beautify
+npm install linkifyjs
 
 cp node_modules/jquery/dist/jquery.min.* assets/js
 
@@ -69,3 +70,7 @@ cp node_modules/mustache/mustache.min.* assets/js
 
 mkdir assets/js/beautify
 cp node_modules/js-beautify/js/lib/beautify*.js assets/js/beautify
+
+
+mkdir assets/js/linkifyjs
+cp node_modules/linkifyjs/dist/*.min.js assets/js/linkifyjs
