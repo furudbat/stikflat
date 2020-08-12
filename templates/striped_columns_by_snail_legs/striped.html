@@ -1,0 +1,63 @@
+<div class="container" style="width: 80%; border-radius: 10px;">
+    <div class="row">
+        <div class="card card-block col-sm-4" style="border: 0;">
+            <div class="card card-block progress-bar-striped" style="background-color: rgba(200, 200, 200, 0.25);">
+                <div class="card card-block card-outline-primary bg-faded" style="border-width: 2px;">
+                    <img src="{{{images.avatar}}}" width="200px" height="200px"
+                        class="card rounded-circle card-outline-primary" style="margin: auto; background-color: white;">
+
+                    <h1 style="text-align: center; margin-top: 22px; line-height: 10px;">{{name}}</h1>
+                    {{#quote}}
+                    <h4 style="text-align: center; margin-bottom: 20px;"><i>"{{quote}}"</i></h4>
+                    {{/quote}}
+
+                    {{#description}}
+                    <p style="text-align: center;">{{{description}}}</p>
+                    {{/description}}
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-block col-sm-8" style="border: 0">
+            <div class="card card-block progress-bar-striped" style="background-color: rgba(200, 200, 200, 0.25);">
+
+                <div class="card card-block card-outline-primary bg-faded" style="border-width: 2px;">
+                    <ul class="list-group list-group-flush">
+
+                        {{#bio}}
+                        <li class="list-group-item bg-faded">
+                            <h3 class="card-title">Biography</h3>
+                            <p>{{{bio}}}</p>
+                        </li>
+                        {{/bio}}
+
+                        {{#notes.length}}
+                        <li class="list-group-item bg-faded">
+                            <h3 class="card-title">Design Notes</h3>
+                            <ul class="fa-ul">
+                                {{#notes}}
+                                <li><span class="fa-li text-primary"><i class="fad fa-stars"></i></span>{{{.}}}</li>
+                                {{/notes}}
+                            </ul>
+                        </li>
+                        {{/notes.length}}
+
+                        {{#trivia}}
+                        <li class="list-group-item bg-faded">
+                            <h3 class="card-title">Trivia</h3>
+                            <p>{{{trivia}}}</p>
+                        </li>
+                        {{/trivia}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- this is the code credit! feel free to move it, but please keep it in here somewhere -->
+        <div class="col-sm-12" style="text-align: right; line-height: 0px;">code by [<a
+                href="https://toyhou.se/snail-legs">snail-legs</a>]
+        </div>
+    </div>
+</div>
