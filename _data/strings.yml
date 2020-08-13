@@ -26,7 +26,7 @@ editor:
   config:
     header: 'Config <i class="fas fa-compress-alt"></i>'
     header_short: '<i class="fas fa-expand-alt"></i>'
-    help: 'Put your <a href="https://mustache.github.io/" target="_blank">mustache</a> hash/object (<a href="https://www.w3schools.com/js/js_json_syntax.asp" target="_blank">json</a>) here.<br>Mustache works by expanding tags from your template by using values provided from this config.'
+    help: 'Put your <a href="https://mustache.github.io/" target="_blank">mustache</a> hash/object (<a href="https://www.w3schools.com/js/js_json_syntax.asp" target="_blank">json</a>/<a href="https://yaml.org/" target="_blank">yaml</a>) here.<br>Mustache works by expanding tags from your template by using provided values from this config.'
     lock_config_help: "Config Locked, Don't override config when selecting Layout."
     unlock_config_help: "Config Unlocked, Override config when selecting Layout."
     add_btn: '<i class="fas fa-plus"></i>'
@@ -38,6 +38,7 @@ editor:
 code:
   header: Generated Code
   help: "Here is your finished code to copy."
+  popover_copied: "Generated Code Copied!"
 misc:
   clear_template_storage_btn: Clear Settings
   clear_template_storage_help: "Delete all Settings and Editor-Inputs from local storage."

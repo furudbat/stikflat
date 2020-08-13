@@ -11,6 +11,7 @@ npm i mustache
 npm i js-beautify
 npm i linkifyjs
 npm i esprima js-yaml
+npm i clipboard
 
 cp node_modules/jquery/dist/jquery.min.* assets/js
 
@@ -81,3 +82,6 @@ cp node_modules/js-yaml/dist/*.min.js assets/js/yaml
 
 mkdir assets/js/esprima
 cp node_modules/esprima/dist/*.js assets/js/esprima
+
+mkdir assets/js/clipboard
+cp node_modules/clipboard/dist/*.min.js assets/js/clipboard

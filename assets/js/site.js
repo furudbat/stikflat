@@ -1,31 +1,47 @@
 /*global localStorage, console, $, CodeMirrorSpellChecker, CodeMirror, setTimeout, document, Mustache, html_beautify, js_beautify, css_beautify */
-
-/// https://stackoverflow.com/questions/13639464/javascript-equivalent-to-pythons-format
-String.prototype.format = function () {
-    var args = arguments;
-    var unkeyed_index = 0;
-    return this.replace(/\{(\w*)\}/g, (match, key) => {
-        if (key === '') {
-            key = unkeyed_index;
-            unkeyed_index++;
-        }
-        if (key == +key) {
-            return args[key] !== 'undefined'
-                ? args[key]
-                : match;
-        } else {
-            for (var i = 0; i < args.length; i++) {
-                if (typeof args[i] === 'object' && typeof args[i][key] !== 'undefined') {
-                    return args[i][key];
-                }
-            }
-            return match;
-        }
-    });
-};
-
 (function () {
     'use strict';
+
+    /// https://stackoverflow.com/questions/13639464/javascript-equivalent-to-pythons-format
+    String.prototype.format = function () {
+        var args = arguments;
+        var unkeyed_index = 0;
+        return this.replace(/\{(\w*)\}/g, (match, key) => {
+            if (key === '') {
+                key = unkeyed_index;
+                unkeyed_index++;
+            }
+            if (key == +key) {
+                return args[key] !== 'undefined'
+                    ? args[key]
+                    : match;
+            } else {
+                for (var i = 0; i < args.length; i++) {
+                    if (typeof args[i] === 'object' && typeof args[i][key] !== 'undefined') {
+                        return args[i][key];
+                    }
+                }
+                return match;
+            }
+        });
+    };
+
+    /// https://stackoverflow.com/questions/19491336/how-to-get-url-parameter-using-jquery-or-plain-javascript
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    };
+
 
     const STORAGE_AVAILABLE = typeof (Storage) !== 'undefined';
     const STORAGE_KEY_TEMPLATE_CODE = 'template_code';
@@ -143,7 +159,7 @@ String.prototype.format = function () {
         return JSON.stringify(_configJson, null, 4);
     }
     function getConfigCodeYAML() {
-        return jsyaml.dump(_configJson, { indent: 4, lineWidth: 120 });
+        return jsyaml.dump(_configJson, { indent: 4, lineWidth: 80 });
     }
     function getConfigContentMode() {
         return _configContentMode;
@@ -178,7 +194,7 @@ String.prototype.format = function () {
         _configContentMode = mode;
         localStorage.setItem(STORAGE_KEY_CONFIG_CONTENT_MODE, mode);
     }
-    function updateConfigCodesStr(){
+    function updateConfigCodesStr() {
         _configJsonStr = getConfigCodeJSON();
         _configYamlStr = getConfigCodeYAML();
     }
@@ -196,14 +212,14 @@ String.prototype.format = function () {
     }
     function addConfig(json, jsonstr, yamlstr) {
         if (json !== null) {
-            _savedConfigs.push({json, jsonstr, yamlstr});
+            _savedConfigs.push({ json, jsonstr, yamlstr });
             _currentConfigIndex = _savedConfigs.length - 1;
             saveConfigs();
         }
     }
     function saveConfig(index, json, jsonstr, yamlstr) {
         if (index < _savedConfigs.length) {
-            _savedConfigs[index] = {json, jsonstr, yamlstr};
+            _savedConfigs[index] = { json, jsonstr, yamlstr };
             saveConfigs();
         }
     }
@@ -366,7 +382,8 @@ String.prototype.format = function () {
             lineNumbers: true,
             linter: true,
             spellcheck: true,
-            autoRefresh: true
+            autoRefresh: true,
+            indentWithTabs: false
         });
         _configEditorYAML.on('changes', function (cm, changes) {
             var _configYamlStr = cm.getValue();
@@ -403,7 +420,7 @@ String.prototype.format = function () {
     }
 
     function generateCodePreviewEditor() {
-        _codePreviewEditor = CodeMirror.fromTextArea(document.getElementById('preview-code'), {
+        _codePreviewEditor = CodeMirror.fromTextArea(document.getElementById('txtPreviewCode'), {
             mode: 'text/html',
             //theme: 'dracula',
             lineNumbers: true,
@@ -702,7 +719,7 @@ String.prototype.format = function () {
 
             var savedConfig = getCurrentSavedConfigJson();
             if (savedConfig !== null) {
-                addSavedConfigToList(config.json, _currentConfigIndex);
+                addSavedConfigToList(savedConfig.json, _currentConfigIndex);
             }
             updateSavedConfigsSelection(_currentConfigIndex);
         });
@@ -815,6 +832,23 @@ String.prototype.format = function () {
             selectTemplateTab();
         }
         */
+        var btnPreviewCodeCopy = new ClipboardJS('#btnPreviewCodeCopy', {
+            text: function (trigger) {
+                return _codePreview;
+            }
+        });
+        btnPreviewCodeCopy.on('success', function (e) {
+            $('#btnPreviewCodeCopy').popover('show');
+            e.clearSelection();
+        });
+        $('[data-toggle="popover"]').popover();
+        $('#btnPreviewCodeCopy').on('shown.bs.popover', function () {
+            var $pop = $(this);
+            setTimeout(function () {
+                $pop.popover('hide');
+            }, 1200);
+        });
+
         $('#collapseConfig').collapse('show');
 
         $('.main-template-editors-preview-container').resizable();
@@ -867,6 +901,10 @@ String.prototype.format = function () {
         $('.generate-btn').each(function (index) {
             $(this).click(function () {
                 generateHTML();
+
+                $('html, body').animate({
+                    scrollTop: $('#sectionPreviewCode').offset().top
+                }, 500);
             });
         });
         $('#btnClearTemplateStorage').click(function () {
@@ -953,6 +991,9 @@ String.prototype.format = function () {
                     selectTemplateTab();
                 }
                 */
+                $('html, body').animate({
+                    scrollTop: $('#sectionEditor').offset().top
+                }, 500);
             });
             updateLayoutInfo(layout);
         };

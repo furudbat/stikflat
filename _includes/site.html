@@ -1,4 +1,4 @@
-<section>
+<section id="sectionLayouts">
     <h2>{{ site.data.strings.layouts.header }}</h2>
     <div class="row mb-4 mx-2">
         <div class="col-12">
@@ -11,23 +11,29 @@
             {%- assign keywords_str = template.keywords | join: ", " -%}
             {%- if template.preview -%}
             <div class="d-inline" style="width: 14rem;">
-                <button type="button" class="btn btn-link card d-inline m-1 layout-pattern" style="width: 14rem; min-height: 300px; {{ template.style }}"
+                <button type="button" class="btn btn-link card d-inline m-1 layout-pattern"
+                    style="width: 14rem; min-height: 300px; {{ template.style }}"
                     data-name="{{ template.name | escape }}" data-author="{{ template.author | escape }}"
                     data-author-link="{{ template.author_link }}"
                     data-template="{{ template.template | prepend: templates_url }}"
                     data-css="{{ template.css | prepend: templates_url }}"
                     data-config="{{ template.config | prepend: templates_url }}"
                     data-license="{{ template.license | escape }}" data-link="{{ template.link }}"
-                    data-description="{{ template.description | escape }}"
-                    data-keywords="{{ keywords_str | escape }}">
-                    <img class="card-img-top" style="width: 200px; max-height: 250px;" src="{{ template.preview }}" alt="Preview {{ template.name | escape }}">
+                    data-description="{{ template.description | escape }}" data-keywords="{{ keywords_str | escape }}">
+                    <img class="card-img-top" style="width: 200px; max-height: 250px;" src="{{ template.preview }}"
+                        alt="Preview {{ template.name | escape }}">
                     <div class="card-img-overlay">
                         {%- if template.type == 'character' -%}
-                        <p class="card-text text-right"><span class="badge badge-pill badge-primary">{{ site.data.strings.layouts.type_character }}</span></p>
+                        <p class="card-text text-right"><span
+                                class="badge badge-pill badge-primary">{{ site.data.strings.layouts.type_character }}</span>
+                        </p>
                         {%- elsif template.type == 'user' -%}
-                        <p class="card-text text-right"><span class="badge badge-pill badge-secondary">{{ site.data.strings.layouts.type_user }}</span></p>
+                        <p class="card-text text-right"><span
+                                class="badge badge-pill badge-secondary">{{ site.data.strings.layouts.type_user }}</span>
+                        </p>
                         {%- else -%}
-                        <p class="card-text text-right"><span class="badge badge-pill badge-info">{{ template.type | escape}}</span></p>
+                        <p class="card-text text-right"><span
+                                class="badge badge-pill badge-info">{{ template.type | escape}}</span></p>
                         {%- endif -%}
                     </div>
                     <div class="card-body">
@@ -47,7 +53,8 @@
                 data-config="{{ template.config | prepend: templates_url }}"
                 data-license="{{ template.license | escape }}" data-link="{{ template.link }}"
                 data-description="{{ template.description | escape }}">
-                {{ template.name | escape }} <span class="badge badge-light">{{ site.data.strings.layouts.by_author }}{{ template.author }}</span>
+                {{ template.name | escape }} <span
+                    class="badge badge-light">{{ site.data.strings.layouts.by_author }}{{ template.author }}</span>
                 {%- if template.type == 'character' -%}
                 <span class="badge badge-pill badge-primary">{{ site.data.strings.layouts.type_character }}</span>
                 {%- elsif template.type == 'user' -%}
@@ -74,7 +81,7 @@
     </div>
 </section>
 
-<section>
+<section id="sectionEditor">
     <h2>{{ site.data.strings.editor.header}}</h2>
     <div class="row mb-4">
         <div class="col-md-8 main-template-editors-container">
@@ -99,7 +106,8 @@
                         <a href="#sectionPreviewCode">{{ site.data.strings.preview.goto_preview_code }}</a>
                     </div>
                     <div class="form-group">
-                        <div class="border border-white embed-responsive embed-responsive-16by9 main-template-editors-preview-container">
+                        <div
+                            class="border border-white embed-responsive embed-responsive-16by9 main-template-editors-preview-container">
                             <div class="embed-responsive-item preview-html overflow-auto" id="preview-html"></div>
                         </div>
                         <small id="previewHelp"
@@ -125,9 +133,9 @@
                         <div class="main-template-editors-WYSIWYG-editor-container">
                             <textarea id="txtTemplateWYSIWYG" aria-describedby="templateHelp"></textarea>
                         </div>
+                        <div id="templateError" class="mt-1 alert alert-danger" role="alert"></div>
                         <small id="templateHelp"
                             class="form-text text-muted">{{ site.data.strings.editor.template.template_help }}</small>
-                        <div id="templateError" class="mt-1 alert alert-danger" role="alert"></div>
                     </div>
                     {% else %}
                     <div class="form-group">
@@ -137,12 +145,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="mt-1 pt-2 main-template-editors-editor-container main-template-editors-no-WYSIWYG-container">
+                        <div
+                            class="mt-1 pt-2 main-template-editors-editor-container main-template-editors-no-WYSIWYG-container">
                             <textarea id="txtTemplate" aria-describedby="templateHelp"></textarea>
                         </div>
+                        <div id="templateError" class="mt-1 alert alert-danger" role="alert"></div>
                         <small id="templateHelp"
                             class="form-text text-muted">{{ site.data.strings.editor.template.template_help }}</small>
-                        <div id="templateError" class="mt-1 alert alert-danger" role="alert"></div>
                     </div>
                     {% endif %}
                 </div>
@@ -165,50 +174,46 @@
         <div class="col-md-4 {{ main_config_editors_container }}">
             <div class="row mb-3 pt-1">
                 <div class="col-6 text-left">
-                    <button id="btnCollapseConfig" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseConfig" aria-expanded="true" aria-controls="collapseConfig">
+                    <button id="btnCollapseConfig" class="btn btn-primary" type="button" data-toggle="collapse"
+                        data-target="#collapseConfig" aria-expanded="true" aria-controls="collapseConfig">
                         {{ site.data.strings.editor.config.header }}
                     </button>
                 </div>
                 <div class="col-6 text-right main-config-add-container">
-                    <button id="btnAddConfig" type="button" class="btn btn-success main-config-controls">{{ site.data.strings.editor.config.add_btn }}</button>
-                    <button id="btnSaveConfig" type="button" class="ml-1 btn btn-info main-config-controls">{{ site.data.strings.editor.config.save_btn }}</button>
+                    <button id="btnAddConfig" type="button"
+                        class="btn btn-success main-config-controls">{{ site.data.strings.editor.config.add_btn }}</button>
+                    <button id="btnSaveConfig" type="button"
+                        class="ml-1 btn btn-info main-config-controls">{{ site.data.strings.editor.config.save_btn }}</button>
                 </div>
             </div>
             <div class="collapse form-group" id="collapseConfig">
                 <div class="row mt-3 mb-2 main-config-lock-container">
                     <div class="col-2">
-                        <input id="chbLockConfig" class="mt-1" data-size="small" type="checkbox"
-                            data-toggle="toggle" data-on="<i class='fa fa-lock'></i>"
-                            data-off="<i class='fa fa-unlock'></i>" data-offstyle="outline-secondary"
-                            data-onstyle="outline-success" />
+                        <input id="chbLockConfig" class="mt-1" data-size="small" type="checkbox" data-toggle="toggle"
+                            data-on="<i class='fa fa-lock'></i>" data-off="<i class='fa fa-unlock'></i>"
+                            data-offstyle="outline-secondary" data-onstyle="outline-success" />
                     </div>
                     <div class="col-8">
                         <small id="chbLockConfigHelp" class="form-text text-muted mt-0"></small>
                     </div>
                     <div class="col-2">
-                        <input id="chbConfigMode" class="mt-1" data-size="small" type="checkbox"
-                            data-toggle="toggle" data-on="{{ site.data.strings.editor.config.mode_yaml }}"
+                        <input id="chbConfigMode" class="mt-1" data-size="small" type="checkbox" data-toggle="toggle"
+                            data-on="{{ site.data.strings.editor.config.mode_yaml }}"
                             data-off="{{ site.data.strings.editor.config.mode_json }}" data-offstyle="outline-secondary"
-                            data-onstyle="outline-success" 
-                            data-width="60px"/>
+                            data-onstyle="outline-success" data-width="60px" />
                     </div>
                 </div>
                 <div class="row mt-2 main-config-container">
                     <div class="col-12">
                         <textarea id="txtConfigJSON" aria-describedby="configHelp"></textarea>
                         <textarea id="txtConfigYAML" aria-describedby="configHelp"></textarea>
+                        <div id="configError" class="mt-1 alert alert-danger" role="alert"></div>
                         <small id="configHelp"
                             class="form-text text-muted">{{ site.data.strings.editor.config.help }}</small>
                         <small id="configHelpKeywords" class="form-text text-muted"></small>
-                        <div id="configError" class="mt-1 alert alert-danger" role="alert"></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 mt-2 main-info-container">
-            <div id="msgLayoutPatternInfo" class="alert alert-info" role="alert"></div>
         </div>
     </div>
     <div class="row">
@@ -222,12 +227,23 @@
 </section>
 
 <section id="sectionPreviewCode">
-    <h3>{{ site.data.strings.code.header }}</h3>
+    <h3>{{ site.data.strings.code.header }}
+        <button type="button" id="btnPreviewCodeCopy" class="btn btn-secondary d-inline" data-toggle="popover"
+            data-content="{{ site.data.strings.code.popover_copied }}" data-trigger="manual"
+            data-clipboard-action="copy" data-clipboard-target="#txtPreviewCode">
+            <i class="fas fa-copy"></i>
+        </button>
+    </h3>
+    <div class="row mb-1">
+        <div class="col-12 mt-2 main-info-container">
+            <div id="msgLayoutPatternInfo" class="alert alert-info" role="alert"></div>
+        </div>
+    </div>
     <div class="row mb-1">
         <div class="col-md-12 main-preview-code-container">
             <div class="form-group">
                 <small id="previewCodeHelp" class="form-text text-muted">{{ site.data.strings.code.help }}</small>
-                <textarea id="preview-code" aria-describedby="previewCodeHelp" readonly></textarea>
+                <textarea id="txtPreviewCode" aria-describedby="previewCodeHelp" readonly></textarea>
             </div>
         </div>
     </div>
