@@ -32,6 +32,8 @@ editor:
     add_btn: '<i class="fas fa-plus"></i>'
     save_btn: '<i class="fas fa-save"></i>'
     keywords_help: 'Keywords available in this template: {}<br/>See <a href="{}" target="_blank">original config</a> for more details.'
+    mode_json: 'JSON'
+    mode_yaml: 'YAML'
   generate_btn: Generate
 code:
   header: Generated Code

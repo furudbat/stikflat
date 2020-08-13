@@ -30,25 +30,34 @@ String.prototype.format = function () {
     const STORAGE_AVAILABLE = typeof (Storage) !== 'undefined';
     const STORAGE_KEY_TEMPLATE_CODE = 'template_code';
     const STORAGE_KEY_CONFIG_CODE = 'config_code';
+    const STORAGE_KEY_CONFIG_CODE_JSON = 'config_code_json';
+    const STORAGE_KEY_CONFIG_CODE_YAML = 'config_code_yaml';
     const STORAGE_KEY_CSS_CODE = 'css_code';
     const STORAGE_KEY_LOCK_CONFIG_CODE = 'lock_config_code';
     const STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR = 'enable_WYSIWYG_template_editor';
     const STORAGE_KEY_ENABLE_LIVE_PREVIEW = 'enable_live_preview';
     const STORAGE_KEY_CURRENT_CONFIG_INDEX = 'current_config_index';
     const STORAGE_KEY_SAVED_CONFIGS = 'saved_configs';
+    const STORAGE_KEY_CONFIG_CONTENT_MODE = 'config_content_mode';
 
     const TEMPLATE_EDITOR_NAME_CODEMIRROR = 'CodeMirror';
     const TEMPLATE_EDITOR_NAME_TINYMCE = 'TinyMCE';
     const TEMPLATE_EDITOR_NAME_FROALAEDITOR = 'FroalaEditor';
 
+    const CONFIG_CONTENT_MODE_JSON = 'application/json';
+    const CONFIG_CONTENT_MODE_YAML = 'text/x-yaml';
+
     var _templateEditor = null;
     var _templateWYSIWYGEditor = null;
-    var _configEditor = null;
+    var _configEditorJSON = null;
+    var _configEditorYAML = null;
     var _cssEditor = null;
     var _codePreviewEditor = null;
 
     var _templateCode = '';
     var _configJson = {};
+    var _configJsonStr = '';
+    var _configYamlStr = '';
     var _cssCode = '';
     var _codePreview = '';
     var _currentPattern = '';
@@ -57,6 +66,7 @@ String.prototype.format = function () {
     var _enableLivePreview = true;
     var _currentTemplateEditorName = '';
     var _currentWYSIWYGTemplateEditorName = '';
+    var _configContentMode = CONFIG_CONTENT_MODE_JSON;
 
     var _currentConfigIndex = null;
     var _savedConfigs = [];
@@ -71,11 +81,14 @@ String.prototype.format = function () {
                 console.error({ loadFromStorage: 'parse CONFIG_CODE', e });
                 _configJson = {};
             }
+            _configJsonStr = localStorage.getItem(STORAGE_KEY_CONFIG_CODE_JSON) || getConfigCodeJSON();
+            _configYamlStr = localStorage.getItem(STORAGE_KEY_CONFIG_CODE_YAML) || getConfigCodeYAML();
 
             _cssCode = localStorage.getItem(STORAGE_KEY_CSS_CODE) || _cssCode;
             _lockConfigCode = localStorage.getItem(STORAGE_KEY_LOCK_CONFIG_CODE) === 'true' || _lockConfigCode;
             _enableWYSIWYGTemplateEditor = localStorage.getItem(STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR) === 'true' || _enableWYSIWYGTemplateEditor;
             _enableLivePreview = localStorage.getItem(STORAGE_KEY_ENABLE_LIVE_PREVIEW) === 'true' || _enableLivePreview;
+            _configContentMode = localStorage.getItem(STORAGE_KEY_CONFIG_CONTENT_MODE) || _configContentMode;
 
             try {
                 _currentConfigIndex = parseInt(localStorage.getItem(STORAGE_KEY_CURRENT_CONFIG_INDEX)) || _currentConfigIndex;
@@ -104,10 +117,13 @@ String.prototype.format = function () {
         if (STORAGE_AVAILABLE === true) {
             localStorage.removeItem(STORAGE_KEY_TEMPLATE_CODE);
             localStorage.removeItem(STORAGE_KEY_CONFIG_CODE);
+            localStorage.removeItem(STORAGE_KEY_CONFIG_CODE_JSON);
+            localStorage.removeItem(STORAGE_KEY_CONFIG_CODE_YAML);
             localStorage.removeItem(STORAGE_KEY_CSS_CODE);
             localStorage.removeItem(STORAGE_KEY_LOCK_CONFIG_CODE);
             localStorage.removeItem(STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR);
             localStorage.removeItem(STORAGE_KEY_ENABLE_LIVE_PREVIEW);
+            localStorage.removeItem(STORAGE_KEY_CONFIG_CONTENT_MODE);
         }
     }
     function clearSavedConfigsStorage() {
@@ -123,8 +139,14 @@ String.prototype.format = function () {
     function getConfigJson() {
         return _configJson;
     }
-    function getConfigCode() {
+    function getConfigCodeJSON() {
         return JSON.stringify(_configJson, null, 4);
+    }
+    function getConfigCodeYAML() {
+        return jsyaml.dump(_configJson, { indent: 4, lineWidth: 120 });
+    }
+    function getConfigContentMode() {
+        return _configContentMode;
     }
     function getCssCode() {
         return _cssCode;
@@ -152,6 +174,14 @@ String.prototype.format = function () {
             _codePreviewEditor.refresh();
         }, 100);
     }
+    function setCodeContentMode(mode) {
+        _configContentMode = mode;
+        localStorage.setItem(STORAGE_KEY_CONFIG_CONTENT_MODE, mode);
+    }
+    function updateConfigCodesStr(){
+        _configJsonStr = getConfigCodeJSON();
+        _configYamlStr = getConfigCodeYAML();
+    }
 
 
     function getSavedConfigsArray() {
@@ -160,24 +190,20 @@ String.prototype.format = function () {
     function getCurrentSavedConfigJson() {
         return (_currentConfigIndex !== null && _currentConfigIndex < _savedConfigs.length) ? _savedConfigs[_currentConfigIndex] : null;
     }
-    function getCurrentSavedConfigCode() {
-        var config = getCurrentSavedConfigJson();
-        return (config !== null) ? JSON.stringify(config, null, 4) : '';
-    }
     function saveConfigs() {
         localStorage.setItem(STORAGE_KEY_CURRENT_CONFIG_INDEX, _currentConfigIndex);
         localStorage.setItem(STORAGE_KEY_SAVED_CONFIGS, JSON.stringify(_savedConfigs));
     }
-    function addConfig(json) {
+    function addConfig(json, jsonstr, yamlstr) {
         if (json !== null) {
-            _savedConfigs.push(json);
+            _savedConfigs.push({json, jsonstr, yamlstr});
             _currentConfigIndex = _savedConfigs.length - 1;
             saveConfigs();
         }
     }
-    function saveConfig(index, json) {
+    function saveConfig(index, json, jsonstr, yamlstr) {
         if (index < _savedConfigs.length) {
-            _savedConfigs[index] = json;
+            _savedConfigs[index] = {json, jsonstr, yamlstr};
             saveConfigs();
         }
     }
@@ -229,7 +255,7 @@ String.prototype.format = function () {
 
     function generateHTML() {
         var template = getTemplateCode();
-        var json = getConfigCode();
+        var json = getConfigCodeJSON();
         var css = getCssCode();
 
         generateHTMLFromTemplate(template, json, css);
@@ -308,20 +334,47 @@ String.prototype.format = function () {
     }
 
     function generateConfigEditor() {
-        _configEditor = CodeMirror.fromTextArea(document.getElementById('txtConfig'), {
-            value: getConfigCode(),
-            mode: 'application/json',
+        _configEditorJSON = CodeMirror.fromTextArea(document.getElementById('txtConfigJSON'), {
+            value: _configJsonStr || getConfigCodeJSON(),
+            mode: CONFIG_CONTENT_MODE_JSON,
             //theme: 'dracula',
             lineNumbers: true,
             linter: true,
             spellcheck: true,
             autoRefresh: true
         });
-        _configEditor.on('changes', function (cm, changes) {
-            var jsonstring = cm.getValue();
+        _configEditorJSON.on('changes', function (cm, changes) {
+            var _configJsonStr = cm.getValue();
+            localStorage.setItem(STORAGE_KEY_CONFIG_CODE_JSON, _configJsonStr);
             try {
-                if (jsonstring !== '') {
-                    setConfigJson($.parseJSON(jsonstring));
+                if (_configJsonStr !== '') {
+                    var config = $.parseJSON(_configJsonStr);
+                    setConfigJson(config);
+                    if (_enableLivePreview === true) {
+                        generateHTML();
+                    }
+                }
+            } catch (error) {
+                setConfigError(error.toString());
+            }
+        });
+
+        _configEditorYAML = CodeMirror.fromTextArea(document.getElementById('txtConfigYAML'), {
+            value: _configYamlStr || getConfigCodeYAML(),
+            mode: CONFIG_CONTENT_MODE_YAML,
+            //theme: 'dracula',
+            lineNumbers: true,
+            linter: true,
+            spellcheck: true,
+            autoRefresh: true
+        });
+        _configEditorYAML.on('changes', function (cm, changes) {
+            var _configYamlStr = cm.getValue();
+            localStorage.setItem(STORAGE_KEY_CONFIG_CODE_YAML, _configYamlStr);
+            try {
+                if (_configYamlStr !== '') {
+                    var config = jsyaml.load(_configYamlStr);
+                    setConfigJson(config);
                     if (_enableLivePreview === true) {
                         generateHTML();
                     }
@@ -378,11 +431,20 @@ String.prototype.format = function () {
     function initEditors() {
         setTemplateEditorValue(getTemplateCode());
         _cssEditor.setValue(getCssCode());
-        _configEditor.setValue(getConfigCode());
+        if (getConfigContentMode() == CONFIG_CONTENT_MODE_JSON) {
+            _configEditorJSON.setValue(_configJsonStr);
+            $(_configEditorJSON.getWrapperElement()).show();
+            $(_configEditorYAML.getWrapperElement()).hide();
+        } else {
+            _configEditorYAML.setValue(_configYamlStr);
+            $(_configEditorJSON.getWrapperElement()).hide();
+            $(_configEditorYAML.getWrapperElement()).show();
+        }
 
         setTimeout(function () {
             _cssEditor.refresh();
-            _configEditor.refresh();
+            _configEditorJSON.refresh();
+            _configEditorYAML.refresh();
         }, 100);
     }
 
@@ -491,7 +553,7 @@ String.prototype.format = function () {
         }
         header += '</p>';
 
-        var options = {/* … */};
+        var options = {/* … */ };
 
         $('#msgLayoutPatternInfo').empty()
             .append(header)
@@ -530,9 +592,11 @@ String.prototype.format = function () {
 
         _currentConfigIndex = parseInt(index);
 
-        var config = getCurrentSavedConfigJson();
-        if (config !== null) {
-            setConfigJson(config);
+        var savedConfig = getCurrentSavedConfigJson();
+        if (savedConfig !== null) {
+            setConfigJson(savedConfig.json);
+            _configJsonStr = savedConfig.jsonstr;
+            _configYamlStr = savedConfig.yamlstr;
 
             initEditors();
             generateHTML();
@@ -554,12 +618,12 @@ String.prototype.format = function () {
 
         _currentConfigIndex = parseInt(index);
 
-        var config = getCurrentSavedConfigJson();
-        if (config !== null) {
+        var savedConfig = getCurrentSavedConfigJson();
+        if (savedConfig !== null) {
             var template = getTemplateCode();
             var css = getCssCode();
 
-            generateHTMLFromTemplate(template, config, css, true);
+            generateHTMLFromTemplate(template, savedConfig.json, css, true);
             selectPreviewTab();
         }
     };
@@ -633,25 +697,25 @@ String.prototype.format = function () {
             });
         }
         $('#btnAddConfig').click(function () {
-            addConfig(getConfigJson());
+            addConfig(getConfigJson(), _configJsonStr, _configYamlStr);
             //console.debug('btnAddConfig', {_currentConfigIndex});
 
-            var config = getCurrentSavedConfigJson();
-            if (config !== null) {
-                addSavedConfigToList(config, _currentConfigIndex);
+            var savedConfig = getCurrentSavedConfigJson();
+            if (savedConfig !== null) {
+                addSavedConfigToList(config.json, _currentConfigIndex);
             }
             updateSavedConfigsSelection(_currentConfigIndex);
         });
 
         $('#btnSaveConfig').click(function () {
-            saveConfig(_currentConfigIndex, getConfigJson());
+            saveConfig(_currentConfigIndex, getConfigJson(), _configJsonStr, _configYamlStr);
 
-            var config = getCurrentSavedConfigJson();
-            if (config !== null) {
-                var savedConfig = $('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + _currentConfigIndex + "']");
-                if (savedConfig) {
-                    var configButton = generateButtonFromConfig(config, _currentConfigIndex);
-                    savedConfig.replaceWith(configButton);
+            var savedConfig = getCurrentSavedConfigJson();
+            if (savedConfig !== null) {
+                var savedConfigBtn = $('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + _currentConfigIndex + "']");
+                if (savedConfigBtn) {
+                    var configButton = generateButtonFromConfig(savedConfig.json, _currentConfigIndex);
+                    savedConfigBtn.replaceWith(configButton);
                     makeDoubleClick($('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + _currentConfigIndex + "']"), overrideConfig, previewWithConfig);
                 }
             }
@@ -661,6 +725,11 @@ String.prototype.format = function () {
         updateSaveConfigControls();
     }
 
+    function changeConfigMode(mode) {
+        updateConfigCodesStr();
+        setCodeContentMode(mode);
+        initEditors();
+    }
 
 
     /// https://css-tricks.com/snippets/javascript/bind-different-events-to-click-and-double-click/
@@ -691,6 +760,7 @@ String.prototype.format = function () {
         setCssCode(_cssCode);
 
         generateSavedConfigsFromList();
+        initSaveConfigControls();
 
         clearConfigError();
         clearTemplateError();
@@ -704,10 +774,15 @@ String.prototype.format = function () {
         generateCssEditor();
         generateCodePreviewEditor();
 
-        initEditors();
-        generateHTML();
+        if (getConfigContentMode() === CONFIG_CONTENT_MODE_YAML) {
+            $('#chbConfigMode').bootstrapToggle('on');
+            changeConfigMode(CONFIG_CONTENT_MODE_YAML);
+        } else {
+            $('#chbConfigMode').bootstrapToggle('off');
+            changeConfigMode(CONFIG_CONTENT_MODE_JSON);
+        }
 
-        initSaveConfigControls();
+        generateHTML();
 
         if (_lockConfigCode === true) {
             $('#chbLockConfig').bootstrapToggle('on');
@@ -779,6 +854,14 @@ String.prototype.format = function () {
                 lockConfig();
             } else {
                 unlockConfig();
+            }
+        });
+        $('#chbConfigMode').change(function () {
+            var checked = $(this).prop('checked');
+            if (checked === true) {
+                changeConfigMode(CONFIG_CONTENT_MODE_YAML);
+            } else {
+                changeConfigMode(CONFIG_CONTENT_MODE_JSON);
             }
         });
         $('.generate-btn').each(function (index) {
@@ -855,6 +938,7 @@ String.prototype.format = function () {
 
                 setTemplateCode(template);
                 setConfigJson(configJson);
+                updateConfigCodesStr();
                 setCssCode(css_beautify(css));
 
                 initEditors();

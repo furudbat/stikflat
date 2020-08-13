@@ -112,7 +112,7 @@
                     <div class="form-group">
                         <div class="checkbox">
                             <label class="checkbox-inline">
-                                <input id="chbLivePreview" type="checkbox" data-toggle="toggle">
+                                <input id="chbLivePreview" type="checkbox" data-toggle="toggle" />
                                 <span id="chbLivePreviewHelp"></span>
                             </label>
                         </div>
@@ -132,7 +132,7 @@
                     {% else %}
                     <div class="form-group">
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="chbLivePreview">
+                            <input type="checkbox" class="custom-control-input" id="chbLivePreview" />
                             <label id="chbLivePreviewHelp" class="custom-control-label" for="chbLivePreview"></label>
                         </div>
                     </div>
@@ -177,18 +177,26 @@
             <div class="collapse form-group" id="collapseConfig">
                 <div class="row mt-3 mb-2 main-config-lock-container">
                     <div class="col-2">
-                        <input id="chbLockConfig" class="mt-1" data-size="small" type="checkbox" checked
+                        <input id="chbLockConfig" class="mt-1" data-size="small" type="checkbox"
                             data-toggle="toggle" data-on="<i class='fa fa-lock'></i>"
                             data-off="<i class='fa fa-unlock'></i>" data-offstyle="outline-secondary"
-                            data-onstyle="outline-success">
+                            data-onstyle="outline-success" />
                     </div>
-                    <div class="col-10">
+                    <div class="col-8">
                         <small id="chbLockConfigHelp" class="form-text text-muted mt-0"></small>
+                    </div>
+                    <div class="col-2">
+                        <input id="chbConfigMode" class="mt-1" data-size="small" type="checkbox"
+                            data-toggle="toggle" data-on="{{ site.data.strings.editor.config.mode_yaml }}"
+                            data-off="{{ site.data.strings.editor.config.mode_json }}" data-offstyle="outline-secondary"
+                            data-onstyle="outline-success" 
+                            data-width="60px"/>
                     </div>
                 </div>
                 <div class="row mt-2 main-config-container">
                     <div class="col-12">
-                        <textarea id="txtConfig" aria-describedby="configHelp"></textarea>
+                        <textarea id="txtConfigJSON" aria-describedby="configHelp"></textarea>
+                        <textarea id="txtConfigYAML" aria-describedby="configHelp"></textarea>
                         <small id="configHelp"
                             class="form-text text-muted">{{ site.data.strings.editor.config.help }}</small>
                         <small id="configHelpKeywords" class="form-text text-muted"></small>
