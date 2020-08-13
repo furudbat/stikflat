@@ -914,24 +914,22 @@
             clearSavedConfigsStorage();
         });
 
-        $('#collapseConfig').on('shown.bs.collapse', function () {
-            $('#btnCollapseConfig').html(site.data.strings.editor.config.header).attr('class', 'btn btn-primary');
-            $('.main-config-add-container').show();
-            updateSaveConfigControls();
-
+        $('#collapseConfig').on('show.bs.collapse', function () {
+            $('.main-template-editors-preview-container').removeClass('bigger-preview');
+            
             $('.main-config-editors-container').removeClass(function (index, className) {
                 return (className.match(/(^|\s)col-\S+/g) || []).join(' ');
             }).addClass('col-md-4');
             $('.main-template-editors-container').removeClass(function (index, className) {
                 return (className.match(/(^|\s)col-\S+/g) || []).join(' ');
             }).addClass('col-md-8');
-
-            $('.main-template-editors-preview-container').removeClass('bigger-preview');
+        });
+        $('#collapseConfig').on('shown.bs.collapse', function () {
+            $('#btnCollapseConfig').html(site.data.strings.editor.config.header).attr('class', 'btn btn-primary');
+            $('.main-config-add-container').show();
+            updateSaveConfigControls();
         });
         $('#collapseConfig').on('hidden.bs.collapse', function () {
-            $('#btnCollapseConfig').html(site.data.strings.editor.config.header_short).attr('class', 'btn btn-secondary');
-            $('.main-config-add-container').hide();
-
             $('.main-config-editors-container').removeClass(function (index, className) {
                 return (className.match(/(^|\s)col-\S+/g) || []).join(' ');
             }).addClass('col-md-2');
@@ -940,6 +938,10 @@
             }).addClass('col-md-10');
 
             $('.main-template-editors-preview-container').addClass('bigger-preview');
+        });
+        $('#collapseConfig').on('hide.bs.collapse', function () {
+            $('#btnCollapseConfig').html(site.data.strings.editor.config.header_short).attr('class', 'btn btn-secondary');
+            $('.main-config-add-container').hide();
         });
 
 

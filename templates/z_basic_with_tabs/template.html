@@ -1,125 +1,170 @@
-<div class="row">
-    <div class="col-2">
-        <img src="{{{images.avatar}}}" class="img-fluid rounded-circle" alt="Avatar">
-        <h4 class="mt-1 text-center">{{ title }}</h4>
-    </div>
-    <div class="col-10">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="basic-info-tab" data-toggle="tab" href="#my-basic-info" role="tab" aria-controls="my-basic-info"
-                    aria-selected="true">Basic Info</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="marks-tab" data-toggle="tab" href="#my-marks" role="tab"
-                    aria-controls="profile" aria-selected="false">Marks</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="personality-tab" data-toggle="tab" href="#my-personality" role="tab"
-                    aria-controls="my-personality" aria-selected="false">Personality</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="bio-tab" data-toggle="tab" href="#my-bio" role="tab"
-                    aria-controls="my-bio" aria-selected="false">Bio</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active m-3" id="my-basic-info" role="tabpanel" aria-labelledby="basic-info-tab">
-                <div class="profile-fields-content fields">
-                    <div class="row fields-field">
-                        <div class="field-title col-lg-3 col-md-4 fr-view">
-                            <p>Name</p>
+<div class="container" style="margin: auto;">
+    <div class="row m-2">
+        <div class="col-4 my-2 bg-faded rounded">
+            <div class="mt-3 text-center">
+                <img src="{{{images.avatar}}}" class="img-fluid rounded-circle" alt="Avatar">
+                <h4 class="mt-1">{{ title }}</h4>
+                <h5 class="mt-2">{{{ description }}}</h5>
+            </div>
+        </div>
+        <div class="col-8 mt-3 pl-1">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="basic-info-tab" data-toggle="tab" href="#my-basic-info" role="tab"
+                        aria-controls="my-basic-info" aria-selected="true">Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="appearance-tab" data-toggle="tab" href="#my-appearance" role="tab"
+                        aria-controls="profile" aria-selected="false">Appearance</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="personality-tab" data-toggle="tab" href="#my-personality" role="tab"
+                        aria-controls="my-personality" aria-selected="false">Personality</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="bio-tab" data-toggle="tab" href="#my-bio" role="tab" aria-controls="my-bio"
+                        aria-selected="false">Bio</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active m-3" id="my-basic-info" role="tabpanel"
+                    aria-labelledby="basic-info-tab">
+                    <div class="profile-fields-content fields">
+                        {{#name}}
+                        <div class="row fields-field">
+                            <div class="field-title col-lg-3 col-md-4 fr-view">
+                                <strong>Name</strong>
+                            </div>
+                            <div class="field-value col-lg-9 col-md-8 fr-view">
+                                <p>{{ name }}</p>
+                            </div>
                         </div>
-                        <div class="field-value col-lg-9 col-md-8 fr-view">
-                            <p>{{ name }}</p>
+                        <hr class="w-100 my-1">
+                        {{/name}}
+
+                        {{#sex}}
+                        <div class="row fields-field">
+                            <div class="field-title col-lg-3 col-md-4 fr-view">
+                                <strong>Sex</strong>
+                            </div>
+                            <div class="field-value col-lg-9 col-md-8 fr-view">
+                                <p>{{ sex }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row fields-field">
-                        <div class="field-title col-lg-3 col-md-4 fr-view">
-                            <p>Sex</p>
+                        <hr class="w-100 my-1">
+                        {{/sex}}
+
+                        {{#pronouns}}
+                        <div class="row fields-field">
+                            <div class="field-title col-lg-3 col-md-4 fr-view">
+                                <strong>Pronouns</strong>
+                            </div>
+                            <div class="field-value col-lg-9 col-md-8 fr-view">
+                                <p>{{ pronouns }}</p>
+                            </div>
                         </div>
-                        <div class="field-value col-lg-9 col-md-8 fr-view">
-                            <p>{{ sex }}</p>
+                        <hr class="w-100 my-1">
+                        {{/pronouns}}
+
+                        {{#species}}
+                        <div class="row fields-field">
+                            <div class="field-title col-lg-3 col-md-4 fr-view">
+                                <strong>Species</strong>
+                            </div>
+                            <div class="field-value col-lg-9 col-md-8 fr-view">
+                                <p>{{ species }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row fields-field">
-                        <div class="field-title col-lg-3 col-md-4 fr-view">
-                            <p>Species</p>
+                        <hr class="w-100 my-1">
+                        {{/species}}
+
+                        {{#weight}}
+                        <div class="row fields-field">
+                            <div class="field-title col-lg-3 col-md-4 fr-view">
+                                <strong>Weight</strong>
+                            </div>
+                            <div class="field-value col-lg-9 col-md-8 fr-view">
+                                <p>{{ weight }}</p>
+                            </div>
                         </div>
-                        <div class="field-value col-lg-9 col-md-8 fr-view">
-                            <p>{{ species }}</p>
+                        <hr class="w-100 my-1">
+                        {{/weight}}
+
+                        {{#height}}
+                        <div class="row fields-field">
+                            <div class="field-title col-lg-3 col-md-4 fr-view">
+                                <strong>Height</strong>
+                            </div>
+                            <div class="field-value col-lg-9 col-md-8 fr-view">
+                                <p>{{ height }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row fields-field">
-                        <div class="field-title col-lg-3 col-md-4 fr-view">
-                            <p>Weight</p>
-                        </div>
-                        <div class="field-value col-lg-9 col-md-8 fr-view">
-                            <p>{{ weight }}</p>
-                        </div>
-                    </div>
-                    <div class="row fields-field">
-                        <div class="field-title col-lg-3 col-md-4 fr-view">
-                            <p>Height</p>
-                        </div>
-                        <div class="field-value col-lg-9 col-md-8 fr-view">
-                            <p>{{ height }}</p>
-                        </div>
+                        <hr class="w-100 my-1">
+                        {{/height}}
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane fade m-3" id="my-marks" role="tabpanel" aria-labelledby="marks-tab">
-                <div class="profile-content-content user-content fr-view">
-                    <ul style="list-style-type:square;">
-                        {{#marks}}
+                <div class="tab-pane fade m-3" id="my-appearance" role="tabpanel" aria-labelledby="appearance-tab">
+                    <div class="profile-content-content user-content fr-view">
+                        {{#appearance}}
+                        <h3>Appearance</h3>
+                        <p>{{{appearance}}}</p>
+                        {{/appearance}}
+
+                        {{#marks.length}}
+                        <h3>Marks</h3>
+                        <ul style="list-style-type:square;">
+                            {{#marks}}
                             <li>{{{.}}}</li>
-                        {{/marks}}
-                    </ul>
+                            {{/marks}}
+                        </ul>
+                        {{/marks.length}}
+                    </div>
                 </div>
-            </div>
-            <div class="tab-pane fade m-3" id="my-personality" role="tabpanel" aria-labelledby="marks-personality">
-                <div class="profile-content-content user-content fr-view">
-                    <p><strong>{{ personality }}</strong></p>
-                    {{#pros.length}}
+                <div class="tab-pane fade m-3" id="my-personality" role="tabpanel" aria-labelledby="personality-tab">
+                    <div class="profile-content-content user-content fr-view">
+                        <p><strong>{{ personality }}</strong></p>
+                        {{#pros.length}}
                         <h5>Pros</h5>
                         <ul class="personality-pros">
                             {{#pros}}
-                                <li>{{{.}}}</li>
+                            <li>{{{.}}}</li>
                             {{/pros}}
                         </ul>
-                    {{/pros.length}}
-                    
-                    {{#cons.length}}
+                        {{/pros.length}}
+
+                        {{#cons.length}}
                         <h5 class="mt-1">Cons</h5>
                         <ul class="personality-cons">
                             {{#cons}}
-                                <li>{{{.}}}</li>
+                            <li>{{{.}}}</li>
                             {{/cons}}
                         </ul>
-                    {{/cons.length}}
+                        {{/cons.length}}
 
-                    {{#likes.length}}
+                        {{#likes.length}}
                         <h5>Likes</h5>
                         <ul class="personality-likes">
                             {{#likes}}
-                                <li><i class="fas fa-heart"></i><span class="mx-1">{{{.}}}</span></li>
+                            <li><i class="fas fa-heart"></i><span class="mx-1">{{{.}}}</span></li>
                             {{/likes}}
                         </ul>
-                    {{/likes.length}}
+                        {{/likes.length}}
 
-                    
-                    {{#dislikes.length}}
+
+                        {{#dislikes.length}}
                         <h5 class="mt-1">Dislikes</h5>
                         <ul class="personality-dislikes">
                             {{#dislikes}}
-                                <li><i class="fas fa-heart-broken"></i><span class="mx-1">{{{.}}}</span></li>
+                            <li><i class="fas fa-heart-broken"></i><span class="mx-1">{{{.}}}</span></li>
                             {{/dislikes}}
                         </ul>
-                    {{/dislikes.length}}
+                        {{/dislikes.length}}
+                    </div>
                 </div>
-            </div>
-            <div class="tab-pane fade" id="my-bio" role="tabpanel" aria-labelledby="bio-tab">
-                <div class="m-2 profile-content-content user-content fr-view">
-                   {{{bio}}}
+                <div class="tab-pane fade" id="my-bio" role="tabpanel" aria-labelledby="bio-tab">
+                    <div class="m-2 profile-content-content user-content fr-view">
+                        {{{bio}}}
+                    </div>
                 </div>
             </div>
         </div>

@@ -52,7 +52,7 @@
                 data-css="{{ template.css | prepend: templates_url }}"
                 data-config="{{ template.config | prepend: templates_url }}"
                 data-license="{{ template.license | escape }}" data-link="{{ template.link }}"
-                data-description="{{ template.description | escape }}">
+                data-description="{{ template.description | escape }}" data-keywords="{{ keywords_str | escape }}">
                 {{ template.name | escape }} <span
                     class="badge badge-light">{{ site.data.strings.layouts.by_author }}{{ template.author }}</span>
                 {%- if template.type == 'character' -%}
