@@ -10,7 +10,7 @@ npm i tinymce froala-editor codemirror
 npm i mustache
 npm i js-beautify
 npm i linkifyjs
-npm i esprima
+npm i esprima js-yaml
 
 cp node_modules/jquery/dist/jquery.min.* assets/js
 
