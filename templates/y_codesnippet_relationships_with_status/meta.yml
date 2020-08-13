@@ -1,8 +1,8 @@
-  name: 'Minimal Config'
-  description: 'Test Character Preview with Minimal Config'
+  name: 'Relationships List with Statuses'
+  description: 'Use this Layout to generate Relationships-List or Friends-List with img, link and status'
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   author: 'furudbat'
   author_link: 'https://toyhou.se/FurudBat'
   license: 'Free to use and modify'
   link: 'https://github.com/furudbat/thhg/tree/master/templates'
-  disable: true
+  type: 'codesnippet'

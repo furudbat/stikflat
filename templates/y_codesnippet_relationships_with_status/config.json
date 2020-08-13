@@ -1,0 +1,38 @@
+{
+    "relationships": [
+        {
+            "name": "Character",
+            "status": "[status]",
+            "img": "https://via.placeholder.com/300",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        },
+        {
+            "name": "Character 2",
+            "status": "[status]",
+            "img": "https://via.placeholder.com/300",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        },
+        {
+            "name": "Character 3",
+            "status": "[status]",
+            "img": "https://via.placeholder.com/300",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        },
+        {
+            "name": "Character 4",
+            "status": "[status]",
+            "img": "https://via.placeholder.com/300",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        },
+        {
+            "name": "Character 5",
+            "img": "https://via.placeholder.com/300",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        },
+        {
+            "name": "Character 6",
+            "img": "https://via.placeholder.com/300",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        }
+    ]
+}

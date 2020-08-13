@@ -1,0 +1,19 @@
+{
+    "relationships": [
+        {
+            "name": "Character",
+            "img": "https://via.placeholder.com/300",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        },
+        {
+            "name": "Character 2",
+            "img": "https://via.placeholder.com/300",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        },
+        {
+            "name": "Character 3",
+            "img": "https://via.placeholder.com/300",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        }
+    ]
+}

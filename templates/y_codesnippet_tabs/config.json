@@ -1,0 +1,25 @@
+{
+    "id": "myTabs",
+    "tabs": [
+        {
+            "id": "tab-1",
+            "name": "Tab 1",
+            "content": "Voluptate inventore unde optio fuga itaque. Modi et magni et fuga qui sit. Sequi quod blanditiis ea est nostrum aut. Itaque officiis velit vitae illum non aliquid ad placeat."
+        },
+        {
+            "id": "tab-2",
+            "name": "Tab 2",
+            "content": "Officia esse debitis unde non dolores aut mollitia magni. Laborum et placeat animi fuga praesentium nisi. Vel nihil totam illo quas consequatur"
+        },
+        {
+            "id": "tab-3",
+            "name": "Tab 3",
+            "content": "Pariatur earum repellendus sint a sit quos quia aliquid. Asperiores molestiae quos non ea. Sed id cum itaque. Deleniti quae in praesentium."
+        },
+        {
+            "id": "tab-4",
+            "name": "Tab 4",
+            "content": "Rem et eum eaque recusandae at enim qui. Est laudantium necessitatibus incidunt ut. Eos qui nihil officiis aut. Illo inventore dolorem quis non labore repudiandae reiciendis. Non vitae occaecati voluptates accusantium nostrum tenetur."
+        }
+    ]
+}

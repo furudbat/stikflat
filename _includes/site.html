@@ -31,9 +31,13 @@
                         <p class="card-text text-right"><span
                                 class="badge badge-pill badge-secondary">{{ site.data.strings.layouts.type_user }}</span>
                         </p>
+                        {%- elsif template.type == 'codesnippet' -%}
+                        <p class="card-text text-right"><span
+                                class="badge badge-pill badge-info">{{ site.data.strings.layouts.type_codesnippet }}</span>
+                        </p>
                         {%- else -%}
                         <p class="card-text text-right"><span
-                                class="badge badge-pill badge-info">{{ template.type | escape}}</span></p>
+                                class="badge badge-pill badge-warning">{{ template.type | escape}}</span></p>
                         {%- endif -%}
                     </div>
                     <div class="card-body">
@@ -59,8 +63,10 @@
                 <span class="badge badge-pill badge-primary">{{ site.data.strings.layouts.type_character }}</span>
                 {%- elsif template.type == 'user' -%}
                 <span class="badge badge-pill badge-secondary">{{ site.data.strings.layouts.type_user }}</span>
+                {%- elsif template.type == 'codesnippet' -%}
+                <span class="badge badge-pill badge-info">{{ site.data.strings.layouts.type_codesnippet }}</span>
                 {%- else -%}
-                <span class="badge badge-pill badge-info">{{ template.type | escape}}</span>
+                <span class="badge badge-pill badge-warning">{{ template.type | escape}}</span>
                 {%- endif -%}
             </button>
             {%- endif -%}

@@ -1,0 +1,18 @@
+{{#relationships.length}}
+<h2><i class="fas fa-users fa-fw"></i> Relationships</h2>
+{{#relationships}}
+<div class="card-group mb-2">
+    <div class="card">
+        <img src="{{{img}}}" class="img-fluid" alt="{{name}}">
+    </div>
+    <div class="card">
+        <div class="card-header text-uppercase text-center text-muted">{{name}}</div>
+        {{#summary}}
+        <div class="card-block">
+            <p>{{{summary}}}</p>
+        </div>
+        {{/summary}}
+    </div>
+</div>
+{{/relationships}}
+{{/relationships.length}}

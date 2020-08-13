@@ -426,6 +426,61 @@
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
+  config: y_codesnippet_characters/config.json
+  css: y_codesnippet_characters/snippet.css
+  description: Use this Layout to generate Character-List with img and link
+  keywords:
+  - characters
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates
+  name: Character List
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
+  template: y_codesnippet_characters/snippet.html
+  type: codesnippet
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: y_codesnippet_relationships/config.json
+  css: y_codesnippet_relationships/snippet.css
+  description: Use this Layout to generate Relationships-List or Friends-List with
+    img and link
+  keywords:
+  - relationships
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates
+  name: Relationships List
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
+  template: y_codesnippet_relationships/snippet.html
+  type: codesnippet
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: y_codesnippet_relationships_with_status/config.json
+  css: y_codesnippet_relationships_with_status/snippet.css
+  description: Use this Layout to generate Relationships-List or Friends-List with
+    img, link and status
+  keywords:
+  - relationships
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates
+  name: Relationships List with Statuses
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
+  template: y_codesnippet_relationships_with_status/snippet.html
+  type: codesnippet
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: y_codesnippet_tabs/config.json
+  css: y_codesnippet_tabs/snippet.css
+  description: Use this Layout to generate Bootstrap Tabs
+  keywords:
+  - tabs
+  - id
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates
+  name: Tabs
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
+  template: y_codesnippet_tabs/snippet.html
+  type: codesnippet
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
   config: zz_character_fullconfig/character_config.json
   css: zz_character_fullconfig/test.css
   description: Test Character Preview with Rich Config
@@ -490,9 +545,9 @@
   - mbti
   - notes
   license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates/zz_character_fullconfig
+  link: https://github.com/furudbat/thhg/tree/master/templates
   name: Full Config
-  style: 'background-color: #2a5a7e; color: #f7fd95'
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zz_character_fullconfig/test.html
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -512,9 +567,9 @@
   - mbti
   - build
   license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates/zz_character_minimalconfig
+  link: https://github.com/furudbat/thhg/tree/master/templates
   name: Minimal Config
-  style: 'background-color: #2a5a7e; color: #f7fd95'
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zz_character_minimalconfig/test.html
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -533,9 +588,9 @@
   - images
   - name
   license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates/zz_user_fullconfig
+  link: https://github.com/furudbat/thhg/tree/master/templates
   name: Full Config
-  style: 'background-color: #2a5a7e; color: #f7fd95'
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zz_user_fullconfig/test.html
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -553,9 +608,9 @@
   - images
   - name
   license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates/zz_user_minimalconfig
+  link: https://github.com/furudbat/thhg/tree/master/templates
   name: Minimal Config
-  style: 'background-color: #2a5a7e; color: #f7fd95'
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zz_user_minimalconfig/test.html
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -572,9 +627,9 @@
   - sex
   - species
   license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates/basic
+  link: https://github.com/furudbat/thhg/tree/master/templates
   name: Simple Layout
-  style: 'background-color: #1a4a6e; color: #f7fd95'
+  style: 'background-color: #1a4a6e; color: #f7fdf5'
   template: z_basic/template.html
   type: character
 - author: furudbat
@@ -600,9 +655,9 @@
   - species
   - description
   license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates/z_basic_with_tabs
+  link: https://github.com/furudbat/thhg/tree/master/templates
   name: Simple Layout with Tabs
-  style: 'background-color: #1a4a6e; color: #f7fd95'
+  style: 'background-color: #1a4a6e; color: #f7fdf5'
   template: z_basic_with_tabs/template.html
   type: character
 - author: furudbat
@@ -620,8 +675,8 @@
   - images
   - name
   license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates/z_simple_card
+  link: https://github.com/furudbat/thhg/tree/master/templates
   name: Minimal Card
-  style: 'background-color: #1a4a6e; color: #f7fd95'
+  style: 'background-color: #1a4a6e; color: #f7fdf5'
   template: z_simple_card/template.html
   type: user
