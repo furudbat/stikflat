@@ -80,8 +80,8 @@
   keywords:
   - about
   - name
-  - links
   - age
+  - socialmedia
   - images
   - pronouns
   - notes
@@ -273,6 +273,24 @@
   type: character
 - author: snail-legs
   author_link: https://toyhou.se/snail-legs
+  config: simple_profile_card_by_snail_legs/config.json
+  css: simple_profile_card_by_snail_legs/simple.css
+  description: Hello! This is a F2U profile code. It's responsive, and you're free
+    to do what you'd like with it as long as you maintain credit!
+  keywords:
+  - about
+  - socialmedia
+  - name
+  - description
+  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
+  link: https://toyhou.se/6839883.layout-simple-profile-card
+  name: simple profile card
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6839883?1592936183
+  style: 'background-color: #3a3639; color: #fcfbf6'
+  template: simple_profile_card_by_snail_legs/simple.html
+  type: user
+- author: snail-legs
+  author_link: https://toyhou.se/snail-legs
   config: striped_columns_by_snail_legs/config.json
   css: striped_columns_by_snail_legs/striped.css
   description: Hello! This is a F2U profile code with some fancy-lookin borders. You're
@@ -332,16 +350,38 @@
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
+  config: user_axis_by_eggy copy/config.json
+  css: user_axis_by_eggy copy/axis.css
+  description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  keywords:
+  - about
+  - name
+  - links
+  - socialmedia
+  - notes
+  - artstatus
+  - characters
+  - images
+  - description
+  license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
+  link: https://toyhou.se/6742833.-freebie-user-axis
+  name: User Axis
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6742833?1588169704
+  style: 'background-color: #f8b526; color: #070707'
+  template: user_axis_by_eggy copy/axis.html
+  type: user
+- author: <i class="fas fa-skull user-name-icon"></i>Eggy
+  author_link: https://toyhou.se/Eggy
   config: user_space_by_eggy/config.json
   css: user_space_by_eggy/userspace.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
   keywords:
   - about
   - description
-  - links
   - title
   - gender
   - age
+  - socialmedia
   - characters
   - images
   - name
@@ -412,7 +452,6 @@
   - themes
   - title
   - character
-  - links
   - theme
   - role
   - build
@@ -428,6 +467,7 @@
   - theme_link
   - quote
   - birthday
+  - socialmedia
   - background
   - sex
   - projects
@@ -485,10 +525,10 @@
   keywords:
   - about
   - description
-  - links
   - title
   - gender
   - age
+  - socialmedia
   - characters
   - images
   - name
@@ -506,10 +546,10 @@
   keywords:
   - about
   - description
-  - links
   - title
   - gender
   - age
+  - socialmedia
   - images
   - name
   license: Free to use and modify
@@ -528,11 +568,12 @@
   - title
   - height
   - images
+  - pronouns
   - sex
   - species
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/basic
-  name: Simple
+  name: Simple Layout
   style: 'background-color: #1a4a6e; color: #f7fd95'
   template: z_basic/template.html
   type: character
@@ -543,22 +584,24 @@
   description: Simple Basic Character Profile Layout with Tabs
   keywords:
   - bio
-  - cons
+  - pros
   - name
   - weight
   - title
-  - dislikes
-  - pros
+  - personality
+  - appearance
   - height
+  - cons
   - likes
   - marks
   - images
+  - dislikes
   - sex
   - species
-  - personality
+  - description
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/z_basic_with_tabs
-  name: Simple with Tabs
+  name: Simple Layout with Tabs
   style: 'background-color: #1a4a6e; color: #f7fd95'
   template: z_basic_with_tabs/template.html
   type: character
@@ -570,15 +613,15 @@
   keywords:
   - about
   - description
-  - links
   - title
   - gender
   - age
+  - socialmedia
   - images
   - name
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates/z_simple_card
-  name: User - Minimal Card
+  name: Minimal Card
   style: 'background-color: #1a4a6e; color: #f7fd95'
   template: z_simple_card/template.html
   type: user

@@ -155,11 +155,11 @@
         }
     ], 
     "notes": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
-        "Suspendisse a felis molestie, porttitor est eget, euismod mauris.", 
-        "Integer fermentum est vitae dui pretium fermentum.", 
-        "Fusce quis velit vel sem pellentesque iaculis congue non lorem.", 
-        "Aliquam vulputate lacus consequat, volutpat ex ut, blandit lacus."
+        "Lorem ipsum", 
+        "Suspendisse", 
+        "Integer fermentum", 
+        "Fusce quis", 
+        "Aliquam"
     ], 
     "themes": [
         {
@@ -194,7 +194,7 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque."
         }
     ], 
-    "links": {
+    "socialmedia": {
         "tumblr": "https://www.tumblr.com/", 
         "deviantart": "https://www.deviantart.com/", 
         "instagram": "https://www.instagram.com/", 

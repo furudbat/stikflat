@@ -2,7 +2,7 @@
     "name": "Name", 
     "pronouns": "Pronouns", 
     "age": "Age", 
-    "about": "About --- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque.", 
+    "about": "About Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque.", 
     "notes": [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
@@ -25,7 +25,7 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque."
         }
     ], 
-    "links": {
+    "socialmedia": {
         "tumblr": "https://www.tumblr.com/", 
         "deviantart": "https://www.deviantart.com/", 
         "instagram": "https://www.instagram.com/", 

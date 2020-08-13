@@ -1,0 +1,123 @@
+<div class="container px-0 my-4">
+   <div class="card border-0 modal-open bg-faded" style="border-radius: 1em; box-shadow: 0px 0px 16px rgba(0,0,0,.2);">
+      <div style="background: url({{{images.header}}}) fixed; 
+       height: 180px;" class="card-block"></div>
+
+      <div class="row no-gutters">
+         <div class="col-md-3">
+            <div class="card card-block d-block bg-faded border-0 rounded-0">
+
+               <!---------------- 200 x 200 AVATAR IMAGE ---------------------------------------------->
+               <img src="{{{images.avatar}}}" class="bg-faded p-2 rounded-circle d-block mx-auto mb-2"
+                  style="max-height: 200px; margin-top: -100px;"/>
+
+               <div class="text-lg-left text-center">
+                  <h1 class="display-4 text-muted mb-0">{{name}}</h1>
+                  <p class="ml-lg-2 mb-4" style="letter-spacing: .5px;">{{{description}}}</p>
+               </div>
+               <p class="text-uppercase text-muted mb-0" style="letter-spacing: 1px;"><i class="fal fa-link fa-fw"></i>
+                  Links</p>
+               <hr class="mt-0">
+               <div style="letter-spacing:1px;">
+                  {{#socialmedia.deviantart}}
+                  <a href="{{{socialmedia.deviantart}}}" class="d-block mb-2" target="_BLANK">
+                     <i class="fab fa-deviantart fa-fw pull-right"></i> Deviantart</a>
+                  {{/socialmedia.deviantart}}
+
+                  {{#socialmedia.furaffinity}}
+                  <a href="{{{socialmedia.furaffinity}}}" class="d-block mb-2" target="_BLANK">
+                     <i class="fas fa-paw fa-fw pull-right"></i> Furaffinity</a>
+                  {{/socialmedia.furaffinity}}
+
+                  {{#socialmedia.twitter}}
+                  <a href="{{{socialmedia.twitter}}}" class="d-block mb-2" target="_BLANK">
+                     <i class="fab fa-twitter fa-fw pull-right"></i> Twitter</a>
+                  {{/socialmedia.twitter}}
+
+                  {{#socialmedia.tumblr}}
+                  <a href="{{{socialmedia.tumblr}}}" class="d-block mb-2" target="_BLANK">
+                     <i class="fab fa-tumblr fa-fw pull-right"></i> Tumblr</a>
+                  {{/socialmedia.tumblr}}
+
+                  {{#socialmedia.discord}}
+                  <span class="d-block mb-2">
+                     <i class="fab fa-discord fa-fw pull-right"></i>{{{socialmedia.discord}}}</span>
+                  {{/socialmedia.discord}}
+
+                  <a href="https://toyhou.se/Eggy" class="d-block mb-2" target="_BLANK">
+                     <i class="fas fa-code fa-fw pull-right"></i> Credit</a>
+               </div>
+            </div>
+         </div>
+
+         <div class="col-lg-7 col-md-6 px-md-2 px-3">
+            <div class="card d-block p-3 my-md-3"
+               style="height: 540px; overflow:auto; border-radius: 1em; font-size: 10.5pt;">
+               <h1 class="text-muted text-uppercase" style="letter-spacing: 1px; font-weight:300;">
+                  <i class="fal fa-stars fa-fw"></i> About Me</h1>
+               <p>{{{about}}}</p>
+
+               <div class="row no-gutters mx-md-0 mx-2">
+                  <div class="col-md-6 pr-md-2 mb-2">
+                     <h1 class="text-muted text-uppercase mt-4" style="letter-spacing: 1px; font-weight:300;">
+                        <i class="fal fa-pencil-paintbrush fa-fw"></i> Art</h1>
+                     <div class="justify-content-between">
+                        <span class="text-muted">
+                           commissions</span>
+                        <i>{{artstatus.commissions}}</i>
+                     </div>
+                     <hr class="my-2">
+                     <div class="justify-content-between">
+                        <span class="text-muted">
+                           trades</span>
+                        <i>{{artstatus.trades}}</i>
+                     </div>
+                     <hr class="my-2">
+                     <div class="justify-content-between">
+                        <span class="text-muted">
+                           requests</span>
+                        <i>{{artstatus.requests}}</i>
+                     </div>
+                  </div>
+
+                  <div class="col-md-6 pl-md-2 mb-2">
+                     <h1 class="text-muted text-uppercase mt-4" style="letter-spacing: 1px; font-weight:300;">
+                        <i class="fal fa-exchange fa-fw"></i> Trades</h1>
+                     <a href="{{links.trades}}" class="btn btn-secondary btn-block btn-sm m-1">Trades</a>
+                     <a href="{{links.sales}}" class="btn btn-secondary btn-block btn-sm m-1">Sales</a>
+                     <a href="{{links.wishlist}}" class="btn btn-secondary btn-block btn-sm m-1">Wishlist</a>
+                  </div>
+               </div>
+
+               {{#notes.length}}
+               <h1 class="text-muted text-uppercase mt-4" style="letter-spacing: 1px; font-weight:300;">
+                  <i class="fal fa-list-alt fa-fw"></i> Notice</h1>
+               <ul>
+                  {{#notes}}
+                  <li>{{{.}}}</li>
+                  {{/notes}}
+               </ul>
+               {{/notes.length}}
+            </div>
+         </div>
+
+         {{#characters.length}}
+         <div class="col-lg-2 col-md-3">
+            <div class="d-flex h-100 w-100 py-3">
+               <div class="row no-gutters w-100 my-auto">
+                  {{#characters}}
+                  <div class="col-md-12 col-4 px-md-0 px-1">
+                     <a href="{{{link}}}" target="_BLANK">
+                        <img title="character name" src="{{{img}}}"
+                           class="d-block mx-auto my-3 img-thumbnail tooltipster"
+                           style="max-height: 150px; border-radius: 1em;">
+                     </a>
+                  </div>
+                  {{/characters}}
+               </div>
+            </div>
+         </div>
+         {{/characters.length}}
+      </div>
+   </div>
+</div>
