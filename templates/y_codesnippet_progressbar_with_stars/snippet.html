@@ -1,0 +1,19 @@
+<div class="row no-gutters">
+    {{#attributes}}
+    <div class="col mb-2">
+        <h3 class="mb-3 text-uppercase text-center">{{title}}</h3>
+        {{#stats}}
+        <div class="row justify-content-md-center">
+            <div class="col-3 offset-md-1">
+                <p>{{name}}</p>
+            </div>
+            <div class="col-6">
+                {{#value}}
+                <i class="fas fa-{{{.}}} fa-fw"></i>
+                {{/value}}
+            </div>
+        </div>
+        {{/stats}}
+    </div>
+    {{/attributes}}
+</div>

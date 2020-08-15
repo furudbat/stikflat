@@ -5,6 +5,7 @@
   description: A character profile theme inspired by identification cards. Mobile
     responsive and interactive (flip the card!), with a space for a signature (if
     you like) and background graphic.
+  disable: true
   keywords:
   - relationships
   - bloodtype
@@ -41,6 +42,7 @@
   description: Originally a custom for Swissy, this character profile theme has dark
     colours as a base. It has tabs and a moodboard section. 100% mobile responsive
     with lots and lots of slots for character information.
+  disable: true
   keywords:
   - relationships
   - bio
@@ -77,6 +79,7 @@
     a lot of text in a digestible way. It includes a space for a banner, a user icon,
     social media, notes and a list of projects. Mobile responsive, organises profile
     into main area and sidebar.
+  disable: trueW
   keywords:
   - about
   - name
@@ -104,6 +107,7 @@
     a pagedoll/other graphic- I'd reccomend using a portait image for the best effect.
     It's responsive, and you're free to do what you'd like with it as long as you
     maintain credit!
+  disable: true
   keywords:
   - bio
   - stats
@@ -125,6 +129,7 @@
   config: lil_bit_by_eggy/config.json
   css: lil_bit_by_eggy/lilbit.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  disable: true
   keywords:
   - bio
   - name
@@ -148,6 +153,7 @@
   config: open_by_eggy/config.json
   css: open_by_eggy/open.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  disable: true
   keywords:
   - dislikes
   - height
@@ -184,6 +190,7 @@
   config: open_collapse_by_eggy/config.json
   css: open_collapse_by_eggy/open.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  disable: true
   keywords:
   - trivias
   - dislikes
@@ -222,6 +229,7 @@
   config: scale_by_eggy/config.json
   css: scale_by_eggy/scale.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  disable: true
   keywords:
   - relationships
   - bio
@@ -257,6 +265,7 @@
   description: Hello! This is a F2U profile code with room for a bit of written info
     and a featured image. It's responsive, and you're free to do what you'd like with
     it as long as you maintain credit!
+  disable: true
   keywords:
   - bio
   - trivias
@@ -277,6 +286,7 @@
   css: simple_profile_card_by_snail_legs/simple.css
   description: Hello! This is a F2U profile code. It's responsive, and you're free
     to do what you'd like with it as long as you maintain credit!
+  disable: true
   keywords:
   - about
   - socialmedia
@@ -295,6 +305,7 @@
   css: striped_columns_by_snail_legs/striped.css
   description: Hello! This is a F2U profile code with some fancy-lookin borders. You're
     free to do what you'd like with it as long as you maintain credit!
+  disable: true
   keywords:
   - bio
   - description
@@ -317,6 +328,7 @@
   description: A custom for reinapepiada, this theme is designed to contain lots and
     lots of text in multiple sections, and has slots for quote, stats, music themes,
     and a moodboard.
+  disable: true
   keywords:
   - extra
   - dislikes
@@ -353,6 +365,7 @@
   config: user_axis_by_eggy copy/config.json
   css: user_axis_by_eggy copy/axis.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  disable: true
   keywords:
   - about
   - name
@@ -375,6 +388,7 @@
   config: user_space_by_eggy/config.json
   css: user_space_by_eggy/userspace.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  disable: true
   keywords:
   - about
   - description
@@ -399,6 +413,7 @@
   description: Hello! This is a F2U profile code designed to mimic a wiki page. It's
     fully responsive, and you're free to do what you'd like with it as long as you
     maintain credit!
+  disable: true
   keywords:
   - interests
   - bio
@@ -431,11 +446,65 @@
   description: Use this Layout to generate Character-List with img and link
   keywords:
   - characters
+  - title
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates
   name: Character List
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_characters/snippet.html
+  type: codesnippet
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: y_codesnippet_fields/config.json
+  css: y_codesnippet_fields/snippet.css
+  description: Use this Layout to generate a List of Fields
+  keywords:
+  - fields
+  - title
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates
+  name: Fields
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
+  template: y_codesnippet_fields/snippet.html
+  type: codesnippet
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: y_codesnippet_progressbar/config.json
+  css: y_codesnippet_progressbar/snippet.css
+  description: Use this Layout to generate standard progressbars for stats
+  keywords:
+  - attributes
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates
+  name: Stats with Progressbars
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
+  template: y_codesnippet_progressbar/snippet.html
+  type: codesnippet
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: y_codesnippet_progressbar_with_stars/config.json
+  css: y_codesnippet_progressbar_with_stars/snippet.css
+  description: Use this Layout to generate Stars as values for stats
+  keywords:
+  - attributes
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates
+  name: Stats with Stars
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
+  template: y_codesnippet_progressbar_with_stars/snippet.html
+  type: codesnippet
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: y_codesnippet_progressbar_with_values/config.json
+  css: y_codesnippet_progressbar_with_values/snippet.css
+  description: Use this Layout to generate standard progressbars with values for stats
+  keywords:
+  - attributes
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates
+  name: Stats with Progressbars and Values
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
+  template: y_codesnippet_progressbar_with_values/snippet.html
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -445,6 +514,7 @@
     img and link
   keywords:
   - relationships
+  - title
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates
   name: Relationships List
@@ -459,6 +529,7 @@
     img, link and status
   keywords:
   - relationships
+  - title
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates
   name: Relationships List with Statuses

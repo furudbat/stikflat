@@ -1,0 +1,21 @@
+<div class="row no-gutters">
+    {{#attributes}}
+    <div class="col mb-2">
+        <h3 class="mb-3 text-uppercase text-center">{{title}}</h3>
+        {{#stats}}
+        <div class="row justify-content-md-center">
+            <div class="col-3 offset-md-1">
+                <p>{{name}}</p>
+            </div>
+            <div class="col-6">
+                <div class="progress position-relative">
+                    <div class="progress-bar" role="progressbar" style="width: {{{value}}}%" aria-valuenow="{{{value}}}" aria-valuemin="0" aria-valuemax="100">
+                        <span class="d-flex justify-content-center position-absolute w-100">{{{value}}}{{{text}}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/stats}}
+    </div>
+    {{/attributes}}
+</div>
