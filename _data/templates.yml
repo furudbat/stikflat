@@ -566,13 +566,13 @@
   config: y_codesnippet_relationships_with_status/config.json
   css: y_codesnippet_relationships_with_status/snippet.css
   description: Use this Layout to generate Relationships-List or Friends-List with
-    img, link and status
+    rounded img, link and status
   keywords:
   - relationships
   - title
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates
-  name: Relationships List with Statuses
+  name: Relationships List with Status
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_relationships_with_status/snippet.html
   type: codesnippet
@@ -757,10 +757,12 @@
   - personality
   - appearance
   - height
+  - images
   - cons
+  - references
   - likes
   - marks
-  - images
+  - pronouns
   - dislikes
   - sex
   - species

@@ -39,7 +39,11 @@ editor:
 code:
   header: Generated Code
   help: "Here is your finished code to copy."
-  popover_copied: "Generated Code Copied!"
+  copycode: ""
+  copycode_spoiler: "as spoiler"
+  copycode_spoiler_preview: "with spoiler and preview"
+  copycode_spoiler_preview_credit: "with credit, spoiler and preview"
+  popover_copied: "Copied to clipoard!"
 misc:
   clear_template_storage_btn: Clear Settings
   clear_template_storage_help: "Delete all Settings and Editor-Inputs from local storage."

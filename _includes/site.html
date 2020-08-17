@@ -234,10 +234,25 @@
 
 <section id="sectionPreviewCode">
     <h3>{{ site.data.strings.code.header }}
-        <button type="button" id="btnPreviewCodeCopy" class="btn btn-dark d-inline" data-toggle="popover"
+        <button type="button" id="btnPreviewCodeCopy" class="btn btn-outline-primary d-inline mr-1 mb-1 copy-to-clipboard" data-toggle="popover"
             data-content="{{ site.data.strings.code.popover_copied }}" data-trigger="manual"
             data-clipboard-action="copy" data-clipboard-target="#txtPreviewCode">
-            <i class="fas fa-copy"></i>
+            <span class="mr-1">{{ site.data.strings.code.copycode }}</span><i class="fas fa-copy"></i>
+        </button>
+        <button type="button" id="btnPreviewCodeCopySpoiler" class="btn btn-outline-secondary d-inline mr-1 mb-1 copy-to-clipboard" data-toggle="popover"
+            data-content="{{ site.data.strings.code.popover_copied }}" data-trigger="manual"
+            data-clipboard-action="copy">
+            <span class="mr-1">{{ site.data.strings.code.copycode_spoiler }}</span><i class="fas fa-copy"></i>
+        </button>
+        <button type="button" id="btnPreviewCodeCopySpoilerPreview" class="btn btn-outline-secondary d-inline mr-1 mb-1 copy-to-clipboard" data-toggle="popover"
+            data-content="{{ site.data.strings.code.popover_copied }}" data-trigger="manual"
+            data-clipboard-action="copy">
+            <span class="mr-1">{{ site.data.strings.code.copycode_spoiler_preview }}</span><i class="fas fa-copy"></i>
+        </button>
+        <button type="button" id="btnPreviewCodeCopySpoilerPreviewCredit" class="btn btn-outline-secondary d-inline mr-1 mb-1 copy-to-clipboard" data-toggle="popover"
+            data-content="{{ site.data.strings.code.popover_copied }}" data-trigger="manual"
+            data-clipboard-action="copy">
+            <span class="mr-1">{{ site.data.strings.code.copycode_spoiler_preview_credit }}</span><i class="fas fa-copy"></i>
         </button>
     </h3>
     <div class="row mb-1">

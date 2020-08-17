@@ -860,8 +860,74 @@
             $('#btnPreviewCodeCopy').popover('show');
             e.clearSelection();
         });
+
+        var btnPreviewCodeCopySpoiler = new ClipboardJS('#btnPreviewCodeCopySpoiler', {
+            text: function (trigger) {
+                var code = _codePreview;
+                var encoded_code = $('<div />').text(code).html();
+                return [
+                    '<div class="fr-spoiler">',
+                    '<pre><code>',
+                    encoded_code,
+                    '</pre></code>',
+                    '</div>'
+
+                ].join('\n');
+            }
+        });
+        btnPreviewCodeCopySpoiler.on('success', function (e) {
+            $('#btnPreviewCodeCopySpoiler').popover('show');
+            e.clearSelection();
+        });
+        
+        var btnPreviewCodeCopySpoilerPreview = new ClipboardJS('#btnPreviewCodeCopySpoilerPreview', {
+            text: function (trigger) {
+                var code = _codePreview;
+                var encoded_code = $('<div />').text(code).html();
+                return [
+                    '<h2>Code</h2>',
+                    '<div class="fr-spoiler">',
+                    '<pre><code>',
+                    encoded_code,
+                    '</pre></code>',
+                    '</div>',
+                    '',
+                    '<h2>Preview</h2>',
+                    code,
+                ].join('\n');
+            }
+        });
+        btnPreviewCodeCopySpoilerPreview.on('success', function (e) {
+            $('#btnPreviewCodeCopySpoilerPreview').popover('show');
+            e.clearSelection();
+        });
+
+        var btnPreviewCodeCopySpoilerPreviewCredit = new ClipboardJS('#btnPreviewCodeCopySpoilerPreviewCredit', {
+            text: function (trigger) {
+                var code = _codePreview;
+                var encoded_code = $('<div />').text(code).html();
+                return [
+                    '<p>', $('#msgLayoutPatternInfo').html(), '</p>',
+                    '',
+                    '<h2>Code</h2>',
+                    '<div class="fr-spoiler">',
+                    '<pre><code>',
+                    encoded_code,
+                    '</pre></code>',
+                    '</div>',
+                    '',
+                    '<h2>Preview</h2>',
+                    code,
+                ].join('\n');
+            }
+        });
+        btnPreviewCodeCopySpoilerPreviewCredit.on('success', function (e) {
+            $('#btnPreviewCodeCopySpoilerPreviewCredit').popover('show');
+            e.clearSelection();
+        });
+
         $('[data-toggle="popover"]').popover();
-        $('#btnPreviewCodeCopy').on('shown.bs.popover', function () {
+        $('.copy-to-clipboard[data-toggle="popover"]').on('shown.bs.popover', function () {
             var $pop = $(this);
             setTimeout(function () {
                 $pop.popover('hide');

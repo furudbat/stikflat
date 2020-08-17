@@ -1,5 +1,5 @@
-  name: 'Relationships List with Statuses'
-  description: 'Use this Layout to generate Relationships-List or Friends-List with img, link and status'
+  name: 'Relationships List with Status'
+  description: 'Use this Layout to generate Relationships-List or Friends-List with rounded img, link and status'
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   author: 'furudbat'
   author_link: 'https://toyhou.se/FurudBat'
