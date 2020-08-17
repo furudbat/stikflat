@@ -679,8 +679,8 @@
         if (_savedConfigs.length > 0) {
             $('.saved-content-list').empty();
             for (var i = 0; i < _savedConfigs.length; i++) {
-                var config = _savedConfigs[i];
-                console.log(i, config);
+                var config = _savedConfigs[i].json;
+                //console.debug(i, config);
                 addSavedConfigToList(config, i);
             }
             $('.saved-content-container').show();
