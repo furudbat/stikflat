@@ -197,7 +197,7 @@
                     <div class="col-2">
                         <input id="chbLockConfig" class="mt-1" data-size="small" type="checkbox" data-toggle="toggle"
                             data-on="<i class='fa fa-lock'></i>" data-off="<i class='fa fa-unlock'></i>"
-                            data-offstyle="outline-secondary" data-onstyle="outline-success" />
+                            data-offstyle="outline-primary" data-onstyle="outline-success" />
                     </div>
                     <div class="col-8">
                         <small id="chbLockConfigHelp" class="form-text text-muted mt-0"></small>
@@ -205,7 +205,7 @@
                     <div class="col-2">
                         <input id="chbConfigMode" class="mt-1" data-size="small" type="checkbox" data-toggle="toggle"
                             data-on="{{ site.data.strings.editor.config.mode_yaml }}"
-                            data-off="{{ site.data.strings.editor.config.mode_json }}" data-offstyle="outline-secondary"
+                            data-off="{{ site.data.strings.editor.config.mode_json }}" data-offstyle="outline-primary"
                             data-onstyle="outline-success" data-width="60px" />
                     </div>
                 </div>
@@ -234,7 +234,7 @@
 
 <section id="sectionPreviewCode">
     <h3>{{ site.data.strings.code.header }}
-        <button type="button" id="btnPreviewCodeCopy" class="btn btn-secondary d-inline" data-toggle="popover"
+        <button type="button" id="btnPreviewCodeCopy" class="btn btn-dark d-inline" data-toggle="popover"
             data-content="{{ site.data.strings.code.popover_copied }}" data-trigger="manual"
             data-clipboard-action="copy" data-clipboard-target="#txtPreviewCode">
             <i class="fas fa-copy"></i>

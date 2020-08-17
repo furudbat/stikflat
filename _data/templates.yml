@@ -469,6 +469,46 @@
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
+  config: y_codesnippet_gallery/config.json
+  css: y_codesnippet_gallery/snippet.css
+  description: Use this Layout to generate a gallery with links and captions
+  keywords:
+  - gallery
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates
+  name: Gallery
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
+  template: y_codesnippet_gallery/snippet.html
+  type: codesnippet
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: y_codesnippet_list/config.json
+  css: y_codesnippet_list/snippet.css
+  description: Use this Layout to generate a simple list with icons
+  keywords:
+  - list
+  - title
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates
+  name: List
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
+  template: y_codesnippet_list/snippet.html
+  type: codesnippet
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: y_codesnippet_moodboard/config.json
+  css: y_codesnippet_moodboard/snippet.css
+  description: Use this Layout to generate a gallery
+  keywords:
+  - moodboard
+  license: Free to use and modify
+  link: https://github.com/furudbat/thhg/tree/master/templates
+  name: Moodboard
+  style: 'background-color: #2a5a7e; color: #f7fdf5'
+  template: y_codesnippet_moodboard/snippet.html
+  type: codesnippet
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
   config: y_codesnippet_progressbar/config.json
   css: y_codesnippet_progressbar/snippet.css
   description: Use this Layout to generate standard progressbars for stats

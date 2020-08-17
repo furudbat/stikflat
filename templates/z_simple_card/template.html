@@ -1,13 +1,13 @@
 <div class="row no-gutters">
     <div class="py-3 pl-3 col-4 bg-faded">
         <div class="card mx-auto">
-            <img src="{{{images.avatar}}}" class="rounded-circle mx-auto mt-4 d-block" alt="Avatar">
-            <div class="card-body">
-                <h5 class="card-title">{{title}}</h5>
-                <p class="card-text">{{{description}}}</p>
+            <img src="{{{images.avatar}}}" class="rounded border mx-auto mt-4 mb-2 d-block" alt="Avatar">
+            <div class="card-body text-center">
+                <h4 class="card-title">{{title}}</h4>
+                <p class="card-text text-muted">{{{description}}}</p>
             </div>
-            <div class="card-body">
-                <div class="row no-gutters">
+            <div class="card-body my-2">
+                <div class="row d-flex justify-content-center">
                     {{#socialmedia.twitter}}
                     <div class="col-2">
                         <a href="{{{socialmedia.twitter}}}" class="card-link" target="_blank">
