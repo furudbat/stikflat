@@ -1,0 +1,102 @@
+<div class="container" style="margin: auto;">
+    <div class="row no-gutters mt-3">
+        <div class="py-3 pl-3 col-4 bg-faded">
+            <div class="card mx-auto">
+                <img src="{{{images.avatar}}}" class="rounded border mx-auto mt-4 mb-2 d-block" alt="Avatar">
+                <div class="card-body text-center">
+                    <h4 class="card-title">{{title}}</h4>
+                    <p class="card-text text-muted">{{{description}}}</p>
+                </div>
+                <div class="card-body my-2 mx-auto">
+                    <div class="row no-gutters text-center">
+                        {{#socialmedia.twitter}}
+                        <div class="col-2">
+                            <a href="{{{socialmedia.twitter}}}" class="card-link mx-1" target="_blank">
+                                <i class="fab fa-2x fa-twitter"></i>
+                            </a>
+                        </div>
+                        {{/socialmedia.twitter}}
+
+                        {{#socialmedia.facebook}}
+                        <div class="col-2">
+                            <a href="{{{socialmedia.facebook}}}" class="card-link mx-1" target="_blank">
+                                <i class="fab fa-2x fa-facebook"></i>
+                            </a>
+                        </div>
+                        {{/socialmedia.facebook}}
+
+                        {{#socialmedia.instagram}}
+                        <div class="col-2">
+                            <a href="{{{socialmedia.instagram}}}" class="card-link mx-1" target="_blank">
+                                <i class="fab fa-2x fa-instagram"></i>
+                            </a>
+                        </div>
+                        {{/socialmedia.instagram}}
+
+                        {{#socialmedia.deviantart}}
+                        <div class="col-2">
+                            <a href="{{{socialmedia.deviantart}}}" class="card-link mx-1" target="_blank">
+                                <i class="fab fa-2x fa-deviantart"></i>
+                            </a>
+                        </div>
+                        {{/socialmedia.deviantart}}
+
+                        {{#socialmedia.youtube}}
+                        <div class="col-2">
+                            <a href="{{{socialmedia.youtube}}}" class="card-link mx-1" target="_blank">
+                                <i class="fab fa-2x fa-youtube"></i>
+                            </a>
+                        </div>
+                        {{/socialmedia.youtube}}
+
+                        {{#socialmedia.furaffinity}}
+                        <div class="col-2">
+                            <a href="{{{socialmedia.furaffinity}}}" class="card-link mx-1" target="_blank">
+                                <i class="fas fa-2x fa-paw"></i>
+                            </a>
+                        </div>
+                        {{/socialmedia.furaffinity}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-8 bg-faded py-4">
+            <div class="row no-gutters mt-2 ml-3">
+                <div class="col-12">
+                    {{#name}}
+                    <div class="row">
+                        <div class="col-12">{{name}}</div>
+                    </div>
+                    <hr />
+                    {{/name}}
+                    {{#gender}}
+                    <div class="row">
+                        <div class="col-12">{{gender}}</div>
+                    </div>
+                    <hr />
+                    {{/gender}}
+                    {{#age}}
+                    <div class="row">
+                        <div class="col-12">{{age}}</div>
+                    </div>
+                    <hr />
+                    {{/age}}
+                    {{#about}}
+                    <div class="row">
+                        <div class="col-12">
+                            {{{about}}}
+                        </div>
+                    </div>
+                    {{/about}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Copyright -->
+        <small class="col-12 text-right text-monospace">
+            <a href="https://toyhou.se/FurudBat">Code by Furudbat</a>
+        </small>
+        <!-- Copyright -->
+    </div>
+</div>

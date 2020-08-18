@@ -571,7 +571,7 @@
     }
     function updateLayoutInfo(pattern) {
         if (pattern === null) {
-            console.log('updateLayoutInfo', { pattern });
+            console.error('updateLayoutInfo', 'pattern is null');
             return;
         }
 
@@ -596,6 +596,10 @@
             .append('<p class="text-justify">' + description.linkify(options) + '</p>')
             .append('<p class="font-italic">' + license.linkify(options) + '</p>')
             .show();
+
+        $('#msgLayoutPatternInfo')
+            .data('description', description)
+            .data('license', license);
     }
 
 
@@ -621,6 +625,7 @@
     var overrideConfig = function (configButton) {
         var index = $(configButton).data('index');
         if (index === null || index === '') {
+            console.error('overrideConfig', 'index is empty');
             return;
         }
 
@@ -647,6 +652,7 @@
     var previewWithConfig = function (configButton) {
         var index = $(configButton).data('index');
         if (index === null || index === '') {
+            console.error('previewWithConfig', 'index is empty');
             return;
         }
 
@@ -665,6 +671,7 @@
     };
     function addSavedConfigToList(config, index) {
         if (config === null || index === null) {
+            console.error('addSavedConfigToList', 'config or index are null', {config, index});
             return;
         }
         var configButton = generateButtonFromConfig(config, index);

@@ -441,14 +441,115 @@
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
+  config: x_basic_minimal/config.json
+  css: x_basic_minimal/template.css
+  description: Simple Basic Character Profile Layout with minimal fields
+  keywords:
+  - name
+  - weight
+  - title
+  - height
+  - images
+  - pronouns
+  - sex
+  - species
+  license: Free to use and modify
+  link: https://f2.toyhou.se/file/f2-toyhou-se/characters/7917001?1597765208
+  name: Minimal Character Layout
+  style: 'background-color: #1a4a6e; color: #f7fdf5'
+  template: x_basic_minimal/template.html
+  type: character
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: x_basic_without_tabs/config.json
+  css: x_basic_without_tabs/template.css
+  description: Simple Basic Character Profile Layout without Tabs
+  keywords:
+  - bio
+  - pros
+  - name
+  - weight
+  - title
+  - personality
+  - images
+  - appearance
+  - height
+  - moodboard
+  - cons
+  - references
+  - likes
+  - marks
+  - pronouns
+  - dislikes
+  - sex
+  - species
+  - description
+  license: Free to use and modify
+  link: https://toyhou.se/7916778.-f2u-character-profile
+  name: Character Profile without Tabs
+  style: 'background-color: #1a4a6e; color: #f7fdf5'
+  template: x_basic_without_tabs/template.html
+  type: character
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: x_basic_with_tabs/config.json
+  css: x_basic_with_tabs/template.css
+  description: Simple Basic Character Profile Layout with Tabs
+  keywords:
+  - bio
+  - pros
+  - name
+  - weight
+  - title
+  - personality
+  - appearance
+  - height
+  - images
+  - cons
+  - references
+  - likes
+  - marks
+  - pronouns
+  - dislikes
+  - sex
+  - species
+  - description
+  license: Free to use and modify
+  link: https://toyhou.se/7909361.-f2u-chara-profile-with-tabs
+  name: Character Profile with Tabs
+  style: 'background-color: #1a4a6e; color: #f7fdf5'
+  template: x_basic_with_tabs/template.html
+  type: character
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: x_simple_card/config.json
+  css: x_simple_card/template.css
+  description: Minimal Card User Profile Layout
+  keywords:
+  - about
+  - description
+  - title
+  - gender
+  - age
+  - socialmedia
+  - images
+  - name
+  license: Free to use and modify
+  link: https://toyhou.se/7909374.-f2u-simple-user-profile-card
+  name: Minimal Card
+  style: 'background-color: #1a4a6e; color: #f7fdf5'
+  template: x_simple_card/template.html
+  type: user
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
   config: y_codesnippet_characters/config.json
   css: y_codesnippet_characters/snippet.css
   description: Use this Layout to generate Character-List with img and link
   keywords:
   - characters
   - title
-  license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates
+  license: Free to use and modify.
+  link: https://toyhou.se/7908752.-f2u-characters-list
   name: Character List
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_characters/snippet.html
@@ -461,8 +562,8 @@
   keywords:
   - fields
   - title
-  license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates
+  license: Free to use and modify.
+  link: https://toyhou.se/7909083.-f2u-gallery
   name: Fields
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_fields/snippet.html
@@ -474,8 +575,8 @@
   description: Use this Layout to generate a gallery with links and captions
   keywords:
   - gallery
-  license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates
+  license: Free to use and modify.
+  link: https://toyhou.se/7909083.-f2u-gallery
   name: Gallery
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_gallery/snippet.html
@@ -488,8 +589,8 @@
   keywords:
   - list
   - title
-  license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates
+  license: Free to use and modify.
+  link: https://f2.toyhou.se/file/f2-toyhou-se/characters/7909096?1597701920
   name: List
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_list/snippet.html
@@ -501,8 +602,8 @@
   description: Use this Layout to generate a gallery
   keywords:
   - moodboard
-  license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates
+  license: Free to use and modify.
+  link: https://toyhou.se/7909115.-f2u-moodboard
   name: Moodboard
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_moodboard/snippet.html
@@ -514,8 +615,8 @@
   description: Use this Layout to generate standard progressbars for stats
   keywords:
   - attributes
-  license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates
+  license: Free to use and modify.
+  link: https://toyhou.se/7909154.-f2u-stats-with-progressbars
   name: Stats with Progressbars
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_progressbar/snippet.html
@@ -527,8 +628,8 @@
   description: Use this Layout to generate Stars as values for stats
   keywords:
   - attributes
-  license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates
+  license: Free to use and modify.
+  link: https://toyhou.se/7909163.-f2u-stats-with-stars
   name: Stats with Stars
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_progressbar_with_stars/snippet.html
@@ -540,8 +641,8 @@
   description: Use this Layout to generate standard progressbars with values for stats
   keywords:
   - attributes
-  license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates
+  license: Free to use and modify.
+  link: https://toyhou.se/7909237.-f2u-relationships-list-2
   name: Stats with Progressbars and Values
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_progressbar_with_values/snippet.html
@@ -555,7 +656,7 @@
   keywords:
   - relationships
   - title
-  license: Free to use and modify
+  license: Free to use and modify.
   link: https://github.com/furudbat/thhg/tree/master/templates
   name: Relationships List
   style: 'background-color: #2a5a7e; color: #f7fdf5'
@@ -570,7 +671,7 @@
   keywords:
   - relationships
   - title
-  license: Free to use and modify
+  license: Free to use and modify.
   link: https://github.com/furudbat/thhg/tree/master/templates
   name: Relationships List with Status
   style: 'background-color: #2a5a7e; color: #f7fdf5'
@@ -592,8 +693,8 @@
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: zz_character_fullconfig/character_config.json
-  css: zz_character_fullconfig/test.css
+  config: z_character_fullconfig/character_config.json
+  css: z_character_fullconfig/test.css
   description: Test Character Preview with Rich Config
   disable: true
   keywords:
@@ -659,11 +760,11 @@
   link: https://github.com/furudbat/thhg/tree/master/templates
   name: Full Config
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: zz_character_fullconfig/test.html
+  template: z_character_fullconfig/test.html
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: zz_character_minimalconfig/minimal_character_config.json
-  css: zz_character_minimalconfig/test.css
+  config: z_character_minimalconfig/minimal_character_config.json
+  css: z_character_minimalconfig/test.css
   description: Test Character Preview with Minimal Config
   disable: true
   keywords:
@@ -681,11 +782,11 @@
   link: https://github.com/furudbat/thhg/tree/master/templates
   name: Minimal Config
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: zz_character_minimalconfig/test.html
+  template: z_character_minimalconfig/test.html
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: zz_user_fullconfig/user_config.json
-  css: zz_user_fullconfig/test.css
+  config: z_user_fullconfig/user_config.json
+  css: z_user_fullconfig/test.css
   description: Test User Preview with Rich Config
   disable: true
   keywords:
@@ -702,11 +803,11 @@
   link: https://github.com/furudbat/thhg/tree/master/templates
   name: Full Config
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: zz_user_fullconfig/test.html
+  template: z_user_fullconfig/test.html
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: zz_user_minimalconfig/minimal_user_config.json
-  css: zz_user_minimalconfig/test.css
+  config: z_user_minimalconfig/minimal_user_config.json
+  css: z_user_minimalconfig/test.css
   description: Test User Preview with minimal Config
   disable: true
   keywords:
@@ -722,74 +823,4 @@
   link: https://github.com/furudbat/thhg/tree/master/templates
   name: Minimal Config
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: zz_user_minimalconfig/test.html
-- author: furudbat
-  author_link: https://toyhou.se/FurudBat
-  config: z_basic/config.json
-  css: z_basic/template.css
-  description: Simple Basic Character Profile Layout with Tabs
-  keywords:
-  - name
-  - weight
-  - title
-  - height
-  - images
-  - pronouns
-  - sex
-  - species
-  license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates
-  name: Simple Layout
-  style: 'background-color: #1a4a6e; color: #f7fdf5'
-  template: z_basic/template.html
-  type: character
-- author: furudbat
-  author_link: https://toyhou.se/FurudBat
-  config: z_basic_with_tabs/config.json
-  css: z_basic_with_tabs/template.css
-  description: Simple Basic Character Profile Layout with Tabs
-  keywords:
-  - bio
-  - pros
-  - name
-  - weight
-  - title
-  - personality
-  - appearance
-  - height
-  - images
-  - cons
-  - references
-  - likes
-  - marks
-  - pronouns
-  - dislikes
-  - sex
-  - species
-  - description
-  license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates
-  name: Simple Layout with Tabs
-  style: 'background-color: #1a4a6e; color: #f7fdf5'
-  template: z_basic_with_tabs/template.html
-  type: character
-- author: furudbat
-  author_link: https://toyhou.se/FurudBat
-  config: z_simple_card/config.json
-  css: z_simple_card/template.css
-  description: Minimal Card User Profile Layout
-  keywords:
-  - about
-  - description
-  - title
-  - gender
-  - age
-  - socialmedia
-  - images
-  - name
-  license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates
-  name: Minimal Card
-  style: 'background-color: #1a4a6e; color: #f7fdf5'
-  template: z_simple_card/template.html
-  type: user
+  template: z_user_minimalconfig/test.html
