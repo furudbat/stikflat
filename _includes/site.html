@@ -12,39 +12,34 @@
             {%- if template.preview -%}
             <div class="d-inline" style="width: 14rem;">
                 <button type="button" class="btn btn-link card d-inline m-1 layout-pattern"
-                    style="width: 14rem; min-height: 300px; {{ template.style }}"
-                    data-name="{{ template.name | escape }}" data-author="{{ template.author | escape }}"
-                    data-author-link="{{ template.author_link }}"
+                    style="width: 14rem; min-height: 320px; {{ template.style }}" data-name="{{ template.name | escape }}"
+                    data-author="{{ template.author | escape }}" data-author-link="{{ template.author_link }}"
                     data-template="{{ template.template | prepend: templates_url }}"
                     data-css="{{ template.css | prepend: templates_url }}"
                     data-config="{{ template.config | prepend: templates_url }}"
                     data-license="{{ template.license | escape }}" data-link="{{ template.link }}"
                     data-description="{{ template.description | escape }}" data-keywords="{{ keywords_str | escape }}">
-                    <img class="card-img-top" style="width: 200px; max-height: 250px;" src="{{ template.preview }}"
-                        alt="Preview {{ template.name | escape }}">
-                    <div class="card-img-overlay">
-                        {%- if template.type == 'character' -%}
-                        <p class="card-text text-right"><span
-                                class="badge badge-pill badge-primary">{{ site.data.strings.layouts.type_character }}</span>
-                        </p>
-                        {%- elsif template.type == 'user' -%}
-                        <p class="card-text text-right"><span
-                                class="badge badge-pill badge-secondary">{{ site.data.strings.layouts.type_user }}</span>
-                        </p>
-                        {%- elsif template.type == 'codesnippet' -%}
-                        <p class="card-text text-right"><span
-                                class="badge badge-pill badge-info">{{ site.data.strings.layouts.type_codesnippet }}</span>
-                        </p>
-                        {%- else -%}
-                        <p class="card-text text-right"><span
-                                class="badge badge-pill badge-warning">{{ template.type | escape}}</span></p>
-                        {%- endif -%}
+                    <div class="d-flex flex-wrap align-items-center" style="min-height: 200px;">
+                        <img class="card-img-top" style="max-height: 200px;" src="{{ template.preview }}"
+                            alt="Preview {{ template.name | escape }}">
                     </div>
                     <div class="card-body">
                         <p class="card-text">
                             {{ template.name | escape }}
+                            <span class="text-right"></span>
+                            {%- if template.type == 'character' -%}
+                            <span class="badge badge-pill badge-success">{{ site.data.strings.layouts.type_character }}</span>
+                            {%- elsif template.type == 'user' -%}
+                            <span class="badge badge-pill badge-warning">{{ site.data.strings.layouts.type_user }}</span>
+                            </span>
+                            {%- elsif template.type == 'codesnippet' -%}
+                            <span class="badge badge-pill badge-info">{{ site.data.strings.layouts.type_codesnippet }}</span>
+                            {%- else -%}
+                            <span class="badge badge-pill badge-danger">{{ template.type | escape}}</span>
+                            {%- endif -%}
+                            </span>
                         </p>
-                        <h6 class="card-subtitle">{{ site.data.strings.layouts.by_author }}{{ template.author }}</h6>
+                        <p class="card-subtitle">{{ site.data.strings.layouts.by_author }}{{ template.author }}</p>
                     </div>
                 </button>
             </div>
@@ -60,13 +55,13 @@
                 {{ template.name | escape }} <span
                     class="badge badge-light">{{ site.data.strings.layouts.by_author }}{{ template.author }}</span>
                 {%- if template.type == 'character' -%}
-                <span class="badge badge-pill badge-primary">{{ site.data.strings.layouts.type_character }}</span>
+                <span class="badge badge-pill badge-success">{{ site.data.strings.layouts.type_character }}</span>
                 {%- elsif template.type == 'user' -%}
-                <span class="badge badge-pill badge-secondary">{{ site.data.strings.layouts.type_user }}</span>
+                <span class="badge badge-pill badge-warning">{{ site.data.strings.layouts.type_user }}</span>
                 {%- elsif template.type == 'codesnippet' -%}
                 <span class="badge badge-pill badge-info">{{ site.data.strings.layouts.type_codesnippet }}</span>
                 {%- else -%}
-                <span class="badge badge-pill badge-warning">{{ template.type | escape}}</span>
+                <span class="badge badge-pill badge-danger">{{ template.type | escape}}</span>
                 {%- endif -%}
             </button>
             {%- endif -%}
@@ -234,25 +229,30 @@
 
 <section id="sectionPreviewCode">
     <h3>{{ site.data.strings.code.header }}
-        <button type="button" id="btnPreviewCodeCopy" class="btn btn-outline-primary d-inline mr-1 mb-1 copy-to-clipboard" data-toggle="popover"
+        <button type="button" id="btnPreviewCodeCopy"
+            class="btn btn-outline-primary d-inline mr-1 mb-1 copy-to-clipboard" data-toggle="popover"
             data-content="{{ site.data.strings.code.popover_copied }}" data-trigger="manual"
             data-clipboard-action="copy" data-clipboard-target="#txtPreviewCode">
             <span class="mr-1">{{ site.data.strings.code.copycode }}</span><i class="fas fa-copy"></i>
         </button>
-        <button type="button" id="btnPreviewCodeCopySpoiler" class="btn btn-outline-secondary d-inline mr-1 mb-1 copy-to-clipboard" data-toggle="popover"
+        <button type="button" id="btnPreviewCodeCopySpoiler"
+            class="btn btn-outline-secondary d-inline mr-1 mb-1 copy-to-clipboard" data-toggle="popover"
             data-content="{{ site.data.strings.code.popover_copied }}" data-trigger="manual"
             data-clipboard-action="copy">
             <span class="mr-1">{{ site.data.strings.code.copycode_spoiler }}</span><i class="fas fa-copy"></i>
         </button>
-        <button type="button" id="btnPreviewCodeCopySpoilerPreview" class="btn btn-outline-secondary d-inline mr-1 mb-1 copy-to-clipboard" data-toggle="popover"
+        <button type="button" id="btnPreviewCodeCopySpoilerPreview"
+            class="btn btn-outline-secondary d-inline mr-1 mb-1 copy-to-clipboard" data-toggle="popover"
             data-content="{{ site.data.strings.code.popover_copied }}" data-trigger="manual"
             data-clipboard-action="copy">
             <span class="mr-1">{{ site.data.strings.code.copycode_spoiler_preview }}</span><i class="fas fa-copy"></i>
         </button>
-        <button type="button" id="btnPreviewCodeCopySpoilerPreviewCredit" class="btn btn-outline-secondary d-inline mr-1 mb-1 copy-to-clipboard" data-toggle="popover"
+        <button type="button" id="btnPreviewCodeCopySpoilerPreviewCredit"
+            class="btn btn-outline-secondary d-inline mr-1 mb-1 copy-to-clipboard" data-toggle="popover"
             data-content="{{ site.data.strings.code.popover_copied }}" data-trigger="manual"
             data-clipboard-action="copy">
-            <span class="mr-1">{{ site.data.strings.code.copycode_spoiler_preview_credit }}</span><i class="fas fa-copy"></i>
+            <span class="mr-1">{{ site.data.strings.code.copycode_spoiler_preview_credit }}</span><i
+                class="fas fa-copy"></i>
         </button>
     </h3>
     <div class="row mb-1">

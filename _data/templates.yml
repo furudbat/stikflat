@@ -453,9 +453,10 @@
   - pronouns
   - sex
   - species
-  license: Free to use and modify
+  license: Free to use and modify.
   link: https://f2.toyhou.se/file/f2-toyhou-se/characters/7917001?1597765208
   name: Minimal Character Layout
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7917001?1597849483
   style: 'background-color: #1a4a6e; color: #f7fdf5'
   template: x_basic_minimal/template.html
   type: character
@@ -484,9 +485,10 @@
   - sex
   - species
   - description
-  license: Free to use and modify
+  license: Free to use and modify.
   link: https://toyhou.se/7916778.-f2u-character-profile
   name: Character Profile without Tabs
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7916778?1597849219
   style: 'background-color: #1a4a6e; color: #f7fdf5'
   template: x_basic_without_tabs/template.html
   type: character
@@ -514,9 +516,10 @@
   - sex
   - species
   - description
-  license: Free to use and modify
+  license: Free to use and modify.
   link: https://toyhou.se/7909361.-f2u-chara-profile-with-tabs
   name: Character Profile with Tabs
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7909361?1597848953
   style: 'background-color: #1a4a6e; color: #f7fdf5'
   template: x_basic_with_tabs/template.html
   type: character
@@ -537,6 +540,7 @@
   license: Free to use and modify
   link: https://toyhou.se/7909374.-f2u-simple-user-profile-card
   name: Minimal Card
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7909374?1597849808
   style: 'background-color: #1a4a6e; color: #f7fdf5'
   template: x_simple_card/template.html
   type: user
