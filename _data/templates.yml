@@ -546,6 +546,29 @@
   type: user
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
+  config: x_user_card/config.json
+  css: x_user_card/template.css
+  description: User Profile Layout with Status and Gallery
+  keywords:
+  - about
+  - description
+  - title
+  - gender
+  - age
+  - artstatus
+  - socialmedia
+  - images
+  - gallery
+  - name
+  license: Free to use and modify.
+  link: https://toyhou.se/
+  name: User with Status and Gallery
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7909374?1597849808
+  style: 'background-color: #1a4a6e; color: #f7fdf5'
+  template: x_user_card/template.html
+  type: user
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
   config: y_codesnippet_characters/config.json
   css: y_codesnippet_characters/snippet.css
   description: Use this Layout to generate Character-List with img and link

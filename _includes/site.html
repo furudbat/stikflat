@@ -10,7 +10,7 @@
             {%- unless template.disable or template.disabled -%}
             {%- assign keywords_str = template.keywords | join: ", " -%}
             {%- if template.preview -%}
-            <div class="d-inline" style="width: 14rem;">
+            <div class="d-inline col-3">
                 <button type="button" class="btn btn-link card d-inline m-1 layout-pattern"
                     style="width: 14rem; min-height: 320px; {{ template.style }}" data-name="{{ template.name | escape }}"
                     data-author="{{ template.author | escape }}" data-author-link="{{ template.author_link }}"
