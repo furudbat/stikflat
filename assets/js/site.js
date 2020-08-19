@@ -1119,7 +1119,7 @@
                     selectTemplateTab();
                 }
                 */
-                if (isOnScreen('.main-template-editors-preview-container', 0.5, 0.4)) {
+                if (!isOnScreen('.main-template-editors-preview-container') || isOnScreen('.main-template-editors-preview-container', 1.0, 0.45)) {
                     $('html, body').animate({
                         scrollTop: $('#sectionEditor').offset().top
                     }, 500);
