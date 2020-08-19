@@ -93,11 +93,11 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="template-tab" data-toggle="tab" href="#templateTabContent" role="tab"
-                        aria-controls="template" aria-selected="true">{{ site.data.strings.editor.template_tab }}</a>
+                        aria-controls="template" aria-selected="true">{{ site.data.strings.editor.template_tab }} <span id="templateEditorLinesBadge" class="badge badge-primary"></span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="css-tab" data-toggle="tab" href="#cssTabContent" role="tab"
-                        aria-controls="css" aria-selected="false">{{ site.data.strings.editor.css_tab }}</a>
+                        aria-controls="css" aria-selected="false">{{ site.data.strings.editor.css_tab }} <span id="cssEditorLinesBadge" class="badge badge-secondary"></span></a>
                 </li>
             </ul>
             <div class="tab-content" id="templateTabsContent">
@@ -257,7 +257,10 @@
     </h3>
     <div class="row mb-1">
         <div class="col-12 mt-2 main-info-container">
-            <div id="msgLayoutPatternInfo" class="alert alert-info" role="alert"></div>
+            <div class="card">
+                <div id="msgLayoutPatternInfo" class="card-body">
+                </div>
+            </div>
         </div>
     </div>
     <div class="row mb-1">

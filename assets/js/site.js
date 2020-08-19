@@ -1,4 +1,5 @@
 /*global localStorage, console, $, CodeMirrorSpellChecker, CodeMirror, setTimeout, document, Mustache, html_beautify, js_beautify, css_beautify */
+/// @TODO: refactor this monolith x.x
 (function () {
     'use strict';
 
@@ -59,6 +60,10 @@
         //console.debug('isOnScreen', bounds.left >= viewport.left, bounds.top >= viewport.top, bounds.right <= viewport.right, bounds.bottom <= viewport.bottom);
 
         return !(bounds.left >= viewport.left && bounds.top >= viewport.top && bounds.right <= viewport.right && bounds.bottom <= viewport.bottom);
+    };
+
+    var countlines = function (str) {
+        return (str !== null && str !== "") ? str.split(/\r\n|\r|\n/).length : 0;
     };
 
 
@@ -206,7 +211,7 @@
         _codePreviewEditor.setValue(code);
 
         //setTimeout(function () {
-            _codePreviewEditor.refresh();
+        _codePreviewEditor.refresh();
         //}, 100);
     }
     function setCodeContentMode(mode) {
@@ -312,6 +317,7 @@
                 events: {
                     contentsChanged: function (e, editor) {
                         setTemplateCode(editor.html.get());
+                        updateTemplateLinesOfCodeBadges(editor.html.get());
                         if (_enableLivePreview === true) {
                             generateHTML();
                         }
@@ -339,6 +345,7 @@
                 setup: function (ed) {
                     ed.on('change', function (e) {
                         setTemplateCode(ed.getContent());
+                        updateTemplateLinesOfCodeBadges(ed.getContent());
                         if (_enableLivePreview === true) {
                             generateHTML();
                         }
@@ -361,6 +368,7 @@
         });
         _templateEditor.on('changes', function (cm, changes) {
             setTemplateCode(cm.getValue());
+            updateTemplateLinesOfCodeBadges(cm.getValue());
             if (_enableLivePreview === true) {
                 generateHTML();
             }
@@ -432,6 +440,7 @@
         });
         _cssEditor.on('changes', function (cm, changes) {
             setCssCode(cm.getValue());
+            updateCssLinesOfCodeBadges(cm.getValue());
             if (_enableLivePreview === true) {
                 generateHTML();
             }
@@ -448,6 +457,23 @@
         });
     }
 
+    function updateTemplateLinesOfCodeBadges(code) {
+        var loc = countlines(code);
+        if (loc > 0) {
+            $('#templateEditorLinesBadge').html(site.data.strings.editor.lines.format(loc)).show();
+        } else {
+            $('#templateEditorLinesBadge').hide();
+        }
+    }
+    function updateCssLinesOfCodeBadges(code) {
+        var loc = countlines(code);
+        if (loc > 0) {
+            $('#cssEditorLinesBadge').html(site.data.strings.editor.lines.format(loc)).show();
+        } else {
+            $('#cssEditorLinesBadge').hide();
+        }
+    }
+
     function setTemplateEditorValue(code) {
         if (WITH_WYSIWYG_EDITOR === true) {
             if (_currentWYSIWYGTemplateEditorName === TEMPLATE_EDITOR_NAME_TINYMCE) {
@@ -458,15 +484,18 @@
         }
 
         _templateEditor.setValue(code);
+        updateTemplateLinesOfCodeBadges(code);
 
         //setTimeout(function () {
-            _templateEditor.refresh();
+        _templateEditor.refresh();
         //}, 100);
     }
 
     function initEditors() {
-        setTemplateEditorValue(getTemplateCode());
-        _cssEditor.setValue(getCssCode());
+        var templateCode = getTemplateCode();
+        var cssCode = getCssCode();
+        setTemplateEditorValue(templateCode);
+        _cssEditor.setValue(cssCode);
         if (getConfigContentMode() == CONFIG_CONTENT_MODE_JSON) {
             _configEditorJSON.setValue(_configJsonStr);
             $(_configEditorJSON.getWrapperElement()).show();
@@ -476,11 +505,14 @@
             $(_configEditorJSON.getWrapperElement()).hide();
             $(_configEditorYAML.getWrapperElement()).show();
         }
+        
+        updateTemplateLinesOfCodeBadges(templateCode);
+        updateCssLinesOfCodeBadges(cssCode);
 
         //setTimeout(function () {
-            _cssEditor.refresh();
-            _configEditorJSON.refresh();
-            _configEditorYAML.refresh();
+        _cssEditor.refresh();
+        _configEditorJSON.refresh();
+        _configEditorYAML.refresh();
         //}, 100);
     }
 
@@ -537,14 +569,14 @@
         $('#templateTabs a[href="#templateTabContent"]').tab('show');
 
         //setTimeout(function () {
-            _templateEditor.refresh();
+        _templateEditor.refresh();
         //}, 100);
     }
     function selectCssTab() {
         $('#templateTabs a[href="#cssTabContent"]').tab('show');
 
         //setTimeout(function () {
-            _cssEditor.refresh();
+        _cssEditor.refresh();
         //}, 100);
     }
 
@@ -671,7 +703,7 @@
     };
     function addSavedConfigToList(config, index) {
         if (config === null || index === null) {
-            console.error('addSavedConfigToList', 'config or index are null', {config, index});
+            console.error('addSavedConfigToList', 'config or index are null', { config, index });
             return;
         }
         var configButton = generateButtonFromConfig(config, index);
@@ -808,6 +840,8 @@
         clearConfigError();
         clearTemplateError();
         clearLayoutInfo();
+        $('#templateEditorLinesBadge').hide();
+        $('#cssEditorLinesBadge').hide();
 
         generateTemplateEditor();
         if (WITH_WYSIWYG_EDITOR === true) {
@@ -886,7 +920,7 @@
             $('#btnPreviewCodeCopySpoiler').popover('show');
             e.clearSelection();
         });
-        
+
         var btnPreviewCodeCopySpoilerPreview = new ClipboardJS('#btnPreviewCodeCopySpoilerPreview', {
             text: function (trigger) {
                 var code = _codePreview;
