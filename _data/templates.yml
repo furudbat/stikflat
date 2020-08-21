@@ -441,9 +441,9 @@
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: x_basic_minimal/config.json
-  css: x_basic_minimal/template.css
-  description: Simple Basic Character Profile Layout with minimal fields
+  config: x_chara_minimal/config.json
+  css: x_chara_minimal/template.css
+  description: Simple Character Profile Layout with minimal fields
   keywords:
   - name
   - weight
@@ -454,17 +454,17 @@
   - sex
   - species
   license: Free to use and modify.
-  link: https://f2.toyhou.se/file/f2-toyhou-se/characters/7917001?1597765208
-  name: Minimal Character Layout
+  link: https://toyhou.se/7917001.-f2u-minimal-chara-profile
+  name: Minimal Character Profile
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7917001?1597849483
   style: 'background-color: #1a4a6e; color: #f7fdf5'
-  template: x_basic_minimal/template.html
+  template: x_chara_minimal/template.html
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: x_basic_without_tabs/config.json
-  css: x_basic_without_tabs/template.css
-  description: Simple Basic Character Profile Layout without Tabs
+  config: x_chara_without_tabs/config.json
+  css: x_chara_without_tabs/template.css
+  description: Simple Character Profile Layout without Tabs
   keywords:
   - bio
   - pros
@@ -487,16 +487,16 @@
   - description
   license: Free to use and modify.
   link: https://toyhou.se/7916778.-f2u-character-profile
-  name: Character Profile without Tabs
+  name: Character Profile
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7916778?1597849219
   style: 'background-color: #1a4a6e; color: #f7fdf5'
-  template: x_basic_without_tabs/template.html
+  template: x_chara_without_tabs/template.html
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: x_basic_with_tabs/config.json
-  css: x_basic_with_tabs/template.css
-  description: Simple Basic Character Profile Layout with Tabs
+  config: x_chara_with_tabs/config.json
+  css: x_chara_with_tabs/template.css
+  description: Simple Character Profile Layout with Tabs
   keywords:
   - bio
   - pros
@@ -521,33 +521,12 @@
   name: Character Profile with Tabs
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7909361?1597848953
   style: 'background-color: #1a4a6e; color: #f7fdf5'
-  template: x_basic_with_tabs/template.html
+  template: x_chara_with_tabs/template.html
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: x_simple_card/config.json
-  css: x_simple_card/template.css
-  description: Minimal Card User Profile Layout
-  keywords:
-  - about
-  - description
-  - title
-  - gender
-  - age
-  - socialmedia
-  - images
-  - name
-  license: Free to use and modify
-  link: https://toyhou.se/7909374.-f2u-simple-user-profile-card
-  name: Minimal Card
-  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7909374?1597849808
-  style: 'background-color: #1a4a6e; color: #f7fdf5'
-  template: x_simple_card/template.html
-  type: user
-- author: furudbat
-  author_link: https://toyhou.se/FurudBat
-  config: x_user_card/config.json
-  css: x_user_card/template.css
+  config: x_user_basic/config.json
+  css: x_user_basic/template.css
   description: User Profile Layout with Status and Gallery
   keywords:
   - about
@@ -561,8 +540,29 @@
   - gallery
   - name
   license: Free to use and modify.
-  link: https://toyhou.se/
-  name: User with Status and Gallery
+  link: https://toyhou.se/7931345.-f2u-user-profile-with-art
+  name: User Profile with Art
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7931345?1597869858
+  style: 'background-color: #1a4a6e; color: #f7fdf5'
+  template: x_user_basic/template.html
+  type: user
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: x_user_card/config.json
+  css: x_user_card/template.css
+  description: Minimal Card Character Profile Layout
+  keywords:
+  - about
+  - description
+  - title
+  - gender
+  - age
+  - socialmedia
+  - images
+  - name
+  license: Free to use and modify
+  link: https://toyhou.se/7909374.-f2u-simple-user-profile-card
+  name: Character Profile Card
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7909374?1597849808
   style: 'background-color: #1a4a6e; color: #f7fdf5'
   template: x_user_card/template.html
@@ -590,7 +590,7 @@
   - fields
   - title
   license: Free to use and modify.
-  link: https://toyhou.se/7909083.-f2u-gallery
+  link: https://toyhou.se/7909077.-f2u-fields
   name: Fields
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_fields/snippet.html
@@ -617,7 +617,7 @@
   - list
   - title
   license: Free to use and modify.
-  link: https://f2.toyhou.se/file/f2-toyhou-se/characters/7909096?1597701920
+  link: https://toyhou.se/7909096.-f2u-list
   name: List
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_list/snippet.html
@@ -669,7 +669,7 @@
   keywords:
   - attributes
   license: Free to use and modify.
-  link: https://toyhou.se/7909237.-f2u-relationships-list-2
+  link: https://toyhou.se/7909215.-f2u-stats-with-pb-with-val-
   name: Stats with Progressbars and Values
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_progressbar_with_values/snippet.html
@@ -684,7 +684,7 @@
   - relationships
   - title
   license: Free to use and modify.
-  link: https://github.com/furudbat/thhg/tree/master/templates
+  link: https://toyhou.se/7909221.-f2u-relationships-list
   name: Relationships List
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_relationships/snippet.html
@@ -699,7 +699,7 @@
   - relationships
   - title
   license: Free to use and modify.
-  link: https://github.com/furudbat/thhg/tree/master/templates
+  link: https://toyhou.se/7909237.-f2u-relationships-list-2
   name: Relationships List with Status
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_relationships_with_status/snippet.html

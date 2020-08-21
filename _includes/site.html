@@ -26,17 +26,16 @@
                     <div class="card-body">
                         <p class="card-text">
                             {{ template.name | escape }}
-                            <span class="text-right"></span>
-                            {%- if template.type == 'character' -%}
-                            <span class="badge badge-pill badge-success">{{ site.data.strings.layouts.type_character }}</span>
-                            {%- elsif template.type == 'user' -%}
-                            <span class="badge badge-pill badge-warning">{{ site.data.strings.layouts.type_user }}</span>
-                            </span>
-                            {%- elsif template.type == 'codesnippet' -%}
-                            <span class="badge badge-pill badge-info">{{ site.data.strings.layouts.type_codesnippet }}</span>
-                            {%- else -%}
-                            <span class="badge badge-pill badge-danger">{{ template.type | escape}}</span>
-                            {%- endif -%}
+                            <span class="text-right">
+                                {%- if template.type == 'character' -%}
+                                <span class="badge badge-pill badge-success">{{ site.data.strings.layouts.type_character }}</span>
+                                {%- elsif template.type == 'user' -%}
+                                <span class="badge badge-pill badge-warning">{{ site.data.strings.layouts.type_user }}</span>
+                                {%- elsif template.type == 'codesnippet' -%}
+                                <span class="badge badge-pill badge-info">{{ site.data.strings.layouts.type_codesnippet }}</span>
+                                {%- else -%}
+                                <span class="badge badge-pill badge-danger">{{ template.type | escape}}</span>
+                                {%- endif -%}
                             </span>
                         </p>
                         <p class="card-subtitle">{{ site.data.strings.layouts.by_author }}{{ template.author }}</p>

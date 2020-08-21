@@ -3,149 +3,182 @@ layout: default
 ---
 
 {%- if page.title -%}
-<div class="border text-center bg-faded">
-    <h1 class="mt-1">{{ page.title }}</h1>
+<div class="border text-center p-2 mb-1 bg-primary text-white ">
+    <h1 class="mt-1"><i class="fas fa-bat"></i><span class="mx-3">{{ page.title }}</span><i class="fas fa-bat"></i></h1>
 </div>
 {%- endif -%}
 
-<div id="sectionRules" class="row">
-    <div class="col-6">
-        <div class="card rounded bg-faded">
-            <div class="card-header">
-                Links
+<div class="container">
+    <div id="sectionDescription" class="row my-3 d-flex justify-content-center">
+        <div class="border rounded d-flex justify-content-center">
+            <div class="text-left p-5">
+                Hello, <br />
+                Just want to post my Layouts here :^) <br />
+                I'm a Webdeveloper (not Webdesigner), love to code. <i class="fas fa-brackets-curly"></i> <br />
+                My designs are very simple and should be compatible with themes and mobile.
             </div>
-            <div class="card-body">
-                <a href="https://toyhou.se/FurudBat" class="btn btn-block btn-outline-primary">My Profile</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div id="sectionRules" class="row mt-2 mb-3">
+        <div class="col-6">
+            <div class="card rounded bg-faded pb-2">
+                <div class="card-header mb-2">
+                    Links
+                </div>
+                <a href="https://toyhou.se/FurudBat" class="btn btn-block btn-outline-info">
+                    <span class="text-left"><i class="fas fa-id-card"></i></span>
+                    My Profile
+                    <span class="text-right"><i class="fas fa-id-card"></i></span>
+                </a>
+                <hr class="my-1"/>
                 <a href="https://toyhou.se/FurudBat/characters/folder:1533023"
-                    class="btn btn-block btn-outline-secondary">F2U Folder</a>
+                    class="btn btn-block btn-outline-secondary">
+                    <span class="text-left"><i class="fas fa-folder"></i></span>
+                    F2U Folder
+                    <span class="text-right"><i class="fas fa-folder"></i></span>
+                </a>
+                <hr class="my-1"/>
                 <a href="https://toyhou.se/FurudBat/characters/folder:1532884"
-                    class="btn btn-block btn-outline-secondary">Codesnippets Folder</a>
-                <a href="https://toyhou.se/~messages/create/FurudBat"
-                    class="btn btn-block btn-outline-success">Message</a>
+                    class="btn btn-block btn-outline-secondary">
+                    <span class="text-left"><i class="fas fa-folder"></i></span>
+                    Codesnippets Folder
+                    <span class="text-right"><i class="fas fa-folder"></i></span>
+                </a>
+                <hr class="my-1"/>
+                <a href="https://toyhou.se/~messages/create/FurudBat" class="btn btn-block btn-outline-success">
+                    <span class="text-left"><i class="fas fa-envelope"></i></span>
+                    Message
+                    <span class="text-right"><i class="fas fa-envelope"></i></span>
+                </a>
             </div>
         </div>
-    </div>
-    <div class="col-6">
-        <div class="card rounded bg-faded">
-            <div class="card-header">
-                Rules
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">HTML-Codes are free to use and modify, you can leave the Credit.</li>
-                <li class="list-group-item">Codesnippets are free to use and modify, no Credit needed.</li>
-                <li class="list-group-item">Do not use my code for profit.</li>
-                <li class="list-group-item">Post here when you are using freebies, give me some feedback or leave a
-                    like, or don't, have fun.</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<div id="sectionLayouts" class="row border rounded">
-    <div class="col-12 my-1">
-        <h2>Layouts</h2>
-    </div>
-    <div class="col-12 mt-2">
-        {%- for template in site.data.templates -%}
-        {%- unless template.disable or template.disabled -%}
-        {%- if template.type != 'codesnippet' and template.author == 'furudbat' -%}
-        {%- if template.preview -%}
-        <div class="d-inline col-3">
-            <div class="btn btn-link card d-inline m-1 layout-pattern"
-                style="width: 14rem; min-height: 320px; {{ template.style }}">
-                <div class="d-flex flex-wrap align-items-center" style="min-height: 200px;">
-                    <a href="{{ template.link }}" target="_blank">
-                        <img class="card-img-top" style="max-height: 200px;" src="{{ template.preview }}"
-                            alt="Preview {{ template.name | escape }}">
-                    </a>
+        <div class="col-6">
+            <div class="card rounded bg-faded">
+                <div class="card-header">
+                    Rules
                 </div>
-                <div class="card-body">
-                    <p class="card-text">
-                        <a href="{{ template.link }}" target="_blank">
-                            {{ template.name | escape }}
-                            <span class="text-right"></span>
+                <ul class="list-group list-group-flush mt-1">
+                    <li class="list-group-item">
+                        <span class="mr-2"><i class="fas fa-code"></i></span>HTML-Codes are free to use and modify, you
+                        can leave the Credit.</li>
+                    <li class="list-group-item">
+                        <span class="mr-2"><i class="fas fa-code"></i></span>Codesnippets are free to use and modify,
+                        no Credit needed.</li>
+                    <li class="list-group-item"><span class="mr-2"><i class="fas fa-exclamation-triangle"></i></span>Do
+                        not
+                        use my code for profit.</li>
+                    <li class="list-group-item"><span class="mr-2"><i class="fas fa-heart"></i></span>Post here when you
+                        are
+                        using freebies, give me some feedback or leave a
+                        like, or don't, have fun.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="sectionLayouts" class="rows mt-5">
+        <div class="col-12 p-2 bg-success text-white rounded-top">
+            <h2>Layouts</h2>
+        </div>
+        <div class="rows p-1 border-left border-right" style="border-image: linear-gradient(to bottom, white, rgba(0, 0, 0, 0))">
+            {%- for template in site.data.templates -%}
+            {%- unless template.disable or template.disabled -%}
+            {%- if template.type != 'codesnippet' and template.author == 'furudbat' -%}
+            {%- if template.preview -%}
+            <div class=" col-sm-12 col-md-3 d-inline-flex p-1">
+                <div class="card rounded d-inline" style="min-height: 250px;">
+                    <div class="card-header">
+                        <a href="{{ template.link }}" target="_blank">{{ template.name | escape }}</a>
+                    </div>
+                    <div class="card-img-top mx-auto " style="height: 200px;">
+                        <a class="d-flex justify-content-center" href="{{ template.link }}" target="_blank"><img
+                                style="max-height: 200px;" src="{{ template.preview }}"
+                                alt="Preview {{ template.name | escape }}"></a>
+                    </div>
+                    <div class="card-body p-3">
+                        <h5 class="card-title text-right">
+                            {%- if template.type == 'character' -%}
+                            <span
+                                class="badge badge-pill badge-info">{{ site.data.strings.layouts.type_character }}</span>
+                            {%- elsif template.type == 'user' -%}
+                            <span
+                                class="badge badge-pill badge-warning">{{ site.data.strings.layouts.type_user }}</span>
+                            {%- else -%}
+                            <span class="badge badge-pill badge-danger">{{ template.type | escape}}</span>
+                            {%- endif -%}
+                        </h5>
+                        <p class="card-text">
+                            <a href="{{ template.link }}" target="_blank">
+                                {{ template.description | escape }}
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {%- else -%}
+            <a class="mr-1 mt-1 mb-2 btn layout-pattern" style="{{ template.style }}" href="{{ template.link }}"
+                target="_blank">
+                {{ template.name | escape }}
+            </a>
+            {%- endif -%}
+            {%- endif -%}
+            {%- endunless -%}
+            {%- endfor -%}
+        </div>
+    </div>
+
+
+    <div id="sectionCodesnippets" class="rows mt-3">
+        <div class="col-12 p-2 bg-info text-white rounded-top">
+            <h2>Codesnippets</h2>
+        </div>
+        <div class="rows p-1">
+            {%- for template in site.data.templates -%}
+            {%- unless template.disable or template.disabled -%}
+            {%- if template.type == 'codesnippet' and template.author == 'furudbat' -%}
+            {%- if template.preview -%}
+            <div class=" col-sm-12 col-md-3 d-inline-flex p-1">
+                <div class="card rounded d-inline" style="min-height: 300px;">
+                    <div class="card-header">
+                        <a href="{{ template.link }}" target="_blank">{{ template.name | escape }}</a>
+                    </div>
+                    <div class="card-img-top mx-auto " style="height: 200px;">
+                        <a class="d-flex justify-content-center" href="{{ template.link }}" target="_blank"><img
+                                style="max-height: 200px;" src="{{ template.preview }}"
+                                alt="Preview {{ template.name | escape }}"></a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-titletext-right">
                             {%- if template.type == 'character' -%}
                             <span
                                 class="badge badge-pill badge-success">{{ site.data.strings.layouts.type_character }}</span>
                             {%- elsif template.type == 'user' -%}
                             <span
                                 class="badge badge-pill badge-warning">{{ site.data.strings.layouts.type_user }}</span>
-                            </span>
-                            {%- elsif template.type == 'codesnippet' -%}
-                            <span
-                                class="badge badge-pill badge-info">{{ site.data.strings.layouts.type_codesnippet }}</span>
                             {%- else -%}
                             <span class="badge badge-pill badge-danger">{{ template.type | escape}}</span>
                             {%- endif -%}
-                            </span>
-                        </a>
-                    </p>
+                        </h5>
+                        <p class="card-text">
+                            <a href="{{ template.link }}" target="_blank">
+                                {{ template.description | escape }}
+                            </a>
+                        </p>
+                    </div>
                 </div>
             </div>
+            {%- else -%}
+            <a class="mr-1 mt-1 mb-2 btn layout-pattern" style="{{ template.style }}" href="{{ template.link }}"
+                target="_blank">
+                {{ template.name | escape }}
+            </a>
+            {%- endif -%}
+            {%- endif -%}
+            {%- endunless -%}
+            {%- endfor -%}
         </div>
-        {%- else -%}
-        <a class="mr-1 mt-1 mb-2 btn layout-pattern" style="{{ template.style }}" href="{{ template.link }}"
-            target="_blank">
-            {{ template.name | escape }}
-        </a>
-        {%- endif -%}
-        {%- endif -%}
-        {%- endunless -%}
-        {%- endfor -%}
-    </div>
-</div>
-
-
-<div id="sectionCodesnippets" class="row border rounded">
-    <div class="col-12 my-1">
-        <h2>Codesnippets</h2>
-    </div>
-    <div class="col-12 mt-2">
-        {%- for template in site.data.templates -%}
-        {%- unless template.disable or template.disabled -%}
-        {%- if template.type == 'codesnippet' and template.author == 'furudbat' -%}
-        {%- if template.preview -%}
-        <div class="d-inline col-3">
-            <div class="btn btn-link card d-inline m-1 layout-pattern"
-                style="width: 14rem; min-height: 320px; {{ template.style }}">
-                <div class="d-flex flex-wrap align-items-center" style="min-height: 200px;">
-                    <a href="{{ template.link }}" target="_blank">
-                        <img class="card-img-top" style="max-height: 200px;" src="{{ template.preview }}"
-                            alt="Preview {{ template.name | escape }}">
-                    </a>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">
-                        <a href="{{ template.link }}" target="_blank">
-                            {{ template.name | escape }}
-                            <span class="text-right"></span>
-                            {%- if template.type == 'character' -%}
-                            <span
-                                class="badge badge-pill badge-success">{{ site.data.strings.layouts.type_character }}</span>
-                            {%- elsif template.type == 'user' -%}
-                            <span
-                                class="badge badge-pill badge-warning">{{ site.data.strings.layouts.type_user }}</span>
-                            </span>
-                            {%- elsif template.type == 'codesnippet' -%}
-                            <span
-                                class="badge badge-pill badge-info">{{ site.data.strings.layouts.type_codesnippet }}</span>
-                            {%- else -%}
-                            <span class="badge badge-pill badge-danger">{{ template.type | escape}}</span>
-                            {%- endif -%}
-                            </span>
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        {%- else -%}
-        <a class="mr-1 mt-1 mb-2 btn layout-pattern" style="{{ template.style }}" href="{{ template.link }}"
-            target="_blank">
-            {{ template.name | escape }}
-        </a>
-        {%- endif -%}
-        {%- endif -%}
-        {%- endunless -%}
-        {%- endfor -%}
     </div>
 </div>
