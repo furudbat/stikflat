@@ -29,5 +29,5 @@ All of the Themes are made by Coders and Designer at [TOYHOU.SE](https://toyhou.
 
 ### Contribute
 
-This Project is open-source, you can contribute your themes via [PR](https://github.com/furudbat/thhg/pulls) or [PM](https://toyhou.se/~messages/create/furudbat) me with **your** theme. (DO NOT steal themes or contribute without permission from the original Coder)  
+This Project is open-source, you can contribute your themes via [PR]({{ site.github_link | append: "/pulls" }}) or [PM]({{ site.pm_link }}) me with **your** theme. (DO NOT steal themes or contribute without permission from the original Coder)  
 **@TODO: How to Contribute Themes via PR with example template, config etc.**

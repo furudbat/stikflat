@@ -18,12 +18,13 @@ email: "hircreacc@gmail.com"
 description: >- # this means to ignore newlines until "baseurl:"
   Glue your custom Toyhou.se theme and content together
 short_description: glue your custom theme and content together
-baseurl: "/thhg" # the subpath of your site, e.g. /blog
+baseurl: "/stikflat" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: furudbat
 github_username:  furudbat
 author: FurudBat
-github_link: "https://github.com/furudbat/thhg"
+github_link: "https://github.com/furudbat/stikflat"
+pm_link: "https://toyhou.se/~messages/create/furudbat"
 
 # Build settings
 plugins:

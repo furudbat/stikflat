@@ -1,7 +1,7 @@
 layouts:
   header: Layouts
   header_help: Select a Layout by clicking to preview or double-click to edit.
-  by_author: " by "
+  by_author: '<span class="mr-1"><i class="fas fa-user"></i></span>'
   type_character: "Character"
   type_user: "User"
   type_codesnippet: "Codesnippet"
