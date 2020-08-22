@@ -22,6 +22,11 @@
       {%- else -%}
       const USE_CODEMIRROR = false;
       {%- endif -%}
+      {%- if site.options.useACE -%}
+      const USE_ACE = true;
+      {%- else -%}
+      const USE_ACE = false;
+      {%- endif -%}
 
       var initSite = function(){};
       var site = {};
@@ -91,6 +96,23 @@
     <script src="{{ '/assets/js/codemirror/addon/hint/html-hint.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/codemirror/addon/hint/css-hint.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/codemirror/addon/hint/javascript-hint.js' | relative_url }}"></script>
+    {% endif %}
+
+    {% if site.options.useACE %}
+    <script src="{{ '/assets/js/ace/ace.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/ext-beautify.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/ext-error_marker.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/ext-spellcheck.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/ext-textarea.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/mode-css.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/mode-html.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/mode-json.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/mode-yaml.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/theme-dracula.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/snippets/json.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/snippets/html.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/snippets/css.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/snippets/yaml.js' | relative_url }}"></script>
     {% endif %}
     
     {% if site.options.withWYSIWYGEditor %}

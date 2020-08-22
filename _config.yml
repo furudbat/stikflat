@@ -51,6 +51,7 @@ exclude:
 options:
   withWYSIWYGEditor: false
   useFroalaEditor: false
-  useCodeMirror: true
+  useCodeMirror: false
+  useACE: true
 
 version: '0.3.0'

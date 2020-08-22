@@ -14,7 +14,7 @@ npm i esprima js-yaml
 npm i clipboard
 npm i tinymce froala-editor 
 npm i codemirror htmlhint csslint
-npm i ace
+npm i ace-builds
 
 cp node_modules/jquery/dist/jquery.min.* assets/js
 
@@ -116,3 +116,11 @@ cp node_modules/csslint/dist/*.js assets/js/csslint
 
 mkdir assets/js/jsonlint
 cp node_modules/jsonlint/web/*.js assets/js/jsonlint
+
+mkdir assets/js/jsonlint
+cp node_modules/jsonlint/web/*.js assets/js/jsonlint
+
+mkdir assets/js/ace
+mkdir assets/js/ace/snippets
+cp node_modules/ace-builds/src-min-noconflict/*.js assets/js/ace
+cp node_modules/ace-builds/src-min-noconflict/snippets/*.js assets/js/ace/snippets

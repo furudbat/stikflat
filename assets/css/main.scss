@@ -13,32 +13,47 @@
 }
 
 .main-template-editors-container {
+    min-height: 500px;
+
     .tab-content {
         min-height: 536px;
     }
 
+    .pre-ace-editor,
     .CodeMirror {
         height: 400px;
     }
 }
 .main-config-editors-container {
+    min-height: 500px;
+
+    .pre-ace-editor,
     .CodeMirror {
         height: 450px;
     }
 }
 
 .main-template-editors-no-WYSIWYG-container {
+    min-height: 500px;
+
+    .pre-ace-editor,
     .CodeMirror {
         height: 500px;
     }
 }
 .main-config-editors-no-WYSIWYG-container {
+    min-height: 500px;
+
+    .pre-ace-editor,
     .CodeMirror {
         height: 500px;
     }
 }
 
 .main-preview-code-container {
+    min-height: 500px;
+
+    .pre-ace-editor,
     .CodeMirror {
         height: 500px;
     }

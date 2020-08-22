@@ -211,9 +211,15 @@
         _codePreview = code;
         _codePreviewEditor.setValue(code);
 
-        //setTimeout(function () {
-        _codePreviewEditor.refresh();
-        //}, 100);
+        if (USE_ACE) {
+            _codePreviewEditor.clearSelection();
+        }
+
+        if (USE_CODEMIRROR) {
+            //setTimeout(function () {
+            _codePreviewEditor.refresh();
+            //}, 100);
+        }
     }
     function setCodeContentMode(mode) {
         _configContentMode = mode;
@@ -303,6 +309,13 @@
     }
 
     function generateTemplateWYSIWYGEditor() {
+        var onChangeTemplate = function (value) {
+            setTemplateCode(value);
+            updateTemplateLinesOfCodeBadges(value);
+            if (_enableLivePreview === true) {
+                generateHTML();
+            }
+        };
         if (USE_FROLALA_EDITOR) {
             _templateWYSIWYGEditor = new FroalaEditor('#txtTemplateWYSIWYG', {
                 theme: 'dark',
@@ -317,11 +330,7 @@
                 ],
                 events: {
                     contentsChanged: function (e, editor) {
-                        setTemplateCode(editor.html.get());
-                        updateTemplateLinesOfCodeBadges(editor.html.get());
-                        if (_enableLivePreview === true) {
-                            generateHTML();
-                        }
+                        onChangeTemplate(editor.html.get());
                     }
                 }
             }, function () {
@@ -345,11 +354,7 @@
                     'removeformat | help',
                 setup: function (ed) {
                     ed.on('change', function (e) {
-                        setTemplateCode(ed.getContent());
-                        updateTemplateLinesOfCodeBadges(ed.getContent());
-                        if (_enableLivePreview === true) {
-                            generateHTML();
-                        }
+                        onChangeTemplate(ed.getContent());
                     });
                 }
             });
@@ -360,39 +365,45 @@
     }
 
     function generateTemplateEditor() {
-        _templateEditor = CodeMirror.fromTextArea(document.getElementById('txtTemplate'), {
-            value: getTemplateCode(),
-            mode: 'text/html',
-            //theme: 'dracula',
-            lineNumbers: true,
-            autoRefresh: true,
-            lint: true,
-            gutters: ["CodeMirror-lint-markers"],
-            extraKeys: { "Ctrl-Space": "autocomplete" }
-        });
-        _templateEditor.on('changes', function (cm, changes) {
-            setTemplateCode(cm.getValue());
-            updateTemplateLinesOfCodeBadges(cm.getValue());
+        var onChangeTemplateEditor = function (value) {
+            setTemplateCode(value);
+            updateTemplateLinesOfCodeBadges(value);
             if (_enableLivePreview === true) {
                 generateHTML();
             }
-        });
-        _currentTemplateEditorName = TEMPLATE_EDITOR_NAME_CODEMIRROR;
+        };
+        if (USE_ACE) {
+            $('#txtTemplate').replaceWith('<pre id="txtTemplate" class="pre-ace-editor"></pre>');
+            _templateEditor = ace.edit("txtTemplate");
+            //_templateEditor.setTheme("ace/theme/dracula");
+            _templateEditor.session.setMode("ace/mode/html");
+            _templateEditor.session.on('change', function (delta) {
+                // delta.start, delta.end, delta.lines, delta.action
+                onChangeTemplateEditor(_templateEditor.getValue());
+            });
+            _currentTemplateEditorName = TEMPLATE_EDITOR_NAME_ACE;
+        }
+        if (USE_CODEMIRROR) {
+            _templateEditor = CodeMirror.fromTextArea(document.getElementById('txtTemplate'), {
+                value: getTemplateCode(),
+                mode: 'text/html',
+                //theme: 'dracula',
+                lineNumbers: true,
+                autoRefresh: true,
+                lint: true,
+                gutters: ["CodeMirror-lint-markers"],
+                extraKeys: { "Ctrl-Space": "autocomplete" }
+            });
+            _templateEditor.on('changes', function (cm, changes) {
+                onChangeTemplateEditor(cm.getValue());
+            });
+            _currentTemplateEditorName = TEMPLATE_EDITOR_NAME_CODEMIRROR;
+        }
     }
 
     function generateConfigEditor() {
-        _configEditorJSON = CodeMirror.fromTextArea(document.getElementById('txtConfigJSON'), {
-            value: _configJsonStr || getConfigCodeJSON(),
-            mode: CONFIG_CONTENT_MODE_JSON,
-            //theme: 'dracula',
-            lineNumbers: true,
-            lint: true,
-            gutters: ["CodeMirror-lint-markers"],
-            spellcheck: true,
-            autoRefresh: true
-        });
-        _configEditorJSON.on('changes', function (cm, changes) {
-            var _configJsonStr = cm.getValue();
+        var onChangeConfigJSON = function (value) {
+            _configJsonStr = value;
             localStorage.setItem(STORAGE_KEY_CONFIG_CODE_JSON, _configJsonStr);
             try {
                 if (_configJsonStr !== '') {
@@ -405,21 +416,9 @@
             } catch (error) {
                 setConfigError(error.toString());
             }
-        });
-
-        _configEditorYAML = CodeMirror.fromTextArea(document.getElementById('txtConfigYAML'), {
-            value: _configYamlStr || getConfigCodeYAML(),
-            mode: CONFIG_CONTENT_MODE_YAML,
-            //theme: 'dracula',
-            lineNumbers: true,
-            lint: true,
-            gutters: ["CodeMirror-lint-markers"],
-            spellcheck: true,
-            autoRefresh: true,
-            indentWithTabs: false
-        });
-        _configEditorYAML.on('changes', function (cm, changes) {
-            var _configYamlStr = cm.getValue();
+        };
+        var onChangeConfigYAML = function (value) {
+            _configYamlStr = value;
             localStorage.setItem(STORAGE_KEY_CONFIG_CODE_YAML, _configYamlStr);
             try {
                 if (_configYamlStr !== '') {
@@ -432,35 +431,108 @@
             } catch (error) {
                 setConfigError(error.toString());
             }
-        });
+        };
+        if (USE_ACE) {
+            $('#txtConfigJSON').replaceWith('<pre id="txtConfigJSON" class="pre-ace-editor"></pre>');
+            _configEditorJSON = ace.edit("txtConfigJSON");
+            //_configEditorJSON.setTheme("ace/theme/dracula");
+            _configEditorJSON.session.setMode("ace/mode/json");
+            _configEditorJSON.session.on('change', function (delta) {
+                // delta.start, delta.end, delta.lines, delta.action
+                onChangeConfigJSON(_configEditorJSON.getValue());
+            });
+
+            $('#txtConfigYAML').replaceWith('<pre id="txtConfigYAML" class="pre-ace-editor"></pre>');
+            _configEditorYAML = ace.edit("txtConfigYAML");
+            //_configEditorYAML.setTheme("ace/theme/dracula");
+            _configEditorYAML.session.setMode("ace/mode/yaml");
+            _configEditorYAML.session.on('change', function (delta) {
+                // delta.start, delta.end, delta.lines, delta.action
+                onChangeConfigYAML(_configEditorYAML.getValue());
+            });
+        }
+        if (USE_CODEMIRROR) {
+            _configEditorJSON = CodeMirror.fromTextArea(document.getElementById('txtConfigJSON'), {
+                value: _configJsonStr || getConfigCodeJSON(),
+                mode: CONFIG_CONTENT_MODE_JSON,
+                //theme: 'dracula',
+                lineNumbers: true,
+                lint: true,
+                gutters: ["CodeMirror-lint-markers"],
+                spellcheck: true,
+                autoRefresh: true
+            });
+            _configEditorJSON.on('changes', function (cm, changes) {
+                onChangeConfigJSON(cm.getValue());
+            });
+
+            _configEditorYAML = CodeMirror.fromTextArea(document.getElementById('txtConfigYAML'), {
+                value: _configYamlStr || getConfigCodeYAML(),
+                mode: CONFIG_CONTENT_MODE_YAML,
+                //theme: 'dracula',
+                lineNumbers: true,
+                lint: true,
+                gutters: ["CodeMirror-lint-markers"],
+                spellcheck: true,
+                autoRefresh: true,
+                indentWithTabs: false
+            });
+            _configEditorYAML.on('changes', function (cm, changes) {
+                onChangeConfigYAML(cm.getValue());
+            });
+        }
     }
 
     function generateCssEditor() {
-        _cssEditor = CodeMirror.fromTextArea(document.getElementById('txtCSS'), {
-            value: getCssCode(),
-            mode: 'text/css',
-            //theme: 'dracula',
-            //lineNumbers: true,
-            linter: true,
-            autoRefresh: true
-        });
-        _cssEditor.on('changes', function (cm, changes) {
-            setCssCode(cm.getValue());
-            updateCssLinesOfCodeBadges(cm.getValue());
+        var onChangeCSS = function (value) {
+            setCssCode(value);
+            updateCssLinesOfCodeBadges(value);
             if (_enableLivePreview === true) {
                 generateHTML();
             }
-        });
+        };
+        if (USE_ACE) {
+            $('#txtCSS').replaceWith('<pre id="txtCSS" class="pre-ace-editor"></pre>');
+            _cssEditor = ace.edit("txtCSS");
+            //_cssEditor.setTheme("ace/theme/dracula");
+            _cssEditor.session.setMode("ace/mode/json");
+            _cssEditor.session.on('change', function (delta) {
+                // delta.start, delta.end, delta.lines, delta.action
+                onChangeCSS(_cssEditor.getValue());
+            });
+        }
+        if (USE_CODEMIRROR) {
+            _cssEditor = CodeMirror.fromTextArea(document.getElementById('txtCSS'), {
+                value: getCssCode(),
+                mode: 'text/css',
+                //theme: 'dracula',
+                //lineNumbers: true,
+                linter: true,
+                autoRefresh: true
+            });
+            _cssEditor.on('changes', function (cm, changes) {
+                onChangeCSS(cm.getValue());
+            });
+        }
     }
 
     function generateCodePreviewEditor() {
-        _codePreviewEditor = CodeMirror.fromTextArea(document.getElementById('txtPreviewCode'), {
-            mode: 'text/html',
-            //theme: 'dracula',
-            lineNumbers: true,
-            readOnly: true,
-            autoRefresh: true
-        });
+        if (USE_ACE) {
+            $('#txtPreviewCode').replaceWith('<pre id="txtPreviewCode" class="pre-ace-editor"></pre>');
+            _codePreviewEditor = ace.edit("txtPreviewCode");
+            //_codePreviewEditor.setTheme("ace/theme/dracula");
+            _codePreviewEditor.session.setMode("ace/mode/html");
+            _codePreviewEditor.setReadOnly(true);
+        }
+        if (USE_CODEMIRROR) {
+            _codePreviewEditor = CodeMirror.fromTextArea(document.getElementById('txtPreviewCode'), {
+                mode: 'text/html',
+                //theme: 'dracula',
+                lineNumbers: true,
+                readOnly: true,
+                autoRefresh: true
+            });
+        }
     }
 
     function updateTemplateLinesOfCodeBadges(code) {
@@ -492,34 +564,50 @@
         _templateEditor.setValue(code);
         updateTemplateLinesOfCodeBadges(code);
 
-        //setTimeout(function () {
-        _templateEditor.refresh();
-        //}, 100);
+        if (USE_ACE) {
+            _templateEditor.clearSelection();
+        }
+        if (USE_CODEMIRROR) {
+            //setTimeout(function () {
+            _templateEditor.refresh();
+            //}, 100);
+        }
     }
 
     function initEditors() {
         var templateCode = getTemplateCode();
         var cssCode = getCssCode();
+
         setTemplateEditorValue(templateCode);
+
         _cssEditor.setValue(cssCode);
         if (getConfigContentMode() == CONFIG_CONTENT_MODE_JSON) {
             _configEditorJSON.setValue(_configJsonStr);
-            $(_configEditorJSON.getWrapperElement()).show();
-            $(_configEditorYAML.getWrapperElement()).hide();
+
+            $('.main-config-json-container').show();
+            $('.main-config-yaml-container').hide();
         } else {
             _configEditorYAML.setValue(_configYamlStr);
-            $(_configEditorJSON.getWrapperElement()).hide();
-            $(_configEditorYAML.getWrapperElement()).show();
+
+            $('.main-config-json-container').hide();
+            $('.main-config-yaml-container').show();
         }
 
         updateTemplateLinesOfCodeBadges(templateCode);
         updateCssLinesOfCodeBadges(cssCode);
 
-        //setTimeout(function () {
-        _cssEditor.refresh();
-        _configEditorJSON.refresh();
-        _configEditorYAML.refresh();
-        //}, 100);
+        if (USE_ACE) {
+            _cssEditor.clearSelection();
+            _configEditorJSON.clearSelection();
+            _configEditorYAML.clearSelection();
+        }
+        if (USE_CODEMIRROR) {
+            //setTimeout(function () {
+            _cssEditor.refresh();
+            _configEditorJSON.refresh();
+            _configEditorYAML.refresh();
+            //}, 100);
+        }
     }
 
 
@@ -574,16 +662,20 @@
     function selectTemplateTab() {
         $('#templateTabs a[href="#templateTabContent"]').tab('show');
 
-        //setTimeout(function () {
-        _templateEditor.refresh();
-        //}, 100);
+        if (USE_CODEMIRROR) {
+            //setTimeout(function () {
+            _templateEditor.refresh();
+            //}, 100);
+        }
     }
     function selectCssTab() {
         $('#templateTabs a[href="#cssTabContent"]').tab('show');
 
-        //setTimeout(function () {
-        _cssEditor.refresh();
-        //}, 100);
+        if (USE_CODEMIRROR) {
+            //setTimeout(function () {
+            _cssEditor.refresh();
+            //}, 100);
+        }
     }
 
 

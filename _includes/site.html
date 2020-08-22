@@ -12,8 +12,9 @@
             {%- if template.preview -%}
             <div class="d-inline col-3">
                 <button type="button" class="btn btn-link card d-inline m-1 layout-pattern"
-                    style="width: 14rem; min-height: 320px; {{ template.style }}" data-name="{{ template.name | escape }}"
-                    data-author="{{ template.author | escape }}" data-author-link="{{ template.author_link }}"
+                    style="width: 14rem; min-height: 320px; {{ template.style }}"
+                    data-name="{{ template.name | escape }}" data-author="{{ template.author | escape }}"
+                    data-author-link="{{ template.author_link }}"
                     data-template="{{ template.template | prepend: templates_url }}"
                     data-css="{{ template.css | prepend: templates_url }}"
                     data-config="{{ template.config | prepend: templates_url }}"
@@ -28,11 +29,14 @@
                             {{ template.name | escape }}
                             <span class="text-right">
                                 {%- if template.type == 'character' -%}
-                                <span class="badge badge-pill badge-success">{{ site.data.strings.layouts.type_character }}</span>
+                                <span
+                                    class="badge badge-pill badge-success">{{ site.data.strings.layouts.type_character }}</span>
                                 {%- elsif template.type == 'user' -%}
-                                <span class="badge badge-pill badge-warning">{{ site.data.strings.layouts.type_user }}</span>
+                                <span
+                                    class="badge badge-pill badge-warning">{{ site.data.strings.layouts.type_user }}</span>
                                 {%- elsif template.type == 'codesnippet' -%}
-                                <span class="badge badge-pill badge-info">{{ site.data.strings.layouts.type_codesnippet }}</span>
+                                <span
+                                    class="badge badge-pill badge-info">{{ site.data.strings.layouts.type_codesnippet }}</span>
                                 {%- else -%}
                                 <span class="badge badge-pill badge-danger">{{ template.type | escape}}</span>
                                 {%- endif -%}
@@ -92,11 +96,13 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="template-tab" data-toggle="tab" href="#templateTabContent" role="tab"
-                        aria-controls="template" aria-selected="true">{{ site.data.strings.editor.template_tab }} <span id="templateEditorLinesBadge" class="badge badge-primary"></span></a>
+                        aria-controls="template" aria-selected="true">{{ site.data.strings.editor.template_tab }} <span
+                            id="templateEditorLinesBadge" class="badge badge-primary"></span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="css-tab" data-toggle="tab" href="#cssTabContent" role="tab"
-                        aria-controls="css" aria-selected="false">{{ site.data.strings.editor.css_tab }} <span id="cssEditorLinesBadge" class="badge badge-secondary"></span></a>
+                        aria-controls="css" aria-selected="false">{{ site.data.strings.editor.css_tab }} <span
+                            id="cssEditorLinesBadge" class="badge badge-secondary"></span></a>
                 </li>
             </ul>
             <div class="tab-content" id="templateTabsContent">
@@ -205,8 +211,12 @@
                 </div>
                 <div class="row mt-2 main-config-container">
                     <div class="col-12">
-                        <textarea id="txtConfigJSON" aria-describedby="configHelp"></textarea>
-                        <textarea id="txtConfigYAML" aria-describedby="configHelp"></textarea>
+                        <div class="main-config-json-container">
+                            <textarea id="txtConfigJSON" aria-describedby="configHelp"></textarea>
+                        </div>
+                        <div class="main-config-yaml-container">
+                            <textarea id="txtConfigYAML" aria-describedby="configHelp"></textarea>
+                        </div>
                         <div id="configError" class="mt-1 alert alert-danger" role="alert"></div>
                         <small id="configHelp"
                             class="form-text text-muted">{{ site.data.strings.editor.config.help }}</small>
