@@ -1,0 +1,18 @@
+{{#fields.length}}
+<div class="card">
+    <div class="card-header">
+        <h3 class=" m-0">{{title}}</h3>
+    </div>
+    {{#fields}}
+    <div class="row no-gutters bg-faded">
+        <div class="col-3 p-2 card-text text-primary">
+            {{name}}
+        </div>
+        <div class="col-9 p-2 card-text text-secondary">
+            {{{value}}}
+        </div>
+    </div>
+    <hr class="w-100 m-0">
+    {{/fields}}
+</div>
+{{/fields.length}}

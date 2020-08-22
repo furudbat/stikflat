@@ -1,0 +1,12 @@
+{{#gallery.length}}
+<div class="row no-gutters">
+    {{#gallery}}
+    <div class="col-12 col-md-3 mb-2 px-1">
+        <div class="figure">
+            <a href="{{{link}}}"><img src="{{{img}}}" class="figure-img img-fluid rounded" alt="{{caption}}"></a>
+            <div class="figure-caption">{{{caption}}}</div>
+        </div>
+    </div>
+    {{/gallery}}
+</div>
+{{/gallery.length}}

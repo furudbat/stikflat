@@ -1,0 +1,90 @@
+<div class="container" style="margin: auto;">
+    <div class="row mx-2">
+        <div class="mt-2 col-5 py-3 rounded bg-faded text-center">
+            <img src="{{{images.avatar}}}" class="img-fluid rounded-circle border" alt="Avatar">
+            <h4 class="mt-1">{{ title }}</h4>
+        </div>
+        <div class="col-7 mt-4">
+            <div class="profile-fields-content fields">
+                {{#name}}
+                <div class="row fields-field">
+                    <div class="field-title col-lg-3 col-md-4 fr-view">
+                        <strong>Name</strong>
+                    </div>
+                    <div class="field-value col-lg-9 col-md-8 fr-view">
+                        <p>{{ name }}</p>
+                    </div>
+                </div>
+                <hr class="w-100 my-1">
+                {{/name}}
+
+                {{#sex}}
+                <div class="row fields-field">
+                    <div class="field-title col-lg-3 col-md-4 fr-view">
+                        <strong>Sex</strong>
+                    </div>
+                    <div class="field-value col-lg-9 col-md-8 fr-view">
+                        <p>{{ sex }}</p>
+                    </div>
+                </div>
+                <hr class="w-100 my-1">
+                {{/sex}}
+
+                {{#pronouns}}
+                <div class="row fields-field">
+                    <div class="field-title col-lg-3 col-md-4 fr-view">
+                        <strong>Pronouns</strong>
+                    </div>
+                    <div class="field-value col-lg-9 col-md-8 fr-view">
+                        <p>{{ pronouns }}</p>
+                    </div>
+                </div>
+                <hr class="w-100 my-1">
+                {{/pronouns}}
+
+                {{#species}}
+                <div class="row fields-field">
+                    <div class="field-title col-lg-3 col-md-4 fr-view">
+                        <strong>Species</strong>
+                    </div>
+                    <div class="field-value col-lg-9 col-md-8 fr-view">
+                        <p>{{ species }}</p>
+                    </div>
+                </div>
+                <hr class="w-100 my-1">
+                {{/species}}
+
+                {{#weight}}
+                <div class="row fields-field">
+                    <div class="field-title col-lg-3 col-md-4 fr-view">
+                        <strong>Weight</strong>
+                    </div>
+                    <div class="field-value col-lg-9 col-md-8 fr-view">
+                        <p>{{ weight }}</p>
+                    </div>
+                </div>
+                <hr class="w-100 my-1">
+                {{/weight}}
+
+                {{#height}}
+                <div class="row fields-field">
+                    <div class="field-title col-lg-3 col-md-4 fr-view">
+                        <strong>Height</strong>
+                    </div>
+                    <div class="field-value col-lg-9 col-md-8 fr-view">
+                        <p>{{ height }}</p>
+                    </div>
+                </div>
+                <hr class="w-100 my-1">
+                {{/height}}
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <!-- Copyright -->
+        <small class="col-12 text-right text-monospace">
+          <a href="https://toyhou.se/FurudBat">Code by Furudbat</a>
+        </small>
+        <!-- Copyright -->
+    </div>
+</div>

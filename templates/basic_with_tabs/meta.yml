@@ -1,7 +1,0 @@
-  name: 'Basic'
-  description: 'Simple Basic Character Profile Layout'
-  style: 'background-color: #0080FF; color: #CCCCFF'
-  author: 'furudbat'
-  author_link: 'https://toyhou.se/FurudBat'
-  license: 'free to use and modify'
-  link: 'https://github.com/furudbat/thhg/tree/master/templates/basic_with_tabs'

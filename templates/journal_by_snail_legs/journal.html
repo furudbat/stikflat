@@ -1,0 +1,108 @@
+<div class="container" style="margin: auto;">
+    <div class="row">
+        <!-- pagedoll - works better with tall portrait images!!  For best effect make sure the image is cropped precisely. -->
+        <div class="col-sm-auto d-none d-sm-block">
+            <img src="{{{images.avatar}}}" style="height: 500px; float: right;">
+        </div>
+
+        <div class="col" style="padding: 0;">
+            <div class="card tab-content bg-faded">
+                <div class="tab-pane show active" id="stats" role="tabpanel" aria-labelledby="stats-tab">
+                    <div class="card-header card-title" style="text-align: center;">
+                        <h1 class="text-primary">{{name}}</h1>
+                        <p class="text-secondary">{{{description}}}</p>
+                    </div>
+
+                    <!-- content -->
+                    <div class="card-block" style="overflow-y: auto; height: 400px;">
+                        {{#stats.length}}
+                        <h4 class="text-primary" style="text-align: center;">Stats</h4>
+                        <div class="row no-gutters">
+                            {{#stats}}
+                            <div class="col-6">
+                                <p style="float:left; margin-right: 1em; line-height: 1em;">{{name}}</p>
+                                <span class="progress">
+                                    <span class="progress-bar" role="progressbar" style="width: {{{value}}}%;"
+                                        aria-valuenow="{{{value}}}" aria-valuemin="0" aria-valuemax="100"></span>
+                                </span>
+                            </div>
+                            {{/stats}}
+                        </div>
+                        <hr>
+                        {{/stats.length}}
+
+                        {{#bio}}
+                        <h4 class="text-primary" style="text-align: center;">Biography</h4>
+                        <div class="row no-gutters">
+                            <div class="col-12">
+                                <p>{{{bio}}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        {{/bio}}
+
+                        {{#notes.length}}
+                        <h4 class="text-primary" style="text-align: center;">Design Notes</h4>
+                        <div class="row no-gutters">
+                            {{#notes}}
+                            <div class="col-6">
+                                <i class="fad fa-pencil-ruler text-primary"></i> {{{.}}}
+                            </div>
+                            {{/notes}}
+                        </div>
+                        <hr>
+                        {{/notes.length}}
+
+                        {{#trivia}}
+                        <h4 class="text-primary" style="text-align: center;">Trivia</h4>
+                        <div class="row no-gutters">
+                            <div class="col-12">
+                                <p>{{{trivia}}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        {{/trivia}}
+
+                        <!-- code credit -->
+                        <p class="text-secondary" style="text-align: center; margin-bottom: 1em;">profile code by [<a
+                                href="https://toyhou.se/snail-legs" class="text-primary"><b>snail legs</b></a>]</p>
+                    </div>
+                </div>
+
+                {{#entries}}
+                <div class="tab-pane" id="{{{id}}}" role="tabpanel" aria-labelledby="{{{id}}}-tab">
+                    <!-- the header -->
+                    <div class="card-header card-title" style="text-align: center;">
+                        <h1 class="text-primary">{{name}}</h1>
+                        <p class="text-secondary">{{date}}</p>
+                    </div>
+                    <div class="card-block" style="overflow-y: auto; height: 400px;">
+                        <h6 class="text-primary">{{{title}}}</h6>
+                        <p class="card-block" style="padding-top: 0.5em; padding-bottom: 0;">
+                            {{{content}}}
+                        </p>
+                        <p class="card-block text-secondary" style="float: right;">{{{signed}}}</p>
+                    </div>
+                </div>
+                {{/entries}}
+            </div>
+        </div>
+
+        <div class="col-sm-2 mt-3 pt-sm-5" style="padding-left: 0; padding-right: 0;">
+
+            <ul class="nav flex-column">
+                <li class="nav-item btn-info btn mb-0 mb-sm-2" style="border-radius: 0; padding: 0.1em;">
+                    <a class="nav-link active text-dark" id="stats-tab" data-toggle="tab" href="#stats" role="tab"
+                        aria-controls="stats" aria-selected="true">Stats</a>
+                </li>
+
+                {{#entries}}
+                <li class="nav-item btn-primary btn mb-0 mb-sm-2" style="border-radius: 0; padding: 0.1em;">
+                    <a class="nav-link text-dark" id="{{{id}}}-tab" data-toggle="tab" href="#{{{id}}}" role="tab"
+                        aria-controls="{{{id}}}" aria-selected="true">{{name}}</a>
+                </li>
+                {{/entries}}
+            </ul>
+        </div>
+    </div>
+</div>

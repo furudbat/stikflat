@@ -1,0 +1,89 @@
+<div class="container card p-2 bg-faded" style="max-width: 800px;">
+    <div class="card p-3" style="border-style:dashed;">
+      
+        <h1 class="bg-faded p-2 rounded text-center text-uppercase" style="letter-spacing: 2px;">
+          {{title}}</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-5 mb-2">
+                <!--------------- AVATAR IMAGE -- USE A 200 x 200 IMAGE ---------------------->
+                <img src="{{{images.avatar}}}" class="d-block mx-auto mt-1 rounded-circle" style="max-height: 200px;">
+            </div>
+            
+            <div class="col-md-7 col-sm-10 mb-3">
+                <div class="row">
+                    {{#name}}
+                    <div class="col-12">
+                        <span class="text-uppercase text-muted" style="letter-spacing:1px;">Name</span>
+                        <span class="pull-right">{{name}}</span></p>
+                        <hr class="my-2">
+                    </div>
+                    {{/name}}
+                    
+                    {{#age}}
+                    <div class="col-12">
+                        <span class="text-uppercase text-muted" style="letter-spacing:1px;">Age</span>
+                        <span class="pull-right">{{age}}</span></p>
+                        <hr class="my-2">
+                    </div>
+                    {{/age}}
+                    
+                    {{#gender}}
+                    <div class="col-12">
+                        <span class="text-uppercase text-muted" style="letter-spacing:1px;">Gender</span>
+                        <span class="pull-right">{{gender}}</span></p>
+                        <hr class="my-2">
+                    </div>
+                    {{/gender}}
+                    
+                    {{#species}}
+                    <div class="col-12">
+                        <span class="text-uppercase text-muted" style="letter-spacing:1px;">Race</span>
+                        <span class="pull-right">{{species}}</span></p>
+                        <hr class="my-2">
+                    </div>
+                    {{/species}}
+                    
+                    {{#role}}
+                    <div class="col-12">
+                        <span class="text-uppercase text-muted" style="letter-spacing:1px;">Role</span>
+                        <span class="pull-right">{{role}}</span></p>
+                        <hr class="my-2">
+                    </div>
+                    {{/role}}
+                    
+                    {{#value}}
+                    <div class="col-12">
+                        <span class="text-uppercase text-muted" style="letter-spacing:1px;">Value</span>
+                        <span class="pull-right">{{value}}</span></p>
+                    </div>
+                    {{/value}}
+                </div>
+            </div>
+        </div>
+        
+        <h1 class="bg-faded p-2 rounded text-center text-uppercase" style="letter-spacing: 2px;">
+          About</h1>
+          
+        {{#bio}}
+        <div class="row">
+            <div class="col-12 mb-3">
+                <p>{{{bio}}}</p>
+            </div>
+        </div>
+        {{/bio}}
+        
+        <div class="bg-faded p-2 rounded mb-1"></div>
+
+        {{#quote}}
+        <h1 class="text-center text-muted mt-2" style="letter-spacing:1px; font-weight: 400;">
+           "{{quote}}"
+        </h1>
+        {{/quote}}
+        
+    </div>
+</div>
+
+<div class="container" style="max-width: 800px;">
+    <p class="text-right small text-muted pt-1">HTML by @Eggy</p>
+</div>

@@ -17,6 +17,16 @@
       {%- else -%}
       const USE_FROLALA_EDITOR = false;
       {%- endif -%}
+      {%- if site.options.useCodeMirror -%}
+      const USE_CODEMIRROR = true;
+      {%- else -%}
+      const USE_CODEMIRROR = false;
+      {%- endif -%}
+      {%- if site.options.useACE -%}
+      const USE_ACE = true;
+      {%- else -%}
+      const USE_ACE = false;
+      {%- endif -%}
 
       var initSite = function(){};
       var site = {};
@@ -27,7 +37,7 @@
     </script>
 
     <div class="py-5 px-2" id="main-content">
-      <div class="container page-content">
+      <div class="container-fluid px-5 page-content">
           {{ content }}
       </div>
     </div>
@@ -40,23 +50,70 @@
     <script src="{{ '/assets/js/bootstrap/bootstrap-toggle.min.js' | relative_url }}"></script>
 
     <script src="{{ '/assets/js/mustache.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/esprima/esprima.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/yaml/js-yaml.min.js' | relative_url }}"></script>
 
     <script src="{{ '/assets/js/beautify/beautify.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/beautify/beautify-css.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/beautify/beautify-html.js' | relative_url }}"></script>
 
-    <script src="{{ '/assets/js/font-awesome/all.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/linkifyjs/linkify.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/linkifyjs/linkify-jquery.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/linkifyjs/linkify-string.min.js' | relative_url }}"></script>
 
+    <script src="{{ '/assets/js/jsonlint/json2.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/jsonlint/jsonlint.js' | relative_url }}"></script>
+
+    <script src="{{ '/assets/js/clipboard/clipboard.min.js' | relative_url }}"></script>
+
+    <script src="{{ '/assets/js/font-awesome/all.min.js' | relative_url }}"></script>
+  
+    {% if site.options.useCodeMirror %}
     <script src="{{ '/assets/js/codemirror/codemirror.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/codemirror/mode/javascript/javascript.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/codemirror/mode/htmlmixed/htmlmixed.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/mode/yaml/yaml.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/codemirror/mode/xml/xml.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/codemirror/mode/css/css.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/edit/closetag.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/codemirror/addon/edit/matchbrackets.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/selection/active-line.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/fold/foldcode.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/fold/foldgutter.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/fold/brace-fold.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/fold/xml-fold.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/fold/comment-fold.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/edit/matchbrackets.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/display/autorefresh.js' | relative_url }}"></script>
+    
+    <script src="{{ '/assets/js/htmlhint/htmlhint.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/csslint/csslint.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/codemirror/addon/lint/json-lint.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/lint/yaml-lint.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/codemirror/addon/lint/html-lint.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/codemirror/addon/lint/css-lint.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/codemirror/addon/display/autorefresh.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/hint/show-hint.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/hint/html-hint.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/hint/css-hint.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/codemirror/addon/hint/javascript-hint.js' | relative_url }}"></script>
+    {% endif %}
+
+    {% if site.options.useACE %}
+    <script src="{{ '/assets/js/ace/ace.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/ext-beautify.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/ext-error_marker.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/ext-spellcheck.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/ext-textarea.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/mode-css.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/mode-html.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/mode-json.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/mode-yaml.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/theme-dracula.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/snippets/json.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/snippets/html.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/snippets/css.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ace/snippets/yaml.js' | relative_url }}"></script>
+    {% endif %}
     
     {% if site.options.withWYSIWYGEditor %}
     <script src="{{ '/assets/js/tinymce/tinymce.min.js' | relative_url }}"></script>

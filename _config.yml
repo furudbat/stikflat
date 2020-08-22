@@ -13,17 +13,18 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: EZ Edit
+title: stikflat
 email: "hircreacc@gmail.com"
 description: >- # this means to ignore newlines until "baseurl:"
-  Toyhou.se Layout HTML-Generator
-short_description: Toyhou.se Layout HTML-Generator
-baseurl: "/thhg" # the subpath of your site, e.g. /blog
+  Glue your custom Toyhou.se theme and content together
+short_description: glue your custom theme and content together
+baseurl: "/stikflat" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: furudbat
 github_username:  furudbat
 author: FurudBat
-github_link: "https://github.com/furudbat/thhg"
+github_link: "https://github.com/furudbat/stikflat"
+pm_link: "https://toyhou.se/~messages/create/furudbat"
 
 # Build settings
 plugins:
@@ -38,15 +39,19 @@ header_pages:
 # to override the default setting.
 exclude:
   - .gitignore
+  - .jshintrc
   - Gemfile
   - Gemfile.lock
   - package-lock.json
   - node_modules
   - scripts
+  - requirements.txt
   - update_dependencies.sh
 
 options:
   withWYSIWYGEditor: false
   useFroalaEditor: false
+  useCodeMirror: false
+  useACE: true
 
-version: '0.3.0'
+version: '0.4.0'

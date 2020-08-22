@@ -1,0 +1,10 @@
+  name: 'Identity'
+  description: "A character profile theme inspired by identification cards. Mobile responsive and interactive (flip the card!), with a space for a signature (if you like) and background graphic."
+  style: 'background-color: #eee; color: #333'
+  author: 'Circlejourney'
+  author_link: 'https://toyhou.se/circlejourney'
+  license: "100% free to use. You're allowed to edit them and frankenstein them with other code. Please don't remove credit, that is all I ask."
+  link: 'https://toyhou.se/3921250.identity'
+  type: 'character'
+  preview: 'https://f2.toyhou.se/file/f2-toyhou-se/characters/3921250?1583384512'
+  disable: true

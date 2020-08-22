@@ -1,0 +1,60 @@
+{
+    "name": "Character Name",
+    "description": "info | info | info",
+    "bio": "The backstory of your character- an explaination of what's happened in thier past. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    "trivia": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
+    "notes": [
+        "Lorem ipsum dolor", 
+        "Suspendisse a felis molestie", 
+        "Integer fermentum est", 
+        "Fusce quis", 
+        "Aliquam vulputate"
+    ], 
+    "stats": [
+        {
+            "name": "DEX", 
+            "value": "60"
+        }, 
+        {
+            "name": "INT", 
+            "value": "30"
+        }, 
+        {
+            "name": "STR", 
+            "value": "80"
+        },
+        {
+            "name": "WIS", 
+            "value": "60"
+        }
+    ], 
+    "entries": [
+        {
+            "id": "entry-1-tab",
+            "name": "Entry #1",
+            "date": "dd/mm/yyyy",
+            "title": "Dear Diary,",
+            "signed": "-Signed, character name",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        {
+            "id": "entry-2",
+            "name": "Entry #2",
+            "date": "dd/mm/yyyy",
+            "title": "Dear Diary,",
+            "signed": "-Signed, character name",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        {
+            "id": "entry-3",
+            "name": "Entry #3",
+            "date": "dd/mm/yyyy",
+            "title": "Dear Diary,",
+            "signed": "-Signed, character name",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        }
+    ],
+    "images": {
+        "avatar": "https://via.placeholder.com/300x500"
+    }
+}

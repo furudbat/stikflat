@@ -1,0 +1,355 @@
+<div class="container-fluid px-0 card border-0 py-5" style="margin-top: -58px;">
+    <div class="container-fluid px-0" style="max-width: 1000px;">
+        <!---- title and adjectives ----------->
+        <h1 class="text-primary text-center display-4" style="letter-spacing: 1.5px;">
+            {{title}}
+        </h1>
+
+        {{#description}}
+        <h2 class="text-center text-uppercase small mb-1" style="font-weight: 300px; letter-spacing: 1px;">
+            {{{description}}}
+        </h2>
+        {{/description}}
+        <hr class="w-75 my-4" />
+
+        <div class="row no-gutters">
+            <div class="col-md-4 push-md-8 mb-md-0 mb-3">
+                <!---- focal image -- focus will be in the top center -- will scale and crop with screen -->
+                <div style="background-image: url({{{images.avatar}}}); 
+                background-size: cover; background-position: top-center; min-height: 420px; border-radius: 1em;"
+                    class="card-block p-2 d-flex h-100">
+
+                    {{#quote}}
+                    <div class="card border-0 p-md-3 p-2 mx-auto mt-auto"
+                        style="border-radius:1em; filter:opacity(80%);">
+                        <p class="text-center small" style="letter-spacing:1px;">
+
+                            "{{{quote}}}"</p>
+                    </div>
+                    {{/quote}}
+                </div>
+            </div>
+            <div class="col-md-8 pull-md-4 pr-md-4 mb-md-0 mb-3">
+                <div class="d-flex h-100 w-100">
+                    <div class="w-100 my-auto">
+                        <div class="row">
+
+                            {{#name}}
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex justify-content-between py-2 pr-md-2"><span
+                                        class="text-uppercase text-muted">
+                                        Name</span><span>
+                                        {{name}}</span>
+                                </div>
+                            </div>
+                            {{/name}}
+
+                            {{#pronouns}}
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex justify-content-between py-2 pl-md-2"><span
+                                        class="text-uppercase text-muted">
+                                        Called</span><span>
+                                        {{pronouns}}</span>
+                                </div>
+                            </div>
+                            {{/pronouns}}
+
+                            {{#age}}
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex justify-content-between py-2 pr-md-2"><span
+                                        class="text-uppercase text-muted">
+                                        Age</span><span>
+                                        {{age}}</span>
+                                </div>
+                            </div>
+                            {{/age}}
+
+                            {{#dob}}
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex justify-content-between py-2 pl-md-2"><span
+                                        class="text-uppercase text-muted">
+                                        DoB</span><span>
+                                        {{dob}}</span>
+                                </div>
+                            </div>
+                            {{/dob}}
+
+                            {{#gender}}
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex justify-content-between py-2 pr-md-2"><span
+                                        class="text-uppercase text-muted">
+                                        Gender</span><span>
+                                        {{gender}}</span>
+                                </div>
+                            </div>
+                            {{/gender}}
+
+                            {{#height}}
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex justify-content-between py-2 pl-md-2"><span
+                                        class="text-uppercase text-muted">
+                                        Height</span><span>
+                                        {{height}}</span>
+                                </div>
+                            </div>
+                            {{/height}}
+
+                            {{#species}}
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex justify-content-between py-2 pr-md-2"><span
+                                        class="text-uppercase text-muted">
+                                        Race</span><span>
+                                        {{species}}</span>
+                                </div>
+                            </div>
+                            {{/species}}
+
+                            {{#role}}
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex justify-content-between py-2 pl-md-2"><span
+                                        class="text-uppercase text-muted">
+                                        Role</span><span>
+                                        {{role}}</span>
+                                </div>
+                            </div>
+                            {{/role}}
+
+                            {{#demeanor}}
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex justify-content-between py-2 pr-md-2"><span
+                                        class="text-uppercase text-muted">
+                                        Demeanor</span><span>
+                                        {{demeanor}}</span>
+                                </div>
+                            </div>
+                            {{/demeanor}}
+
+                            {{#mbti}}
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex justify-content-between py-2 pl-md-2"><span
+                                        class="text-uppercase text-muted">
+                                        MBTI</span><span>
+                                        {{mbti}}</span>
+                                </div>
+                            </div>
+                            {{/mbti}}
+
+                            {{#theme}}
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex justify-content-between py-2 pr-md-2"><span
+                                        class="text-uppercase text-muted">
+                                        Theme</span><span>
+                                        <a href="{{{theme_link}}}" target="_BLANK"><i class="fas fa-music"></i></a></span>
+                                </div>
+                            </div>
+                            {{/theme}}
+
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex justify-content-between py-2 pl-md-2"><span
+                                        class="text-uppercase text-muted">
+                                        HTML</span><span>
+                                        @eggy</span>
+                                </div>
+                            </div>
+
+                            {{#likes.length}}
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex justify-content-between py-2 pr-md-2">
+                                    <div class="text-uppercase text-muted">Likes</div>
+                                    <div class="text-right">
+                                        {{#likes}}
+                                        {{{.}}}<br />
+                                        {{/likes}}
+                                    </div>
+                                </div>
+                            </div>
+                            {{/likes.length}}
+
+                            {{#dislikes.length}}
+                            <div class="col-md-6 mb-1">
+                                <div class="d-flex justify-content-between py-2 pl-md-2">
+                                    <div class="text-uppercase text-muted">Dislikes</div>
+                                    <div class="text-right">
+                                        {{#dislikes}}
+                                        {{{.}}}<br />
+                                        {{/dislikes}}
+                                    </div>
+                                </div>
+                            </div>
+                            {{/dislikes.length}}
+                        </div>
+
+                        {{#colorpallete.length}}
+                        <div class="row no-gutters mt-2 modal-open" style="height:25px; border-radius: 1em;">
+                            {{#colorpallete}}
+                            <div style="background-color: {{{.}}};" class="col h-100">
+                            </div>
+                            {{/colorpallete}}
+                        </div>
+                        {{/colorpallete.length}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row no-gutters mt-2 mb-3">
+            <div class="col pr-3">
+                <div class="h-100 w-100 d-flex">
+                    <div class="my-auto w-100">
+                        <hr />
+                        <hr />
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div>
+                    <a class="text-primary" data-toggle="collapse" data-target="#extend">
+                        <span class="fa-stack fa-2x">
+                            <i class="fal fa-circle fa-stack-2x"></i>
+                            <i class="fas fa-crown fa-stack-1x"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col pl-3">
+                <div class="h-100 w-100 d-flex">
+                    <div class="my-auto w-100">
+                        <hr />
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapse" id="extend">
+            <div class="row no-gutters">
+                <div class="col-12 mb-4">
+                    <h1 class="text-primary mb-2" style="letter-spacing: 1px; font-weight: 300;">
+                        <i class="fas fa-books fa-fw" ></i> About</h1>
+
+                    <p>{{{bio}}}</p>
+                </div>
+
+                <div class="col-md-5 pr-md-4 mb-4">
+                    <h1 class="text-primary" style="letter-spacing: 1px; font-weight: 300;">
+                        <i class="fas fa-stars fa-fw"></i> Stats</h1>
+                    {{#character.charisma.length}}
+                    <div class="d-flex justify-content-between p-2 mb-2">
+                        <span class="text-uppercase text-muted">Charisma</span>
+                        <span>
+                            {{#character.charisma}}
+                            <i class="fas fa-{{{.}}} fa-fw"></i>
+                            {{/character.charisma}}
+                        </span>
+                    </div>
+                    {{/character.charisma.length}}
+
+                    {{#character.kindness.length}}
+                    <div class="d-flex justify-content-between p-2 mb-2">
+                        <span class="text-uppercase text-muted">Kindness</span>
+                        <span>
+                            {{#character.kindness}}
+                            <i class="fas fa-{{{.}}} fa-fw"></i>
+                            {{/character.kindness}}
+                        </span>
+                    </div>
+                    {{/character.kindness.length}}
+
+                    {{#character.intellect.length}}
+                    <div class="d-flex justify-content-between p-2 mb-2">
+                        <span class="text-uppercase text-muted">Intellect</span>
+                        <span>
+                            {{#character.intellect}}
+                            <i class="fas fa-{{{.}}} fa-fw"></i>
+                            {{/character.intellect}}
+                        </span>
+                    </div>
+                    {{/character.intellect.length}}
+
+                    {{#character.honesty.length}}
+                    <div class="d-flex justify-content-between p-2 mb-2">
+                        <span class="text-uppercase text-muted">Honesty</span>
+                        <span>
+                            {{#character.honesty}}
+                            <i class="fas fa-{{{.}}} fa-fw"></i>
+                            {{/character.honesty}}
+                        </span>
+                    </div>
+                    {{/character.honesty.length}}
+
+                    {{#character.courage.length}}
+                    <div class="d-flex justify-content-between p-2 mb-2">
+                        <span class="text-uppercase text-muted">Courage</span>
+                        <span>
+                            {{#character.courage}}
+                            <i class="fas fa-{{{.}}} fa-fw"></i>
+                            {{/character.courage}}
+                        </span>
+                    </div>
+                    {{/character.courage.length}}
+
+                    {{#character.humour.length}}
+                    <div class="d-flex justify-content-between p-2">
+                        <span class="text-uppercase text-muted">Humour</span>
+                        <span>
+                            {{#character.humour}}
+                            <i class="fas fa-{{{.}}} fa-fw"></i>
+                            {{/character.humour}}
+                        </span>
+                    </div>
+                    {{/character.humour.length}}
+                </div>
+
+                {{#trivias.length}}
+                <div class="col-md-7 mb-4">
+                    <h1 class="text-primary mb-2" style="letter-spacing: 1px; font-weight: 300;">
+                        <i class="fas fa-list fa-fw"></i> Trivia</h1>
+
+                    {{#trivias}}
+                    <p class="mb-2"><i class="fal fa-thumbtack fa-fw mr-1"></i>{{{.}}}</p>
+                    {{/trivias}}
+                </div>
+                {{/trivias.length}}
+
+                {{#relationships.length}}
+                <div class="col-12">
+                    <h1 class="text-primary mb-2" style="letter-spacing: 1px; font-weight: 300;">
+                        <i class="fas fa-users fa-fw"></i> Related</h1>
+
+                    <div class="row">
+                        {{#relationships}}
+                        <div class="col-md-4 text-center mb-3">
+                            <a href="{{{link}}}" target="_BLANK">
+                                <img src="{{{img}}}" class="d-block mx-auto mb-2 rounded-circle"
+                                    style="max-height: 200px;" />
+                                <p style="font-weight: 300; font-size: 1.25em;" class="mb-0">
+                                    {{name}}</p>
+                            </a>
+                            <p class="mb-1 text-muted small">{{status}}</p>
+
+                            <p>{{{summary}}}</p>
+                        </div>
+                        {{/relationships}}
+                    </div>
+                </div>
+                {{/relationships.length}}
+
+                {{#moodboard.length}}
+                <div class="col-12">
+                    <div>
+                        <hr class="w-75 mb-4 mt-2">
+                    </div>
+                    <div class="row no-gutters modal-open" style="border-radius: 1em;">
+                        <div class="col-md-3 col-6">
+                            <div style="background-image: url({{{.}}}); background-size: cover; background-position:center; height:200px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/moodboard.length}}
+
+            </div>
+        </div>
+    </div>
+</div>

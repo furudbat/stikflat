@@ -1,0 +1,103 @@
+<h2>{{title}}</h2>
+
+<h3>{{name}}</h3>
+<h4>{{{description}}}</h4>
+
+<hr />
+
+<div class="row">
+    <div class="col-4">{{species}}</div>
+    <div class="col-4">{{age}}</div>
+    <div class="col-4">{{gender}}</div>
+</div>
+<p>Pronouns: {{pronouns}}</p>
+<p>Birthday: {{birthday}}</p>
+<hr />
+
+<hr />
+<p>Widgth: {{weigth}}</p>
+<p>Height: {{height}}</p>
+<p>build: {{build}}</p>
+
+<hr />
+<p>Blood Type: {{bloodtype}}</p>
+<p>Birthplace: {{birthplace}}</p>
+<p>Family: {{family}}</p>
+
+<hr />
+<p>
+    {{{info}}}
+</p>
+
+<hr />
+<p>
+    {{{bio}}}
+</p>
+
+<hr />
+<p>
+    {{{extra}}}
+</p>
+
+<hr />
+<div class="row">
+    {{#character.charisma.length}}
+    <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+            Charisma:</b></div>
+    <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3 text-muted">
+        {{#character.charisma}}
+        <i class="fas fa-{{{.}}} fa-fw"></i>
+        {{/character.charisma}}
+    </div>
+    {{/character.charisma.length}}
+
+    {{#character.kindness.length}}
+    <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+            Kindness:</b></div>
+    <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3 text-muted">
+        {{#character.kindness}}
+        <i class="fas fa-{{{.}}} fa-fw"></i>
+        {{/character.kindness}}
+    </div>
+    {{/character.kindness.length}}
+
+    {{#character.integrity.length}}
+    <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+            Integrity:</b></div>
+    <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3 text-muted">
+        {{#character.integrity}}
+        <i class="fas fa-{{{.}}} fa-fw"></i>
+        {{/character.integrity}}
+    </div>
+    {{/character.integrity.length}}
+
+    {{#character.confidence.length}}
+    <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+            Confidence:</b></div>
+    <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3 text-muted">
+        {{#character.confidence}}
+        <i class="fas fa-{{{.}}} fa-fw"></i>
+        {{/character.confidence}}
+    </div>
+    {{/character.confidence.length}}
+
+    {{#character.temper.length}}
+    <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+            Temper:</b></div>
+    <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3 text-muted">
+        {{#character.temper}}
+        <i class="fas fa-{{{.}}} fa-fw"></i>
+        {{/character.temper}}
+    </div>
+    {{/character.temper.length}}
+
+    {{#character.intellect.length}}
+    <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+            Intellect:</b></div>
+    <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3 text-muted">
+        {{#character.intellect}}
+        <i class="fas fa-{{{.}}} fa-fw"></i>
+        {{/character.intellect}}
+    </div>
+    {{/character.intellect.length}}
+</div>

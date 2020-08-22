@@ -29,13 +29,13 @@ $teal:    #20c997 !default;
 $cyan:    #3498DB !default;
 
 $primary:       $blue !default;
-$secondary:     $gray-700 !default;
+$secondary:     $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
 $light:         $gray-500 !default;
-$dark:          $gray-800 !default;
+$dark:          $gray-900 !default;
 
 $yiq-contrasted-threshold:  175 !default;
 
@@ -54,9 +54,9 @@ $font-family-sans-serif:      "Lato", -apple-system, BlinkMacSystemFont, "Segoe 
 
 $font-size-base:              0.9375rem !default;
 
-$h1-font-size:                3rem !default;
-$h2-font-size:                2.5rem !default;
-$h3-font-size:                2rem !default;
+$h1-font-size:                1.4rem !default;
+$h2-font-size:                1.3rem !default;
+$h3-font-size:                1.3rem !default;
 
 $text-muted:                  $gray-600 !default;
 

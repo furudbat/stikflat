@@ -7,7 +7,13 @@
   <link rel="stylesheet" type="text/css" href="{{ '/assets/css/jquery-ui.min.css' | relative_url }}">
   <link rel="stylesheet" type="text/css" href="{{ '/assets/css/font-awesome/all.min.css' | relative_url }}">
 
+  {% if site.options.useCodeMirror %}
   <link rel="stylesheet" type="text/css" href="{{ '/assets/css/codemirror/codemirror.css' | relative_url }}">
+  <link rel="stylesheet" type="text/css" href="{{ '/assets/css/codemirror/addon/fold/foldgutter.css' | relative_url }}">
+  <link rel="stylesheet" type="text/css" href="{{ '/assets/css/codemirror/addon/hint/show-hint.css' | relative_url }}">
+  <link rel="stylesheet" type="text/css" href="{{ '/assets/css/codemirror/addon/lint/lint.css' | relative_url }}">
+  <link rel="stylesheet" type="text/css" href="{{ '/assets/css/codemirror/theme/dracula.css' | relative_url }}">
+  {% endif %}
 
   {% if site.options.withWYSIWYGEditor %}
     {% if site.options.useFroalaEditor %}

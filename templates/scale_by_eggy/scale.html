@@ -1,0 +1,244 @@
+<div class="container-fluid px-0 shadow my-4" style="max-width: 1220px;">
+    <div>
+        <div class="row no-gutters">
+            <div class="col-md-5">
+                <!---- focal image -- will scale & resize with screen ---- focus will be in top center ------  you must use a large image AT LEAST 550 x 700px --- you can use a bigger one, it will resize itself accordingly -->
+                <div style="background-image: url({{{images.avatar}}}); background-size: cover; background-position:top center; min-height: 500px;"
+                    class="h-100 d-flex bg-faded">
+
+                    <div class="mt-auto w-100">
+                        <ul class="nav bg-dark row no-gutters">
+                            <li class="nav-item col">
+                                <a class="nav-link active btn btn-outline-primary border-0 rounded-0 text-white px-1 py-3"
+                                    data-toggle="tab" href="#A">
+                                    <i class="far fa-info-circle fa-2x fa-fw"></i>
+                                </a>
+                            </li>
+
+                            <li class="nav-item col">
+                                <a class="nav-link btn btn-outline-primary border-0 rounded-0 text-white px-1 py-3"
+                                    data-toggle="tab" href="#B">
+                                    <i class="far fa-star fa-2x fa-fw"></i>
+                                </a>
+                            </li>
+
+                            <li class="nav-item col">
+                                <a class="nav-link btn btn-outline-primary border-0 rounded-0 text-white px-1 py-3"
+                                    data-toggle="tab" href="#C">
+                                    <i class="far fa-list fa-2x fa-fw"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7">
+                <div class="pt-2 px-3">
+                    <h1 class="display-3 text-primary text-uppercase text-md-left text-center mb-1"
+                        style="letter-spacing: 1px;">
+                        {{title}}
+                    </h1>
+                    <p class="text-md-left text-center text-muted pl-md-5 mb-0" style="letter-spacing: .5px;">
+                        {{{description}}}</p>
+                    <hr class="mb-0">
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade in active show pt-3 px-3 pb-1" style="height: 550px; overflow:auto;"
+                        id="A">
+                        <div class="px-2 pt-3 mb-3 bg-faded">
+                            <div class="row no-gutters">
+                                {{#name}}
+                                <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                        Name:</b></div>
+                                <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3">
+                                    {{name}}</div>
+                                {{/name}}
+
+                                {{#age}}
+                                <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                        Age:</b></div>
+                                <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3">
+                                    {{age}}</div>
+                                {{/age}}
+
+                                {{#gender}}
+                                <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                        Gender:</b></div>
+                                <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3">
+                                    {{gender}}</div>
+                                {{/gender}}
+
+                                {{#species}}
+                                <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                        Race:</b></div>
+                                <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3">
+                                    {{species}}</div>
+                                {{/species}}
+
+                                {{#height}}
+                                <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                        Height:</b></div>
+                                <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3">
+                                    {{height}}</div>
+                                {{/height}}
+
+                                {{#build}}
+                                <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                        Build:</b></div>
+                                <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3">
+                                    {{build}}</div>
+                                {{/build}}
+
+                                {{#role}}
+                                <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                        Role:</b></div>
+                                <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3">
+                                    {{role}}</div>
+                                {{/role}}
+
+                                {{#demeanor}}
+                                <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                        Demeanor:</b></div>
+                                <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3">
+                                    {{demeanor}}</div>
+                                {{/demeanor}}
+
+                                {{#mbti}}
+                                <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                        MBTI:</b></div>
+                                <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3">
+                                    {{mbti}}</div>
+                                {{/mbti}}
+
+                                {{#theme}}
+                                <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                        Theme:</b></div>
+                                <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3">
+                                    <a href="{{theme_link}}" target="_BLANK">{{theme}}</a></div>
+                                {{/theme}}
+                            </div>
+                        </div>
+
+                        {{#quote}}
+                        <p class="text-center text-muted" style="letter-spacing: 1px;"><i>
+                                "{{quote}}"</i></p>
+                        {{/quote}}
+
+                        {{{bio}}}
+                    </div>
+
+                    <div class="tab-pane fade pt-3 px-3 pb-1" style="height: 550px; overflow:auto;" id="B">
+                        {{#character}}
+                        <h4 class="text-center text-uppercase text-primary" style="letter-spacing: 1px;">
+                            Character</h4>
+
+                        <div class="row no-gutters">
+                            {{#character.charisma.length}}
+                            <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                    Charisma:</b></div>
+                            <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3 text-muted">
+                                {{#character.charisma}}
+                                <i class="fas fa-{{{.}}} fa-fw"></i>
+                                {{/character.charisma}}
+                            </div>
+                            {{/character.charisma.length}}
+
+                            {{#character.kindness.length}}
+                            <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                    Kindness:</b></div>
+                            <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3 text-muted">
+                                {{#character.kindness}}
+                                <i class="fas fa-{{{.}}} fa-fw"></i>
+                                {{/character.kindness}}
+                            </div>
+                            {{/character.kindness.length}}
+
+                            {{#character.integrity.length}}
+                            <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                    Integrity:</b></div>
+                            <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3 text-muted">
+                                {{#character.integrity}}
+                                <i class="fas fa-{{{.}}} fa-fw"></i>
+                                {{/character.integrity}}
+                            </div>
+                            {{/character.integrity.length}}
+
+                            {{#character.confidence.length}}
+                            <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                    Confidence:</b></div>
+                            <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3 text-muted">
+                                {{#character.confidence}}
+                                <i class="fas fa-{{{.}}} fa-fw"></i>
+                                {{/character.confidence}}
+                            </div>
+                            {{/character.confidence.length}}
+
+                            {{#character.temper.length}}
+                            <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                    Temper:</b></div>
+                            <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3 text-muted">
+                                {{#character.temper}}
+                                <i class="fas fa-{{{.}}} fa-fw"></i>
+                                {{/character.temper}}
+                            </div>
+                            {{/character.temper.length}}
+
+                            {{#character.intellect.length}}
+                            <div class="col-lg-2 col-5 text-right pr-1 mb-3"><b style="letter-spacing: .5px;">
+                                    Intellect:</b></div>
+                            <div class="col-lg-4 col-7 px-md-1 pl-1 mb-3 text-muted">
+                                {{#character.intellect}}
+                                <i class="fas fa-{{{.}}} fa-fw"></i>
+                                {{/character.intellect}}
+                            </div>
+                            {{/character.intellect.length}}
+                        </div>
+
+                        <p>{{{personality}}}</p>
+                    </div>
+                    {{/character}}
+
+                    <div class="tab-pane fade pt-3 px-3 pb-1" style="height: 550px; overflow:auto;" id="C">
+                        {{#notes.length}}
+                        <h4 class="text-center text-uppercase text-primary" style="letter-spacing: 1px;">
+                            Notes</h4>
+                        <ul>
+                            {{#notes}}
+                            <li class="mb-2">{{{.}}}</li>
+                            {{/notes}}
+                        </ul>
+                        {{/notes.length}}
+
+                        {{#relationships.length}}
+                        <h4 class="text-center text-uppercase text-primary" style="letter-spacing: 1px;">
+                            Relationships</h4>
+                        <div class="row">
+                            {{#relationships}}
+                            <div class="col-12 mb-3">
+                                <img src="{{{img}}}" style="max-height:100px;"
+                                    class="rounded float-sm-right ml-sm-2 d-block mx-auto" />
+                                <p class="my-2" style="letter-spacing:1px;">
+                                    <a href="{{{link}}}">
+                                        {{name}}</a>
+
+                                    <span class="text-muted pull-right">
+                                        {{status}}</span></p>
+
+                                <p>{{{summary}}}</p>
+                            </div>
+                            {{/relationships}}
+                        </div>
+                        {{/relationships.length}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="pb-2 px-3">
+                <hr class="mt-0">
+                <p class="text-right small">HTML by @Eggy</p>
+            </div>
+        </div>
+    </div>
+</div>

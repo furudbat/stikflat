@@ -1,0 +1,121 @@
+{
+    "title": "Infos",
+    "fields": [
+        {
+            "name": "Title",
+            "value": "Max the Doggo"
+        },
+        {
+            "name": "Name",
+            "value": "Max"
+        },
+        {
+            "name": "Sex",
+            "value": "sex"
+        },
+        {
+            "name": "Gender",
+            "value": "gender"
+        },
+        {
+            "name": "Pronouns",
+            "value": "My pronouns"
+        },
+        {
+            "name": "Age",
+            "value": "age"
+        },
+        {
+            "name": "Birthday",
+            "value": "dd/mm/yyyy"
+        },
+        {
+            "name": "Weight",
+            "value": "58 kg (128 Ibs)"
+        },
+        {
+            "name": "Height",
+            "value": "1.82 m (6 ft.)"
+        },
+        {
+            "name": "Build",
+            "value": "content"
+        },
+        {
+            "name": "Species",
+            "value": "Dog"
+        },
+        {
+            "name": "Interests",
+            "value": "hobbies and interests"
+        },
+        {
+            "name": "Info",
+            "value": "My Info"
+        },
+        {
+            "name": "Birthplace",
+            "value": "My Birthplace"
+        },
+        {
+            "name": "Family",
+            "value": "My parents, siblings, spouses, etc."
+        },
+        {
+            "name": "Blood type",
+            "value": "My blood type"
+        },
+        {
+            "name": "DOB",
+            "value": "content"
+        },
+        {
+            "name": "Residence",
+            "value": "My Place of Residence"
+        },
+        {
+            "name": "Eyes",
+            "value": "My eye colour"
+        },
+        {
+            "name": "Value",
+            "value": "$$$"
+        },
+        {
+            "name": "Sign",
+            "value": "content"
+        },
+        {
+            "name": "Hair",
+            "value": "My hair colour"
+        },
+        {
+            "name": "Demeanor",
+            "value": "content"
+        },
+        {
+            "name": "Role",
+            "value": "job/role/title"
+        },
+        {
+            "name": "Location",
+            "value": "home"
+        },
+        {
+            "name": "Background",
+            "value": "story"
+        },
+        {
+            "name": "Aliases",
+            "value": "character alias/AKA"
+        },
+        {
+            "name": "MBTI",
+            "value": "content"
+        },
+        {
+            "name": "Occupation",
+            "value": "My Occupation"
+        }
+    ]
+}

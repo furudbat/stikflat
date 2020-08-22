@@ -1,0 +1,74 @@
+<!-- In A Nutshell theme created by Circlejourney for Historia.  Editing is allowed. Just remember to credit me! -->
+<div class="container">
+    <div class="card-group mb-2">
+        <div class="card col-12 col-lg-3 p-0">
+            <img class="w-100" src="{{{images.avatar}}}">
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="display-4 text-center">{{name}} <i class="fal fa-star"></i> {{age}} <i
+                        class="fal fa-star"></i> {{pronouns}}</div>
+            </div>
+            <div class="card-block">
+                {{{about}}}
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-2">
+        <img src="{{{images.header}}}">
+    </div>
+
+    <div class="card-group">
+        {{#projects.length}}
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-uppercase text-center">Projects</h2>
+            </div>
+
+            {{#projects}}
+            <div class="card p-3 rounded-0 border-top-0 border-left-0 border-right-0">
+                <h3><a href="{{{link}}}">{{name}}</a></h3>
+                <p>{{{description}}}</p>
+            </div>
+            {{/projects}}
+        </div>
+        {{/projects.length}}
+
+        <div class="card col-12 col-lg-5 p-0">
+            <div class="card-header">
+                <h2 class="text-uppercase text-center">Notes & social</h2>
+            </div>
+
+            <div>
+                {{#notes.length}}
+                <div class="card p-4 rounded-0 border-top-0 border-right-0 border-left-0">
+                    <ul class="py-0 px-3 m-0">
+                        {{#notes}}
+                        <li>{{{.}}}</li>
+                        {{/notes}}
+                    </ul>
+                </div>
+                {{/notes.length}}
+                <div class="p-4">
+                    <h3>
+                        <a href="{{{socialmedia.twitter}}}"><i class="fab fa-twitter"></i> Twitter</a>
+                    </h3>
+                    <h3>
+                        <a href="{{{socialmedia.instagram}}}"><i class="fab fa-instagram"></i> Instagram</a>
+                    </h3>
+                    <h3>
+                        <a href="{{{socialmedia.tumblr}}}"><i class="fab fa-tumblr"></i> Tumblr</a>
+                    </h3>
+                    <h3>
+                        <i class="fab fa-discord"></i> Discord: {{{socialmedia.discord}}}
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="text-right" style="font-size: 9pt;"><a
+            href="https://toyhou.se/~forums/16.htmlcss-graphics/75580.circlejourney-s-code-creations-free-">Theme by
+            Circlejourney</a>
+    </p>
+</div>

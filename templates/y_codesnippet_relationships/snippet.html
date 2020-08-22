@@ -1,0 +1,22 @@
+{{#relationships.length}}
+{{#title}}
+<h2 class="text-primary"><i class="fas fa-users fa-fw"></i> {{title}}</h2>
+{{/title}}
+{{#relationships}}
+<div class="card-group mb-2">
+    <div class="card">
+        <div class="d-flex flex-wrap align-items-center mx-auto">
+            <img src="{{{img}}}" class="mx-auto" alt="{{name}}">
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header text-uppercase text-center">{{name}}</div>
+        {{#summary}}
+        <div class="card-block">
+            <p class="ml-2">{{{summary}}}</p>
+        </div>
+        {{/summary}}
+    </div>
+</div>
+{{/relationships}}
+{{/relationships.length}}

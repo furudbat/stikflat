@@ -1,0 +1,73 @@
+{
+    "attributes": [
+        {
+            "title": "Melee",
+            "stats": [
+                {
+                    "name": "STR",
+                    "value": [
+                        "star", 
+                        "star"
+                    ]
+                },
+                {
+                    "name": "DEF",
+                    "value":[
+                        "star", 
+                        "star", 
+                        "star"
+                    ]
+                },
+                {
+                    "name": "EVA",
+                    "value": [
+                        "star", 
+                        "star"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Magic",
+            "stats": [
+                {
+                    "name": "Mag.DEF",
+                    "value": [
+                        "star", 
+                        "star-half"
+                    ]
+                },
+                {
+                    "name": "INT",
+                    "value": [
+                        "star", 
+                        "star"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Misc",
+            "stats": [
+                {
+                    "name": "AGI",
+                    "value": [
+                        "star", 
+                        "star", 
+                        "star",
+                        "star"
+                    ]
+                },
+                {
+                    "name": "DEX",
+                    "value": [
+                        "star", 
+                        "star", 
+                        "star", 
+                        "star-half"
+                    ]
+                }
+            ]
+        }
+    ]
+}

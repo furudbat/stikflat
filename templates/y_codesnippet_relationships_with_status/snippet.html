@@ -1,0 +1,21 @@
+{{#relationships.length}}
+<div class="card card-block">
+    {{#title}}
+    <h2 class="text-primary"><i class="fas fa-users fa-fw"></i> {{title}}</h2>
+    {{/title}}
+
+    <div class="row">
+        {{#relationships}}
+        <div class="col-md-4 text-center mb-2">
+            <a href="{{{link}}}" target="_black">
+                <img src="{{{img}}}" class="img-fluid mx-auto mb-2 rounded-circle">
+                <p class="my-1"><strong>{{name}}</strong></p>
+            </a>
+            <p class="mb-1 text-muted small">{{status}}</p>
+
+            <p>{{{summary}}}</p>
+        </div>
+        {{/relationships}}
+    </div>
+</div>
+{{/relationships.length}}

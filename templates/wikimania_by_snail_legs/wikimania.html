@@ -1,0 +1,149 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3" style="display: flex; padding: 5px;">
+            <div class="card card-block" style="border-width: 2px;">
+                <img src="{{{images.avatar}}}" class="rounded-circle" style="width: 150px; height: auto; margin: auto;">
+                <div style="line-height: 0px; padding: 10px;">
+                    {{#name}}<h1 class="text-primary" style="text-align: center;">{{name}}</h1>{{/name}}
+                    {{#aliases}}<h6 style="text-align: center; line-height: 0px;">{{aliases}}</h6>{{/aliases}}
+                </div>
+
+                {{#colorpallete.length}}
+                <div style="margin: auto; padding: 5px;">
+                    {{#colorpallete}}
+                    <div
+                        style="background-color: {{{.}}}; height: 30px; width: 30px; border-radius: 50%; display: inline-block;">
+                    </div>
+                    {{/colorpallete}}
+                </div>
+                {{/colorpallete.length}}
+
+                <ul class="list-group list-group-flush" style="margin: 0 10px 0 10px; padding-bottom: 30px;">
+                    {{#gender}}
+                    <li class="list-group-item" style="border-top: 0; padding: 5px;">
+                        <p><span class="text-primary">Gender: </span>{{gender}}</p>
+                    </li>
+                    {{/gender}}
+
+                    {{#age}}
+                    <li class="list-group-item" style="padding: 5px;">
+                        <p><span class="text-primary">Age: </span>{{age}}</p>
+                    </li>
+                    {{/age}}
+
+                    {{#birthday}}
+                    <li class="list-group-item" style="padding: 5px;">
+                        <p><span class="text-primary">DOB: </span>{{birthday}}</p>
+                    </li>
+                    {{/birthday}}
+
+                    {{#background}}
+                    <li class="list-group-item" style="padding: 5px;">
+                        <p><span class="text-primary">Story: </span>{{background}}</p>
+                    </li>
+                    {{/background}}
+
+                    {{#role}}
+                    <li class="list-group-item" style="padding: 5px;">
+                        <p><span class="text-primary">Job/Role/Title: </span>{{role}}</p>
+                    </li>
+                    {{/role}}
+
+                    {{#location}}
+                    <li class="list-group-item" style="padding: 5px;">
+                        <p><span class="text-primary">Home: </span>{{location}}</p>
+                    </li>
+                    {{/location}}
+                </ul>
+                <p style="text-align: center;">code by [<a href="https://toyhou.se/snail-legs"><b>snail-legs</b></a>]
+                </p>
+            </div>
+        </div>
+
+        <!-- bio content column -->
+        <div class="col-sm-9" style="display: flex; padding: 5px;">
+            <div class="card card-block" style="border-width: 2px; max-height: 550px; overflow-y: scroll;">
+                <ul class="list-group list-group-flush">
+
+                    <!-- contents -->
+                    <li class="list-group-item" style="display: block;">
+                        <div>
+                            <h3 style="display: inline-block;">Contents</h3>
+                            <a style="display: inline-block;" data-toggle="collapse" href="#contents" role="button"
+                                aria-expanded="false" aria-controls="contents">[show]</a>
+                        </div>
+                        <ol class="collapse" id="contents">
+                            <li><a href="#summary">Summary</a></li>
+                            <li><a href="#personality">Personality</a></li>
+                            <li><a href="#story-role">Role in the Story</a></li>
+                            <li><a href="#history">History</a></li>
+                            <li><a href="#hobbies-interests">Hobbies and Interests</a></li>
+                            <li><a href="#relationships">Relationships</a></li>
+                            <li><a href="#trivia">Trivia</a></li>
+                        </ol>
+                    </li>
+
+                    {{#summary}}
+                    <li class="list-group-item" style="display: block;">
+                        <h3 id="summary" class="text-primary">Summary</h3>
+                        <p>{{{summary}}}</p>
+                    </li>
+                    {{/summary}}
+
+                    {{#personality}}
+                    <li class="list-group-item" style="display: block;">
+                        <h3 id="personality" class="text-primary">Personality</h3>
+                        <p>{{{personality}}}</p>
+                    </li>
+                    {{/personality}}
+
+                    {{#about}}
+                    <li class="list-group-item" style="display: block;">
+                        <h3 id="story-role" class="text-primary">Role in the Story</h3>
+                        <p>{{{about}}}</p>
+                    </li>
+                    {{/about}}
+
+                    {{#bio}}
+                    <li class="list-group-item" style="display: block;">
+                        <h3 id="history" class="text-primary">History</h3>
+                        <p>{{{bio}}}</p>
+                    </li>
+                    {{/bio}}
+
+                    {{#interests}}
+                    <li class="list-group-item" style="display: block;">
+                        <h3 id="hobbies-interests" class="text-primary">Hobbies and Interests</h3>
+                        <p>{{{interests}}}</p>
+                    </li>
+                    {{/interests}}
+
+                    {{#relationships.length}}
+                    <li class="list-group-item" style="display: block;">
+                        <h3 id="relationships" class="text-primary">Relationships</h3>
+                        <p>Information about your character's relationships. You could start with a short blurb like
+                            this or jump straight into talking about the relationships themselves.<br><br></p>
+
+                        {{#relationships}}
+                        <div style="display: inline-block; margin: 5px;">
+                            <img src="{{{img}}}" class="rounded-circle"
+                                style="width: 100px; height: auto; float: left; margin: 15px;">
+                            <h6><a href="{{{link}}}">{{name}}</a></h6>
+                            <p>{{{summary}}}</p>
+                        </div>
+                        {{/relationships}}
+
+                    </li>
+                    {{/relationships.length}}
+
+                    {{#trivia}}
+                    <li class="list-group-item" style="display: block;">
+                        <h3 id="trivia" class="text-primary">Trivia</h3>
+                        <p>{{{trivia}}}</p>
+                    </li>
+                    {{/trivia}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

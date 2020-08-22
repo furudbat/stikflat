@@ -1,0 +1,67 @@
+<h2>{{title}}</h2>
+
+<h3>{{name}}</h3>
+<h4>{{{description}}}</h4>
+
+<hr />
+
+<div class="row">
+    <div class="col-6">{{age}}</div>
+    <div class="col-6">{{gender}}</div>
+</div>
+
+<hr />
+<p>
+    {{{about}}}
+</p>
+
+<hr />
+<div class="row">
+    {{#socialmedia.twitter}}
+    <div class="col-2">
+        <a href="{{{socialmedia.twitter}}}" class="card-link" target="_blank">
+            <i class="fab fa-2x fa-twitter"></i>
+        </a>
+    </div>
+    {{/socialmedia.twitter}}
+
+    {{#socialmedia.facebook}}
+    <div class="col-2">
+        <a href="{{{socialmedia.facebook}}}" class="card-link" target="_blank">
+            <i class="fab fa-2x fa-facebook"></i>
+        </a>
+    </div>
+    {{/socialmedia.facebook}}
+
+    {{#socialmedia.instagram}}
+    <div class="col-2">
+        <a href="{{{socialmedia.instagram}}}" class="card-link" target="_blank">
+            <i class="fab fa-2x fa-instagram"></i>
+        </a>
+    </div>
+    {{/socialmedia.instagram}}
+
+    {{#socialmedia.deviantart}}
+    <div class="col-2">
+        <a href="{{{socialmedia.deviantart}}}" class="card-link" target="_blank">
+            <i class="fab fa-2x fa-deviantart"></i>
+        </a>
+    </div>
+    {{/socialmedia.deviantart}}
+
+    {{#socialmedia.youtube}}
+    <div class="col-2">
+        <a href="{{{socialmedia.youtube}}}" class="card-link" target="_blank">
+            <i class="fab fa-2x fa-youtube"></i>
+        </a>
+    </div>
+    {{/socialmedia.youtube}}
+    
+    {{#socialmedia.furaffinity}}
+    <div class="col-2">
+        <a href="{{{socialmedia.furaffinity}}}" class="card-link" target="_blank">
+            <i class="fas fa-2x fa-paw"></i>
+        </a>
+    </div>
+    {{/socialmedia.furaffinity}}
+</div>

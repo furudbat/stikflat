@@ -1,0 +1,108 @@
+{
+    "title": "Name here", 
+    "name": "content", 
+    "gender": "content", 
+    "pronouns": "content", 
+    "age": "content", 
+    "height": "content", 
+    "build": "content", 
+    "species": "(or species)", 
+    "dob": "content", 
+    "demeanor": "content", 
+    "mbti": "content", 
+    "role": "what they do", 
+    "theme": "link a song", 
+    "theme_link": "SONG LINK", 
+    "quote": "Write a quote here....", 
+    "bio": "Bio Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
+    "colorpallete": [
+        "#68393B", "#D78E7D", "#745341", "#E9D1C7", "#865366", "#512B37"
+    ],
+    "character": {
+        "honesty": [
+            "star", 
+            "star", 
+            "star"
+        ], 
+        "humour": [
+            "star", 
+            "star", 
+            "star", 
+            "star"
+        ], 
+        "charisma": [
+            "star", 
+            "star", 
+            "star", 
+            "star", 
+            "star"
+        ], 
+        "courage": [
+            "star", 
+            "star-half"
+        ], 
+        "kindness": [
+            "star", 
+            "star", 
+            "star", 
+            "star", 
+            "star-half"
+        ], 
+        "intellect": [
+            "star", 
+            "star", 
+            "star-half"
+        ]
+    }, 
+    "likes": [
+        "content", 
+        "content"
+    ], 
+    "dislikes": [
+        "content", 
+        "content"
+    ], 
+    "hobbies": [
+        "content", 
+        "content"
+    ], 
+    "relationships": [
+        {
+            "status": "[ relationship ]", 
+            "link": "#LINK", 
+            "name": "Character", 
+            "img": "https://via.placeholder.com/250", 
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        }, 
+        {
+            "status": "[ relationship ]", 
+            "link": "#LINK", 
+            "name": "Character 2", 
+            "img": "https://via.placeholder.com/250", 
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        }, 
+        {
+            "status": "[ relationship ]", 
+            "link": "#LINK", 
+            "name": "Character 3", 
+            "img": "https://via.placeholder.com/250", 
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        }
+    ], 
+    "trivias": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
+        "Suspendisse a felis molestie, porttitor est eget, euismod mauris.", 
+        "Integer fermentum est vitae dui pretium fermentum.", 
+        "Fusce quis velit vel sem pellentesque iaculis congue non lorem.", 
+        "Aliquam vulputate lacus consequat, volutpat ex ut, blandit lacus."
+    ], 
+    "moodboard": [
+        "https://via.placeholder.com/300x200", 
+        "https://via.placeholder.com/300x200", 
+        "https://via.placeholder.com/300x200", 
+        "https://via.placeholder.com/300x200"
+    ], 
+    "images": {
+        "avatar": "https://via.placeholder.com/500x700"
+    }
+}

@@ -9,37 +9,62 @@
 @import "bootstrap_customization";
 
 .main-template-editors-preview-container {
-    height: 500px;
+    height: 610px;
 }
 
 .main-template-editors-container {
+    min-height: 500px;
+
     .tab-content {
         min-height: 536px;
     }
-    
+
+    .pre-ace-editor,
     .CodeMirror {
         height: 400px;
     }
 }
 .main-config-editors-container {
+    min-height: 500px;
+
+    .pre-ace-editor,
     .CodeMirror {
-        height: 400px;
+        height: 450px;
     }
 }
 
 .main-template-editors-no-WYSIWYG-container {
+    min-height: 500px;
+
+    .pre-ace-editor,
     .CodeMirror {
         height: 500px;
     }
 }
 .main-config-editors-no-WYSIWYG-container {
+    min-height: 500px;
+
+    .pre-ace-editor,
     .CodeMirror {
         height: 500px;
     }
 }
 
 .main-preview-code-container {
+    min-height: 500px;
+
+    .pre-ace-editor,
     .CodeMirror {
         height: 500px;
     }
+}
+
+@include media-breakpoint-between(md, xl) {
+    .bigger-preview {
+        width: 110%;
+    }
+}
+
+.bg-faded {
+    background-color: lighten($body-bg, 10%);
 }

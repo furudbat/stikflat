@@ -1,0 +1,227 @@
+<!-- Identity theme by Circlejourney. Editing is allowed. Just remember to credit me! -->
+<div class="container-fluid" style="font-family: sans-serif">
+    <div class="card-side collapse show" id="side-1">
+        <div class="card border-0" style="overflow: hidden; color: #333; background: #EFEFEF;">
+
+            <div id="background-elements" style="position:absolute; top:0; width: 100%">
+                <div
+                    style="font-size:10pt;display: block;position:absolute; height:  0; width:  0; top: 0; border-top:  520px solid white; border-right: 730px solid transparent;">
+                </div>
+                <div
+                    style="font-size:10pt;display: block;position:absolute; height:  0; width:  0; border-top:  500px solid #CCEEFF; border-right: 700px solid transparent;">
+                </div>
+                <div id="symbol" style="position: absolute; right: -10%; top: 40%; font-size: 300pt; color: white;">
+                    <i class="fas fa-{{{icon}}}"></i>
+                </div>
+            </div>
+
+            <h1 class="card-header text-center mb-1 display-3 text-break"
+                style="z-index: 2; text-transform: uppercase; padding: 30px; background-color: #225588; color: white;">
+                <i class="fas fa-globe"></i> {{title}}
+            </h1>
+
+            <div class="w-100" style="border-bottom: 2px double #225588; z-index: 2;"></div>
+
+            <!-- Replace 540px with other height if you wish to fit more info-->
+            <div class="card-block my-3 table-responsive" style="z-index: 2; height: 540px;">
+                <div class="row">
+                    <div class="col-12 col-md-4 text-center" style="text-transform: uppercase">
+                        <div class="px-4">
+                            <img class="border w-75 border-primary rounded my-4" src="{{{images.avatar}}}"
+                                style="border: 5px solid white" />
+                            <h1 class="display-4 w-100 text-break">{{name}}</h1>
+                            <img class="w-75 mb-4" src="{{{images.signature}}}"> <!-- Signature: transparent PNG -->
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <div class="px-4">
+
+                            {{#birthplace}}
+                            <p class="mb-0 font-weight-bold" style="text-transform: uppercase; font-size: 13pt;">
+                                {{birthplace}}</p>
+                            <p class="mb-3" style="font-size: 10pt; line-height: 0.9em">Birthplace</p>
+                            {{/birthplace}}
+
+                            {{#residence}}
+                            <p class="mb-0 font-weight-bold" style="text-transform: uppercase; font-size: 13pt;">
+                                {{residence}}</p>
+                            <p class="mb-3" style="font-size: 10pt; line-height: 0.9em">Residence</p>
+                            {{/residence}}
+
+                            {{#family}}
+                            <p class="mb-0 font-weight-bold" style="text-transform: uppercase; font-size: 13pt;">
+                                {{family}}</p>
+                            <p class="mb-3" style="font-size: 10pt; line-height: 0.9em">Family</p>
+                            {{/family}}
+
+                            <div class="row">
+                                {{#age}}
+                                <div class="col-5">
+                                    <p class="mb-0 font-weight-bold"
+                                        style="text-transform: uppercase; font-size: 13pt;">{{age}}</p>
+                                    <p class="mb-3" style="font-size: 10pt; line-height: 0.9em">Age</p>
+                                </div>
+                                {{/age}}
+
+                                {{#birthday}}
+                                <div class="col-7">
+                                    <p class="mb-0 font-weight-bold"
+                                        style="text-transform: uppercase; font-size: 13pt;">{{birthday}}</p>
+                                    <p class="mb-3" style="font-size: 10pt; line-height: 0.9em">Date of Birth</p>
+                                </div>
+                                {{/birthday}}
+                            </div>
+
+                            <div class="row">
+                                {{#pronouns}}
+                                <div class="col-5">
+                                    <p class="mb-0 font-weight-bold"
+                                        style="text-transform: uppercase; font-size: 13pt;">{{pronouns}}</p>
+                                    <p class="mb-3" style="font-size: 10pt; line-height: 0.9em">Pronouns</p>
+                                </div>
+                                {{/pronouns}}
+
+                                {{#height}}
+                                <div class="col-7">
+                                    <p class="mb-0 font-weight-bold"
+                                        style="text-transform: uppercase; font-size: 13pt;">{{height}}</p>
+                                    <p class="mb-3" style="font-size: 10pt; line-height: 0.9em">Height</p>
+                                </div>
+                                {{/height}}
+                            </div>
+
+                            <div class="row">
+                                {{#background}}
+                                <div class="col-5">
+                                    <p class="mb-0 font-weight-bold"
+                                        style="text-transform: uppercase; font-size: 13pt;">{{background}}</p>
+                                    <p class="mb-3" style="font-size: 10pt; line-height: 0.9em">Background</p>
+                                </div>
+                                {{/background}}
+
+                                {{#bloodtype}}
+                                <div class="col-7">
+                                    <p class="mb-0 font-weight-bold"
+                                        style="text-transform: uppercase; font-size: 13pt;">{{bloodtype}}</p>
+                                    <p class="mb-3" style="font-size: 10pt; line-height: 0.9em">Blood type</p>
+                                </div>
+                                {{/bloodtype}}
+                            </div>
+
+                            <div class="row">
+                                {{#eyes}}
+                                <div class="col-5">
+                                    <p class="mb-0 font-weight-bold"
+                                        style="text-transform: uppercase; font-size: 13pt;">{{eyes}}</p>
+                                    <p class="mb-3" style="font-size: 10pt; line-height: 0.9em">Eyes</p>
+                                </div>
+                                {{/eyes}}
+
+                                {{#hair}}
+                                <div class="col-7">
+                                    <p class="mb-0 font-weight-bold"
+                                        style="text-transform: uppercase; font-size: 13pt;">{{hair}}</p>
+                                    <p class="mb-3" style="font-size: 10pt; line-height: 0.9em">Hair</p>
+                                </div>
+                                {{/hair}}
+                            </div>
+
+                            {{#theme}}
+                            <p class="mb-0 font-weight-bold" style="text-transform: uppercase; font-size: 13pt;"><a
+                                    href="{{{theme_link}}}">{{theme}}</a></p>
+                            <p style="font-size: 10pt; line-height: 0.9em">Theme</p>
+                            {{/theme}}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer p-4 text-right" style="background-color: #225588;">
+            <a class="text-white" style="font-size: 14pt; float: left;"
+                href="https://toyhou.se/~forums/16.htmlcss-graphics/75580.circlejourney-s-code-creations-free-"><i
+                    class="fas fa-code"></i></a>
+
+            <a class="text-white" style="font-size: 14pt;" data-toggle="collapse" href=".card-side">
+                <i class="fal fa-sync-alt"></i> Tap to flip card
+            </a>
+        </div>
+    </div>
+
+
+    <div class="card-side collapse" id="side-2">
+        <div class="card border-0" style="overflow: hidden; color: #333; background: #EFEFEF;">
+            <div id="background-elements" style="position:absolute; top:0; width: 100%">
+                <div
+                    style="font-size:10pt;display: block;position:absolute; height:  0; width:  0; top: 0; border-top:  520px solid white; border-right: 730px solid transparent;">
+                </div>
+                <div
+                    style="font-size:10pt;display: block;position:absolute; height:  0; width:  0; border-top:  500px solid #CCEEFF; border-right: 700px solid transparent;">
+                </div>
+                <div id="symbol" style="position: absolute; right: -10%; top: 40%; font-size: 300pt; color: white;">
+                    <i class="fas fa-{{{icon}}}"></i>
+                </div>
+            </div>
+
+            <h1 class="card-header text-center mb-1 display-3"
+                style="z-index: 2; text-transform: uppercase; padding: 30px; background-color: #225588; color: white;">
+                <!--insert preferred color-->
+                <i class="fas fa-globe"></i> Identification Card
+            </h1>
+
+            <div class="w-100" style="border-bottom: 2px double #225588; z-index: 2;"></div>
+
+            <div class="card-block my-3 table-responsive" style="height: 540px; z-index: 2;">
+                <!-- Replace 540px with other height if you wish to fit more info-->
+                <div class="row">
+                    <div class="col col-md-7">
+                        <div class="px-4 mb-4">
+                            <h1 class="font-weight-bold pb-2" style="text-transform: uppercase;">
+                                Summary
+                            </h1>
+
+                            <p>{{{bio}}}</p>
+                        </div>
+                    </div>
+
+                    <div class="col col-md-5">
+                        <div class="px-4">
+                            {{#skills.length}}
+                            <h1 class="font-weight-bold pb-2" style="text-transform: uppercase;">
+                                Skills
+                            </h1>
+
+                            {{#skills}}
+                            <p class="mb-0 font-weight-bold" style="text-transform: uppercase;">{{name}}</p>
+                            <p class="mb-2">{{{description}}}</p>
+                            {{/skills}}
+                            {{/skills.length}}
+
+
+                            {{#relationships.length}}
+                            <h1 class="font-weight-bold mt-4 pb-2" style="text-transform: uppercase;">
+                                Relationships
+                            </h1>
+
+                            {{#relationships}}
+                            <p class="mb-0 font-weight-bold" style="text-transform: uppercase;">{{name}}</p>
+                            <p class="mb-2">{{{summary}}}</p>
+                            {{/relationships}}
+                            {{/relationships.length}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer p-4 text-right" style="background-color: #225588;">
+            <a class="text-white" style="font-size: 14pt; float: left;"
+                href="https://toyhou.se/~forums/16.htmlcss-graphics/75580.circlejourney-s-code-creations-free-"><i
+                    class="fas fa-code"></i></a>
+
+            <a class="text-white" style="font-size: 14pt;" data-toggle="collapse" href=".card-side">
+                <i class="fal fa-sync-alt"></i> Tap to flip card
+        </div>
+    </div>
+</div>
