@@ -83,6 +83,7 @@
     const TEMPLATE_EDITOR_NAME_CODEMIRROR = 'CodeMirror';
     const TEMPLATE_EDITOR_NAME_TINYMCE = 'TinyMCE';
     const TEMPLATE_EDITOR_NAME_FROALAEDITOR = 'FroalaEditor';
+    const TEMPLATE_EDITOR_NAME_ACE = 'ace';
 
     const CONFIG_CONTENT_MODE_JSON = 'application/json';
     const CONFIG_CONTENT_MODE_YAML = 'text/x-yaml';
@@ -137,7 +138,7 @@
                 _currentConfigIndex = null;
             }
             try {
-                _savedConfigs = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_CONFIGS)) || _savedConfigs;
+                _savedConfigs = $.parseJSON(localStorage.getItem(STORAGE_KEY_SAVED_CONFIGS)) || _savedConfigs;
                 if (!$.isArray(_savedConfigs)) {
                     console.error({ loadFromStorage: 'parse SAVED_CONFIGS', message: 'not an array' });
                     _savedConfigs = [];
@@ -253,7 +254,7 @@
             clearConfigError();
             try {
                 if (json !== '') {
-                    json = JSON.parse(json);
+                    json = jsonlint.parse(json);
                 }
             } catch (error) {
                 json = {};
@@ -360,11 +361,14 @@
 
     function generateTemplateEditor() {
         _templateEditor = CodeMirror.fromTextArea(document.getElementById('txtTemplate'), {
-            value: getCssCode(),
+            value: getTemplateCode(),
             mode: 'text/html',
             //theme: 'dracula',
             lineNumbers: true,
-            autoRefresh: true
+            autoRefresh: true,
+            lint: true,
+            gutters: ["CodeMirror-lint-markers"],
+            extraKeys: { "Ctrl-Space": "autocomplete" }
         });
         _templateEditor.on('changes', function (cm, changes) {
             setTemplateCode(cm.getValue());
@@ -382,7 +386,8 @@
             mode: CONFIG_CONTENT_MODE_JSON,
             //theme: 'dracula',
             lineNumbers: true,
-            linter: true,
+            lint: true,
+            gutters: ["CodeMirror-lint-markers"],
             spellcheck: true,
             autoRefresh: true
         });
@@ -391,7 +396,7 @@
             localStorage.setItem(STORAGE_KEY_CONFIG_CODE_JSON, _configJsonStr);
             try {
                 if (_configJsonStr !== '') {
-                    var config = $.parseJSON(_configJsonStr);
+                    var config = jsonlint.parse(_configJsonStr);
                     setConfigJson(config);
                     if (_enableLivePreview === true) {
                         generateHTML();
@@ -407,7 +412,8 @@
             mode: CONFIG_CONTENT_MODE_YAML,
             //theme: 'dracula',
             lineNumbers: true,
-            linter: true,
+            lint: true,
+            gutters: ["CodeMirror-lint-markers"],
             spellcheck: true,
             autoRefresh: true,
             indentWithTabs: false
@@ -505,7 +511,7 @@
             $(_configEditorJSON.getWrapperElement()).hide();
             $(_configEditorYAML.getWrapperElement()).show();
         }
-        
+
         updateTemplateLinesOfCodeBadges(templateCode);
         updateCssLinesOfCodeBadges(cssCode);
 
@@ -1094,7 +1100,7 @@
                 var configJson = {};
                 try {
                     if (typeof config === 'string' || config instanceof String) {
-                        configJson = $.parseJSON(config, null, 4);
+                        configJson = jsonlint.parse(config, null, 4);
                     } else {
                         configJson = config;
                     }

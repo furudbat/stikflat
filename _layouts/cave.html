@@ -94,8 +94,9 @@ layout: default
                         <a href="{{ template.link }}" target="_blank">{{ template.name | escape }}</a>
                     </div>
                     <div class="card-img-top mx-auto " style="height: 200px;">
-                        <a class="d-flex justify-content-center" href="{{ template.link }}" target="_blank"><img
-                                style="max-height: 200px;" src="{{ template.preview }}"
+                        <a class="d-flex justify-content-center" href="{{ template.link }}" target="_blank">
+                            <img class="rounded" style="max-height: 200px;" 
+                                src="{{ template.preview }}"
                                 alt="Preview {{ template.name | escape }}"></a>
                     </div>
                     <div class="card-body p-3">
