@@ -6,8 +6,6 @@
   link: https://www.bootstraptoggle.com/
 - name: Font Awesome
   link: https://github.com/FortAwesome/Font-Awesome
-- name: Codemirror
-  link: https://github.com/codemirror/codemirror
 - name: Mustache
   link: https://github.com/janl/mustache.js
 - name: beautify-web
@@ -24,3 +22,18 @@
 - name: TinyMCE
   link: https://github.com/tinymce/tinymce
   isWYSIWYG: true
+- name: Codemirror
+  link: https://github.com/codemirror/codemirror
+  disabled: true
+- name: Ace
+  link: https://github.com/ajaxorg/ace
+- name: clipboard.js
+  link: https://github.com/zenorocha/clipboard.js
+- name: csslint
+  link: https://github.com/CSSLint/csslint
+  disabled: true
+- name: HTMLHint
+  link: https://github.com/htmlhint/HTMLHint
+  disabled: true
+- name: jsonlint
+  link: https://github.com/zaach/jsonlint
