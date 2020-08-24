@@ -13,20 +13,22 @@
             <div class="d-inline col-3">
                 <button type="button" class="btn btn-link card d-inline mr-1 mb-1 layout-pattern"
                     style="width: 14rem; min-height: 320px; {{ template.style }}"
-                    data-name="{{ template.name | escape }}" data-author="{{ template.author | escape }}"
-                    data-author-link="{{ template.author_link }}"
                     data-template="{{ template.template | prepend: templates_url }}"
                     data-css="{{ template.css | prepend: templates_url }}"
                     data-config="{{ template.config | prepend: templates_url }}"
-                    data-license="{{ template.license | escape }}" data-link="{{ template.link }}"
-                    data-description="{{ template.description | escape }}" data-keywords="{{ keywords_str | escape }}">
+                    data-meta="{{ template.meta | prepend: templates_url }}" data-keywords="{{ keywords_str | escape }}"
+                    data-id="{{ template.id | escape }}">
                     <div class="d-flex flex-wrap align-items-center" style="min-height: 200px;">
                         <img class="card-img-top" style="max-height: 200px;" src="{{ template.preview }}"
                             alt="Preview {{ template.name | escape }}">
                     </div>
                     <div class="card-body">
+                        <div class="spinner-border" style="display: none" role="status"
+                            id="layout-loading-{{ template.id | escape }}">
+                            <span class="sr-only">Loading...</span>
+                        </div>
                         <p class="card-text">
-                            {{ template.name | escape }}
+                            <span class="text-left">{{ template.name | escape }}</span>
                             <span class="text-right">
                                 {%- if template.type == 'character' -%}
                                 <span
@@ -42,21 +44,27 @@
                                 {%- endif -%}
                             </span>
                         </p>
-                        <p class="card-subtitle">{{ site.data.strings.layouts.by_author }}{{ template.author }}</p>
+                        <p class="card-subtitle">{{ site.data.strings.layouts.by_author }}{{ template.author }}
+                        </p>
                     </div>
                 </button>
             </div>
             {%- else -%}
             <button type="button" class="mr-1 mt-1 mb-2 btn layout-pattern" style="{{ template.style }}"
-                data-name="{{ template.name | escape }}" data-author="{{ template.author | escape }}"
-                data-author-link="{{ template.author_link }}"
                 data-template="{{ template.template | prepend: templates_url }}"
                 data-css="{{ template.css | prepend: templates_url }}"
                 data-config="{{ template.config | prepend: templates_url }}"
-                data-license="{{ template.license | escape }}" data-link="{{ template.link }}"
-                data-description="{{ template.description | escape }}" data-keywords="{{ keywords_str | escape }}">
-                {{ template.name | escape }} <span
-                    class="badge badge-light">{{ site.data.strings.layouts.by_author }}{{ template.author }}</span>
+                data-meta="{{ template.meta | prepend: templates_url }}" data-keywords="{{ keywords_str | escape }}"
+                data-id="{{ template.id | escape }}">
+
+                <div class="spinner-border" style="display: none" role="status"
+                    id="layout-loading-{{ template.id | escape }}">
+                    <span class="sr-only">Loading...</span>
+                </div>
+
+                {{ template.name | escape }}
+                <span class="badge badge-light">{{ site.data.strings.layouts.by_author }}{{ template.author }}</span>
+
                 {%- if template.type == 'character' -%}
                 <span class="badge badge-pill badge-success">{{ site.data.strings.layouts.type_character }}</span>
                 {%- elsif template.type == 'user' -%}

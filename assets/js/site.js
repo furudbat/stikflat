@@ -88,6 +88,8 @@
     const CONFIG_CONTENT_MODE_JSON = 'application/json';
     const CONFIG_CONTENT_MODE_YAML = 'text/x-yaml';
 
+    const SCROLL_TO_ANIMATION_TIME_MS = 600;
+
     var _templateEditor = null;
     var _templateWYSIWYGEditor = null;
     var _configEditorJSON = null;
@@ -101,7 +103,7 @@
     var _configYamlStr = '';
     var _cssCode = '';
     var _codePreview = '';
-    var _currentPattern = '';
+    var _currentLayoutId = '';
     var _lockConfigCode = false;
     var _enableWYSIWYGTemplateEditor = false;
     var _enableLivePreview = true;
@@ -699,21 +701,22 @@
     function clearLayoutInfo() {
         $('#msgLayoutPatternInfo').hide().empty();
     }
-    function updateLayoutInfo(pattern) {
-        if (pattern === null) {
-            console.error('updateLayoutInfo', 'pattern is null');
+    function updateLayoutInfo(meta) {
+        if (meta === null) {
+            console.error('updateLayoutInfo', 'meta is null');
             return;
         }
+        _currentLayoutId = meta.id;
 
-        var name = $(pattern).data('name');
-        var author = $(pattern).data('author');
-        var authorLink = $(pattern).data('author-link');
-        var description = $(pattern).data('description');
-        var link = $(pattern).data('link');
-        var license = $(pattern).data('license');
+        var name = meta.name;
+        var author = meta.author;
+        var authorLink = meta.author_link;
+        var description = meta.description;
+        var link = meta.link;
+        var license = meta.license;
 
         var header = '<p class="text-bold">';
-        header += name + site.data.strings.layouts.by_author + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
+        header += name + '&nbsp;' + site.data.strings.layouts.by_author + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
         if (link !== '') {
             header += ' - ' + '<a href="' + link + '" target="_blank">' + link + '</a>';
         }
@@ -902,6 +905,48 @@
         updateConfigCodesStr();
         setCodeContentMode(mode);
         initEditors();
+    }
+    
+
+    function loadLayout(layout, callback) {
+        var id = $(layout).data('id');
+        var layoutLoading = $('#layout-loading-' + id);
+        layoutLoading.show();
+        $.ajax({
+            url: $(layout).data('meta'),
+            method: "GET",
+            cache: USE_CACHE
+        }).done((metaRes) => {
+            var meta = jsyaml.load(metaRes);
+            var name = meta.name;
+            var configlink = $(layout).data('config');
+
+            var getConfig = $.ajax({
+                url: configlink,
+                method: "GET",
+                cache: USE_CACHE
+            });
+            var getTemplate = $.ajax({
+                url: $(layout).data('template'),
+                method: "GET",
+                cache: USE_CACHE
+            });
+            var getCSS = $.ajax({
+                url: $(layout).data('css'),
+                method: "GET",
+                cache: USE_CACHE
+            });
+
+            $.when(getTemplate, getConfig, getCSS).done((templateRes, configRes, cssRes) => {
+                layoutLoading.hide();
+                console.log({template: templateRes[0], config: configRes[0], css: cssRes[0], meta, name, configlink});
+                callback({template: templateRes[0], config: configRes[0], css: cssRes[0], meta, name, configlink});
+            }).fail(function() {
+                layoutLoading.hide();
+            });
+        }).fail(function() {
+            layoutLoading.hide();
+        });
     }
 
 
@@ -1128,7 +1173,7 @@
 
                 $('html, body').animate({
                     scrollTop: $('#sectionPreviewCode').offset().top
-                }, 500);
+                }, SCROLL_TO_ANIMATION_TIME_MS);
             });
         });
         $('#btnClearTemplateStorage').click(function () {
@@ -1168,23 +1213,18 @@
             $('.main-config-add-container').hide();
         });
 
-
         var overrideLayout = function (layout) {
             //console.debug('layout-pattern dblclick', layout);
 
-            var name = $(layout).data('name');
-            var keywordsStr = $(layout).data('keywords');
-            var configlink = $(layout).data('config');
-            var getTemplate = $.get($(layout).data('template'));
-            var getConfig = $.get($(layout).data('config'));
-            var getCSS = $.get($(layout).data('css'));
+            loadLayout(layout, (data) => {
+                var keywordsStr = $(layout).data('keywords');
 
-            $.when(getTemplate, getConfig, getCSS).done((templateRes, configRes, cssRes) => {
-                _currentPattern = name;
-                var template = templateRes[0];
-                var css = cssRes[0];
+                //console.debug('overrideLayout', 'loadLayout', data);
+                updateLayoutInfo(data.meta);
 
-                var config = configRes[0];
+                var template = data.template;
+                var css = data.css;
+                var config = data.config;
                 if (_lockConfigCode === true) {
                     config = _configJson;
                 }
@@ -1210,7 +1250,7 @@
 
                 var keywordsArr = keywordsStr.split(", ").map(Function.prototype.call, String.prototype.trim);
                 var keywords = keywordsArr.map(it => `<code>${it}</code>`).join(', ');
-                $('#configHelpKeywords').html(site.data.strings.editor.config.keywords_help.format(keywords, configlink));
+                $('#configHelpKeywords').html(site.data.strings.editor.config.keywords_help.format(keywords, data.configlink));
 
                 /*
                 if ($('#previewTabContent').hasClass('show')) {
@@ -1220,31 +1260,20 @@
                 if (!isOnScreen('.main-template-editors-preview-container') || isOnScreen('.main-template-editors-preview-container', 1.0, 0.45)) {
                     $('html, body').animate({
                         scrollTop: $('#sectionEditor').offset().top
-                    }, 500);
+                    }, SCROLL_TO_ANIMATION_TIME_MS);
                 }
             });
-            updateLayoutInfo(layout);
         };
 
         var previewLayout = function (layout) {
             //console.debug('layout-pattern click', layout);
 
-            var name = $(layout).data('name');
-            var getTemplate = $.get($(layout).data('template'));
-            var getConfig = $.get($(layout).data('config'));
-            var getCSS = $.get($(layout).data('css'));
-
-            $.when(getTemplate, getConfig, getCSS).done((templateRes, configRes, cssRes) => {
-                _currentPattern = name;
-
-                var template = templateRes[0];
-                var config = configRes[0];
-                var css = cssRes[0];
-
-                generateHTMLFromTemplate(template, config, css, true);
+            loadLayout(layout, (data) => {
+                //console.debug('previewLayout', 'loadLayout', data);
+                updateLayoutInfo(data.meta);
+                generateHTMLFromTemplate(data.template, data.config, data.css, true);
                 selectPreviewTab();
             });
-            updateLayoutInfo(layout);
         };
         makeDoubleClick($('.layout-pattern'), overrideLayout, previewLayout);
     });
