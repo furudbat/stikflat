@@ -53,5 +53,6 @@ options:
   useFroalaEditor: false
   useCodeMirror: false
   useACE: true
+  useCache: false
 
 version: '0.4.1'
