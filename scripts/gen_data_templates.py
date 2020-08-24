@@ -37,6 +37,7 @@ def main(args):
         for root, directories, files in os.walk(path, topdown=False):
             template = {}
             keywords = []
+            disabled = False
             for file in files:
                 ext = os.path.splitext(file)[-1].lower()
 
@@ -59,9 +60,12 @@ def main(args):
                         meta = yaml.load(yml_file, Loader=yaml.FullLoader)
                         for key, value in meta.items():
                             template[key] = value
+                        disabled = ('disable' in meta and meta['disable']) or (
+                            'disabled' in meta and meta['disabled'])
 
             template['keywords'] = keywords
-            templates.append(template)
+            if not disabled:
+                templates.append(template)
 
     with open(output_filename, 'w') as output:
         yaml.dump(templates, output)
