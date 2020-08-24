@@ -1,11 +1,10 @@
 - author: Circlejourney
   author_link: https://toyhou.se/circlejourney
-  config: identity_by_circlejourney/config.json
-  css: identity_by_circlejourney/identity.css
+  config: circlejourney_identity/config.json
+  css: circlejourney_identity/identity.css
   description: A character profile theme inspired by identification cards. Mobile
     responsive and interactive (flip the card!), with a space for a signature (if
     you like) and background graphic.
-  disable: true
   keywords:
   - relationships
   - bloodtype
@@ -33,16 +32,15 @@
   name: Identity
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/3921250?1583384512
   style: 'background-color: #eee; color: #333'
-  template: identity_by_circlejourney/identity.html
+  template: circlejourney_identity/identity.html
   type: character
 - author: Circlejourney
   author_link: https://toyhou.se/circlejourney
-  config: interstellar_dust_by_circlejourney/config.json
-  css: interstellar_dust_by_circlejourney/dust.css
+  config: circlejourney_interstellar_dust/config.json
+  css: circlejourney_interstellar_dust/dust.css
   description: Originally a custom for Swissy, this character profile theme has dark
     colours as a base. It has tabs and a moodboard section. 100% mobile responsive
     with lots and lots of slots for character information.
-  disable: true
   keywords:
   - relationships
   - bio
@@ -69,17 +67,16 @@
   name: Interstellar Dust
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6191922?1583386454
   style: 'background-color: #eee; color: #333'
-  template: interstellar_dust_by_circlejourney/dust.html
+  template: circlejourney_interstellar_dust/dust.html
   type: character
 - author: Circlejourney
   author_link: https://toyhou.se/circlejourney
-  config: in_a_nutshell_by_circlejourney/config.json
-  css: in_a_nutshell_by_circlejourney/nutshell.css
+  config: circlejourney_in_a_nutshell/config.json
+  css: circlejourney_in_a_nutshell/nutshell.css
   description: Originally a custom for Historia. This user profile theme displays
     a lot of text in a digestible way. It includes a space for a banner, a user icon,
     social media, notes and a list of projects. Mobile responsive, organises profile
     into main area and sidebar.
-  disable: trueW
   keywords:
   - about
   - name
@@ -95,41 +92,51 @@
   name: In A Nutshell
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6351798?1584758416
   style: 'background-color: #eee; color: #333'
-  template: in_a_nutshell_by_circlejourney/nutshell.html
+  template: circlejourney_in_a_nutshell/nutshell.html
   type: character
-- author: snail-legs
-  author_link: https://toyhou.se/snail-legs
-  config: journal_by_snail_legs/config.json
-  css: journal_by_snail_legs/journal.css
-  description: Hello! This is a F2U profile code meant to work as a journal-type page
-    for your oc! It's got a page for basic info and two pages for journal entries,
-    although it shouldn't be too hard to add more of those. There's also space for
-    a pagedoll/other graphic- I'd reccomend using a portait image for the best effect.
-    It's responsive, and you're free to do what you'd like with it as long as you
-    maintain credit!
-  disable: true
+- author: Circlejourney
+  author_link: https://toyhou.se/circlejourney
+  config: circlejourney_super_special_double_deluxe/config.json
+  css: circlejourney_super_special_double_deluxe/ssdd.css
+  description: A custom for reinapepiada, this theme is designed to contain lots and
+    lots of text in multiple sections, and has slots for quote, stats, music themes,
+    and a moodboard.
   keywords:
-  - bio
-  - stats
-  - name
-  - notes
-  - entries
+  - extra
+  - dislikes
+  - themes
+  - likes
   - images
-  - trivia
-  - description
-  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
-  link: https://toyhou.se/7497816.layout-journal
-  name: journal
-  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7497816?1594383763
-  style: 'background-color: #3a3639; color: #fcfbf6'
-  template: journal_by_snail_legs/journal.html
+  - species
+  - aliases
+  - relationships
+  - stats
+  - title
+  - location
+  - pronouns
+  - moodboard
+  - personality
+  - bio
+  - quote
+  - birthday
+  - info
+  - name
+  - age
+  - appearance
+  - summary
+  license: 100% free to use. You're allowed to edit them and frankenstein them with
+    other code. Please don't remove credit, that is all I ask.
+  link: https://toyhou.se/6388687.super-special-double-deluxe
+  name: Super Special Double Deluxe
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6388687?1585115598
+  style: 'background-color: #eee; color: #333'
+  template: circlejourney_super_special_double_deluxe/ssdd.html
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
-  config: lil_bit_by_eggy/config.json
-  css: lil_bit_by_eggy/lilbit.css
+  config: eggy_lil_bit/config.json
+  css: eggy_lil_bit/lilbit.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
-  disable: true
   keywords:
   - bio
   - name
@@ -146,14 +153,13 @@
   name: Lil Bit
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/3431124?1573423838
   style: 'background-color: #f8b526; color: #070707'
-  template: lil_bit_by_eggy/lilbit.html
+  template: eggy_lil_bit/lilbit.html
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
-  config: open_by_eggy/config.json
-  css: open_by_eggy/open.css
+  config: eggy_open/config.json
+  css: eggy_open/open.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
-  disable: true
   keywords:
   - dislikes
   - height
@@ -183,14 +189,13 @@
   name: Open - Grid Version
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4556624?1591832733
   style: 'background-color: #f8b526; color: #070707'
-  template: open_by_eggy/open.html
+  template: eggy_open/open.html
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
-  config: open_collapse_by_eggy/config.json
-  css: open_collapse_by_eggy/open.css
+  config: eggy_open_collapse/config.json
+  css: eggy_open_collapse/open.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
-  disable: true
   keywords:
   - trivias
   - dislikes
@@ -222,14 +227,13 @@
   name: Open - Collapse Version
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4556624?1591832733
   style: 'background-color: #f8b526; color: #070707'
-  template: open_collapse_by_eggy/open.html
+  template: eggy_open_collapse/open.html
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
-  config: scale_by_eggy/config.json
-  css: scale_by_eggy/scale.css
+  config: eggy_scale/config.json
+  css: eggy_scale/scale.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
-  disable: true
   keywords:
   - relationships
   - bio
@@ -256,116 +260,13 @@
   name: Scale
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/5662687?1577475276
   style: 'background-color: #f8b526; color: #070707'
-  template: scale_by_eggy/scale.html
-  type: character
-- author: snail-legs
-  author_link: https://toyhou.se/snail-legs
-  config: side_by_side_by_snail_legs/config.json
-  css: side_by_side_by_snail_legs/side.css
-  description: Hello! This is a F2U profile code with room for a bit of written info
-    and a featured image. It's responsive, and you're free to do what you'd like with
-    it as long as you maintain credit!
-  disable: true
-  keywords:
-  - bio
-  - trivias
-  - name
-  - notes
-  - images
-  - description
-  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
-  link: https://toyhou.se/7689827.layout-side-by-side
-  name: side by side
-  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7689827?1596293985
-  style: 'background-color: #3a3639; color: #fcfbf6'
-  template: side_by_side_by_snail_legs/side.html
-  type: character
-- author: snail-legs
-  author_link: https://toyhou.se/snail-legs
-  config: simple_profile_card_by_snail_legs/config.json
-  css: simple_profile_card_by_snail_legs/simple.css
-  description: Hello! This is a F2U profile code. It's responsive, and you're free
-    to do what you'd like with it as long as you maintain credit!
-  disable: true
-  keywords:
-  - about
-  - socialmedia
-  - name
-  - description
-  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
-  link: https://toyhou.se/6839883.layout-simple-profile-card
-  name: simple profile card
-  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6839883?1592936183
-  style: 'background-color: #3a3639; color: #fcfbf6'
-  template: simple_profile_card_by_snail_legs/simple.html
-  type: user
-- author: snail-legs
-  author_link: https://toyhou.se/snail-legs
-  config: striped_columns_by_snail_legs/config.json
-  css: striped_columns_by_snail_legs/striped.css
-  description: Hello! This is a F2U profile code with some fancy-lookin borders. You're
-    free to do what you'd like with it as long as you maintain credit!
-  disable: true
-  keywords:
-  - bio
-  - description
-  - quote
-  - notes
-  - images
-  - trivia
-  - name
-  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
-  link: https://toyhou.se/6493313.layout-striped-columns
-  name: striped columns
-  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6493313?1592936291
-  style: 'background-color: #3a3639; color: #fcfbf6'
-  template: striped_columns_by_snail_legs/striped.html
-  type: character
-- author: Circlejourney
-  author_link: https://toyhou.se/circlejourney
-  config: super_special_double_deluxe_by_circlejourney/config.json
-  css: super_special_double_deluxe_by_circlejourney/ssdd.css
-  description: A custom for reinapepiada, this theme is designed to contain lots and
-    lots of text in multiple sections, and has slots for quote, stats, music themes,
-    and a moodboard.
-  disable: true
-  keywords:
-  - extra
-  - dislikes
-  - themes
-  - likes
-  - images
-  - species
-  - aliases
-  - relationships
-  - stats
-  - title
-  - location
-  - pronouns
-  - moodboard
-  - personality
-  - bio
-  - quote
-  - birthday
-  - info
-  - name
-  - age
-  - appearance
-  - summary
-  license: 100% free to use. You're allowed to edit them and frankenstein them with
-    other code. Please don't remove credit, that is all I ask.
-  link: https://toyhou.se/6388687.super-special-double-deluxe
-  name: Super Special Double Deluxe
-  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6388687?1585115598
-  style: 'background-color: #eee; color: #333'
-  template: super_special_double_deluxe_by_circlejourney/ssdd.html
+  template: eggy_scale/scale.html
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
-  config: user_axis_by_eggy copy/config.json
-  css: user_axis_by_eggy copy/axis.css
+  config: eggy_user_axis/config.json
+  css: eggy_user_axis/axis.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
-  disable: true
   keywords:
   - about
   - name
@@ -381,14 +282,13 @@
   name: User Axis
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6742833?1588169704
   style: 'background-color: #f8b526; color: #070707'
-  template: user_axis_by_eggy copy/axis.html
+  template: eggy_user_axis/axis.html
   type: user
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
-  config: user_space_by_eggy/config.json
-  css: user_space_by_eggy/userspace.css
+  config: eggy_user_space_by/config.json
+  css: eggy_user_space_by/userspace.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
-  disable: true
   keywords:
   - about
   - description
@@ -404,16 +304,101 @@
   name: User Space
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/2493596?1573439982
   style: 'background-color: #f8b526; color: #070707'
-  template: user_space_by_eggy/userspace.html
+  template: eggy_user_space_by/userspace.html
   type: user
 - author: snail-legs
   author_link: https://toyhou.se/snail-legs
-  config: wikimania_by_snail_legs/config.json
-  css: wikimania_by_snail_legs/wikimania.css
+  config: snail_legs_journal/config.json
+  css: snail_legs_journal/journal.css
+  description: Hello! This is a F2U profile code meant to work as a journal-type page
+    for your oc! It's got a page for basic info and two pages for journal entries,
+    although it shouldn't be too hard to add more of those. There's also space for
+    a pagedoll/other graphic- I'd reccomend using a portait image for the best effect.
+    It's responsive, and you're free to do what you'd like with it as long as you
+    maintain credit!
+  keywords:
+  - bio
+  - stats
+  - name
+  - notes
+  - entries
+  - images
+  - trivia
+  - description
+  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
+  link: https://toyhou.se/7497816.layout-journal
+  name: journal
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7497816?1594383763
+  style: 'background-color: #3a3639; color: #fcfbf6'
+  template: snail_legs_journal/journal.html
+  type: character
+- author: snail-legs
+  author_link: https://toyhou.se/snail-legs
+  config: snail_legs_side_by_side/config.json
+  css: snail_legs_side_by_side/side.css
+  description: Hello! This is a F2U profile code with room for a bit of written info
+    and a featured image. It's responsive, and you're free to do what you'd like with
+    it as long as you maintain credit!
+  keywords:
+  - bio
+  - trivias
+  - name
+  - notes
+  - images
+  - description
+  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
+  link: https://toyhou.se/7689827.layout-side-by-side
+  name: side by side
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7689827?1596293985
+  style: 'background-color: #3a3639; color: #fcfbf6'
+  template: snail_legs_side_by_side/side.html
+  type: character
+- author: snail-legs
+  author_link: https://toyhou.se/snail-legs
+  config: snail_legs_simple_profile_card/config.json
+  css: snail_legs_simple_profile_card/simple.css
+  description: Hello! This is a F2U profile code. It's responsive, and you're free
+    to do what you'd like with it as long as you maintain credit!
+  keywords:
+  - about
+  - socialmedia
+  - name
+  - description
+  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
+  link: https://toyhou.se/6839883.layout-simple-profile-card
+  name: simple profile card
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6839883?1592936183
+  style: 'background-color: #3a3639; color: #fcfbf6'
+  template: snail_legs_simple_profile_card/simple.html
+  type: user
+- author: snail-legs
+  author_link: https://toyhou.se/snail-legs
+  config: snail_legs_striped_columns/config.json
+  css: snail_legs_striped_columns/striped.css
+  description: Hello! This is a F2U profile code with some fancy-lookin borders. You're
+    free to do what you'd like with it as long as you maintain credit!
+  keywords:
+  - bio
+  - description
+  - quote
+  - notes
+  - images
+  - trivia
+  - name
+  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
+  link: https://toyhou.se/6493313.layout-striped-columns
+  name: striped columns
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6493313?1592936291
+  style: 'background-color: #3a3639; color: #fcfbf6'
+  template: snail_legs_striped_columns/striped.html
+  type: character
+- author: snail-legs
+  author_link: https://toyhou.se/snail-legs
+  config: snail_legs_wikimania/config.json
+  css: snail_legs_wikimania/wikimania.css
   description: Hello! This is a F2U profile code designed to mimic a wiki page. It's
     fully responsive, and you're free to do what you'd like with it as long as you
     maintain credit!
-  disable: true
   keywords:
   - interests
   - bio
@@ -437,7 +422,7 @@
   name: wikimania
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7237649?1592426994
   style: 'background-color: #3a3639; color: #fcfbf6'
-  template: wikimania_by_snail_legs/wikimania.html
+  template: snail_legs_wikimania/wikimania.html
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
