@@ -1,0 +1,66 @@
+{
+    "name": "name here",
+    "species": "species here",
+    "age": "age here",
+    "pronouns": "pronouns here",
+    "orientation": "orientation here",
+    "occupation": "occupation here",
+    "alignment": "alignment here",
+    "designer": "designer here",
+    "designer_link": "#",
+    "worth": "worth here",
+    "about": "About Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque.", 
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed libero metus. Fusce pulvinar rhoncus nisi et gravida. Duis semper nulla leo. Nunc porta mauris bibendum elementum pretium. Fusce sed orci condimentum, auctor nisi id, fringilla tortor. Pellentesque ex quam, pharetra et sollicitudin ut, feugiat lobortis augue. Curabitur congue mi sed venenatis commodo. Mauris tellus libero, elementum sit amet sagittis a, viverra in sapien. Praesent vel tellus magna. Ut non ligula id eros gravida tempus. In ut pulvinar nulla. Cras mollis lorem vel placerat euismod. Curabitur ut maximus elit, in vehicula turpis. Donec et dolor dapibus diam pellentesque elementum. Nulla ut nunc tincidunt, blandit mi eget, feugiat ligula. Fusce rhoncus mi vel lacinia tincidunt.",
+    "colorpallete": [
+        "#ff6666", "#6666ff", "#ffff66", "#66ff66"
+    ],
+    "stamps": [
+        "https://img00.deviantart.net/8cb7/i/2005/323/4/1/stamp_template_by_kencho.png",
+        "https://img00.deviantart.net/8cb7/i/2005/323/4/1/stamp_template_by_kencho.png",
+        "https://img00.deviantart.net/8cb7/i/2005/323/4/1/stamp_template_by_kencho.png",
+        "https://img00.deviantart.net/8cb7/i/2005/323/4/1/stamp_template_by_kencho.png"
+    ],
+    "trivias": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
+        "Suspendisse a felis molestie, porttitor est eget, euismod mauris.", 
+        "Integer fermentum est vitae dui pretium fermentum.", 
+        "Fusce quis velit vel sem pellentesque iaculis congue non lorem.", 
+        "Aliquam vulputate lacus consequat, volutpat ex ut, blandit lacus."
+    ], 
+    "relationships": [
+        {
+            "name": "Character", 
+            "status": "[ relationship ]", 
+            "img": "https://via.placeholder.com/150", 
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        }, 
+        {
+            "name": "Character 2", 
+            "status": "[ relationship ]", 
+            "img": "https://via.placeholder.com/150", 
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
+        }
+    ], 
+    "credits": [
+        {
+            "title": "ICON",
+            "name": "icon credit",
+            "link": "#"
+        },
+        {
+            "title": "HEADER",
+            "name": "header credit",
+            "link": "#"
+        },
+        {
+            "title": "SIDEBAR",
+            "name": "sidebar credit",
+            "link": "#"
+        }
+    ],
+    "images": {
+        "avatar": "https://via.placeholder.com/250",
+        "header": "https://via.placeholder.com/500x300",
+        "sidebar": "https://via.placeholder.com/300x500"
+    }
+}

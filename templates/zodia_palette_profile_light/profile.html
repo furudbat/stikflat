@@ -1,0 +1,184 @@
+<div class="container bg-light p-2 text-dark" style="max-width: 1000px; font-size: .8rem">
+    <div class="w-100 d-flex justify-content-center align-items-center mb-2 bg-white" style="height: 12rem; 
+		background: url({{{images.header}}}) no-repeat center center; 
+	    background-size: cover;">
+        <div class="rounded-circle text-light"
+            style="width: 10rem; height: 10rem; 
+			background: url({{{images.avatar}}}) no-repeat center center; 
+		    background-size: cover; background-color: white; border-width: .4rem; border-style: solid; border-color: inherit"></div>
+    </div>
+
+    {{#colorpallete.length}}
+    <div class="row no-gutters mb-2">
+        {{#colorpallete}}
+        <div class="py-1 mx-auto" style="
+			background-color: {{{.}}}; 
+		    flex: 0 0 20%; max-width: 20%;"></div>
+        {{/colorpallete}}
+    </div>
+    {{/colorpallete.length}}
+
+    <div class="row no-gutters">
+        <div class="col-lg-3 pr-lg-1">
+            <div class="bg-white p-2 h-100 d-flex justify-content-center align-items-center">
+                <div class="w-100">
+                    {{#name}}
+                    <div class="d-flex justify-content-between p-1">
+                        <p class="mb-0 text-muted">NAME</p>
+                        <p class="mb-0">{{name}}</p>
+                    </div>
+                    {{/name}}
+
+                    {{#species}}
+                    <div class="d-flex justify-content-between p-1">
+                        <p class="mb-0 text-muted">SPECIES</p>
+                        <p class="mb-0">{{species}}</p>
+                    </div>
+                    {{/species}}
+
+                    {{#age}}
+                    <div class="d-flex justify-content-between p-1">
+                        <p class="mb-0 text-muted">AGE</p>
+                        <p class="mb-0">{{age}}</p>
+                    </div>
+                    {{/age}}
+
+                    {{#pronouns}}
+                    <div class="d-flex justify-content-between p-1">
+                        <p class="mb-0 text-muted">PRONOUNS</p>
+                        <p class="mb-0">{{pronouns}}</p>
+                    </div>
+                    {{/pronouns}}
+
+                    {{#orientation}}
+                    <div class="d-flex justify-content-between p-1">
+                        <p class="mb-0 text-muted">ORIENTATION</p>
+                        <p class="mb-0">{{orientation}}</p>
+                    </div>
+                    {{/orientation}}
+
+                    {{#occupation}}
+                    <div class="d-flex justify-content-between p-1">
+                        <p class="mb-0 text-muted">OCCUPATION</p>
+                        <p class="mb-0">{{occupation}}</p>
+                    </div>
+                    {{/occupation}}
+
+                    {{#alignment}}
+                    <div class="d-flex justify-content-between p-1">
+                        <p class="mb-0 text-muted">ALIGNMENT</p>
+                        <p class="mb-0">{{alignment}}</p>
+                    </div>
+                    {{/alignment}}
+
+                    <hr class="w-75">
+
+                    {{#designer}}
+                    <div class="d-flex justify-content-between p-1">
+                        <p class="mb-0 text-muted">DESIGNER</p>
+                        <p class="mb-0"><a href="{{{designer_link}}}">{{designer}}</a></p>
+                    </div>
+                    {{/designer}}
+
+                    {{#worth}}
+                    <div class="d-flex justify-content-between p-1">
+                        <p class="mb-0 text-muted">WORTH</p>
+                        <p class="mb-0">{{worth}}</p>
+                    </div>
+                    {{/worth}}
+
+                    <hr class="w-75">
+                    <!-- CREDIT; DO NOT REMOVE CODE CREDIT -->
+                    <div class="d-flex justify-content-between p-1">
+                        <p class="mb-0 text-muted">CODE</p>
+                        <p class="mb-0"><a href="https://toyhou.se/Zodia">Zodia</a></p>
+                    </div>
+
+                    {{#credits}}
+                    <div class="d-flex justify-content-between p-1">
+                        <p class="mb-0 text-muted">{{title}}</p>
+                        <p class="mb-0"><a href="{{{link}}}">{{name}}</a></p>
+                    </div>
+                    {{/credits}}
+                    <!-- END CREDIT SECTION -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 px-lg-1 my-2 my-lg-0">
+            <div class="bg-white p-3 h-100" style="max-height: 28rem; overflow: auto;">
+                {{#about}}
+                <div class="d-flex align-items-end mb-1">
+                    <p class="lead" style="letter-spacing:2px; white-space: nowrap;">About</p>
+                    <hr style="width:100%; margin:0 0 .45rem 2px;">
+                </div>
+                <p>{{{about}}}</p>
+                {{/about}}
+
+                {{#stamps.length}}
+                <p class="text-center mt-4 p-0">
+                    {{#stamps}}
+                    <img src="{{{.}}}">
+                    {{/stamps}}
+                </p>
+                {{/stamps.length}}
+
+                {{#bio}}
+                <div class="d-flex align-items-end mb-1 mt-4">
+                    <p class="lead" style="letter-spacing:2px; white-space: nowrap;">Backstory</p>
+                    <hr style="width:100%; margin:0 0 .45rem 2px;">
+                </div>
+                <p>{{{bio}}}</p>
+                {{/bio}}
+
+
+                {{#trivias.length}}
+                <div class="d-flex align-items-end mb-1 mt-4">
+                    <p class="lead" style="letter-spacing:2px; white-space: nowrap;">Trivia</p>
+                    <hr style="width:100%; margin:0 0 .45rem 2px;">
+                </div>
+                <ul class="fa-ul px-2">
+                    {{#trivias}}
+                    <li><i class="far fa-chevron-right fa-fw fa-li"></i>{{{.}}}</li>
+                    {{/trivias}}
+                </ul>
+                {{/trivias.length}}
+
+
+                {{#relationships.length}}
+                <div class="d-flex align-items-end mb-1 mt-4">
+                    <p class="lead" style="letter-spacing:2px; white-space: nowrap;">Relationships</p>
+                    <hr style="width:100%; margin:0 0 .45rem 2px;">
+                </div>
+                {{#relationships}}
+                <div class="row no-gutters">
+                    <div class="col-sm-3 px-1 py-2 text-center">
+                        <img src="{{{img}}}" class="img-thumbnail rounded-circle w-100" style="max-width: 150px;">
+                    </div>
+                    <div class="col-sm-9 p-2">
+                        <div class="d-flex align-items-end justify-content-between text-muted mb-1">
+                            <p class="mb-0 lead text-dark"
+                                style="font-size: 1rem; letter-spacing: 1px; white-space: nowrap;">
+                                {{name}}
+                            </p>
+                            <hr style="width: 100%; margin: 0 2px .4rem 2px; border-color: inherit'">
+                            <p class="mb-0 lead" style="font-size: 1rem; letter-spacing: 1px; white-space: nowrap;">
+                                {{status}}
+                            </p>
+                        </div>
+                        <p>{{{summary}}}</p>
+                    </div>
+                </div>
+                {{/relationships}}
+                {{/relationships.length}}
+
+            </div>
+        </div>
+
+        <div class="col-lg-3 pl-lg-1">
+            <div class="bg-white h-100" style="
+                background: url({{{images.sidebar}}}) no-repeat center center;
+                background-size: cover; min-height: 10rem;"></div>
+        </div>
+    </div>
+</div>
