@@ -1,0 +1,134 @@
+<div class="container p-2 bg-dark" style="max-width: 750px;">
+    <div id="row1" class="row no-gutters mb-2">
+        <div id="imageBox1" class="col-md-4 mb-md-0 mb-2" style="min-height: 250px;
+            background-image:url( '{{{images.background_left}}}' );
+        background-size:cover;background-position:center center;"></div>
+
+
+        <div id="contentWrapper1" class="col-md-8 pl-md-2">
+            <div class="card border-0 rounded-0 bg-light p-2 mb-2 text-dark">
+                <div class="d-flex align-items-end">
+                    <p class="lead" style="letter-spacing:2px;">Profile</p>
+                    <hr style="width:100%;border-color:inherit;margin:0 0 .45rem 2px;">
+                </div>
+                <div class="row mt-2 no-gutters">
+                    <div class="col-md-6">
+                        {{#name}}
+                        <div class="d-flex justify-content-between px-md-3 py-2" style="line-height: 1rem;">
+                            <p class="mb-0" style="font-weight: 500">NAME</p>
+                            <p class="mb-0">
+                                {{name}}
+                            </p>
+                        </div>
+                        {{/name}}
+                        
+                        {{#age}}
+                        <div class="d-flex justify-content-between px-md-3 py-2" style="line-height: 1rem;">
+                            <p class="mb-0" style="font-weight: 500">AGE</p>
+                            <p class="mb-0">
+                                {{age}}
+                            </p>
+                        </div>
+                        {{/age}}
+
+                        {{#gender}}
+                        <div class="d-flex justify-content-between px-md-3 py-2" style="line-height: 1rem;">
+                            <p class="mb-0" style="font-weight: 500">GENDER</p>
+                            <p class="mb-0">
+                                {{gender}}
+                            </p>
+                        </div>
+                        {{/gender}}
+                    </div>
+                    <div class="col-md-6">
+                        {{#species}}
+                        <div class="d-flex justify-content-between px-md-3 py-2" style="line-height: 1rem;">
+                            <p class="mb-0" style="font-weight: 500">SPECIES</p>
+                            <p class="mb-0">
+                                {{species}}
+                            </p>
+                        </div>
+                        {{/species}}
+
+                        {{#height}}
+                        <div class="d-flex justify-content-between px-md-3 py-2" style="line-height: 1rem;">
+                            <p class="mb-0" style="font-weight: 500">HEIGHT</p>
+                            <p class="mb-0">
+                                {{height}}
+                            </p>
+                        </div>
+                        {{/height}}
+                        
+                        {{#alignment}}
+                        <div class="d-flex justify-content-between px-md-3 py-2" style="line-height: 1rem;">
+                            <p class="mb-0" style="font-weight: 500">ALIGNMENT</p>
+                            <p class="mb-0">
+                                {{alignment}}
+                            </p>
+                        </div>
+                        {{/alignment}}
+                    </div>
+
+                </div>
+            </div>
+            {{#about}}
+            <div class="card border-0 rounded-0 bg-light p-2 text-dark">
+                <div class="d-flex align-items-end">
+                    <p class="lead" style="letter-spacing:2px;">About</p>
+                    <hr style="width:100%;border-color:inherit;margin:0 0 .45rem 2px;">
+                </div>
+                <div class="py-2 px-md-4" style="max-height: 250px; overflow-y: auto;">
+                    {{{about}}}</p>
+                </div>
+            </div>
+            {{/about}}
+        </div>
+    </div>
+    <div id="row2" class="row no-gutters">
+        <div id="contentWrapper2" class="col-md-8 pr-md-2">
+            {{#personality}}
+            <div class="card border-0 rounded-0 bg-light p-2 mb-2 text-dark">
+                <div class="d-flex align-items-end">
+                    <p class="lead" style="letter-spacing:2px;">Personality</p>
+                    <hr style="width:100%;border-color:inherit;margin:0 0 .45rem 2px;">
+                </div>
+                <div class="py-2 px-md-4" style="max-height:250px;overflow-y:auto;">
+                    <p>{{{personality}}}</p>
+                </div>
+            </div>
+            {{/personality}}
+
+            {{#aesthetic}}
+            <div class="card border-0 rounded-0 bg-light p-2 text-dark">
+                <div class="d-flex align-items-end">
+                    <p class="lead" style="letter-spacing:2px;">Aesthetic</p>
+                    <hr style="width:100%;border-color:inherit;margin:0 0 .45rem 2px;">
+                </div>
+                <div class="py-2 px-md-4" style="max-height:250px;overflow-y:auto;">
+                    <p>{{{aesthetic}}}</p>
+                </div>
+            </div>
+            {{/aesthetic}}
+        </div>
+
+
+        <div id="imageBox2" class="col-md-4 mt-md-0 mt-2" style="
+            background-image: url('{{{images.background_right}}}');
+            background-size:300%;background-position:55% bottom;min-height: 250px;"></div>
+
+    </div>
+</div>
+
+<div class="mx-auto d-md-flex justify-content-md-between text-muted"
+    style="max-width: 750px; font-size: 12px; letter-spacing: 1px;">
+    <!-- CODE CREDIT: DO NOT REMOVE -->
+    <p class="m-0 text-center text-md-left">code by <a href="https://toyhou.se/zodia">zodia</a></p>
+
+    {{#credits.length}}
+    <p class="m-0 text-center text-md-right">
+        {{#credits}}
+        {{{by}}} <a href="{{{link}}}">{{name}}</a><br>
+        {{/credits}}
+    </p>
+    {{/credits.length}}
+</div>

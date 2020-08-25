@@ -1,0 +1,27 @@
+{
+    "name": "name here",
+    "age": "age here",
+    "gender": "gender here",
+    "species": "species here",
+    "height": "height here",
+    "alignment": "alignment here",
+    "about": "About Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque.", 
+    "personality": "Personality Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
+    "aesthetic": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis sapien nibh, eu malesuada velit.",
+    "credits": [
+        {
+            "by": "character image by",
+            "name": "artist credit",
+            "link": "https://toyhou.se/"
+        },
+        {
+            "by": "aesthetic image by",
+            "name": "octavian rosca",
+            "link": "https://unsplash.com/@tavi004"
+        }
+    ],
+    "images": {
+        "background_left": "https://via.placeholder.com/250",
+        "background_right": "https://images.unsplash.com/photo-1487235829740-e0ac5a286e1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1348&q=80"
+    }
+}
