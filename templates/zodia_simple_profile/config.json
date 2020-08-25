@@ -1,0 +1,33 @@
+{
+    "name": "name here",
+    "species": "species here",
+    "description": "age | pronouns | extra",
+    "icon": "far fa-circle",
+    "created": "xx/xx/xxxx",
+    "ok_to_draw": "Yes / No",
+    "for_sale": "Yes / No",
+    "value": "$xxx.xx",
+    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis est est, ut dignissim ex facilisis vitae. Ut imperdiet vitae odio ut accumsan. Sed vitae odio faucibus, accumsan tellus id, sodales tellus. Proin condimentum aliquet nulla, nec egestas eros consequat ut. Praesent gravida lorem tellus. Quisque laoreet ut sapien sit amet rhoncus. Fusce pellentesque, mauris eget placerat condimentum, erat lectus efficitur elit, sollicitudin laoreet ex lectus non metus. Nullam fringilla, sapien sed vehicula vehicula, est lorem fermentum magna, at tempus nisi eros eu tortor. In hac habitasse platea dictumst. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin sed tortor neque.",
+    "credits": [
+        {
+            "title": "Avatar",
+            "name": "avatar credit",
+            "link": "#"
+        },
+        {
+            "title": "Sidebar",
+            "name": "sidebar credit",
+            "link": "#"
+        }
+    ],
+    "colors": {
+        "color": "#2e2e2e",
+        "background": "#ffaa00",
+        "background_main": "#fefefe",
+        "line": "#ddd",
+        "link": "#ffaa00"
+    },
+    "images": {
+        "sidebar": "https://via.placeholder.com/300x500"
+    }
+}

@@ -1,0 +1,67 @@
+<div class="container-fluid p-2" style="max-width: 1000px; color: {{{colors.color}}}; 
+    background: {{{colors.background}}};">
+    <div class="row no-gutters">
+        <div class="col-md-3 mb-2 mb-md-0 bg-white" style="min-height: 475px;">
+            <div class="w-100 h-100 bg-white" style="background:  url({{{images.sidebar}}}); 
+            background-size: cover; background-position: center;"></div>
+        </div>
+        <div class="col-md-9 pl-md-2">
+            <div class="card border-0 p-3 rounded-0 mb-2" style="background-color: {{{colors.background_main}}};">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h3 class="mb-1">{{name}}</h3>
+                    <i class="{{{icon}}}" style="font-size: 1.2rem;"></i>
+                </div>
+                
+                {{#description}}
+                <p class="mb-0">{{{description}}}</p>
+                {{/description}}
+                
+                <hr class="my-2 w-100" style="border-color: {{{colors.line}}}">
+                {{#about}}
+                <div class="w-100" style="height: 320px; overflow-y: auto;">
+                    <p>{{{about}}}</p>
+                </div>
+                {{/about}}
+            </div>
+            <div class="row no-gutters py-1" style="background-color: {{{colors.background_main}}}">
+                {{#created}}
+                <div class="col-6 col-md-2 bg-white text-center mb-2 mb-md-0">
+                    <p class="mb-1"><strong>Created</strong></p>
+                    <p>{{created}}</p>
+                </div>
+                {{/created}}
+
+                {{#ok_to_draw}}
+                <div class="col-6 col-md-2 bg-white text-center mb-2 mb-md-0">
+                    <p class="mb-1"><strong>Ok to draw?</strong></p>
+                    <p>{{ok_to_draw}}</p>
+                </div>
+                {{/ok_to_draw}}
+
+                {{#for_sale}}
+                <div class="col-6 col-md-2 bg-white text-center mb-2 mb-md-0">
+                    <p class="mb-1"><strong>For sale?</strong></p>
+                    <p>{{for_sale}}</p>
+                </div>
+                {{/for_sale}}
+
+                {{#value}}
+                <div class="col-6 col-md-2 bg-white text-center mb-2 mb-md-0">
+                    <p class="mb-1"><strong>Value</strong></p>
+                    <p>{{value}}</p>
+                </div>
+                {{/value}}
+
+                {{#credits}}
+                <div class="col-6 col-md-2 bg-white text-center">
+                    <p class="mb-1"><strong>{{title}}</strong></p>
+                    <p><a href="{{{link}}}" style="color: {{{colors.link}}}">{{name}}</a></p>
+                </div>
+                {{/credits}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CREDIT; DO NOT REMOVE! -->
+<p class="text-right mx-auto" style="max-width: 1000px;"><a href="https://toyhou.se/Zodia" class=" text-muted"><i class="fal fa-code tooltipster" title="code by zodia" data-placement="bottom" data-original-title="code by zodia"></i></a></p>
