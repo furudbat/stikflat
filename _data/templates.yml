@@ -31,6 +31,8 @@
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/3921250.identity
   meta: circlejourney_identity/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/75580.circlejourney-s-code-creations-free-'>Circlejourney's
+    code freebies</a>
   name: Identity
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/3921250?1583384512
   style: 'background-color: #eee; color: #333'
@@ -68,6 +70,8 @@
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/6191922.interstellar-dust
   meta: circlejourney_interstellar_dust/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/75580.circlejourney-s-code-creations-free-'>Circlejourney's
+    code freebies</a>
   name: Interstellar Dust
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6191922?1583386454
   style: 'background-color: #eee; color: #333'
@@ -95,6 +99,8 @@
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/6351798.in-a-nutshell
   meta: circlejourney_in_a_nutshell/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/75580.circlejourney-s-code-creations-free-'>Circlejourney's
+    code freebies</a>
   name: In A Nutshell
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6351798?1584758416
   style: 'background-color: #eee; color: #333'
@@ -135,6 +141,8 @@
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/6388687.super-special-double-deluxe
   meta: circlejourney_super_special_double_deluxe/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/75580.circlejourney-s-code-creations-free-'>Circlejourney's
+    code freebies</a>
   name: Super Special Double Deluxe
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6388687?1585115598
   style: 'background-color: #eee; color: #333'
@@ -144,7 +152,7 @@
   author_link: https://toyhou.se/Eggy
   config: eggy_lil_bit/config.json
   css: eggy_lil_bit/lilbit.css
-  description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  description: Character profiles. Can be used by all users.
   id: eggy_lil_bit
   keywords:
   - title
@@ -157,9 +165,12 @@
   - quote
   - bio
   - images
-  license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
+  license: <a href="https://toyhou.se/~bulletins/40160.freebie-rules">Read the rules
+    before using any freebies!</a>
   link: https://toyhou.se/3431124.-freebie-lil-bit
   meta: eggy_lil_bit/meta.yml
+  more: <a href="https://toyhou.se/~forums/16.htmlcss-graphics/16520.-eggy-html-css">Eggy
+    HTML & CSS</a>
   name: Lil Bit
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/3431124?1573423838
   style: 'background-color: #f8b526; color: #070707'
@@ -169,7 +180,7 @@
   author_link: https://toyhou.se/Eggy
   config: eggy_open/config.json
   css: eggy_open/open.css
-  description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  description: Character profiles. Can be used by all users.
   id: eggy_open
   keywords:
   - title
@@ -195,9 +206,12 @@
   - relationships
   - moodboard
   - images
-  license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
+  license: <a href="https://toyhou.se/~bulletins/40160.freebie-rules">Read the rules
+    before using any freebies!</a>
   link: https://toyhou.se/4556624.-freebie-open
   meta: eggy_open/meta.yml
+  more: <a href="https://toyhou.se/~forums/16.htmlcss-graphics/16520.-eggy-html-css">Eggy
+    HTML & CSS</a>
   name: Open - Grid Version
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4556624?1591832733
   style: 'background-color: #f8b526; color: #070707'
@@ -207,7 +221,7 @@
   author_link: https://toyhou.se/Eggy
   config: eggy_open_collapse/config.json
   css: eggy_open_collapse/open.css
-  description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  description: Character profiles. Can be used by all users.
   id: eggy_open_collapse
   keywords:
   - title
@@ -235,9 +249,12 @@
   - trivias
   - moodboard
   - images
-  license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
+  license: <a href="https://toyhou.se/~bulletins/40160.freebie-rules">Read the rules
+    before using any freebies!</a>
   link: https://toyhou.se/4556624.-freebie-open
   meta: eggy_open_collapse/meta.yml
+  more: <a href="https://toyhou.se/~forums/16.htmlcss-graphics/16520.-eggy-html-css">Eggy
+    HTML & CSS</a>
   name: Open - Collapse Version
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4556624?1591832733
   style: 'background-color: #f8b526; color: #070707'
@@ -247,7 +264,7 @@
   author_link: https://toyhou.se/Eggy
   config: eggy_scale/config.json
   css: eggy_scale/scale.css
-  description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  description: Character profiles. Can be used by all users.
   id: eggy_scale
   keywords:
   - title
@@ -270,9 +287,12 @@
   - relationships
   - notes
   - images
-  license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
+  license: <a href="https://toyhou.se/~bulletins/40160.freebie-rules">Read the rules
+    before using any freebies!</a>
   link: https://toyhou.se/5662687.-freebie-scale
   meta: eggy_scale/meta.yml
+  more: <a href="https://toyhou.se/~forums/16.htmlcss-graphics/16520.-eggy-html-css">Eggy
+    HTML & CSS</a>
   name: Scale
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/5662687?1577475276
   style: 'background-color: #f8b526; color: #070707'
@@ -282,7 +302,7 @@
   author_link: https://toyhou.se/Eggy
   config: eggy_user_axis/config.json
   css: eggy_user_axis/axis.css
-  description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  description: User profiles. Can be used by all users.
   id: eggy_user_axis
   keywords:
   - name
@@ -294,9 +314,12 @@
   - links
   - socialmedia
   - images
-  license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
+  license: <a href="https://toyhou.se/~bulletins/40160.freebie-rules">Read the rules
+    before using any freebies!</a>
   link: https://toyhou.se/6742833.-freebie-user-axis
   meta: eggy_user_axis/meta.yml
+  more: <a href="https://toyhou.se/~forums/16.htmlcss-graphics/16520.-eggy-html-css">Eggy
+    HTML & CSS</a>
   name: User Axis
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6742833?1588169704
   style: 'background-color: #f8b526; color: #070707'
@@ -306,7 +329,7 @@
   author_link: https://toyhou.se/Eggy
   config: eggy_user_space_by/config.json
   css: eggy_user_space_by/userspace.css
-  description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
+  description: User profiles. Can be used by all users.
   id: eggy_user_space_by
   keywords:
   - title
@@ -318,9 +341,12 @@
   - characters
   - socialmedia
   - images
-  license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
+  license: <a href="https://toyhou.se/~bulletins/40160.freebie-rules">Read the rules
+    before using any freebies!</a>
   link: https://toyhou.se/2493596.-freebie-user-space
   meta: eggy_user_space_by/meta.yml
+  more: <a href="https://toyhou.se/~forums/16.htmlcss-graphics/16520.-eggy-html-css">Eggy
+    HTML & CSS</a>
   name: User Space
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/2493596?1573439982
   style: 'background-color: #f8b526; color: #070707'
@@ -346,9 +372,12 @@
   - stats
   - entries
   - images
-  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
+  license: Keep the code credit intact. <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes'>For
+    more information, please visit [the snail's shell]</a>
   link: https://toyhou.se/7497816.layout-journal
   meta: snail_legs_journal/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes'>The
+    Snail's Shell | HTML codes</a>
   name: journal
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7497816?1594383763
   style: 'background-color: #3a3639; color: #fcfbf6'
@@ -369,9 +398,12 @@
   - trivias
   - notes
   - images
-  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
+  license: Keep the code credit intact. <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes'>For
+    more information, please visit [the snail's shell]</a>
   link: https://toyhou.se/7689827.layout-side-by-side
   meta: snail_legs_side_by_side/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes'>The
+    Snail's Shell | HTML codes</a>
   name: side by side
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7689827?1596293985
   style: 'background-color: #3a3639; color: #fcfbf6'
@@ -389,9 +421,12 @@
   - description
   - about
   - socialmedia
-  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
+  license: Keep the code credit intact. <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes'>For
+    more information, please visit [the snail's shell]</a>
   link: https://toyhou.se/6839883.layout-simple-profile-card
   meta: snail_legs_simple_profile_card/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes'>The
+    Snail's Shell | HTML codes</a>
   name: simple profile card
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6839883?1592936183
   style: 'background-color: #3a3639; color: #fcfbf6'
@@ -412,9 +447,12 @@
   - description
   - notes
   - images
-  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
+  license: Keep the code credit intact. <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes'>For
+    more information, please visit [the snail's shell]</a>
   link: https://toyhou.se/6493313.layout-striped-columns
   meta: snail_legs_striped_columns/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes'>The
+    Snail's Shell | HTML codes</a>
   name: striped columns
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6493313?1592936291
   style: 'background-color: #3a3639; color: #fcfbf6'
@@ -446,9 +484,12 @@
   - relationships
   - colorpallete
   - images
-  license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
+  license: Keep the code credit intact. <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes'>For
+    more information, please visit [the snail's shell]</a>
   link: https://toyhou.se/7237649.layout-wikimania
   meta: snail_legs_wikimania/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes'>The
+    Snail's Shell | HTML codes</a>
   name: wikimania
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7237649?1592426994
   style: 'background-color: #3a3639; color: #fcfbf6'
