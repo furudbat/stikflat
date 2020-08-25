@@ -38,6 +38,8 @@ editor:
     mode_json: 'JSON'
     mode_yaml: 'YAML'
   generate_btn: Generate
+info:
+  by_author: ' by <span class="mr-1"><i class="fas fa-user"></i></span>'
 code:
   header: Generated Code
   help: "Here is your finished code to copy."

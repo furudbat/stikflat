@@ -34,11 +34,13 @@
       {%- endif -%}
 
       //var initSite = function(){};
-      var site = {};
-      site.data = {};
-      site.data.templates_url = '{{ "templates/" | absolute_url }}'
-      site.data.templates = {{ site.data.templates | jsonify }};
-      site.data.strings = {{ site.data.strings | jsonify }};
+      const site = {
+        data: {
+          templates_url: '{{ "templates/" | absolute_url }}',
+          templates: {{ site.data.templates | jsonify }},
+          strings: {{ site.data.strings | jsonify }}
+        }
+      };
 
       //console.debug({site});
     </script>

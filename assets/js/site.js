@@ -697,7 +697,7 @@
     }
 
     function clearLayoutInfo() {
-        $('#msgLayoutPatternInfo').hide().empty();
+        $('#msgLayoutPatternInfo').hide();
     }
     function updateLayoutInfo(meta) {
         if (meta === null) {
@@ -706,31 +706,22 @@
         }
         _currentLayoutId = meta.id;
 
-        var name = meta.name;
-        var author = meta.author;
-        var authorLink = meta.author_link;
-        var description = meta.description;
-        var link = meta.link;
-        var license = meta.license;
+        var author = meta.author || '&lt;Unknown&gt;';
+        var authorLink = meta.author_link || '';
+        var description = meta.description || '';
+        var link = meta.link || '';
+        var name = meta.name || link;
+        var license = meta.license || '';
+        var more = meta.more || '';
 
-        var header = '<p class="text-bold">';
-        header += name + '&nbsp;' + site.data.strings.layouts.by_author + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
-        if (link !== '') {
-            header += ' - ' + '<a href="' + link + '" target="_blank">' + link + '</a>';
-        }
-        header += '</p>';
+        var header = (link === '')? name : '<a href="' + link + '" target="_blank">' + name + '</a>';
+        header += site.data.strings.info.by_author + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
 
-        var options = {/* … */ };
-
-        $('#msgLayoutPatternInfo').empty()
-            .append(header)
-            .append('<p class="text-justify">' + description.linkify(options) + '</p>')
-            .append('<p class="font-italic">' + license.linkify(options) + '</p>')
-            .show();
-
-        $('#msgLayoutPatternInfo')
-            .data('description', description)
-            .data('license', license);
+        $('#msgLayoutPatternInfoHeader').html(header);
+        $('#msgLayoutPatternInfoDescription').html(description);
+        $('#msgLayoutPatternInfoLicense').html(license);
+        $('#msgLayoutPatternInfoMore').html(more);
+        $('#msgLayoutPatternInfo').show();
     }
 
 
