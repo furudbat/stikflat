@@ -1,0 +1,18 @@
+<div class="col-12">
+    <small class="text-muted">{{ site.data.strings.layouts.header_help }}</small>
+</div>
+<div class="col-12 mt-2 layoutslist" id="layouts-list">
+    <div class="input-group mb-3 col-10">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="searchHelp"><i class="fas fa-search d-inline"></i></span>
+        </div>
+        <input type="text" class="form-control fuzzy-search" aria-label="{{ site.data.strings.layouts.search_placeholder }}" aria-describedby="searchHelp"
+            placeholder="{{ site.data.strings.layouts.search_placeholder }}">
+    </div>
+    <div class="list justify-content-center">
+    </div>
+    <nav class="my-2" aria-label="Page navigation Layout">
+        <ul class="pagination paginationBottom justify-content-center">
+        </ul>
+    </nav>
+</div>

@@ -1,24 +1,7 @@
 <section id="sectionLayouts">
     <h2>{{ site.data.strings.layouts.header }}</h2>
     <div class="row mb-4 mx-2">
-        <div class="col-12">
-            <small class="text-muted">{{ site.data.strings.layouts.header_help }}</small>
-        </div>
-        <div class="col-12 mt-2 layoutslist" id="layouts-list">
-            <div class="input-group mb-3 col-10">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="searchHelp"><i class="fas fa-search d-inline"></i></span>
-                </div>
-                <input type="text" class="form-control fuzzy-search" aria-label="{{ site.data.strings.layouts.search_placeholder }}" aria-describedby="searchHelp"
-                    placeholder="{{ site.data.strings.layouts.search_placeholder }}">
-            </div>
-            <div class="list justify-content-center">
-            </div>
-            <nav class="my-2" aria-label="Page navigation Layout">
-                <ul class="pagination paginationBottom justify-content-center">
-                </ul>
-            </nav>
-        </div>
+        {% include layouts.html %}
     </div>
 </section>
 
@@ -56,67 +39,14 @@
             <div class="tab-content" id="templateTabsContent">
                 <div class="mt-3 p-1 tab-pane fade show active" id="previewTabContent" role="tabpanel"
                     aria-labelledby="preview-tab">
-                    <div class="form-group">
-                        <a href="#sectionPreviewCode">{{ site.data.strings.preview.goto_preview_code }}</a>
-                    </div>
-                    <div class="form-group">
-                        <div
-                            class="border border-white embed-responsive embed-responsive-16by9 main-template-editors-preview-container">
-                            <div class="embed-responsive-item preview-html overflow-auto" id="preview-html"></div>
-                        </div>
-                        <small id="previewHelp"
-                            class="form-text text-muted">{{ site.data.strings.preview.help }}</small>
-                    </div>
+                    {% include previewTab.html %}
                 </div>
                 <div class="mt-3 tab-pane fade show" id="templateTabContent" role="tabpanel"
                     aria-labelledby="template-tab">
-                    {% if site.options.withWYSIWYGEditor %}
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label class="checkbox-inline">
-                                <input id="chbLivePreview" type="checkbox" data-toggle="toggle" />
-                                <span id="chbLivePreviewHelp"></span>
-                            </label>
-                        </div>
-                        <button id="btnEnableWYSIWYGEditor" type="button" class="btn btn-outline-secondary"></button>
-                    </div>
-                    <div class="form-group">
-                        <div class="main-template-editors-editor-container">
-                            <textarea id="txtTemplate" aria-describedby="templateHelp"></textarea>
-                        </div>
-                        <div class="main-template-editors-WYSIWYG-editor-container">
-                            <textarea id="txtTemplateWYSIWYG" aria-describedby="templateHelp"></textarea>
-                        </div>
-                        <div id="templateError" class="mt-1 alert alert-danger" role="alert"></div>
-                        <small id="templateHelp"
-                            class="form-text text-muted">{{ site.data.strings.editor.template.template_help }}</small>
-                    </div>
-                    {% else %}
-                    <div class="form-group">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="chbLivePreview" />
-                            <label id="chbLivePreviewHelp" class="custom-control-label" for="chbLivePreview"></label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div
-                            class="mt-1 pt-2 main-template-editors-editor-container main-template-editors-no-WYSIWYG-container">
-                            <textarea id="txtTemplate" aria-describedby="templateHelp"></textarea>
-                        </div>
-                        <div id="templateError" class="mt-1 alert alert-danger" role="alert"></div>
-                        <small id="templateHelp"
-                            class="form-text text-muted">{{ site.data.strings.editor.template.template_help }}</small>
-                    </div>
-                    {% endif %}
+                    {% include templateTab.html %}
                 </div>
                 <div class="mt-3 tab-pane fade" id="cssTabContent" role="tabpanel" aria-labelledby="css-tab">
-                    <div class="form-group py-2">
-                    </div>
-                    <div class="form-group pt-2">
-                        <textarea id="txtCSS" aria-describedby="cssHelp"></textarea>
-                        <small id="cssHelp"
-                            class="form-text text-muted">{{ site.data.strings.editor.template.css_help }}</small>
-                    </div>
+                    {% include cssTab.html %}
                 </div>
             </div>
         </div>
@@ -126,52 +56,7 @@
         {%- assign main_config_editors_container = "main-config-editors-container main-config-editors-no-WYSIWYG-container" -%}
         {%- endif -%}
         <div class="col-md-4 {{ main_config_editors_container }}">
-            <div class="row mb-3 pt-1">
-                <div class="col-6 text-left">
-                    <button id="btnCollapseConfig" class="btn btn-primary" type="button" data-toggle="collapse"
-                        data-target="#collapseConfig" aria-expanded="true" aria-controls="collapseConfig">
-                        {{ site.data.strings.editor.config.header }}
-                    </button>
-                </div>
-                <div class="col-6 text-right main-config-add-container">
-                    <button id="btnAddConfig" type="button"
-                        class="btn btn-success main-config-controls">{{ site.data.strings.editor.config.add_btn }}</button>
-                    <button id="btnSaveConfig" type="button"
-                        class="ml-1 btn btn-info main-config-controls">{{ site.data.strings.editor.config.save_btn }}</button>
-                </div>
-            </div>
-            <div class="collapse form-group" id="collapseConfig">
-                <div class="row mt-3 mb-2 main-config-lock-container">
-                    <div class="col-2">
-                        <input id="chbLockConfig" class="mt-1" data-size="small" type="checkbox" data-toggle="toggle"
-                            data-on="<i class='fa fa-lock'></i>" data-off="<i class='fa fa-unlock'></i>"
-                            data-offstyle="outline-primary" data-onstyle="outline-success" />
-                    </div>
-                    <div class="col-8">
-                        <small id="chbLockConfigHelp" class="form-text text-muted mt-0"></small>
-                    </div>
-                    <div class="col-2">
-                        <input id="chbConfigMode" class="mt-1" data-size="small" type="checkbox" data-toggle="toggle"
-                            data-on="{{ site.data.strings.editor.config.mode_yaml }}"
-                            data-off="{{ site.data.strings.editor.config.mode_json }}" data-offstyle="outline-primary"
-                            data-onstyle="outline-success" data-width="60px" />
-                    </div>
-                </div>
-                <div class="row mt-2 main-config-container">
-                    <div class="col-12">
-                        <div class="main-config-json-container">
-                            <textarea id="txtConfigJSON" aria-describedby="configHelp"></textarea>
-                        </div>
-                        <div class="main-config-yaml-container">
-                            <textarea id="txtConfigYAML" aria-describedby="configHelp"></textarea>
-                        </div>
-                        <div id="configError" class="mt-1 alert alert-danger" role="alert"></div>
-                        <small id="configHelp"
-                            class="form-text text-muted">{{ site.data.strings.editor.config.help }}</small>
-                        <small id="configHelpKeywords" class="form-text text-muted"></small>
-                    </div>
-                </div>
-            </div>
+            {% include configEditor.html %}
         </div>
     </div>
     <div class="row">
@@ -214,14 +99,7 @@
     </h3>
     <div class="row mb-1">
         <div class="col-12 mt-2 main-info-container">
-            <div class="card border-danger" id="msgLayoutPatternInfo">
-                <div class="card-header font-weight-bold" id="msgLayoutPatternInfoHeader">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title text-justify" id="msgLayoutPatternInfoDescription"></h5>
-                    <p class="card-text" id="msgLayoutPatternInfoLicense"></p>
-                    <p class="card-text font-italic" id="msgLayoutPatternInfoMore"></p>
-                </div>
-            </div>
+            {% include layoutInfo.html %}
         </div>
     </div>
     <div class="row mb-1">

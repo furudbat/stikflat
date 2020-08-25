@@ -1,11 +1,25 @@
 <hr class="mt-5">
-<h3> Credit</h3>
+<h3>Credit</h3>
 <p>
     All of the Layouts are F2U (Free2Use) and made by Coders and Designer at <a href="https://toyhou.se/~forums/16.htmlcss-graphics/93890.coder-directory">TOYHOU.SE</a>, got permission to use them here.
 </p>
 
+<h4>Layout Creators</h4><small class="d-inline ml-2">Thanks for your Contribution</small>
+<div class="row mx-3">
+    {% for creator in site.data.creators %}
+        {% assign avatar = creator.author_avatar %}
+        {% if avatar == '' %}
+        {% assign avatar = '/imgs/css/th.png' | relative_url %}
+        {% endif %}
+        <figure class="figure m-2 p-1">
+            <img src="{{avatar}}" class="figure-img img-fluid rounded w-70" style="width: 70%" alt="{{ creator.name | escape }}">
+            <figcaption class="figure-caption">{{ creator.name }}</figcaption>
+        </figure>
+    {% endfor %}
+</div>
 
-<h3> Contribute</h3>
+
+<h3>Contribute</h3>
 <p>
     This Project is open-source, you can contribute your themes via <a href="{{ site.github_link | append: '/pulls' }}">PR</a> or <a href="{{ site.pm_link }}">PM</a> me with <strong>your</strong> Layouts. (DO NOT steal Layouts or contribute without permission from the original Designer).<br/>
     <h4>@TODO: How to Contribute Themes via PR with example template, config etc.</h4>

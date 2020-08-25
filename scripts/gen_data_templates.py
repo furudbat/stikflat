@@ -10,7 +10,7 @@ Options:
   -h --help                     Show this screen.
   --version                     Show version.
   -i PATH, --input=PATH         Path to templates   [default: ./templates].
-  -o FILE, --output=FILE        YML Output filename [default: ./_data/templates.yml].
+  -o PATH, --output=PATH        YML Output Path [default: ./_data/].
   --target-templates-path=PATH  Target path to 'templates' [default: ./templates]
 
 """
@@ -21,11 +21,14 @@ import json
 
 
 def main(args):
-    output_filename = args['--output']
+    output_path = args['--output']
     input_path = args['--input']
     input_paths = []
     templates = []
     templates_target_path = args['--target-templates-path']
+
+    output_templates_filename = os.path.join(output_path, 'templates.yml')
+    output_creator_filename = os.path.join(output_path, 'creators.yml')
 
     templates = []
 
@@ -71,9 +74,32 @@ def main(args):
             if not disabled:
                 templates.append(template)
 
-    with open(output_filename, 'w') as output:
+    creatorsmap = {}
+    creatorslist = set()
+    for template in templates:
+        creatorslist.add(template['author'])
+    for creator in creatorslist:
+        for template in templates:
+            if 'author' in template and creator == template['author']:
+                if creator != 'furudbat':
+                    if creator in creatorsmap:
+                        if 'author_avatar' in template and template['author_avatar'] != '':
+                            creatorsmap[creator]['author_avatar'] = template['author_avatar']
+                    else:
+                        creatorsmap[creator] = {}
+                        creatorsmap[creator]['name'] = creator
+                        if 'author_avatar' in template and template['author_avatar'] != '':
+                            creatorsmap[creator]['author_avatar'] = template['author_avatar']
+
+    creators = creatorsmap.values()
+
+    with open(output_templates_filename, 'w') as output:
         yaml.dump(templates, output)
-        print('Done ' + output_filename)
+        print('Done ' + output_templates_filename)
+
+    with open(output_creator_filename, 'w') as output:
+        yaml.dump(creators, output)
+        print('Done ' + output_creator_filename)
 
 
 if __name__ == '__main__':
