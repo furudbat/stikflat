@@ -124,3 +124,6 @@ mkdir assets/js/ace
 mkdir assets/js/ace/snippets
 cp node_modules/ace-builds/src-min-noconflict/*.js assets/js/ace
 cp node_modules/ace-builds/src-min-noconflict/snippets/*.js assets/js/ace/snippets
+
+mkdir assets/js/listjs
+cp node_modules/list.js/dist/*.min.js assets/js/listjs

@@ -36,9 +36,9 @@
       //var initSite = function(){};
       var site = {};
       site.data = {};
+      site.data.templates_url = '{{ "templates/" | absolute_url }}'
       site.data.templates = {{ site.data.templates | jsonify }};
       site.data.strings = {{ site.data.strings | jsonify }};
-      site.data.template_url = '{{ "templates/" | absolute_url }}'
 
       //console.debug({site});
     </script>
@@ -56,8 +56,6 @@
     <script src="{{ '/assets/js/bootstrap/bootstrap.bundle.min.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/bootstrap/bootstrap-toggle.min.js' | relative_url }}"></script>
 
-    <script src="{{ '/assets/js/pagShrink.js' | relative_url }}"></script>
-
     <script src="{{ '/assets/js/mustache.min.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/esprima/esprima.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/yaml/js-yaml.min.js' | relative_url }}"></script>
@@ -74,6 +72,8 @@
     <script src="{{ '/assets/js/jsonlint/jsonlint.js' | relative_url }}"></script>
 
     <script src="{{ '/assets/js/clipboard/clipboard.min.js' | relative_url }}"></script>
+
+    <script src="{{ '/assets/js/listjs/list.min.js' | relative_url }}"></script>
 
     <script src="{{ '/assets/js/font-awesome/all.min.js' | relative_url }}"></script>
   

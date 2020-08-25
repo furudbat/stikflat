@@ -1,7 +1,7 @@
 - author: Circlejourney
   author_link: https://toyhou.se/circlejourney
-  config: circlejourney_identity\config.json
-  css: circlejourney_identity\identity.css
+  config: circlejourney_identity/config.json
+  css: circlejourney_identity/identity.css
   description: A character profile theme inspired by identification cards. Mobile
     responsive and interactive (flip the card!), with a space for a signature (if
     you like) and background graphic.
@@ -30,16 +30,16 @@
   license: 100% free to use. You're allowed to edit them and frankenstein them with
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/3921250.identity
-  meta: circlejourney_identity\meta.yml
+  meta: circlejourney_identity/meta.yml
   name: Identity
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/3921250?1583384512
   style: 'background-color: #eee; color: #333'
-  template: circlejourney_identity\identity.html
+  template: circlejourney_identity/identity.html
   type: character
 - author: Circlejourney
   author_link: https://toyhou.se/circlejourney
-  config: circlejourney_interstellar_dust\config.json
-  css: circlejourney_interstellar_dust\dust.css
+  config: circlejourney_interstellar_dust/config.json
+  css: circlejourney_interstellar_dust/dust.css
   description: Originally a custom for Swissy, this character profile theme has dark
     colours as a base. It has tabs and a moodboard section. 100% mobile responsive
     with lots and lots of slots for character information.
@@ -67,16 +67,16 @@
   license: 100% free to use. You're allowed to edit them and frankenstein them with
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/6191922.interstellar-dust
-  meta: circlejourney_interstellar_dust\meta.yml
+  meta: circlejourney_interstellar_dust/meta.yml
   name: Interstellar Dust
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6191922?1583386454
   style: 'background-color: #eee; color: #333'
-  template: circlejourney_interstellar_dust\dust.html
+  template: circlejourney_interstellar_dust/dust.html
   type: character
 - author: Circlejourney
   author_link: https://toyhou.se/circlejourney
-  config: circlejourney_in_a_nutshell\config.json
-  css: circlejourney_in_a_nutshell\nutshell.css
+  config: circlejourney_in_a_nutshell/config.json
+  css: circlejourney_in_a_nutshell/nutshell.css
   description: Originally a custom for Historia. This user profile theme displays
     a lot of text in a digestible way. It includes a space for a banner, a user icon,
     social media, notes and a list of projects. Mobile responsive, organises profile
@@ -94,16 +94,16 @@
   license: 100% free to use. You're allowed to edit them and frankenstein them with
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/6351798.in-a-nutshell
-  meta: circlejourney_in_a_nutshell\meta.yml
+  meta: circlejourney_in_a_nutshell/meta.yml
   name: In A Nutshell
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6351798?1584758416
   style: 'background-color: #eee; color: #333'
-  template: circlejourney_in_a_nutshell\nutshell.html
+  template: circlejourney_in_a_nutshell/nutshell.html
   type: character
 - author: Circlejourney
   author_link: https://toyhou.se/circlejourney
-  config: circlejourney_super_special_double_deluxe\config.json
-  css: circlejourney_super_special_double_deluxe\ssdd.css
+  config: circlejourney_super_special_double_deluxe/config.json
+  css: circlejourney_super_special_double_deluxe/ssdd.css
   description: A custom for reinapepiada, this theme is designed to contain lots and
     lots of text in multiple sections, and has slots for quote, stats, music themes,
     and a moodboard.
@@ -134,16 +134,16 @@
   license: 100% free to use. You're allowed to edit them and frankenstein them with
     other code. Please don't remove credit, that is all I ask.
   link: https://toyhou.se/6388687.super-special-double-deluxe
-  meta: circlejourney_super_special_double_deluxe\meta.yml
+  meta: circlejourney_super_special_double_deluxe/meta.yml
   name: Super Special Double Deluxe
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6388687?1585115598
   style: 'background-color: #eee; color: #333'
-  template: circlejourney_super_special_double_deluxe\ssdd.html
+  template: circlejourney_super_special_double_deluxe/ssdd.html
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
-  config: eggy_lil_bit\config.json
-  css: eggy_lil_bit\lilbit.css
+  config: eggy_lil_bit/config.json
+  css: eggy_lil_bit/lilbit.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
   id: eggy_lil_bit
   keywords:
@@ -159,16 +159,16 @@
   - images
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/3431124.-freebie-lil-bit
-  meta: eggy_lil_bit\meta.yml
+  meta: eggy_lil_bit/meta.yml
   name: Lil Bit
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/3431124?1573423838
   style: 'background-color: #f8b526; color: #070707'
-  template: eggy_lil_bit\lilbit.html
+  template: eggy_lil_bit/lilbit.html
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
-  config: eggy_open\config.json
-  css: eggy_open\open.css
+  config: eggy_open/config.json
+  css: eggy_open/open.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
   id: eggy_open
   keywords:
@@ -197,16 +197,16 @@
   - images
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/4556624.-freebie-open
-  meta: eggy_open\meta.yml
+  meta: eggy_open/meta.yml
   name: Open - Grid Version
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4556624?1591832733
   style: 'background-color: #f8b526; color: #070707'
-  template: eggy_open\open.html
+  template: eggy_open/open.html
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
-  config: eggy_open_collapse\config.json
-  css: eggy_open_collapse\open.css
+  config: eggy_open_collapse/config.json
+  css: eggy_open_collapse/open.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
   id: eggy_open_collapse
   keywords:
@@ -237,16 +237,16 @@
   - images
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/4556624.-freebie-open
-  meta: eggy_open_collapse\meta.yml
+  meta: eggy_open_collapse/meta.yml
   name: Open - Collapse Version
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4556624?1591832733
   style: 'background-color: #f8b526; color: #070707'
-  template: eggy_open_collapse\open.html
+  template: eggy_open_collapse/open.html
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
-  config: eggy_scale\config.json
-  css: eggy_scale\scale.css
+  config: eggy_scale/config.json
+  css: eggy_scale/scale.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
   id: eggy_scale
   keywords:
@@ -272,16 +272,16 @@
   - images
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/5662687.-freebie-scale
-  meta: eggy_scale\meta.yml
+  meta: eggy_scale/meta.yml
   name: Scale
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/5662687?1577475276
   style: 'background-color: #f8b526; color: #070707'
-  template: eggy_scale\scale.html
+  template: eggy_scale/scale.html
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
-  config: eggy_user_axis\config.json
-  css: eggy_user_axis\axis.css
+  config: eggy_user_axis/config.json
+  css: eggy_user_axis/axis.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
   id: eggy_user_axis
   keywords:
@@ -296,16 +296,16 @@
   - images
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/6742833.-freebie-user-axis
-  meta: eggy_user_axis\meta.yml
+  meta: eggy_user_axis/meta.yml
   name: User Axis
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6742833?1588169704
   style: 'background-color: #f8b526; color: #070707'
-  template: eggy_user_axis\axis.html
+  template: eggy_user_axis/axis.html
   type: user
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_link: https://toyhou.se/Eggy
-  config: eggy_user_space_by\config.json
-  css: eggy_user_space_by\userspace.css
+  config: eggy_user_space_by/config.json
+  css: eggy_user_space_by/userspace.css
   description: More F2U Themes by Eggy -> https://toyhou.se/Eggy/characters/folder:268984
   id: eggy_user_space_by
   keywords:
@@ -320,16 +320,16 @@
   - images
   license: Read the rules before using ! -> https://toyhou.se/~bulletins/40160.freebie-rules
   link: https://toyhou.se/2493596.-freebie-user-space
-  meta: eggy_user_space_by\meta.yml
+  meta: eggy_user_space_by/meta.yml
   name: User Space
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/2493596?1573439982
   style: 'background-color: #f8b526; color: #070707'
-  template: eggy_user_space_by\userspace.html
+  template: eggy_user_space_by/userspace.html
   type: user
 - author: snail-legs
   author_link: https://toyhou.se/snail-legs
-  config: snail_legs_journal\config.json
-  css: snail_legs_journal\journal.css
+  config: snail_legs_journal/config.json
+  css: snail_legs_journal/journal.css
   description: Hello! This is a F2U profile code meant to work as a journal-type page
     for your oc! It's got a page for basic info and two pages for journal entries,
     although it shouldn't be too hard to add more of those. There's also space for
@@ -348,16 +348,16 @@
   - images
   license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
   link: https://toyhou.se/7497816.layout-journal
-  meta: snail_legs_journal\meta.yml
+  meta: snail_legs_journal/meta.yml
   name: journal
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7497816?1594383763
   style: 'background-color: #3a3639; color: #fcfbf6'
-  template: snail_legs_journal\journal.html
+  template: snail_legs_journal/journal.html
   type: character
 - author: snail-legs
   author_link: https://toyhou.se/snail-legs
-  config: snail_legs_side_by_side\config.json
-  css: snail_legs_side_by_side\side.css
+  config: snail_legs_side_by_side/config.json
+  css: snail_legs_side_by_side/side.css
   description: Hello! This is a F2U profile code with room for a bit of written info
     and a featured image. It's responsive, and you're free to do what you'd like with
     it as long as you maintain credit!
@@ -371,16 +371,16 @@
   - images
   license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
   link: https://toyhou.se/7689827.layout-side-by-side
-  meta: snail_legs_side_by_side\meta.yml
+  meta: snail_legs_side_by_side/meta.yml
   name: side by side
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7689827?1596293985
   style: 'background-color: #3a3639; color: #fcfbf6'
-  template: snail_legs_side_by_side\side.html
+  template: snail_legs_side_by_side/side.html
   type: character
 - author: snail-legs
   author_link: https://toyhou.se/snail-legs
-  config: snail_legs_simple_profile_card\config.json
-  css: snail_legs_simple_profile_card\simple.css
+  config: snail_legs_simple_profile_card/config.json
+  css: snail_legs_simple_profile_card/simple.css
   description: Hello! This is a F2U profile code. It's responsive, and you're free
     to do what you'd like with it as long as you maintain credit!
   id: snail_legs_simple_profile_card
@@ -391,16 +391,16 @@
   - socialmedia
   license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
   link: https://toyhou.se/6839883.layout-simple-profile-card
-  meta: snail_legs_simple_profile_card\meta.yml
+  meta: snail_legs_simple_profile_card/meta.yml
   name: simple profile card
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6839883?1592936183
   style: 'background-color: #3a3639; color: #fcfbf6'
-  template: snail_legs_simple_profile_card\simple.html
+  template: snail_legs_simple_profile_card/simple.html
   type: user
 - author: snail-legs
   author_link: https://toyhou.se/snail-legs
-  config: snail_legs_striped_columns\config.json
-  css: snail_legs_striped_columns\striped.css
+  config: snail_legs_striped_columns/config.json
+  css: snail_legs_striped_columns/striped.css
   description: Hello! This is a F2U profile code with some fancy-lookin borders. You're
     free to do what you'd like with it as long as you maintain credit!
   id: snail_legs_striped_columns
@@ -414,16 +414,16 @@
   - images
   license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
   link: https://toyhou.se/6493313.layout-striped-columns
-  meta: snail_legs_striped_columns\meta.yml
+  meta: snail_legs_striped_columns/meta.yml
   name: striped columns
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6493313?1592936291
   style: 'background-color: #3a3639; color: #fcfbf6'
-  template: snail_legs_striped_columns\striped.html
+  template: snail_legs_striped_columns/striped.html
   type: character
 - author: snail-legs
   author_link: https://toyhou.se/snail-legs
-  config: snail_legs_wikimania\config.json
-  css: snail_legs_wikimania\wikimania.css
+  config: snail_legs_wikimania/config.json
+  css: snail_legs_wikimania/wikimania.css
   description: Hello! This is a F2U profile code designed to mimic a wiki page. It's
     fully responsive, and you're free to do what you'd like with it as long as you
     maintain credit!
@@ -448,16 +448,16 @@
   - images
   license: For more information, please visit [the snail's shell] -> https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes
   link: https://toyhou.se/7237649.layout-wikimania
-  meta: snail_legs_wikimania\meta.yml
+  meta: snail_legs_wikimania/meta.yml
   name: wikimania
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7237649?1592426994
   style: 'background-color: #3a3639; color: #fcfbf6'
-  template: snail_legs_wikimania\wikimania.html
+  template: snail_legs_wikimania/wikimania.html
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: x_chara_minimal\config.json
-  css: x_chara_minimal\template.css
+  config: x_chara_minimal/config.json
+  css: x_chara_minimal/template.css
   description: Simple Character Profile Layout with minimal fields
   id: x_chara_minimal
   keywords:
@@ -471,16 +471,16 @@
   - images
   license: Free to use and modify.
   link: https://toyhou.se/7917001.-f2u-minimal-chara-profile
-  meta: x_chara_minimal\meta.yml
+  meta: x_chara_minimal/meta.yml
   name: Minimal Character Profile
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7917001?1597849483
   style: 'background-color: #1a4a6e; color: #f7fdf5'
-  template: x_chara_minimal\template.html
+  template: x_chara_minimal/template.html
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: x_chara_without_tabs\config.json
-  css: x_chara_without_tabs\template.css
+  config: x_chara_without_tabs/config.json
+  css: x_chara_without_tabs/template.css
   description: Simple Character Profile Layout without Tabs
   id: x_chara_without_tabs
   keywords:
@@ -505,16 +505,16 @@
   - images
   license: Free to use and modify.
   link: https://toyhou.se/7916778.-f2u-character-profile
-  meta: x_chara_without_tabs\meta.yml
+  meta: x_chara_without_tabs/meta.yml
   name: Character Profile
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7916778?1597849219
   style: 'background-color: #1a4a6e; color: #f7fdf5'
-  template: x_chara_without_tabs\template.html
+  template: x_chara_without_tabs/template.html
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: x_chara_with_tabs\config.json
-  css: x_chara_with_tabs\template.css
+  config: x_chara_with_tabs/config.json
+  css: x_chara_with_tabs/template.css
   description: Simple Character Profile Layout with Tabs
   id: x_chara_with_tabs
   keywords:
@@ -538,16 +538,16 @@
   - images
   license: Free to use and modify.
   link: https://toyhou.se/7909361.-f2u-chara-profile-with-tabs
-  meta: x_chara_with_tabs\meta.yml
+  meta: x_chara_with_tabs/meta.yml
   name: Character Profile with Tabs
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7909361?1597848953
   style: 'background-color: #1a4a6e; color: #f7fdf5'
-  template: x_chara_with_tabs\template.html
+  template: x_chara_with_tabs/template.html
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: x_user_basic\config.json
-  css: x_user_basic\template.css
+  config: x_user_basic/config.json
+  css: x_user_basic/template.css
   description: User Profile Layout with Status and Gallery
   id: x_user_basic
   keywords:
@@ -563,16 +563,16 @@
   - images
   license: Free to use and modify.
   link: https://toyhou.se/7931345.-f2u-user-profile-with-art
-  meta: x_user_basic\meta.yml
+  meta: x_user_basic/meta.yml
   name: User Profile with Art
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7931345?1597869858
   style: 'background-color: #1a4a6e; color: #f7fdf5'
-  template: x_user_basic\template.html
+  template: x_user_basic/template.html
   type: user
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: x_user_card\config.json
-  css: x_user_card\template.css
+  config: x_user_card/config.json
+  css: x_user_card/template.css
   description: Minimal Card Character Profile Layout
   id: x_user_card
   keywords:
@@ -586,16 +586,16 @@
   - images
   license: Free to use and modify
   link: https://toyhou.se/7909374.-f2u-simple-user-profile-card
-  meta: x_user_card\meta.yml
+  meta: x_user_card/meta.yml
   name: Character Profile Card
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7909374?1597849808
   style: 'background-color: #1a4a6e; color: #f7fdf5'
-  template: x_user_card\template.html
+  template: x_user_card/template.html
   type: user
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: y_codesnippet_characters\config.json
-  css: y_codesnippet_characters\snippet.css
+  config: y_codesnippet_characters/config.json
+  css: y_codesnippet_characters/snippet.css
   description: Use this Layout to generate Character-List with img and link
   id: y_codesnippet_characters
   keywords:
@@ -603,15 +603,15 @@
   - characters
   license: Free to use and modify.
   link: https://toyhou.se/7908752.-f2u-characters-list
-  meta: y_codesnippet_characters\meta.yml
+  meta: y_codesnippet_characters/meta.yml
   name: Character List
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: y_codesnippet_characters\snippet.html
+  template: y_codesnippet_characters/snippet.html
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: y_codesnippet_fields\config.json
-  css: y_codesnippet_fields\snippet.css
+  config: y_codesnippet_fields/config.json
+  css: y_codesnippet_fields/snippet.css
   description: Use this Layout to generate a List of Fields
   id: y_codesnippet_fields
   keywords:
@@ -619,30 +619,30 @@
   - fields
   license: Free to use and modify.
   link: https://toyhou.se/7909077.-f2u-fields
-  meta: y_codesnippet_fields\meta.yml
+  meta: y_codesnippet_fields/meta.yml
   name: Fields
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: y_codesnippet_fields\snippet.html
+  template: y_codesnippet_fields/snippet.html
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: y_codesnippet_gallery\config.json
-  css: y_codesnippet_gallery\snippet.css
+  config: y_codesnippet_gallery/config.json
+  css: y_codesnippet_gallery/snippet.css
   description: Use this Layout to generate a gallery with links and captions
   id: y_codesnippet_gallery
   keywords:
   - gallery
   license: Free to use and modify.
   link: https://toyhou.se/7909083.-f2u-gallery
-  meta: y_codesnippet_gallery\meta.yml
+  meta: y_codesnippet_gallery/meta.yml
   name: Gallery
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: y_codesnippet_gallery\snippet.html
+  template: y_codesnippet_gallery/snippet.html
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: y_codesnippet_list\config.json
-  css: y_codesnippet_list\snippet.css
+  config: y_codesnippet_list/config.json
+  css: y_codesnippet_list/snippet.css
   description: Use this Layout to generate a simple list with icons
   id: y_codesnippet_list
   keywords:
@@ -650,75 +650,75 @@
   - list
   license: Free to use and modify.
   link: https://toyhou.se/7909096.-f2u-list
-  meta: y_codesnippet_list\meta.yml
+  meta: y_codesnippet_list/meta.yml
   name: List
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: y_codesnippet_list\snippet.html
+  template: y_codesnippet_list/snippet.html
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: y_codesnippet_moodboard\config.json
-  css: y_codesnippet_moodboard\snippet.css
+  config: y_codesnippet_moodboard/config.json
+  css: y_codesnippet_moodboard/snippet.css
   description: Use this Layout to generate a gallery
   id: y_codesnippet_moodboard
   keywords:
   - moodboard
   license: Free to use and modify.
   link: https://toyhou.se/7909115.-f2u-moodboard
-  meta: y_codesnippet_moodboard\meta.yml
+  meta: y_codesnippet_moodboard/meta.yml
   name: Moodboard
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: y_codesnippet_moodboard\snippet.html
+  template: y_codesnippet_moodboard/snippet.html
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: y_codesnippet_progressbar\config.json
-  css: y_codesnippet_progressbar\snippet.css
+  config: y_codesnippet_progressbar/config.json
+  css: y_codesnippet_progressbar/snippet.css
   description: Use this Layout to generate standard progressbars for stats
   id: y_codesnippet_progressbar
   keywords:
   - attributes
   license: Free to use and modify.
   link: https://toyhou.se/7909154.-f2u-stats-with-progressbars
-  meta: y_codesnippet_progressbar\meta.yml
+  meta: y_codesnippet_progressbar/meta.yml
   name: Stats with Progressbars
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: y_codesnippet_progressbar\snippet.html
+  template: y_codesnippet_progressbar/snippet.html
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: y_codesnippet_progressbar_with_stars\config.json
-  css: y_codesnippet_progressbar_with_stars\snippet.css
+  config: y_codesnippet_progressbar_with_stars/config.json
+  css: y_codesnippet_progressbar_with_stars/snippet.css
   description: Use this Layout to generate Stars as values for stats
   id: y_codesnippet_progressbar_with_stars
   keywords:
   - attributes
   license: Free to use and modify.
   link: https://toyhou.se/7909163.-f2u-stats-with-stars
-  meta: y_codesnippet_progressbar_with_stars\meta.yml
+  meta: y_codesnippet_progressbar_with_stars/meta.yml
   name: Stats with Stars
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: y_codesnippet_progressbar_with_stars\snippet.html
+  template: y_codesnippet_progressbar_with_stars/snippet.html
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: y_codesnippet_progressbar_with_values\config.json
-  css: y_codesnippet_progressbar_with_values\snippet.css
+  config: y_codesnippet_progressbar_with_values/config.json
+  css: y_codesnippet_progressbar_with_values/snippet.css
   description: Use this Layout to generate standard progressbars with values for stats
   id: y_codesnippet_progressbar_with_values
   keywords:
   - attributes
   license: Free to use and modify.
   link: https://toyhou.se/7909215.-f2u-stats-with-pb-with-val-
-  meta: y_codesnippet_progressbar_with_values\meta.yml
+  meta: y_codesnippet_progressbar_with_values/meta.yml
   name: Stats with Progressbars and Values
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: y_codesnippet_progressbar_with_values\snippet.html
+  template: y_codesnippet_progressbar_with_values/snippet.html
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: y_codesnippet_relationships\config.json
-  css: y_codesnippet_relationships\snippet.css
+  config: y_codesnippet_relationships/config.json
+  css: y_codesnippet_relationships/snippet.css
   description: Use this Layout to generate Relationships-List or Friends-List with
     img and link
   id: y_codesnippet_relationships
@@ -727,15 +727,15 @@
   - relationships
   license: Free to use and modify.
   link: https://toyhou.se/7909221.-f2u-relationships-list
-  meta: y_codesnippet_relationships\meta.yml
+  meta: y_codesnippet_relationships/meta.yml
   name: Relationships List
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: y_codesnippet_relationships\snippet.html
+  template: y_codesnippet_relationships/snippet.html
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: y_codesnippet_relationships_with_status\config.json
-  css: y_codesnippet_relationships_with_status\snippet.css
+  config: y_codesnippet_relationships_with_status/config.json
+  css: y_codesnippet_relationships_with_status/snippet.css
   description: Use this Layout to generate Relationships-List or Friends-List with
     rounded img, link and status
   id: y_codesnippet_relationships_with_status
@@ -744,15 +744,15 @@
   - relationships
   license: Free to use and modify.
   link: https://toyhou.se/7909237.-f2u-relationships-list-2
-  meta: y_codesnippet_relationships_with_status\meta.yml
+  meta: y_codesnippet_relationships_with_status/meta.yml
   name: Relationships List with Status
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: y_codesnippet_relationships_with_status\snippet.html
+  template: y_codesnippet_relationships_with_status/snippet.html
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
-  config: y_codesnippet_tabs\config.json
-  css: y_codesnippet_tabs\snippet.css
+  config: y_codesnippet_tabs/config.json
+  css: y_codesnippet_tabs/snippet.css
   description: Use this Layout to generate Bootstrap Tabs
   id: y_codesnippet_tabs
   keywords:
@@ -760,8 +760,8 @@
   - tabs
   license: Free to use and modify
   link: https://github.com/furudbat/thhg/tree/master/templates
-  meta: y_codesnippet_tabs\meta.yml
+  meta: y_codesnippet_tabs/meta.yml
   name: Tabs
   style: 'background-color: #2a5a7e; color: #f7fdf5'
-  template: y_codesnippet_tabs\snippet.html
+  template: y_codesnippet_tabs/snippet.html
   type: codesnippet

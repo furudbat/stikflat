@@ -4,81 +4,20 @@
         <div class="col-12">
             <small class="text-muted">{{ site.data.strings.layouts.header_help }}</small>
         </div>
-        <div class="col-12 mt-2">
-            <ul id="layouts"></ul>
-            {%- assign templates_url = 'templates/' | absolute_url -%}
-            {%- for template in site.data.templates -%}
-            {%- unless template.disable or template.disabled -%}
-            {%- assign keywords_str = template.keywords | join: ", " -%}
-            {%- if template.preview -%}
-            <div class="d-inline col-3">
-                <button type="button" class="btn btn-link card d-inline mr-1 mb-1 layout-pattern"
-                    style="width: 14rem; min-height: 320px; {{ template.style }}"
-                    data-template="{{ template.template | prepend: templates_url }}"
-                    data-css="{{ template.css | prepend: templates_url }}"
-                    data-config="{{ template.config | prepend: templates_url }}"
-                    data-meta="{{ template.meta | prepend: templates_url }}" data-keywords="{{ keywords_str | escape }}"
-                    data-id="{{ template.id | escape }}">
-                    <div class="d-flex flex-wrap align-items-center" style="min-height: 200px;">
-                        <img class="card-img-top" style="max-height: 200px;" src="{{ template.preview }}"
-                            alt="Preview {{ template.name | escape }}">
-                    </div>
-                    <div class="card-body">
-                        <div class="spinner-border" style="display: none" role="status"
-                            id="layout-loading-{{ template.id | escape }}">
-                            <span class="sr-only">Loading...</span>
-                        </div>
-                        <p class="card-text">
-                            <span class="text-left">{{ template.name | escape }}</span>
-                            <span class="text-right">
-                                {%- if template.type == 'character' -%}
-                                <span
-                                    class="badge badge-pill badge-success">{{ site.data.strings.layouts.type_character }}</span>
-                                {%- elsif template.type == 'user' -%}
-                                <span
-                                    class="badge badge-pill badge-warning">{{ site.data.strings.layouts.type_user }}</span>
-                                {%- elsif template.type == 'codesnippet' -%}
-                                <span
-                                    class="badge badge-pill badge-info">{{ site.data.strings.layouts.type_codesnippet }}</span>
-                                {%- else -%}
-                                <span class="badge badge-pill badge-danger">{{ template.type | escape}}</span>
-                                {%- endif -%}
-                            </span>
-                        </p>
-                        <p class="card-subtitle">{{ site.data.strings.layouts.by_author }}{{ template.author }}
-                        </p>
-                    </div>
-                </button>
-            </div>
-            {%- else -%}
-            <button type="button" class="mr-1 mt-1 mb-2 btn layout-pattern" style="{{ template.style }}"
-                data-template="{{ template.template | prepend: templates_url }}"
-                data-css="{{ template.css | prepend: templates_url }}"
-                data-config="{{ template.config | prepend: templates_url }}"
-                data-meta="{{ template.meta | prepend: templates_url }}" data-keywords="{{ keywords_str | escape }}"
-                data-id="{{ template.id | escape }}">
-
-                <div class="spinner-border" style="display: none" role="status"
-                    id="layout-loading-{{ template.id | escape }}">
-                    <span class="sr-only">Loading...</span>
+        <div class="col-12 mt-2 layoutslist" id="layouts-list">
+            <div class="input-group mb-3 col-10">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="searchHelp"><i class="fas fa-search d-inline"></i></span>
                 </div>
-
-                {{ template.name | escape }}
-                <span class="badge badge-light">{{ site.data.strings.layouts.by_author }}{{ template.author }}</span>
-
-                {%- if template.type == 'character' -%}
-                <span class="badge badge-pill badge-success">{{ site.data.strings.layouts.type_character }}</span>
-                {%- elsif template.type == 'user' -%}
-                <span class="badge badge-pill badge-warning">{{ site.data.strings.layouts.type_user }}</span>
-                {%- elsif template.type == 'codesnippet' -%}
-                <span class="badge badge-pill badge-info">{{ site.data.strings.layouts.type_codesnippet }}</span>
-                {%- else -%}
-                <span class="badge badge-pill badge-danger">{{ template.type | escape}}</span>
-                {%- endif -%}
-            </button>
-            {%- endif -%}
-            {%- endunless -%}
-            {%- endfor -%}
+                <input type="text" class="form-control fuzzy-search" aria-label="{{ site.data.strings.layouts.search_placeholder }}" aria-describedby="searchHelp"
+                    placeholder="{{ site.data.strings.layouts.search_placeholder }}">
+            </div>
+            <div class="list justify-content-center">
+            </div>
+            <nav class="my-2" aria-label="Page navigation Layout">
+                <ul class="pagination paginationBottom justify-content-center">
+                </ul>
+            </nav>
         </div>
     </div>
 </section>

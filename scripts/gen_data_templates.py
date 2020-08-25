@@ -45,19 +45,19 @@ def main(args):
 
                 if ext == '.html' or ext == '.mustache':
                     template['template'] = os.path.normpath(os.path.relpath(os.path.abspath(
-                        os.path.join(root, file)), templates_target_path).replace('\\', '/'))
+                        os.path.join(root, file)), templates_target_path)).replace('\\', '/')
                 elif ext == '.css':
                     template['css'] = os.path.normpath(os.path.relpath(os.path.abspath(
-                        os.path.join(root, file)), templates_target_path).replace('\\', '/'))
+                        os.path.join(root, file)), templates_target_path)).replace('\\', '/')
                 elif ext == '.json':
                     template['config'] = os.path.normpath(os.path.relpath(os.path.abspath(
-                        os.path.join(root, file)), templates_target_path).replace('\\', '/'))
+                        os.path.join(root, file)), templates_target_path)).replace('\\', '/')
                     with open(os.path.abspath(os.path.join(root, file))) as json_file:
                         data = json.load(json_file)
                         keywords = [str(r) for r in data.keys()]
                 elif file == 'meta.yml':
                     template['meta'] = os.path.normpath(os.path.relpath(os.path.abspath(
-                        os.path.join(root, file)), templates_target_path).replace('\\', '/'))
+                        os.path.join(root, file)), templates_target_path)).replace('\\', '/')
                     meta_yml_filename = os.path.abspath(
                         os.path.join(root, file))
                     with open(meta_yml_filename) as yml_file:
