@@ -36,7 +36,9 @@
       //var initSite = function(){};
       var site = {};
       site.data = {};
+      site.data.templates = {{ site.data.templates | jsonify }};
       site.data.strings = {{ site.data.strings | jsonify }};
+      site.data.template_url = '{{ "templates/" | absolute_url }}'
 
       //console.debug({site});
     </script>

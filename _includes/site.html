@@ -5,6 +5,7 @@
             <small class="text-muted">{{ site.data.strings.layouts.header_help }}</small>
         </div>
         <div class="col-12 mt-2">
+            <ul id="layouts"></ul>
             {%- assign templates_url = 'templates/' | absolute_url -%}
             {%- for template in site.data.templates -%}
             {%- unless template.disable or template.disabled -%}
