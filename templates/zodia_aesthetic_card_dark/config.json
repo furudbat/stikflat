@@ -1,0 +1,25 @@
+{
+    "name": "name here",
+    "pronouns": "pronouns here",
+    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin erat quis congue aliquet. Quisque eu maximus nisl. Suspendisse nec ornare mi. In turpis odio, finibus ac risus vel, malesuada.",
+    "socialmedia": {
+        "instagram": "https://www.instagram.com/",
+        "tumblr": "https://www.tumblr.com/",
+        "deviantart": "https://www.deviantart.com/",
+        "twitter": "https://www.twitter.com/"
+    },
+    "credits": [
+        {
+            "by": "BG by ",
+            "name": "David Clode",
+            "link": "https://unsplash.com/@davidclode"
+        }
+    ],
+    "colors": {
+        "card": "rgba(0,0,0,.55)"
+    },
+    "images": {
+        "avatar": "https://via.placeholder.com/150",
+        "background": "https://images.unsplash.com/photo-1539389004540-770367e1bccb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1319&q=80"
+    }
+}
