@@ -821,3 +821,193 @@
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: y_codesnippet_tabs/snippet.html
   type: codesnippet
+- author: Zodia
+  author_avatar: https://file.toyhou.se/users/Zodia
+  author_link: https://toyhou.se/Zodia
+  config: zodia_aesthetic_card_dark/config.json
+  css: zodia_aesthetic_card_dark/card.css
+  description: A small user profile with an aesthetic image background. Background
+    can be changed to any image you'd like!
+  id: zodia_aesthetic_card_dark
+  keywords:
+  - about
+  - name
+  - images
+  - socialmedia
+  - credits
+  - colors
+  - pronouns
+  license: <a href="https://toyhou.se/~bulletins/95096.code-rules">Please remember
+    to read the rules before using!!</a>
+  link: https://toyhou.se/4439093.-f2u-02-aesthetic-card
+  meta: zodia_aesthetic_card_dark/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/108777.-zodia-s-html-codes'>Zodia's
+    HTML Codes</a>
+  name: Aesthetic Card (Dark)
+  preview: https://file.toyhou.se/characters/4439093?1562121670
+  style: 'background-color: #fff; color:#1e1e1e;'
+  template: zodia_aesthetic_card_dark/card.html
+  type: user
+- author: Zodia
+  author_avatar: https://file.toyhou.se/users/Zodia
+  author_link: https://toyhou.se/Zodia
+  config: zodia_aesthetic_card_light/config.json
+  css: zodia_aesthetic_card_light/card.css
+  description: A small user profile with an aesthetic image background. Background
+    can be changed to any image you'd like!
+  id: zodia_aesthetic_card_light
+  keywords:
+  - about
+  - name
+  - images
+  - socialmedia
+  - credits
+  - colors
+  - pronouns
+  license: <a href="https://toyhou.se/~bulletins/95096.code-rules">Please remember
+    to read the rules before using!!</a>
+  link: https://toyhou.se/4439093.-f2u-02-aesthetic-card
+  meta: zodia_aesthetic_card_light/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/108777.-zodia-s-html-codes'>Zodia's
+    HTML Codes</a>
+  name: Aesthetic Card (Light)
+  preview: https://file.toyhou.se/characters/4439093?1562121670
+  style: 'background-color: #fff; color:#1e1e1e;'
+  template: zodia_aesthetic_card_light/card.html
+  type: user
+- author: Zodia
+  author_avatar: https://file.toyhou.se/users/Zodia
+  author_link: https://toyhou.se/Zodia
+  config: zodia_palette_profile_dark/config.json
+  css: zodia_palette_profile_dark/profile.css
+  description: A simple character profile with focus on color palette and aesthetic.
+  id: zodia_palette_profile_dark
+  keywords:
+  - relationships
+  - bio
+  - about
+  - designer
+  - orientation
+  - images
+  - age
+  - designer_link
+  - colorpallete
+  - worth
+  - name
+  - credits
+  - stamps
+  - trivias
+  - pronouns
+  - species
+  - alignment
+  - occupation
+  license: <a href="https://toyhou.se/~bulletins/95096.code-rules">Please remember
+    to read the rules before using!!</a>
+  link: https://toyhou.se/4634664.-f2u-05-palette-profile
+  meta: zodia_palette_profile_dark/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/108777.-zodia-s-html-codes'>Zodia's
+    HTML Codes</a>
+  name: Palette Profile (Dark)
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4634664?1570150052
+  style: 'background-color: #fff; color:#1e1e1e;'
+  template: zodia_palette_profile_dark/profile.html
+  type: character
+- author: Zodia
+  author_avatar: https://file.toyhou.se/users/Zodia
+  author_link: https://toyhou.se/Zodia
+  config: zodia_palette_profile_light/config.json
+  css: zodia_palette_profile_light/profile.css
+  description: A simple character profile with focus on color palette and aesthetic.
+  id: zodia_palette_profile_light
+  keywords:
+  - relationships
+  - bio
+  - about
+  - designer
+  - orientation
+  - images
+  - age
+  - designer_link
+  - colorpallete
+  - worth
+  - name
+  - credits
+  - stamps
+  - trivias
+  - pronouns
+  - species
+  - alignment
+  - occupation
+  license: <a href="https://toyhou.se/~bulletins/95096.code-rules">Please remember
+    to read the rules before using!!</a>
+  link: https://toyhou.se/4634664.-f2u-05-palette-profile
+  meta: zodia_palette_profile_light/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/108777.-zodia-s-html-codes'>Zodia's
+    HTML Codes</a>
+  name: Palette Profile (Light)
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4634664?1570150052
+  style: 'background-color: #fff; color:#1e1e1e;'
+  template: zodia_palette_profile_light/profile.html
+  type: character
+- author: Zodia
+  author_avatar: https://file.toyhou.se/users/Zodia
+  author_link: https://toyhou.se/Zodia
+  config: zodia_simple_profile/config.json
+  css: zodia_simple_profile/profile.css
+  description: A simplified character profile made as a request for a friend! Has
+    custom color support!
+  id: zodia_simple_profile
+  keywords:
+  - about
+  - description
+  - created
+  - images
+  - value
+  - name
+  - for_sale
+  - colors
+  - species
+  - credits
+  - ok_to_draw
+  - icon
+  license: <a href="https://toyhou.se/~bulletins/95096.code-rules">Please remember
+    to read the rules before using!!</a>
+  link: https://toyhou.se/6545040.-f2u-07-simplified
+  meta: zodia_simple_profile/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/108777.-zodia-s-html-codes'>Zodia's
+    HTML Codes</a>
+  name: Simplified Profile
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6545040?1586556611
+  style: 'background-color: #fff; color:#1e1e1e;'
+  template: zodia_simple_profile/profile.html
+  type: character
+- author: Zodia
+  author_avatar: https://file.toyhou.se/users/Zodia
+  author_link: https://toyhou.se/Zodia
+  config: zodia_split_boxes/config.json
+  css: zodia_split_boxes/split.css
+  description: A simple character profile with the information split across the container.
+  id: zodia_split_boxes
+  keywords:
+  - about
+  - name
+  - gender
+  - age
+  - height
+  - credits
+  - aesthetic
+  - images
+  - species
+  - alignment
+  - personality
+  license: <a href="https://toyhou.se/~bulletins/95096.code-rules">Please remember
+    to read the rules before using!!</a>
+  link: https://toyhou.se/4432122.-f2u-01-split-boxes
+  meta: zodia_split_boxes/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/108777.-zodia-s-html-codes'>Zodia's
+    HTML Codes</a>
+  name: Split Boxes
+  preview: https://file.toyhou.se/characters/4432122?1562018377
+  style: 'background-color: #fff; color:#1e1e1e;'
+  template: zodia_split_boxes/split.html
+  type: character
