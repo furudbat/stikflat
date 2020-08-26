@@ -85,6 +85,8 @@ def main(args):
                     if creator in creatorsmap:
                         if 'author_avatar' in template and template['author_avatar'] != '':
                             creatorsmap[creator]['author_avatar'] = template['author_avatar']
+                        if 'author_link' in template and template['author_link'] != '':
+                            creatorsmap[creator]['author_link'] = template['author_link']
                     else:
                         creatorsmap[creator] = {}
                         creatorsmap[creator]['name'] = creator

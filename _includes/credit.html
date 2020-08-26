@@ -13,9 +13,9 @@
         {% endif %}
         <figure class="figure m-2 p-1">
             <div class="d-flex flex-wrap align-items-center mx-auto creators-avatar">
-                <img src="{{avatar}}" class="figure-img img-fluid rounded w-70" style="width: 70%" alt="{{ creator.name | escape }}">
+                <a href="{{ creator.author_link }}"><img src="{{avatar}}" class="figure-img img-fluid rounded" alt="{{ creator.name | escape }}"></a>
             </div>
-            <figcaption class="figure-caption">{{ creator.name }}</figcaption>
+            <figcaption class="figure-caption text-center"><a href="{{ creator.author_link }}">{{ creator.name }}</a></figcaption>
         </figure>
     {% endfor %}
 </div>
