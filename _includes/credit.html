@@ -5,14 +5,16 @@
 </p>
 
 <h4>Layout Creators</h4><small class="d-inline ml-2">Thanks for your Contribution</small>
-<div class="row mx-3">
+<div class="row mx-3 mb-3 creators">
     {% for creator in site.data.creators %}
         {% assign avatar = creator.author_avatar %}
         {% if avatar == '' %}
         {% assign avatar = '/imgs/css/th.png' | relative_url %}
         {% endif %}
         <figure class="figure m-2 p-1">
-            <img src="{{avatar}}" class="figure-img img-fluid rounded w-70" style="width: 70%" alt="{{ creator.name | escape }}">
+            <div class="d-flex flex-wrap align-items-center mx-auto creators-avatar">
+                <img src="{{avatar}}" class="figure-img img-fluid rounded w-70" style="width: 70%" alt="{{ creator.name | escape }}">
+            </div>
             <figcaption class="figure-caption">{{ creator.name }}</figcaption>
         </figure>
     {% endfor %}
