@@ -91,12 +91,16 @@ def main(args):
                         if 'author_avatar' in template and template['author_avatar'] != '':
                             creatorsmap[creator]['author_avatar'] = template['author_avatar']
 
-    creators = creatorsmap.values()
+    creators = list(creatorsmap.values())
 
+    print('write ' + output_templates_filename + ' ...')
+    #print(templates)
     with open(output_templates_filename, 'w') as output:
         yaml.dump(templates, output)
         print('Done ' + output_templates_filename)
 
+    print('write ' + output_creator_filename + ' ...')
+    #print(creators)
     with open(output_creator_filename, 'w') as output:
         yaml.dump(creators, output)
         print('Done ' + output_creator_filename)

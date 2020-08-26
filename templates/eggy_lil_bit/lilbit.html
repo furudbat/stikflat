@@ -2,11 +2,12 @@
     <div class="card p-3" style="border-style:dashed;">
       
         <h1 class="bg-faded p-2 rounded text-center text-uppercase" style="letter-spacing: 2px;">
-          {{title}}</h1>
+          {{title}}
+        </h1>
 
         <div class="row justify-content-center">
             <div class="col-lg-4 col-md-5 mb-2">
-                <!--------------- AVATAR IMAGE -- USE A 200 x 200 IMAGE ---------------------->
+                <!-- AVATAR IMAGE USE A 200 x 200 IMAGE -->
                 <img src="{{{images.avatar}}}" class="d-block mx-auto mt-1 rounded-circle" style="max-height: 200px;">
             </div>
             
@@ -14,48 +15,48 @@
                 <div class="row">
                     {{#name}}
                     <div class="col-12">
-                        <span class="text-uppercase text-muted" style="letter-spacing:1px;">Name</span>
-                        <span class="pull-right">{{name}}</span></p>
+                        <p><span class="text-uppercase text-muted" style="letter-spacing:1px;">Name</span>
+                        <span class="pull-right float-right">{{name}}</span></p>
                         <hr class="my-2">
                     </div>
                     {{/name}}
                     
                     {{#age}}
                     <div class="col-12">
-                        <span class="text-uppercase text-muted" style="letter-spacing:1px;">Age</span>
-                        <span class="pull-right">{{age}}</span></p>
+                        <p><span class="text-uppercase text-muted" style="letter-spacing:1px;">Age</span>
+                        <span class="text-right pull-right float-right">{{age}}</span></p>
                         <hr class="my-2">
                     </div>
                     {{/age}}
                     
                     {{#gender}}
                     <div class="col-12">
-                        <span class="text-uppercase text-muted" style="letter-spacing:1px;">Gender</span>
-                        <span class="pull-right">{{gender}}</span></p>
+                        <p><span class="text-uppercase text-muted" style="letter-spacing:1px;">Gender</span>
+                        <span class="text-right pull-right float-right">{{gender}}</span></p>
                         <hr class="my-2">
                     </div>
                     {{/gender}}
                     
                     {{#species}}
                     <div class="col-12">
-                        <span class="text-uppercase text-muted" style="letter-spacing:1px;">Race</span>
-                        <span class="pull-right">{{species}}</span></p>
+                        <p><span class="text-uppercase text-muted" style="letter-spacing:1px;">Race</span>
+                        <span class="text-right pull-right float-right">{{species}}</span></p>
                         <hr class="my-2">
                     </div>
                     {{/species}}
                     
                     {{#role}}
                     <div class="col-12">
-                        <span class="text-uppercase text-muted" style="letter-spacing:1px;">Role</span>
-                        <span class="pull-right">{{role}}</span></p>
+                        <p><span class="text-uppercase text-muted" style="letter-spacing:1px;">Role</span>
+                        <span class="text-right pull-right float-right">{{role}}</span></p>
                         <hr class="my-2">
                     </div>
                     {{/role}}
                     
                     {{#value}}
                     <div class="col-12">
-                        <span class="text-uppercase text-muted" style="letter-spacing:1px;">Value</span>
-                        <span class="pull-right">{{value}}</span></p>
+                        <p><span class="text-uppercase text-muted" style="letter-spacing:1px;">Value</span>
+                        <span class="text-right pull-right float-right">{{value}}</span></p>
                     </div>
                     {{/value}}
                 </div>
