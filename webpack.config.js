@@ -1,22 +1,26 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path');
+
+const PATHS = {
+  src: path.join(__dirname, 'src/'), 
+  dist: path.join(__dirname, 'assets/js/app/')
+};
 
 module.exports = {
-  entry: './src/main.ts',
-  plugins: [
-    new CleanWebpackPlugin({
-      cleanAfterEveryBuildPatterns: ['public/build']
-    }),
-  ],
-  output: {
-    path: __dirname + '/assets/js/app',
-    filename: '[name].js'
-  },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js']
-  },
+  entry: PATHS.src + 'main.ts',
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: 'ts-loader' }
-    ]
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ],
+  },
+  output: {
+    filename: 'main.js',
+    path: PATHS.dist,
   }
-}
+};

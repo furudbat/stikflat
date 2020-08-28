@@ -188,10 +188,8 @@ export class Application implements ApplicationListener {
 
         if (this._appData.configContentMode === CONFIG_CONTENT_MODE_YAML) {
             $('#chbConfigMode').bootstrapToggle('on');
-            this.changeConfigMode(CONFIG_CONTENT_MODE_YAML);
         } else {
             $('#chbConfigMode').bootstrapToggle('off');
-            this.changeConfigMode(CONFIG_CONTENT_MODE_JSON);
         }
         
         if (this._appData.isLockConfig) {
