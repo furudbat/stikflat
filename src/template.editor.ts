@@ -1,9 +1,10 @@
 import { site, countlines, USE_CODEMIRROR, USE_ACE, USE_FROLALA_EDITOR, WITH_WYSIWYG_EDITOR } from './site'
+declare var FroalaEditor: any;
 import * as ace from 'ace-builds';
 import * as CodeMirror from 'codemirror'
-import * as FroalaEditor from 'froala-editor'
 import * as tinymce from 'tinymce'
 import { ApplicationData } from './application.data'
+import { ApplicationListener } from './application.listener';
 
 const TEMPLATE_EDITOR_NAME_CODEMIRROR = 'CodeMirror';
 const TEMPLATE_EDITOR_NAME_TINYMCE = 'TinyMCE';
@@ -18,9 +19,11 @@ export class TemplateEditor {
     private _currentTemplateEditorName: string = '';
 
     private _appData: ApplicationData;
+    private _appListener: ApplicationListener;
 
-    constructor(appData: ApplicationData){
+    constructor(appData: ApplicationData, appListener: ApplicationListener){
         this._appData = appData;
+        this._appListener = appListener;
     }
     
     set templateError(error: string) {
@@ -45,7 +48,7 @@ export class TemplateEditor {
             that._appData.templateCode = value;
             that.updateTemplateLinesOfCodeBadges(value);
             if (that._appData.isLivePreviewEnabled) {
-                generateHTML();
+                that._appListener.generateHTML();
             }
         };
         if (USE_FROLALA_EDITOR) {
@@ -101,7 +104,7 @@ export class TemplateEditor {
             that._appData.templateCode = value;
             that.updateTemplateLinesOfCodeBadges(value);
             if (that._appData.isLivePreviewEnabled) {
-                generateHTML();
+                that._appListener.generateHTML();
             }
         };
 

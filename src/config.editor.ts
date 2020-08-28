@@ -1,20 +1,23 @@
 import { site, USE_CODEMIRROR, USE_ACE } from './site'
-import * as acemodule from 'ace-builds/src-noconflict/ace'
+declare var jsonlint: any
+import * as ace from 'ace-builds'
 import * as CodeMirror from 'codemirror'
-import * as jsonlint from 'jsonlint'
 import * as jsyaml from 'js-yaml'
 import { ApplicationData, CONFIG_CONTENT_MODE_JSON, CONFIG_CONTENT_MODE_YAML } from './application.data'
 import { SavedConfigs } from './configs'
+import { ApplicationListener } from './application.listener'
 
 export class ConfigEditor {
     private _configEditorJSON: any = null;
     private _configEditorYAML: any = null;
     private _appData: ApplicationData;
     private _configs: SavedConfigs;
+    private _appListener: ApplicationListener;
 
-    constructor(appData: ApplicationData, configs: SavedConfigs) {
+    constructor(appData: ApplicationData, configs: SavedConfigs, appListener: ApplicationListener) {
         this._appData = appData;
         this._configs = configs;
+        this._appListener = appListener;
     }
     
     set configError(error: string) {
@@ -119,7 +122,7 @@ export class ConfigEditor {
                 let config = jsonlint.parse(this._appData.configJsonStr);
                 this._appData.configJson = config;
                 if (this._appData.isLivePreviewEnabled) {
-                    generateHTML();
+                    this._appListener.generateHTML();
                 }
             }
         } catch (error) {
@@ -134,7 +137,7 @@ export class ConfigEditor {
                 let config = jsyaml.load(this._appData.configYamlStr);
                 this._appData.configJson = config;
                 if (this._appData.isLivePreviewEnabled) {
-                    generateHTML();
+                    this._appListener.generateHTML();
                 }
             }
         } catch (error) {

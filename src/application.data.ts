@@ -225,4 +225,8 @@ export class ApplicationData {
     get currentConfigIndex() {
         return this._currentConfigIndex;
     }
+    
+    set currentConfigIndex(index: number | null) {
+        this._currentConfigIndex = index;
+    }
 }

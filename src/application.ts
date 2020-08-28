@@ -1,9 +1,10 @@
 import { site, countlines, USE_CODEMIRROR, USE_ACE, USE_FROLALA_EDITOR, WITH_WYSIWYG_EDITOR } from './site'
-import * as jsonlint from 'jsonlint';
+declare var jsonlint: any;
 import * as Mustache from 'mustache';
 import * as jsb from 'js-beautify'
 import * as ClipboardJS from 'clipboard'
 import { ApplicationData, CONFIG_CONTENT_MODE_YAML, CONFIG_CONTENT_MODE_JSON } from './application.data'
+import { ApplicationListener } from './application.listener'
 import { Layouts, SCROLL_TO_ANIMATION_TIME_MS } from './layouts';
 import { SavedConfigs } from './configs';
 import { TemplateEditor } from './template.editor';
@@ -14,15 +15,15 @@ import { PreviewEditor } from './preview.editor';
 
 const html_beautify = jsb.html_beautify;
 
-export class Application {
+export class Application implements ApplicationListener {
 
     private _appData: ApplicationData = new ApplicationData();
-    private _layouts: Layouts = new Layouts(this._appData);
-    private _configs: SavedConfigs = new SavedConfigs(this._appData);
+    private _layouts: Layouts = new Layouts(this._appData, this);
+    private _configs: SavedConfigs = new SavedConfigs(this._appData, this);
     private _preview: Preview = new Preview(this._appData);
-    private _templateEditor: TemplateEditor = new TemplateEditor(this._appData);
-    private _cssEditor: CssEditor = new CssEditor(this._appData);
-    private _configEditor: ConfigEditor = new ConfigEditor(this._appData, this._configs);
+    private _templateEditor: TemplateEditor = new TemplateEditor(this._appData, this);
+    private _cssEditor: CssEditor = new CssEditor(this._appData, this);
+    private _configEditor: ConfigEditor = new ConfigEditor(this._appData, this._configs, this);
     private _previewEditor: PreviewEditor = new PreviewEditor();
 
     private _btnPreviewCodeCopy: ClipboardJS | null = null;

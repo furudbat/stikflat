@@ -1,9 +1,10 @@
 import { site, makeDoubleClick, isOnScreen, USE_CACHE } from './site'
-import * as jsonlint from 'jsonlint'
+declare var jsonlint: any
 import * as jsyaml from 'js-yaml'
 import * as jsb from 'js-beautify'
 import * as List from 'list.js'
 import { ApplicationData } from './application.data'
+import { ApplicationListener } from './application.listener'
 
 const css_beautify = jsb.css_beautify;
 
@@ -13,10 +14,13 @@ export class Layouts {
 
     private _layoutsList: List | null = null;
     private _currentLayoutId: string | null = null;
-    private _appData: ApplicationData;
 
-    constructor(appData: ApplicationData) {
+    private _appData: ApplicationData;
+    private _appListener: ApplicationListener;
+
+    constructor(appData: ApplicationData, appListener: ApplicationListener) {
         this._appData = appData;
+        this._appListener = appListener;
     }
     
     loadLayout(layout: any, callback: any) {
@@ -231,11 +235,11 @@ export class Layouts {
 
             that._appData.templateCode = template;
             that._appData.configJson = configJson;
-            updateConfigCodesStr();
+            that._appData.updateConfigCodesStr();
             that._appData.cssCode = css_beautify(css);
 
-            initEditors();
-            generateHTML();
+            that._appListener.initEditors();
+            that._appListener.generateHTML();
 
             let keywordsArr = keywordsStr.split(", ").map(Function.prototype.call, String.prototype.trim);
             let keywords = keywordsArr.map(it => `<code>${it}</code>`).join(', ');
@@ -247,9 +251,12 @@ export class Layouts {
             }
             */
             if (!isOnScreen('.main-template-editors-preview-container') || isOnScreen('.main-template-editors-preview-container', 1.0, 0.45)) {
-                $('html, body').animate({
-                    scrollTop: $('#sectionEditor').offset().top
-                }, SCROLL_TO_ANIMATION_TIME_MS);
+                let sectionEditorOffset = $('#sectionEditor').offset() || null;
+                if (sectionEditorOffset) {
+                    $('html, body').animate({
+                        scrollTop: sectionEditorOffset.top
+                    }, SCROLL_TO_ANIMATION_TIME_MS);
+                }
             }
         });
     };
@@ -261,8 +268,8 @@ export class Layouts {
         this.loadLayout(layout, function (data: any) {
             //console.debug('previewLayout', 'loadLayout', data);
             that.updateLayoutInfo(data.meta);
-            generateHTMLFromTemplate(data.template, data.config, data.css, true);
-            selectPreviewTab();
+            that._appListener.generateHTMLFromTemplate(data.template, data.config, data.css, true);
+            that._appListener.selectPreviewTab();
         });
     };
 }

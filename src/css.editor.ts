@@ -2,14 +2,18 @@ import { site, countlines, USE_CODEMIRROR, USE_ACE } from './site'
 import * as ace from 'ace-builds';
 import * as CodeMirror from 'codemirror'
 import { ApplicationData } from './application.data'
+import { ApplicationListener } from './application.listener';
 
 export class CssEditor {
 
     private _cssEditor: any = null;
-    private _appData: ApplicationData;
 
-    constructor(appData: ApplicationData) {
+    private _appData: ApplicationData;
+    private _appListener: ApplicationListener;
+
+    constructor(appData: ApplicationData, appListener: ApplicationListener){
         this._appData = appData;
+        this._appListener = appListener;
     }
 
     generateCssEditor() {
@@ -73,7 +77,7 @@ export class CssEditor {
         this._appData.cssCode = value;
         this.updateCssLinesOfCodeBadges(value);
         if (this._appData.isLivePreviewEnabled) {
-            generateHTML();
+            this._appListener.generateHTML();
         }
     };
 }
