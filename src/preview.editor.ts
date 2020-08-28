@@ -1,11 +1,17 @@
-/*global localStorage, console, $, CodeMirrorSpellChecker, CodeMirror, ace, setTimeout, document, Mustache, html_beautify, js_beautify, css_beautify */
-/*global USE_ACE, USE_CODEMIRROR */
-'use strict';
+import { USE_CODEMIRROR, USE_ACE } from './site'
+import * as ace from 'ace-builds';
+import * as CodeMirror from 'codemirror'
 
 export class PreviewEditor {
     
+    private _codePreviewEditor: any = null;
+    private _codePreview: string = '';
+
     constructor() {
-        this._codePreviewEditor = null;
+    }
+
+    get codePreview() {
+        return this._codePreview;
     }
     
     generateCodePreviewEditor() {
@@ -15,27 +21,23 @@ export class PreviewEditor {
             //this._codePreviewEditor.setTheme("ace/theme/dracula");
             this._codePreviewEditor.session.setMode("ace/mode/html");
             this._codePreviewEditor.setReadOnly(true);
-        }
-        if (USE_CODEMIRROR) {
-            this._codePreviewEditor = CodeMirror.fromTextArea(document.getElementById('txtPreviewCode'), {
+        } else if (USE_CODEMIRROR) {
+            this._codePreviewEditor = CodeMirror.fromTextArea(document.getElementById('txtPreviewCode') as HTMLTextAreaElement, {
                 mode: 'text/html',
                 //theme: 'dracula',
                 lineNumbers: true,
-                readOnly: true,
-                autoRefresh: true
+                readOnly: true
             });
         }
     }
 
-    setCodePreview(code) {
-        _codePreview = code;
+    set codePreview(code: string) {
+        this._codePreview = code;
         this._codePreviewEditor.setValue(code);
 
         if (USE_ACE) {
             this._codePreviewEditor.clearSelection();
-        }
-
-        if (USE_CODEMIRROR) {
+        } else if (USE_CODEMIRROR) {
             //setTimeout(function () {
                 this._codePreviewEditor.refresh();
             //}, 100);

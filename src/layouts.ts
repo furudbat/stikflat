@@ -1,14 +1,30 @@
-/*global localStorage, console, $, CodeMirrorSpellChecker, CodeMirror, setTimeout, document, Mustache, html_beautify, js_beautify, css_beautify, jsyaml, List */
-/*global site */
+import { site, makeDoubleClick, isOnScreen, USE_CACHE } from './site'
+import * as jsonlint from 'jsonlint'
+import * as jsyaml from 'js-yaml'
+import * as jsb from 'js-beautify'
+import * as List from 'list.js'
+import { ApplicationData } from './application.data'
 
-const SCROLL_TO_ANIMATION_TIME_MS = 600;
+const css_beautify = jsb.css_beautify;
+
+export const SCROLL_TO_ANIMATION_TIME_MS = 600;
 
 export class Layouts {
+
+    private _layoutsList: List | null = null;
+    private _currentLayoutId: string | null = null;
+    private _appData: ApplicationData;
+
+    constructor(appData: ApplicationData) {
+        this._appData = appData;
+    }
     
-    loadLayout(layout, callback) {
+    loadLayout(layout: any, callback: any) {
         let id = $(layout).data('id');
         let layoutLoading = $('#layout-loading-' + id);
+
         layoutLoading.show();
+
         $.ajax({
             url: $(layout).data('meta'),
             method: "GET",
@@ -123,7 +139,7 @@ export class Layouts {
             </div>
         </div>`;
 
-        let options = {
+        let options: any /*List.ListOptions*/ = {
             valueNames: [
                 'preview', 'name', 'type', 'author',
                 { name: 'template', attr: 'data-template' },
@@ -150,75 +166,103 @@ export class Layouts {
             }]
         };
         
-        this.layoutsList = new List('layouts-list', options, templates);
+        var that = this;
+        this._layoutsList = new List('layouts-list', options, templates);
+        this._layoutsList.on('updated', function () {
+            makeDoubleClick($('.layout-pattern'), that.overrideLayout, that.previewLayout);
+        });
+        makeDoubleClick($('.layout-pattern'), that.overrideLayout, that.previewLayout);
+    }
+
+    clearLayoutInfo() {
+        $('#msgLayoutPatternInfo').hide();
+    }
+
+    updateLayoutInfo(meta: any) {
+        if (meta === null) {
+            console.error('updateLayoutInfo', 'meta is null');
+            return;
+        }
+        this._currentLayoutId = meta.id;
+
+        let author = meta.author || '&lt;Unknown&gt;';
+        let authorLink = meta.author_link || '';
+        let description = meta.description || '';
+        let link = meta.link || '';
+        let name = meta.name || link;
+        let license = meta.license || '';
+        let more = meta.more || '';
+
+        let header = (link === '')? name : '<a href="' + link + '" target="_blank">' + name + '</a>';
+        header += site.data.strings.info.by_author + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
+
+        $('#msgLayoutPatternInfoHeader').html(header);
+        $('#msgLayoutPatternInfoDescription').html(description);
+        $('#msgLayoutPatternInfoLicense').html(license);
+        $('#msgLayoutPatternInfoMore').html(more);
+        $('#msgLayoutPatternInfo').show();
+    }
+
+    
+    private overrideLayout (layout: any) {
+        //console.debug('layout-pattern dblclick', layout);
 
         var that = this;
-        var overrideLayout = function (layout) {
-            //console.debug('layout-pattern dblclick', layout);
+        this.loadLayout(layout, function (data: any) {
+            let keywordsStr: string = $(layout).data('keywords');
 
-            that.loadLayout(layout, (data) => {
-                let keywordsStr = $(layout).data('keywords');
+            //console.debug('overrideLayout', 'loadLayout', data);
+            that.updateLayoutInfo(data.meta);
 
-                //console.debug('overrideLayout', 'loadLayout', data);
-                updateLayoutInfo(data.meta);
+            const template: string = data.template;
+            const css: string = data.css;
+            const config = (that._appData.isLockConfig) ? that._appData.configJson : data.config;
 
-                let template = data.template;
-                let css = data.css;
-                let config = data.config;
-                if (_lockConfigCode === true) {
-                    config = _configJson;
+            let configJson = {};
+            try {
+                if (typeof config === 'string' || config instanceof String) {
+                    configJson = jsonlint.parse(config, null, 4);
+                } else {
+                    configJson = config;
                 }
+            } catch (e) {
+                console.error(e);
+            }
 
-                let configJson = {};
-                try {
-                    if (typeof config === 'string' || config instanceof String) {
-                        configJson = jsonlint.parse(config, null, 4);
-                    } else {
-                        configJson = config;
-                    }
-                } catch (e) {
-                    console.error(e);
-                }
+            that._appData.templateCode = template;
+            that._appData.configJson = configJson;
+            updateConfigCodesStr();
+            that._appData.cssCode = css_beautify(css);
 
-                setTemplateCode(template);
-                setConfigJson(configJson);
-                updateConfigCodesStr();
-                setCssCode(css_beautify(css));
+            initEditors();
+            generateHTML();
 
-                initEditors();
-                generateHTML();
+            let keywordsArr = keywordsStr.split(", ").map(Function.prototype.call, String.prototype.trim);
+            let keywords = keywordsArr.map(it => `<code>${it}</code>`).join(', ');
+            $('#configHelpKeywords').html(site.data.strings.editor.config.keywords_help.format(keywords, data.configlink));
 
-                let keywordsArr = keywordsStr.split(", ").map(Function.prototype.call, String.prototype.trim);
-                let keywords = keywordsArr.map(it => `<code>${it}</code>`).join(', ');
-                $('#configHelpKeywords').html(site.data.strings.editor.config.keywords_help.format(keywords, data.configlink));
-
-                /*
-                if ($('#previewTabContent').hasClass('show')) {
-                    selectTemplateTab();
-                }
-                */
-                if (!isOnScreen('.main-template-editors-preview-container') || isOnScreen('.main-template-editors-preview-container', 1.0, 0.45)) {
-                    $('html, body').animate({
-                        scrollTop: $('#sectionEditor').offset().top
-                    }, SCROLL_TO_ANIMATION_TIME_MS);
-                }
-            });
-        };
-
-        var previewLayout = function (layout) {
-            //console.debug('layout-pattern click', layout);
-
-            loadLayout(layout, (data) => {
-                //console.debug('previewLayout', 'loadLayout', data);
-                updateLayoutInfo(data.meta);
-                generateHTMLFromTemplate(data.template, data.config, data.css, true);
-                selectPreviewTab();
-            });
-        };
-
-        this.layoutsList.on('updated', () => {
-            makeDoubleClick($('.layout-pattern'), overrideLayout, previewLayout);
+            /*
+            if ($('#previewTabContent').hasClass('show')) {
+                selectTemplateTab();
+            }
+            */
+            if (!isOnScreen('.main-template-editors-preview-container') || isOnScreen('.main-template-editors-preview-container', 1.0, 0.45)) {
+                $('html, body').animate({
+                    scrollTop: $('#sectionEditor').offset().top
+                }, SCROLL_TO_ANIMATION_TIME_MS);
+            }
         });
-        makeDoubleClick($('.layout-pattern'), overrideLayout, previewLayout);
-    }
+    };
+
+    private previewLayout (layout: any) {
+        //console.debug('layout-pattern click', layout);
+
+        var that = this;
+        this.loadLayout(layout, function (data: any) {
+            //console.debug('previewLayout', 'loadLayout', data);
+            that.updateLayoutInfo(data.meta);
+            generateHTMLFromTemplate(data.template, data.config, data.css, true);
+            selectPreviewTab();
+        });
+    };
 }

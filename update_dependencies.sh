@@ -7,14 +7,33 @@ npm i bootstrap@4 jquery@3 jquery-ui
 npm i bootstrap-toggle
 npm i @fortawesome/fontawesome-free
 npm i mustache
-npm i js-beautify
-npm i linkifyjs
-npm i jsonlint
-npm i esprima js-yaml
 npm i clipboard
+npm i js-beautify jsonlint htmlhint
+npm i esprima js-yaml
 npm i tinymce froala-editor 
-npm i codemirror htmlhint csslint
+npm i codemirror
 npm i ace-builds
+
+npm i --save-dev typescript
+npm i --save-dev @tsconfig/recommended
+npm i --save-dev @types/node
+npm i --save-dev @types/jquery
+npm i --save-dev @types/bootstrap
+npm i --save-dev @types/bootstrap-toggle
+npm i --save-dev @types/mustache
+npm i --save-dev @types/list.js
+npm i --save-dev @types/htmlhint
+npm i --save-dev @types/js-beautify
+npm i --save-dev @types/js-yaml
+npm i --save-dev @types/ace
+npm i --save-dev @types/codemirror
+npm i --save-dev @types/tinymce
+npm i --save-dev @types/clipboard
+npm i --save-dev @types/jqueryui
+
+
+
+
 
 cp node_modules/jquery/dist/jquery.min.* assets/js
 

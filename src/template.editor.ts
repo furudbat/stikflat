@@ -1,6 +1,9 @@
-/*global localStorage, console, $, CodeMirrorSpellChecker, CodeMirror, FroalaEditor, setTimeout, document, Mustache, html_beautify, js_beautify, css_beautify, tinymce */
-/*global site, countlines, USE_FROLALA_EDITOR, USE_ACE, USE_CODEMIRROR, WITH_WYSIWYG_EDITOR */
-"use strict";
+import { site, countlines, USE_CODEMIRROR, USE_ACE, USE_FROLALA_EDITOR, WITH_WYSIWYG_EDITOR } from './site'
+import * as ace from 'ace-builds';
+import * as CodeMirror from 'codemirror'
+import * as FroalaEditor from 'froala-editor'
+import * as tinymce from 'tinymce'
+import { ApplicationData } from './application.data'
 
 const TEMPLATE_EDITOR_NAME_CODEMIRROR = 'CodeMirror';
 const TEMPLATE_EDITOR_NAME_TINYMCE = 'TinyMCE';
@@ -9,21 +12,26 @@ const TEMPLATE_EDITOR_NAME_ACE = 'ace';
 
 export class TemplateEditor {
     
-    constructor() {
-        this._templateEditor = null;
-        this._templateWYSIWYGEditor = null;
-        this._currentWYSIWYGTemplateEditorName = '';
+    private _templateEditor: any = null;
+    private _templateWYSIWYGEditor: any = null;
+    private _currentWYSIWYGTemplateEditorName: string = '';
+    private _currentTemplateEditorName: string = '';
+
+    private _appData: ApplicationData;
+
+    constructor(appData: ApplicationData){
+        this._appData = appData;
     }
     
-    setTemplateError(error) {
+    set templateError(error: string) {
         $('#configError').html(error).show();
     }
     clearTemplateError() {
         $('#templateError').hide().empty();
     }
 
-    updateTemplateLinesOfCodeBadges(code) {
-        var loc = countlines(code);
+    updateTemplateLinesOfCodeBadges(code: string) {
+        let loc = countlines(code);
         if (loc > 0) {
             $('#templateEditorLinesBadge').html(site.data.strings.editor.lines.format(loc)).show();
         } else {
@@ -32,10 +40,11 @@ export class TemplateEditor {
     }
 
     generateTemplateWYSIWYGEditor() {
-        var onChangeTemplate = function (value) {
-            setTemplateCode(value);
-            this.updateTemplateLinesOfCodeBadges(value);
-            if (_enableLivePreview === true) {
+        var that = this;
+        var onChangeTemplate = function (value: string) {
+            that._appData.templateCode = value;
+            that.updateTemplateLinesOfCodeBadges(value);
+            if (that._appData.isLivePreviewEnabled) {
                 generateHTML();
             }
         };
@@ -52,13 +61,12 @@ export class TemplateEditor {
                     'help'
                 ],
                 events: {
-                    contentsChanged: function (e, editor) {
+                    contentsChanged: function (e: any, editor: any) {
                         onChangeTemplate(editor.html.get());
                     }
                 }
-            }, function () {
-                this._templateWYSIWYGEditor.html.set(getTemplateCode());
             });
+            this._templateWYSIWYGEditor.html.set(that._appData.templateCode);
             this._currentWYSIWYGTemplateEditorName = TEMPLATE_EDITOR_NAME_FROALAEDITOR;
         } else {
             tinymce.init({
@@ -75,23 +83,24 @@ export class TemplateEditor {
                     'bold italic backcolor | alignleft aligncenter ' +
                     'alignright alignjustify | bullist numlist outdent indent | ' +
                     'removeformat | help',
-                setup: function (ed) {
-                    ed.on('change', function (e) {
-                        onChangeTemplate(ed.getContent());
+                setup: function (editor) {
+                    editor.on('change', function (e) {
+                        onChangeTemplate(editor.getContent());
                     });
                 }
             });
             this._templateWYSIWYGEditor = tinymce.get('txtTemplateWYSIWYG');
-            this._templateWYSIWYGEditor.setContent(getTemplateCode());
+            this._templateWYSIWYGEditor.setContent(this._appData.templateCode);
             this._currentWYSIWYGTemplateEditorName = TEMPLATE_EDITOR_NAME_TINYMCE;
         }
     }
 
     generateTemplateEditor() {
-        var onChangeTemplateEditor = function (value) {
-            setTemplateCode(value);
-            this.updateTemplateLinesOfCodeBadges(value);
-            if (_enableLivePreview === true) {
+        var that = this;
+        var onChangeTemplateEditor = function (value: string) {
+            that._appData.templateCode = value;
+            that.updateTemplateLinesOfCodeBadges(value);
+            if (that._appData.isLivePreviewEnabled) {
                 generateHTML();
             }
         };
@@ -101,32 +110,31 @@ export class TemplateEditor {
             this._templateEditor = ace.edit("txtTemplate");
             //_templateEditor.setTheme("ace/theme/dracula");
             this._templateEditor.session.setMode("ace/mode/html");
-            this._templateEditor.session.on('change', function (delta) {
+            this._templateEditor.session.on('change', function (delta: any) {
                 // delta.start, delta.end, delta.lines, delta.action
-                onChangeTemplateEditor(this._templateEditor.getValue());
+                onChangeTemplateEditor(that._templateEditor.getValue());
             });
             this._currentTemplateEditorName = TEMPLATE_EDITOR_NAME_ACE;
         }
 
         if (USE_CODEMIRROR) {
-            this._templateEditor = CodeMirror.fromTextArea(document.getElementById('txtTemplate'), {
-                value: getTemplateCode(),
+            this._templateEditor = CodeMirror.fromTextArea(document.getElementById('txtTemplate') as HTMLTextAreaElement, {
+                value: this._appData.templateCode,
                 mode: 'text/html',
                 //theme: 'dracula',
                 lineNumbers: true,
-                autoRefresh: true,
                 lint: true,
                 gutters: ["CodeMirror-lint-markers"],
                 extraKeys: { "Ctrl-Space": "autocomplete" }
             });
-            this._templateEditor.on('changes', function (cm, changes) {
+            this._templateEditor.on('changes', function (cm: any, changes: any) {
                 onChangeTemplateEditor(cm.getValue());
             });
             this._currentTemplateEditorName = TEMPLATE_EDITOR_NAME_CODEMIRROR;
         }
     }
 
-    setTemplateEditorValue(code) {
+    setTemplateEditorValue(code: string) {
         if (WITH_WYSIWYG_EDITOR === true) {
             if (this._currentWYSIWYGTemplateEditorName === TEMPLATE_EDITOR_NAME_TINYMCE) {
                 this._templateWYSIWYGEditor.setContent(code);
@@ -149,7 +157,7 @@ export class TemplateEditor {
     }
     
     initEditor() {
-        let templateCode = getTemplateCode();
+        const templateCode = this._appData.templateCode;
         this.setTemplateEditorValue(templateCode);
         this.updateTemplateLinesOfCodeBadges(templateCode);
     }
@@ -157,26 +165,22 @@ export class TemplateEditor {
     refresh() {
         if (USE_CODEMIRROR) {
             //setTimeout(function () {
-            _this.templateEditor.refresh();
+            this._templateEditor.refresh();
             //}, 100);
         }
     }
     
     enableWYSIWYGEditor() {
-        _enableWYSIWYGTemplateEditor = true;
-        localStorage.setItem(STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR, _enableWYSIWYGTemplateEditor);
-
-        initEditor();
+        this._appData.enableWYSIWYGEditor();
+        this.initEditor();
 
         $('.main-template-editors-editor-container').hide();
         $('.main-template-editors-WYSIWYG-editor-container').show();
         $('#btnEnableWYSIWYGEditor').html(site.data.strings.editor.template.enabled_WYSIWYG_editor_btn).attr('class', 'btn btn-secondary');
     }
     disableWYSIWYGEditor() {
-        _enableWYSIWYGTemplateEditor = false;
-        localStorage.setItem(STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR, _enableWYSIWYGTemplateEditor);
-
-        initEditor();
+        this._appData.disableWYSIWYGEditor();
+        this.initEditor();
 
         $('.main-template-editors-editor-container').show();
         $('.main-template-editors-WYSIWYG-editor-container').hide();

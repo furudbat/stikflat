@@ -1,4 +1,5 @@
 /*global localStorage, console, $, CodeMirrorSpellChecker, CodeMirror, setTimeout, document, Mustache, html_beautify, js_beautify, css_beautify */
+/*global site */
 (function () {
     'use strict';
 
@@ -65,7 +66,7 @@
 
 
     /// https://css-tricks.com/snippets/javascript/bind-different-events-to-click-and-double-click/
-    var makeDoubleClick = function(element, doDoubleClickAction, doClickAction) {
+    var makeDoubleClick = function (element, doDoubleClickAction, doClickAction) {
         var timer = 0;
         var delay = 250;
         var prevent = false;
@@ -85,3 +86,16 @@
         });
     };
 }());
+
+module.exports = {
+    USE_ACE,
+    USE_CODEMIRROR,
+    USE_FROLALA_EDITOR,
+    USE_CACHE,
+    WITH_WYSIWYG_EDITOR,
+    site,
+    getUrlParameter,
+    isOnScreen,
+    countlines,
+    makeDoubleClick
+};
