@@ -47,6 +47,7 @@ exclude:
   - scripts
   - requirements.txt
   - update_dependencies.sh
+  - assets/js/.gitignore
 
 options:
   withWYSIWYGEditor: false
