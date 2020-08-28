@@ -1,16 +1,22 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
     "outDir": "./assets/js/app",
     "allowJs": true,
-    "target": "es6",
-    "module": "commonjs",
+    "removeComments": true,
     "sourceMap": true,
     "strict": true,
     "alwaysStrict": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
-    "preserveConstEnums": true
+    "preserveConstEnums": true,
+    "target": "es5",
+    "module": "commonjs",
+    "lib": [
+      "dom",
+      "es6"
+    ]
   },
   "files": [
     "./src/application.data.ts",
@@ -22,7 +28,8 @@
     "./src/layouts.ts",
     "./src/preview.ts",
     "./src/preview.editor.ts",
-    "./src/template.editor.ts"
+    "./src/template.editor.ts",
+    "./src/main.ts"
   ],
 
   "include": [

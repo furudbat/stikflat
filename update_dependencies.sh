@@ -6,7 +6,7 @@ rm -rf node_modules package-lock.json
 npm i bootstrap@4 jquery@3 jquery-ui
 npm i bootstrap-toggle
 npm i @fortawesome/fontawesome-free
-npm i mustache
+npm i mustache handlebars
 npm i clipboard
 npm i js-beautify jsonlint htmlhint
 npm i esprima js-yaml
@@ -15,6 +15,7 @@ npm i codemirror
 npm i ace-builds
 
 npm i --save-dev typescript
+npm i --save-dev webpack webpack-dev-server webpack-cli ts-loader clean-webpack-plugin html-webpack-plugin
 npm i --save-dev @tsconfig/recommended
 npm i --save-dev @types/node
 npm i --save-dev @types/jquery
