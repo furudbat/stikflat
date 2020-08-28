@@ -8,6 +8,7 @@ npm i bootstrap-toggle
 npm i @fortawesome/fontawesome-free
 npm i mustache handlebars
 npm i clipboard
+npm i list.js
 npm i js-beautify jsonlint htmlhint
 npm i esprima js-yaml
 npm i tinymce froala-editor 
