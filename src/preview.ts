@@ -18,7 +18,7 @@ export class Preview {
     }
 
     setHTMLPreview(htmlstr: string, css: string) {
-        let html: any = $.parseHTML('<style>' + css + '</style>' + htmlstr);
+        const html: any = $.parseHTML('<style>' + css + '</style>' + htmlstr);
         $('#preview-html').html(html);
     }
 }

@@ -1,12 +1,17 @@
-import { site, countlines, USE_CODEMIRROR, USE_ACE } from './site'
-import * as ace from 'ace-builds';
-import * as CodeMirror from 'codemirror'
+import { site, countlines } from './site'
+import ace from 'brace';
+import 'brace/ext/beautify'
+import 'brace/ext/textarea'
+import 'brace/ext/error_marker'
+import 'brace/mode/css';
+import 'brace/worker/css'
+import 'brace/theme/dracula';
 import { ApplicationData } from './application.data'
 import { ApplicationListener } from './application.listener';
 
 export class CssEditor {
 
-    private _cssEditor: any = null;
+    private _cssEditor: ace.Editor | null = null;
 
     private _appData: ApplicationData;
     private _appListener: ApplicationListener;
@@ -17,28 +22,16 @@ export class CssEditor {
     }
 
     generateCssEditor() {
+        $('#txtCSS').replaceWith('<pre id="txtCSS" class="pre-ace-editor"></pre>');
+        this._cssEditor = ace.edit("txtCSS");
+        //_cssEditor.setTheme("ace/theme/dracula");
+        this._cssEditor.session.setMode("ace/mode/json");
+
         var that = this;
-        if (USE_ACE) {
-            $('#txtCSS').replaceWith('<pre id="txtCSS" class="pre-ace-editor"></pre>');
-            this._cssEditor = ace.edit("txtCSS");
-            //_cssEditor.setTheme("ace/theme/dracula");
-            this._cssEditor.session.setMode("ace/mode/json");
-            this._cssEditor.session.on('change', function (delta: any) {
-                // delta.start, delta.end, delta.lines, delta.action
-                that.onChangeCSS(that._cssEditor.getValue());
-            });
-        } else if (USE_CODEMIRROR) {
-            this._cssEditor = CodeMirror.fromTextArea(document.getElementById('txtCSS') as HTMLTextAreaElement, {
-                value: this._appData.cssCode,
-                mode: 'text/css',
-                //theme: 'dracula',
-                //lineNumbers: true,
-                lint: true,
-            });
-            this._cssEditor.on('changes', function (cm: any, changes: any) {
-                that.onChangeCSS(cm.getValue());
-            });
-        }
+        this._cssEditor.session.on('change', function (delta: any) {
+            // delta.start, delta.end, delta.lines, delta.action
+            that.onChangeCSS((that._cssEditor)? that._cssEditor.getValue() : '');
+        });
     }
 
     updateCssLinesOfCodeBadges(code: string) {
@@ -51,26 +44,17 @@ export class CssEditor {
     }
 
     refresh() {
-        if (USE_CODEMIRROR) {
-            //setTimeout(function () {
-            this._cssEditor.refresh();
-            //}, 100);
-        }
     }
 
     initEditor() {
         const cssCode = this._appData.cssCode;
 
-        this._cssEditor.setValue(cssCode);
         this.updateCssLinesOfCodeBadges(cssCode);
-
-        if (USE_ACE) {
+        if (this._cssEditor) {
+            this._cssEditor.setValue(cssCode);
             this._cssEditor.clearSelection();
-        } else if (USE_CODEMIRROR) {
-            //setTimeout(function () {
-            this._cssEditor.refresh();
-            //}, 100);
         }
+
     }
 
     private onChangeCSS(value: string) {

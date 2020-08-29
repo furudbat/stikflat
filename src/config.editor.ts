@@ -1,15 +1,22 @@
-import { site, USE_CODEMIRROR, USE_ACE } from './site'
-declare var jsonlint: any
-import * as ace from 'ace-builds'
-import * as CodeMirror from 'codemirror'
-import * as jsyaml from 'js-yaml'
-import { ApplicationData, CONFIG_CONTENT_MODE_JSON, CONFIG_CONTENT_MODE_YAML } from './application.data'
-import { SavedConfigs } from './configs'
-import { ApplicationListener } from './application.listener'
+import { site } from './site'
+import parseJson from 'json-parse-better-errors';
+import ace from 'brace';
+import 'brace/ext/beautify'
+import 'brace/ext/textarea'
+import 'brace/ext/error_marker'
+import 'brace/ext/spellcheck'
+import 'brace/mode/json';
+import 'brace/mode/yaml';
+import 'brace/worker/json'
+import 'brace/theme/dracula';
+import * as jsyaml from 'js-yaml';
+import { ApplicationData, CONFIG_CONTENT_MODE_JSON, CONFIG_CONTENT_MODE_YAML } from './application.data';
+import { SavedConfigs } from './configs';
+import { ApplicationListener } from './application.listener';
 
 export class ConfigEditor {
-    private _configEditorJSON: any = null;
-    private _configEditorYAML: any = null;
+    private _configEditorJSON: ace.Editor | null = null;
+    private _configEditorYAML: ace.Editor | null = null;
     private _appData: ApplicationData;
     private _configs: SavedConfigs;
     private _appListener: ApplicationListener;
@@ -31,77 +38,43 @@ export class ConfigEditor {
 
     generateConfigEditor() {
         var that = this;
-        if (USE_ACE) {
-            $('#txtConfigJSON').replaceWith('<pre id="txtConfigJSON" class="pre-ace-editor"></pre>');
-            this._configEditorJSON = ace.edit("txtConfigJSON");
-            //this._configEditorJSON.setTheme("ace/theme/dracula");
-            this._configEditorJSON.session.setMode("ace/mode/json");
-            this._configEditorJSON.session.on('change', function (delta: any) {
-                // delta.start, delta.end, delta.lines, delta.action
-                that.onChangeConfigJSON(that._configEditorJSON.getValue());
-            });
 
-            $('#txtConfigYAML').replaceWith('<pre id="txtConfigYAML" class="pre-ace-editor"></pre>');
-            this._configEditorYAML = ace.edit("txtConfigYAML");
-            //this._configEditorYAML.setTheme("ace/theme/dracula");
-            this._configEditorYAML.session.setMode("ace/mode/yaml");
-            this._configEditorYAML.session.on('change', function (delta: any) {
-                // delta.start, delta.end, delta.lines, delta.action
-                that.onChangeConfigYAML(that._configEditorYAML.getValue());
-            });
-        } else if (USE_CODEMIRROR) {
-            this._configEditorJSON = CodeMirror.fromTextArea(document.getElementById('txtConfigJSON') as HTMLTextAreaElement, {
-                value: this._appData.configJsonStr || this._appData.configCodeJSON,
-                mode: CONFIG_CONTENT_MODE_JSON,
-                //theme: 'dracula',
-                lineNumbers: true,
-                lint: true,
-                gutters: ["CodeMirror-lint-markers"],
-                spellcheck: true
-            });
-            this._configEditorJSON.on('changes', function (cm: any, changes: any) {
-                that.onChangeConfigJSON(cm.getValue());
-            });
+        $('#txtConfigJSON').replaceWith('<pre id="txtConfigJSON" class="pre-ace-editor"></pre>');
+        this._configEditorJSON = ace.edit('txtConfigJSON');
+        this._configEditorJSON.setTheme('ace/theme/dracula');
+        this._configEditorJSON.session.setMode('ace/mode/json');
+        this._configEditorJSON.session.on('change', function (delta: any) {
+            // delta.start, delta.end, delta.lines, delta.action
+            that.onChangeConfigJSON((that._configEditorJSON)? that._configEditorJSON.getValue() : '');
+        });
 
-            this._configEditorYAML = CodeMirror.fromTextArea(document.getElementById('txtConfigYAML') as HTMLTextAreaElement, {
-                value: this._appData.configYamlStr || this._appData.configCodeYAML,
-                mode: CONFIG_CONTENT_MODE_YAML,
-                //theme: 'dracula',
-                lineNumbers: true,
-                lint: true,
-                gutters: ["CodeMirror-lint-markers"],
-                spellcheck: true,
-                indentWithTabs: false
-            });
-            this._configEditorYAML.on('changes', function (cm: any, changes: any) {
-                that.onChangeConfigYAML(cm.getValue());
-            });
-        }
+        $('#txtConfigYAML').replaceWith('<pre id="txtConfigYAML" class="pre-ace-editor"></pre>');
+        this._configEditorYAML = ace.edit('txtConfigYAML');
+        this._configEditorYAML.setTheme('ace/theme/dracula');
+        this._configEditorYAML.session.setMode('ace/mode/yaml');
+        this._configEditorYAML.session.on('change', function (delta: any) {
+            // delta.start, delta.end, delta.lines, delta.action
+            that.onChangeConfigYAML((that._configEditorYAML)? that._configEditorYAML.getValue() : '');
+        });
     }
     
     
     initEditor() {
-        if (this._appData.configContentMode == CONFIG_CONTENT_MODE_JSON) {
+        if (this._configEditorJSON && this._appData.configContentMode == CONFIG_CONTENT_MODE_JSON) {
             this._configEditorJSON.setValue(this._appData.configJsonStr);
+            this._configEditorJSON.clearSelection();
 
             $('.main-config-json-container').show();
             $('.main-config-yaml-container').hide();
-        } else {
+
+        } else if(this._configEditorYAML) {
             this._configEditorYAML.setValue(this._appData.configYamlStr);
+            this._configEditorYAML.clearSelection();
 
             $('.main-config-json-container').hide();
             $('.main-config-yaml-container').show();
         }
 
-        if (USE_ACE) {
-            this._configEditorJSON.clearSelection();
-            this._configEditorYAML.clearSelection();
-        } else if (USE_CODEMIRROR) {
-            //setTimeout(function () {
-            this._configEditorJSON.refresh();
-            this._configEditorYAML.refresh();
-            //}, 100);
-        }
     }
     
     lockConfig() {
@@ -119,7 +92,7 @@ export class ConfigEditor {
         this._appData.configJsonStr = value;
         try {
             if (this._appData.configJsonStr !== '') {
-                let config = jsonlint.parse(this._appData.configJsonStr);
+                const config = parseJson(this._appData.configJsonStr);
                 this._appData.configJson = config;
                 if (this._appData.isLivePreviewEnabled) {
                     this._appListener.generateHTML();
@@ -134,7 +107,7 @@ export class ConfigEditor {
         this._appData.configYamlStr = value;
         try {
             if (this._appData.configYamlStr !== '') {
-                let config = jsyaml.load(this._appData.configYamlStr);
+                const config = jsyaml.load(this._appData.configYamlStr);
                 this._appData.configJson = config;
                 if (this._appData.isLivePreviewEnabled) {
                     this._appListener.generateHTML();

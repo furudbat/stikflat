@@ -17,9 +17,9 @@ export class SavedConfigs {
     }
     
     generateButtonFromConfig(config: any, index: number | null = null) {
-        let cssclass: string = 'mr-1 mt-1 mb-2 btn ' + SAVED_CONFIG_BUTTON_CLASS + ' ' + SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS;
+        const cssclass: string = 'mr-1 mt-1 mb-2 btn ' + SAVED_CONFIG_BUTTON_CLASS + ' ' + SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS;
+
         let name: string = site.data.strings.content.content_default_prefix + ((index !== null) ? (index + 1) : '');
-        
         if (config) {
             if ('title' in config && config.title !== '') {
                 name = config.title;
@@ -36,9 +36,9 @@ export class SavedConfigs {
             console.error('addSavedConfigToList', 'config or index are null', { config, index });
             return;
         }
-        let configButton = this.generateButtonFromConfig(config, index);
+        const configButton = this.generateButtonFromConfig(config, index);
         $('.saved-content-list').append(configButton);
-        makeDoubleClick($('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + index + "']"), this.overrideConfig, this.previewWithConfig);
+        makeDoubleClick($('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + index + "']"), this.overrideConfig.bind(this), this.previewWithConfig.bind(this));
 
         //console.debug('addSavedConfigToList', index, config, configButton, $('.saved-content-list').find('.' + SAVED_CONFIG_BUTTON_CLASS).last());
 
@@ -49,7 +49,7 @@ export class SavedConfigs {
             $('.saved-content-list').empty();
             const savedConfigs = this._appData.savedConfigs;
             for (let i = 0; i < savedConfigs.length; i++) {
-                let config = savedConfigs[i].json;
+                const config = savedConfigs[i].json;
                 //console.debug(i, config);
                 this.addSavedConfigToList(config, i);
             }
@@ -101,7 +101,7 @@ export class SavedConfigs {
         var that = this;
         if (savedConfigs && savedConfigs.length) {
             savedConfigs.each(function () {
-                makeDoubleClick($(this), that.overrideConfig, that.previewWithConfig);
+                makeDoubleClick($(this), that.overrideConfig.bind(that), that.previewWithConfig.bind(that));
             });
         }
         $('#btnAddConfig').click(function () {
@@ -126,7 +126,7 @@ export class SavedConfigs {
             if (savedConfig !== null) {
                 let savedConfigBtn = $('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + that._appData.currentConfigIndex + "']");
                 if (savedConfigBtn) {
-                    let configButton = that.generateButtonFromConfig(savedConfig.json, that._appData.currentConfigIndex);
+                    const configButton = that.generateButtonFromConfig(savedConfig.json, that._appData.currentConfigIndex);
                     savedConfigBtn.replaceWith(configButton);
                     makeDoubleClick($('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + that._appData.currentConfigIndex + "']"), that.overrideConfig, that.previewWithConfig);
                 }
@@ -138,7 +138,7 @@ export class SavedConfigs {
     }
 
     private overrideConfig (configButton: any) {
-        let index = $(configButton).data('index');
+        const index = $(configButton).data('index');
         if (index === null || index === '') {
             console.error('overrideConfig', 'index is empty');
             return;

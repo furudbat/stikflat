@@ -1,8 +1,8 @@
-import { site, countlines, USE_CODEMIRROR, USE_ACE, USE_FROLALA_EDITOR, WITH_WYSIWYG_EDITOR } from './site'
-declare var jsonlint: any;
-import * as Mustache from 'mustache';
+import { site } from './site'
+import Mustache from 'mustache';
 import * as jsb from 'js-beautify'
-import * as ClipboardJS from 'clipboard'
+import ClipboardJS from 'clipboard';
+import parseJson from 'json-parse-better-errors';
 import { ApplicationData, CONFIG_CONTENT_MODE_YAML, CONFIG_CONTENT_MODE_JSON } from './application.data'
 import { ApplicationListener } from './application.listener'
 import { Layouts, SCROLL_TO_ANIMATION_TIME_MS } from './layouts';
@@ -42,7 +42,7 @@ export class Application implements ApplicationListener {
             this._configEditor.clearConfigError();
             try {
                 if (json !== '') {
-                    json = jsonlint.parse(json);
+                    json = parseJson(json as string);
                 }
             } catch (error) {
                 json = {};
@@ -179,7 +179,7 @@ export class Application implements ApplicationListener {
 
         this.generateHTML();
 
-        $('.main-template-editors-preview-container').resizable();
+        //$('.main-template-editors-preview-container').resizable();
     }
 
     private initConfigEditor() {
@@ -263,30 +263,12 @@ export class Application implements ApplicationListener {
 
         var that = this;
 
-        if (WITH_WYSIWYG_EDITOR) {
-            this._templateEditor.generateTemplateWYSIWYGEditor();
-            
-            if (this._appData.isWYSIWYGEditorEnabled) {
-                this._templateEditor.enableWYSIWYGEditor();
-            } else {
-                this._templateEditor.disableWYSIWYGEditor();
-            }
-
-            $('#btnEnableWYSIWYGEditor').click(function () {
-                if (that._appData.isWYSIWYGEditorEnabled) {
-                    that._templateEditor.disableWYSIWYGEditor();
-                } else {
-                    that._templateEditor.enableWYSIWYGEditor();
-                }
-            });
-        } else {
-            this._templateEditor.generateTemplateEditor();
-            this._templateEditor.disableWYSIWYGEditor();
-        }
+        this._templateEditor.generateTemplateEditor();
+        this._templateEditor.disableWYSIWYGEditor();
         
         $('#chbLivePreview').change(function () {
-            let checked = $(this).prop('checked');
-            if (checked === true) {
+            const checked = $(this).prop('checked');
+            if (checked) {
                 that._preview.enableLivePreview();
             } else {
                 that._preview.disableLivePreview();

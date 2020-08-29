@@ -1,3 +1,4 @@
+import './site'
 import { Application } from "./application";
 
 $( document ).ready(function() {

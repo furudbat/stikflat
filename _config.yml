@@ -42,18 +42,16 @@ exclude:
   - .jshintrc
   - Gemfile
   - Gemfile.lock
+  - package.json
   - package-lock.json
+  - webpack.config.js
+  - tsconfig.json
   - node_modules
   - scripts
   - requirements.txt
   - update_dependencies.sh
-  - assets/js/.gitignore
 
 options:
-  withWYSIWYGEditor: false
-  useFroalaEditor: false
-  useCodeMirror: false
-  useACE: true
   useCache: false
 
 version: '0.4.1'

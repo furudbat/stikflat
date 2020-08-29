@@ -1,12 +1,13 @@
 import { site, makeDoubleClick, isOnScreen, USE_CACHE } from './site'
-declare var jsonlint: any
+import parseJson from 'json-parse-better-errors';
 import * as jsyaml from 'js-yaml'
 import * as jsb from 'js-beautify'
-import * as List from 'list.js'
+import List from 'list.js';
 import { ApplicationData } from './application.data'
 import { ApplicationListener } from './application.listener'
 
 const css_beautify = jsb.css_beautify;
+const js_beautify = jsb.js_beautify;
 
 export const SCROLL_TO_ANIMATION_TIME_MS = 600;
 
@@ -24,7 +25,7 @@ export class Layouts {
     }
     
     loadLayout(layout: any, callback: any) {
-        let id = $(layout).data('id');
+        const id = $(layout).data('id');
         let layoutLoading = $('#layout-loading-' + id);
 
         layoutLoading.show();
@@ -34,9 +35,9 @@ export class Layouts {
             method: "GET",
             cache: USE_CACHE
         }).done((metaRes) => {
-            let meta = jsyaml.load(metaRes);
-            let name = meta.name;
-            let configlink = $(layout).data('config');
+            const meta = jsyaml.load(metaRes);
+            const name = meta.name;
+            const configlink = $(layout).data('config');
 
             let getConfig = $.ajax({
                 url: configlink,
@@ -125,7 +126,7 @@ export class Layouts {
             });
         }
 
-        let item = `<div class="d-inline colstyle" style="">
+        const item = `<div class="d-inline colstyle" style="">
             <button type="button" class="btn btn-link card d-inline mr-1 mb-1 layout-pattern style template meta css config keywords id" 
                 style="" data-template="" data-css="" data-config="" data-meta="" data-id="" data-keywords="">
                 <div class="d-flex flex-wrap align-items-center preview previewstyle" style="">
@@ -143,7 +144,7 @@ export class Layouts {
             </div>
         </div>`;
 
-        let options: any /*List.ListOptions*/ = {
+        const options: any /*List.ListOptions*/ = {
             valueNames: [
                 'preview', 'name', 'type', 'author',
                 { name: 'template', attr: 'data-template' },
@@ -173,9 +174,9 @@ export class Layouts {
         var that = this;
         this._layoutsList = new List('layouts-list', options, templates);
         this._layoutsList.on('updated', function () {
-            makeDoubleClick($('.layout-pattern'), that.overrideLayout, that.previewLayout);
+            makeDoubleClick($('.layout-pattern'), that.overrideLayout.bind(that), that.previewLayout.bind(that));
         });
-        makeDoubleClick($('.layout-pattern'), that.overrideLayout, that.previewLayout);
+        makeDoubleClick($('.layout-pattern'), that.overrideLayout.bind(that), that.previewLayout.bind(that));
     }
 
     clearLayoutInfo() {
@@ -189,13 +190,13 @@ export class Layouts {
         }
         this._currentLayoutId = meta.id;
 
-        let author = meta.author || '&lt;Unknown&gt;';
-        let authorLink = meta.author_link || '';
-        let description = meta.description || '';
-        let link = meta.link || '';
-        let name = meta.name || link;
-        let license = meta.license || '';
-        let more = meta.more || '';
+        const author = meta.author || '&lt;Unknown&gt;';
+        const authorLink = meta.author_link || '';
+        const description = meta.description || '';
+        const link = meta.link || '';
+        const name = meta.name || link;
+        const license = meta.license || '';
+        const more = meta.more || '';
 
         let header = (link === '')? name : '<a href="' + link + '" target="_blank">' + name + '</a>';
         header += site.data.strings.info.by_author + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
@@ -213,7 +214,7 @@ export class Layouts {
 
         var that = this;
         this.loadLayout(layout, function (data: any) {
-            let keywordsStr: string = $(layout).data('keywords');
+            const keywordsStr: string = $(layout).data('keywords');
 
             //console.debug('overrideLayout', 'loadLayout', data);
             that.updateLayoutInfo(data.meta);
@@ -225,7 +226,7 @@ export class Layouts {
             let configJson = {};
             try {
                 if (typeof config === 'string' || config instanceof String) {
-                    configJson = jsonlint.parse(config, null, 4);
+                    configJson = js_beautify(parseJson(config as string));
                 } else {
                     configJson = config;
                 }
@@ -241,8 +242,8 @@ export class Layouts {
             that._appListener.initEditors();
             that._appListener.generateHTML();
 
-            let keywordsArr = keywordsStr.split(", ").map(Function.prototype.call, String.prototype.trim);
-            let keywords = keywordsArr.map(it => `<code>${it}</code>`).join(', ');
+            const keywordsArr = keywordsStr.split(", ").map(Function.prototype.call, String.prototype.trim);
+            const keywords = keywordsArr.map(it => `<code>${it}</code>`).join(', ');
             $('#configHelpKeywords').html(site.data.strings.editor.config.keywords_help.format(keywords, data.configlink));
 
             /*
@@ -251,7 +252,7 @@ export class Layouts {
             }
             */
             if (!isOnScreen('.main-template-editors-preview-container') || isOnScreen('.main-template-editors-preview-container', 1.0, 0.45)) {
-                let sectionEditorOffset = $('#sectionEditor').offset() || null;
+                const sectionEditorOffset = $('#sectionEditor').offset() || null;
                 if (sectionEditorOffset) {
                     $('html, body').animate({
                         scrollTop: sectionEditorOffset.top
