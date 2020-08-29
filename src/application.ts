@@ -107,6 +107,7 @@ export class Application implements ApplicationListener {
         const template = this._appData.templateCode;
         const json = this._appData.configCodeJSON;
         const css = this._appData.cssCode;
+        //console.log('generateHTML', {id, template, json, css});
         this.generateHTMLFromTemplate(id, template, json, css);
     }
 
@@ -142,7 +143,11 @@ export class Application implements ApplicationListener {
             that.initCssEditor();
             that.initConfigEditor();
     
+            that.initEditors();
             that.initPreview();
+            if (that._appData.currentLayoutId) {
+                that._layouts.reloadLayoutInfo(that._appData.currentLayoutId);
+            }
         });
         
         this.initTabs();
@@ -203,7 +208,6 @@ export class Application implements ApplicationListener {
         }
 
         this.generateHTML();
-
         //$('.main-template-editors-preview-container').resizable();
     }
 

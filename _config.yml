@@ -52,6 +52,6 @@ exclude:
   - update_dependencies.sh
 
 options:
-  useCache: false
+  useCache: true
 
 version: '0.4.1'

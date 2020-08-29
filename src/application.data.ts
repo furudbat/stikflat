@@ -1,6 +1,8 @@
-import * as jsyaml from 'js-yaml'
+import * as jsyaml from 'js-yaml';
 import localForage from "localforage";
-import cache from 'memory-cache'
+import cache from 'memory-cache';
+import { SavedConfigValue } from './savedconfig.values';
+import { assert } from 'console';
 
 const STORAGE_KEY_TEMPLATE_CODE = 'template_code';
 const STORAGE_KEY_CONFIG_CODE = 'config_code';
@@ -39,7 +41,7 @@ export class ApplicationData {
     private _currentLayoutId: string | null = null;
 
     private _currentConfigIndex: number | null = null;
-    private _savedConfigs: Array<any> = [];
+    private _savedConfigs: SavedConfigValue[] = [];
 
     constructor() {
     }
@@ -60,10 +62,9 @@ export class ApplicationData {
             this._currentLayoutId = await this._storeSession.getItem<string>(STORAGE_KEY_CURRENT_LAYOUT_ID) || this._currentLayoutId;
 
             this._currentConfigIndex = await this._storeConfigs.getItem<number>(STORAGE_KEY_CURRENT_CONFIG_INDEX) || this._currentConfigIndex;
-            this._savedConfigs = await this._storeConfigs.getItem<any[]>(STORAGE_KEY_SAVED_CONFIGS) || this._savedConfigs;
+            this._savedConfigs = await this._storeConfigs.getItem<SavedConfigValue[]>(STORAGE_KEY_SAVED_CONFIGS) || this._savedConfigs;
 
             //console.debug('loadFromStorage', { _templateCode, _configJson, _cssCode, _lockConfigCode, _enableWYSIWYGTemplateEditor, _enableLivePreview, _currentConfigIndex, _savedConfigs });
-
         } catch (err) {
             // This code runs if there were any errors.
             console.error('loadFromStorage', err);
@@ -103,35 +104,22 @@ export class ApplicationData {
     set configJson(json: unknown) {
         if (json !== null) {
             this._configJson = json;
+            assert(this._configJson !== undefined);
             this._storeSession.setItem(STORAGE_KEY_CONFIG_CODE, this._configJson);
         }
     }
     set cssCode(code: string) {
         this._cssCode = code;
+        assert(this._cssCode !== undefined);
         this._storeSession.setItem(STORAGE_KEY_CSS_CODE, this._cssCode);
     }
     set codeContentMode(mode: string) {
         this._configContentMode = mode;
+        assert(this._configContentMode !== undefined);
         this._storeSession.setItem(STORAGE_KEY_CONFIG_CONTENT_MODE, this._configContentMode);
     }
     get codeContentMode() {
         return this._configContentMode;
-    }
-
-    set currentLayoutId(id: string | null) {
-        this._currentLayoutId = id;
-        this._storeSession.setItem(STORAGE_KEY_CURRENT_LAYOUT_ID, this._currentLayoutId);
-    }
-    get currentLayoutId() {
-        return this._currentLayoutId;
-    }
-
-
-    get savedConfigs() {
-        return this._savedConfigs;
-    }
-    get currentSavedConfigJson() {
-        return (this._currentConfigIndex !== null && this._currentConfigIndex < this._savedConfigs.length) ? this._savedConfigs[this._currentConfigIndex] : null;
     }
 
     get isLivePreviewEnabled(): boolean {
@@ -143,16 +131,36 @@ export class ApplicationData {
 
     enableLivePreview() {
         this._enableLivePreview = true;
+        assert(this._enableLivePreview !== undefined);
         this._storeSession.setItem(STORAGE_KEY_ENABLE_LIVE_PREVIEW, this._enableLivePreview);
     }
     disableLivePreview() {
         this._enableLivePreview = false;
+        assert(this._enableLivePreview !== undefined);
         this._storeSession.setItem(STORAGE_KEY_ENABLE_LIVE_PREVIEW, this._enableLivePreview);
     }
 
+    set currentLayoutId(id: string | null) {
+        this._currentLayoutId = id;
+        assert(this._currentLayoutId !== undefined);
+        this._storeSession.setItem(STORAGE_KEY_CURRENT_LAYOUT_ID, this._currentLayoutId);
+    }
+    get currentLayoutId() {
+        return this._currentLayoutId;
+    }
+
+    get savedConfigs() {
+        return this._savedConfigs;
+    }
+    get currentSavedConfigJson() {
+        return (this._currentConfigIndex !== null && this._currentConfigIndex < this._savedConfigs.length) ? this._savedConfigs[this._currentConfigIndex] : null;
+    }
+
     saveConfigs() {
-        this._storeSession.setItem(STORAGE_KEY_CURRENT_CONFIG_INDEX, this._currentConfigIndex);
-        this._storeSession.setItem(STORAGE_KEY_SAVED_CONFIGS, this._savedConfigs);
+        assert(this._currentConfigIndex !== undefined);
+        assert(this._savedConfigs !== undefined);
+        this._storeConfigs.setItem(STORAGE_KEY_CURRENT_CONFIG_INDEX, this._currentConfigIndex);
+        this._storeConfigs.setItem(STORAGE_KEY_SAVED_CONFIGS, this._savedConfigs);
     }
     addConfig(json: unknown, jsonstr: string, yamlstr: string) {
         if (json !== null) {
@@ -178,10 +186,12 @@ export class ApplicationData {
 
     set configJsonStr(jsonstr: string) {
         this._configJsonStr = jsonstr;
+        assert(this._configJsonStr !== undefined);
         this._storeSession.setItem(STORAGE_KEY_CONFIG_CODE_JSON, this._configJsonStr);
     }
     set configYamlStr(yamlstr: string) {
         this._configYamlStr = yamlstr;
+        assert(this._configYamlStr !== undefined);
         this._storeSession.setItem(STORAGE_KEY_CONFIG_CODE_YAML, this._configYamlStr);
     }
 
@@ -194,10 +204,12 @@ export class ApplicationData {
 
     lockConfig() {
         this._lockConfigCode = true;
+        assert(this._lockConfigCode !== undefined);
         this._storeSession.setItem(STORAGE_KEY_LOCK_CONFIG_CODE, this._lockConfigCode);
     }
     unlockConfig() {
         this._lockConfigCode = false;
+        assert(this._lockConfigCode !== undefined);
         this._storeSession.setItem(STORAGE_KEY_LOCK_CONFIG_CODE, this._lockConfigCode);
     }
 
@@ -207,10 +219,12 @@ export class ApplicationData {
 
     enableWYSIWYGEditor() {
         this._enableWYSIWYGTemplateEditor = true;
+        assert(this._enableWYSIWYGTemplateEditor !== undefined);
         this._storeSession.setItem(STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR, this._enableWYSIWYGTemplateEditor);
     }
     disableWYSIWYGEditor() {
         this._enableWYSIWYGTemplateEditor = false;
+        assert(this._enableWYSIWYGTemplateEditor !== undefined);
         this._storeSession.setItem(STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR, this._enableWYSIWYGTemplateEditor);
     }
 

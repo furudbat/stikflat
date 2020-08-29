@@ -1,8 +1,8 @@
-import { site, makeDoubleClick, isOnScreen, USE_CACHE } from './site'
-import cache from 'memory-cache'
+import { site, makeDoubleClick, isOnScreen, USE_CACHE } from './site';
+import cache from 'memory-cache';
 import parseJson from 'json-parse-better-errors';
-import * as jsyaml from 'js-yaml'
-import * as jsb from 'js-beautify'
+import * as jsyaml from 'js-yaml';
+import * as jsb from 'js-beautify';
 import List from 'list.js';
 import { ApplicationData } from './application.data'
 import { ApplicationListener } from './application.listener'
@@ -29,8 +29,8 @@ export class Layouts {
         this._appListener = appListener;
     }
 
-    loadLayout(layout: HTMLElement, callback: (data: LoadedLayoutValue) => void) {
-        const id: string | null = $(layout).data('id') || null;
+    loadLayout(layout: JQuery<HTMLElement>, callback: (data: LoadedLayoutValue) => void) {
+        const id: string | null = ($(layout).attr('data-id'))? $(layout).data('id') : null;
         let layoutLoading = $('#layout-loading-' + id);
 
         layoutLoading.show();
@@ -43,7 +43,7 @@ export class Layouts {
         } else {
             var that = this;
 
-            const metalink: string | null = $(layout).data('meta') || null;
+            const metalink: string | null = ($(layout).attr('data-meta'))? $(layout).data('meta') : null;
             if (metalink) {
                 $.ajax({
                     url: metalink || '',
@@ -53,9 +53,9 @@ export class Layouts {
                     const meta: MetaDataValue = jsyaml.load(metaRes);
                     const name = meta.name;
 
-                    const configlink: string | null = $(layout).data('config') || null;
-                    const template: string | null = $(layout).data('template') || null;
-                    const css: string | null = $(layout).data('css') || null;
+                    const configlink: string | null = ($(layout).attr('data-config'))? $(layout).data('config') : null;
+                    const template: string | null = ($(layout).attr('data-template'))? $(layout).data('template') : null;
+                    const css: string | null = ($(layout).attr('data-css'))? $(layout).data('css') : null;
 
                     if (configlink && template && css) {
                         let getConfig = $.ajax({
@@ -223,13 +223,12 @@ export class Layouts {
         $('#msgLayoutPatternInfo').removeAttr('data-layout-id').hide();
     }
 
-    updateLayoutInfo(meta: MetaDataValue) {
+    updateLayoutInfo(id: string | null, meta: MetaDataValue) {
         if (meta === null) {
             console.error('updateLayoutInfo', 'meta is null');
             return;
         }
 
-        const id = meta.id;
         const author = meta.author || '&lt;Unknown&gt;';
         const authorLink = meta.author_link || '';
         const description = meta.description || '';
@@ -237,6 +236,8 @@ export class Layouts {
         const name = meta.name || link;
         const license = meta.license || '';
         const more = meta.more || '';
+
+        //console.log('updateLayoutInfo', {id, author, authorLink, link, name, license, more, meta});
 
         this._appData.currentLayoutId = id;
 
@@ -250,17 +251,25 @@ export class Layouts {
         $('#msgLayoutPatternInfo').data('layout-id', id).show();
     }
 
+    reloadLayoutInfo(id: string) {
+        var that = this;
+        this.loadLayout($('.layout-pattern[data-id="' + id + '"]').first(), function (data) {
+            console.log('reloadLayoutInfo', 'loadLayout', data);
+            that.updateLayoutInfo(id, data.meta);
+            that._appData.currentLayoutId = data.id;
+        });
+    };
 
-    private overrideLayout(layout: HTMLElement) {
+    private overrideLayout(layout: JQuery<HTMLElement>) {
         //console.debug('layout-pattern dblclick', layout);
 
         var that = this;
         this.loadLayout(layout, function (data) {
-            //const id: string | null = $(layout).data('id') || null;
-            const keywordsStr: string = $(layout).data('keywords') || '';
+            const id: string | null = ($(layout).attr('data-id'))? $(layout).data('id') : null;
+            const keywordsStr: string = ($(layout).attr('data-keywords'))? $(layout).data('keywords') : '';
 
             //console.debug('overrideLayout', 'loadLayout', data);
-            that.updateLayoutInfo(data.meta);
+            that.updateLayoutInfo(id, data.meta);
 
             const template: string = data.template;
             const css: string = data.css;
@@ -277,6 +286,10 @@ export class Layouts {
                 console.error(e);
             }
 
+            //console.log('overrideLayout', {id, template, configJson, css});
+            if (id) {
+                that._appData.currentLayoutId = id;
+            }
             that._appData.templateCode = template;
             that._appData.configJson = configJson;
             that._appData.cssCode = css_beautify(css);
@@ -305,16 +318,16 @@ export class Layouts {
         });
     };
 
-    private previewLayout(layout: HTMLElement) {
+    private previewLayout(layout: JQuery<HTMLElement>) {
         //console.debug('layout-pattern click', layout);
 
         var that = this;
         this.loadLayout(layout, function (data) {
             //console.debug('previewLayout', 'loadLayout', data);
-            that._appData.currentLayoutId = data.id;
-            that.updateLayoutInfo(data.meta);
-            that._appListener.generateHTMLFromTemplate(that._appData.currentLayoutId, data.template, data.config, data.css, true);
+            that.updateLayoutInfo(data.id, data.meta);
+            that._appListener.generateHTMLFromTemplate(data.id, data.template, data.config, data.css, true);
             that._appListener.selectPreviewTab();
+            that._appData.currentLayoutId = data.id;
         });
     };
 }

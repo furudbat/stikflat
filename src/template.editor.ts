@@ -72,11 +72,12 @@ export class TemplateEditor {
         this._templateEditor.session.on('change', function (delta) {
             // delta.start, delta.end, delta.lines, delta.action
             if (that._templateEditor) {
-                console.log(delta);
-                //if () {
-                //    this._appData.currentLayoutId = null;
-                //}
-                onChangeTemplateEditor(that._templateEditor.getValue());
+                const value = that._templateEditor.getValue();
+                //console.log(delta);
+                if (value == '') {
+                    that._appData.currentLayoutId = null;
+                }
+                onChangeTemplateEditor(value);
             }
         });
         this._currentTemplateEditorName = TEMPLATE_EDITOR_NAME_ACE;

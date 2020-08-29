@@ -2,7 +2,7 @@ import { site, makeDoubleClick } from './site'
 import { Cache } from 'memory-cache'
 import { ApplicationData } from './application.data.js'
 import { ApplicationListener } from './application.listener';
-import { BaseSavedConfigValue } from './savedconfig.value';
+import { SavedConfigBaseJsonValue } from './savedconfig.value';
 
 const SAVED_CONFIG_SELECTED_BUTTON_CLASS = 'btn-primary';
 const SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS = 'btn-outline-secondary';
@@ -18,7 +18,7 @@ export class SavedConfigs {
         this._appListener = appListener;
     }
     
-    generateButtonFromConfig(config: BaseSavedConfigValue, index: number | null = null) {
+    generateButtonFromConfig(config: SavedConfigBaseJsonValue, index: number | null = null) {
         const cssclass: string = 'mr-1 mt-1 mb-2 btn ' + SAVED_CONFIG_BUTTON_CLASS + ' ' + SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS;
 
         let name: string = site.data.strings.content.content_default_prefix + ((index !== null) ? (index + 1) : '');
@@ -33,7 +33,7 @@ export class SavedConfigs {
         return $('<button type="button" class="' + cssclass + '" data-index="' + index + '">' + name + '</button>');
     }
     
-    addSavedConfigToList(config: BaseSavedConfigValue, index: number | null) {
+    addSavedConfigToList(config: SavedConfigBaseJsonValue, index: number | null) {
         if (config === null || index === null) {
             console.error('addSavedConfigToList', 'config or index are null', { config, index });
             return;
@@ -51,7 +51,7 @@ export class SavedConfigs {
             $('.saved-content-list').empty();
             const savedConfigs = this._appData.savedConfigs;
             for (let i = 0; i < savedConfigs.length; i++) {
-                const config = savedConfigs[i].json;
+                const config = savedConfigs[i].json as SavedConfigBaseJsonValue;
                 //console.debug(i, config);
                 this.addSavedConfigToList(config, i);
             }
@@ -112,7 +112,7 @@ export class SavedConfigs {
 
             const savedConfig = that._appData.currentSavedConfigJson;
             if (savedConfig !== null) {
-                that.addSavedConfigToList(savedConfig.json, that._appData.currentConfigIndex);
+                that.addSavedConfigToList(savedConfig.json as SavedConfigBaseJsonValue, that._appData.currentConfigIndex);
             }
             that.updateSavedConfigsSelection(that._appData.currentConfigIndex);
         });
@@ -128,9 +128,9 @@ export class SavedConfigs {
             if (savedConfig !== null) {
                 let savedConfigBtn = $('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + that._appData.currentConfigIndex + "']");
                 if (savedConfigBtn) {
-                    const configButton = that.generateButtonFromConfig(savedConfig.json, that._appData.currentConfigIndex);
+                    const configButton = that.generateButtonFromConfig(savedConfig.json as SavedConfigBaseJsonValue, that._appData.currentConfigIndex);
                     savedConfigBtn.replaceWith(configButton);
-                    makeDoubleClick($('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + that._appData.currentConfigIndex + "']"), that.overrideConfig, that.previewWithConfig);
+                    makeDoubleClick($('.' + SAVED_CONFIG_BUTTON_CLASS + "[data-index='" + that._appData.currentConfigIndex + "']"), that.overrideConfig.bind(that), that.previewWithConfig.bind(that));
                 }
             }
             that.updateSavedConfigsSelection(that._appData.currentConfigIndex);
@@ -139,19 +139,20 @@ export class SavedConfigs {
         this.updateSaveConfigControls();
     }
 
-    private overrideConfig (configButton: HTMLElement) {
-        const id: string = $(configButton).data('id') || this._appData.currentLayoutId;
-        const index: number | null = $(configButton).data('index') || null;
+    private overrideConfig (configButton: JQuery<HTMLElement>) {
+        const id: string = ($(configButton).attr('data-id'))? $(configButton).data('id') : this._appData.currentLayoutId;
+        const index: number | null = ($(configButton).attr('data-index'))? $(configButton).data('index') : null;
         if (index === null) {
             console.error('overrideConfig', 'index is empty');
             return;
         }
 
         //console.debug('overrideConfig', {index, configButton});
+        //console.log('overrideConfig', {currentLayoutId: this._appData.currentLayoutId, id, index});
 
         this._appData.currentLayoutId = id;
         this._appData.currentConfigIndex = index;
-        const savedConfig = this._appData.currentSavedConfigJson();
+        const savedConfig = this._appData.currentSavedConfigJson;
         if (savedConfig !== null) {
             this._appData.configJson = savedConfig.json;
             this._appData.configJsonStr = savedConfig.jsonstr;
@@ -167,8 +168,9 @@ export class SavedConfigs {
         this.updateSavedConfigsSelection(this._appData.currentConfigIndex);
     };
 
-    private previewWithConfig (configButton: HTMLElement) {
-        const index: number | null = $(configButton).data('index') || null;
+    private previewWithConfig (configButton: JQuery<HTMLElement>) {
+        const id: string = ($(configButton).attr('data-id'))? $(configButton).data('id') : this._appData.currentLayoutId;
+        const index: number | null = ($(configButton).attr('data-index'))? $(configButton).data('index') : null;
         if (index === null) {
             console.error('previewWithConfig', 'index is empty');
             return;
@@ -176,13 +178,14 @@ export class SavedConfigs {
 
         //console.debug('previewWithConfig', {index, configButton});
 
+        this._appData.currentLayoutId = id;
         this._appData.currentConfigIndex = index;
         const savedConfig = this._appData.currentSavedConfigJson;
         if (savedConfig !== null) {
             const template = this._appData.templateCode;
             const css = this._appData.cssCode;
 
-            this._appListener.generateHTMLFromTemplate(null, template, savedConfig.json, css, true);
+            this._appListener.generateHTMLFromTemplate(id, template, savedConfig.json, css, true);
             this._appListener.selectPreviewTab();
         }
     };

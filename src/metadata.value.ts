@@ -1,5 +1,4 @@
 export interface MetaDataValue {
-    id: string | null;
     author: string | null;
     author_link: string | null;
     description: string | null;

@@ -74,7 +74,6 @@ export class ConfigEditor {
             $('.main-config-json-container').hide();
             $('.main-config-yaml-container').show();
         }
-
     }
     
     lockConfig() {

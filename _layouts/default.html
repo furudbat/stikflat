@@ -38,6 +38,10 @@
 
     <script src="{{ '/assets/js/font-awesome/all.min.js' | relative_url }}"></script>
 
+    {%- if jekyll.environment == "development" -%}
+    <script src="{{ '/assets/js/app/bundle.js' | relative_url }}"></script>
+    {%- else -%}
     <script src="{{ '/assets/js/app/bundle.min.js' | relative_url }}"></script>
+    {%- endif -%}
   </body>
 </html>
