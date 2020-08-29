@@ -28,7 +28,7 @@ export class CssEditor {
         this._cssEditor.session.setMode("ace/mode/json");
 
         var that = this;
-        this._cssEditor.session.on('change', function (delta: any) {
+        this._cssEditor.session.on('change', function (delta) {
             // delta.start, delta.end, delta.lines, delta.action
             that.onChangeCSS((that._cssEditor)? that._cssEditor.getValue() : '');
         });

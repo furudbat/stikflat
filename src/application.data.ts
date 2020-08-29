@@ -1,5 +1,6 @@
 import * as jsyaml from 'js-yaml'
 import localForage from "localforage";
+import cache from 'memory-cache'
 
 const STORAGE_KEY_TEMPLATE_CODE = 'template_code';
 const STORAGE_KEY_CONFIG_CODE = 'config_code';
@@ -12,6 +13,7 @@ const STORAGE_KEY_ENABLE_LIVE_PREVIEW = 'enable_live_preview';
 const STORAGE_KEY_CURRENT_CONFIG_INDEX = 'current_config_index';
 const STORAGE_KEY_SAVED_CONFIGS = 'saved_configs';
 const STORAGE_KEY_CONFIG_CONTENT_MODE = 'config_content_mode';
+const STORAGE_KEY_CURRENT_LAYOUT_ID ='current_layout_id'
 
 export const CONFIG_CONTENT_MODE_JSON = 'application/json';
 export const CONFIG_CONTENT_MODE_YAML = 'text/x-yaml';
@@ -26,7 +28,7 @@ export class ApplicationData {
     });
 
     private _templateCode: string = '';
-    private _configJson: any = {};
+    private _configJson: unknown = {};
     private _configJsonStr: string = '';
     private _configYamlStr: string = '';
     private _cssCode: string = '';
@@ -34,6 +36,7 @@ export class ApplicationData {
     private _enableWYSIWYGTemplateEditor: boolean = false;
     private _enableLivePreview: boolean = true;
     private _configContentMode = CONFIG_CONTENT_MODE_JSON;
+    private _currentLayoutId: string | null = null;
 
     private _currentConfigIndex: number | null = null;
     private _savedConfigs: Array<any> = [];
@@ -45,7 +48,7 @@ export class ApplicationData {
         try {
             this._templateCode = await this._storeSession.getItem(STORAGE_KEY_TEMPLATE_CODE) || this._templateCode;
 
-            this._configJson = await this._storeSession.getItem<any>(STORAGE_KEY_CONFIG_CODE) || this._configJson;
+            this._configJson = await this._storeSession.getItem<unknown>(STORAGE_KEY_CONFIG_CODE) || this._configJson;
             this._configJsonStr = await this._storeSession.getItem<string>(STORAGE_KEY_CONFIG_CODE_JSON) || this.configCodeJSON;
             this._configYamlStr = await this._storeSession.getItem<string>(STORAGE_KEY_CONFIG_CODE_YAML) || this.configCodeYAML;
 
@@ -54,6 +57,7 @@ export class ApplicationData {
             this._enableWYSIWYGTemplateEditor = await this._storeSession.getItem<boolean>(STORAGE_KEY_ENABLE_WYSIWYG_TEMPLATE_EDITOR) || this._enableWYSIWYGTemplateEditor;
             this._enableLivePreview = await this._storeSession.getItem<boolean>(STORAGE_KEY_ENABLE_LIVE_PREVIEW) || this._enableLivePreview;
             this._configContentMode = await this._storeSession.getItem<string>(STORAGE_KEY_CONFIG_CONTENT_MODE) || this._configContentMode;
+            this._currentLayoutId = await this._storeSession.getItem<string>(STORAGE_KEY_CURRENT_LAYOUT_ID) || this._currentLayoutId;
 
             this._currentConfigIndex = await this._storeConfigs.getItem<number>(STORAGE_KEY_CURRENT_CONFIG_INDEX) || this._currentConfigIndex;
             this._savedConfigs = await this._storeConfigs.getItem<any[]>(STORAGE_KEY_SAVED_CONFIGS) || this._savedConfigs;
@@ -96,7 +100,7 @@ export class ApplicationData {
         this._templateCode = code;
         this._storeSession.setItem(STORAGE_KEY_TEMPLATE_CODE, this._templateCode);
     }
-    set configJson(json: any) {
+    set configJson(json: unknown) {
         if (json !== null) {
             this._configJson = json;
             this._storeSession.setItem(STORAGE_KEY_CONFIG_CODE, this._configJson);
@@ -112,6 +116,14 @@ export class ApplicationData {
     }
     get codeContentMode() {
         return this._configContentMode;
+    }
+
+    set currentLayoutId(id: string | null) {
+        this._currentLayoutId = id;
+        this._storeSession.setItem(STORAGE_KEY_CURRENT_LAYOUT_ID, this._currentLayoutId);
+    }
+    get currentLayoutId() {
+        return this._currentLayoutId;
     }
 
 
@@ -142,14 +154,14 @@ export class ApplicationData {
         this._storeSession.setItem(STORAGE_KEY_CURRENT_CONFIG_INDEX, this._currentConfigIndex);
         this._storeSession.setItem(STORAGE_KEY_SAVED_CONFIGS, this._savedConfigs);
     }
-    addConfig(json: any, jsonstr: string, yamlstr: string) {
+    addConfig(json: unknown, jsonstr: string, yamlstr: string) {
         if (json !== null) {
             this._savedConfigs.push({ json, jsonstr, yamlstr });
             this._currentConfigIndex = this._savedConfigs.length - 1;
             this.saveConfigs();
         }
     }
-    saveConfig(index: number, json: any, jsonstr: string, yamlstr: string) {
+    saveConfig(index: number, json: unknown, jsonstr: string, yamlstr: string) {
         if (index < this._savedConfigs.length) {
             this._savedConfigs[index] = { json, jsonstr, yamlstr };
             this.saveConfigs();

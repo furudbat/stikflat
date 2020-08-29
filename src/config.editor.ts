@@ -43,7 +43,7 @@ export class ConfigEditor {
         this._configEditorJSON = ace.edit('txtConfigJSON');
         this._configEditorJSON.setTheme('ace/theme/dracula');
         this._configEditorJSON.session.setMode('ace/mode/json');
-        this._configEditorJSON.session.on('change', function (delta: any) {
+        this._configEditorJSON.session.on('change', function (delta) {
             // delta.start, delta.end, delta.lines, delta.action
             that.onChangeConfigJSON((that._configEditorJSON)? that._configEditorJSON.getValue() : '');
         });
@@ -52,7 +52,7 @@ export class ConfigEditor {
         this._configEditorYAML = ace.edit('txtConfigYAML');
         this._configEditorYAML.setTheme('ace/theme/dracula');
         this._configEditorYAML.session.setMode('ace/mode/yaml');
-        this._configEditorYAML.session.on('change', function (delta: any) {
+        this._configEditorYAML.session.on('change', function (delta) {
             // delta.start, delta.end, delta.lines, delta.action
             that.onChangeConfigYAML((that._configEditorYAML)? that._configEditorYAML.getValue() : '');
         });

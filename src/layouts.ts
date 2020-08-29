@@ -1,20 +1,25 @@
 import { site, makeDoubleClick, isOnScreen, USE_CACHE } from './site'
+import cache from 'memory-cache'
 import parseJson from 'json-parse-better-errors';
 import * as jsyaml from 'js-yaml'
 import * as jsb from 'js-beautify'
 import List from 'list.js';
 import { ApplicationData } from './application.data'
 import { ApplicationListener } from './application.listener'
+import { LoadedLayoutValue } from './loadedlayout.value';
+import { MetaDataValue } from './metadata.value';
 
 const css_beautify = jsb.css_beautify;
 const js_beautify = jsb.js_beautify;
 
 export const SCROLL_TO_ANIMATION_TIME_MS = 600;
 
+const CACHE_LOADED_LAYOUT_MAX_TIME_MS = 8 * 60 * 60 * 1000;
+
 export class Layouts {
 
     private _layoutsList: List | null = null;
-    private _currentLayoutId: string | null = null;
+    private _loadedLayouts: cache.CacheClass<string, LoadedLayoutValue> = new cache.Cache<string, any>();
 
     private _appData: ApplicationData;
     private _appListener: ApplicationListener;
@@ -23,50 +28,85 @@ export class Layouts {
         this._appData = appData;
         this._appListener = appListener;
     }
-    
-    loadLayout(layout: any, callback: any) {
-        const id = $(layout).data('id');
+
+    loadLayout(layout: HTMLElement, callback: (data: LoadedLayoutValue) => void) {
+        const id: string | null = $(layout).data('id') || null;
         let layoutLoading = $('#layout-loading-' + id);
 
         layoutLoading.show();
 
-        $.ajax({
-            url: $(layout).data('meta'),
-            method: "GET",
-            cache: USE_CACHE
-        }).done((metaRes) => {
-            const meta = jsyaml.load(metaRes);
-            const name = meta.name;
-            const configlink = $(layout).data('config');
-
-            let getConfig = $.ajax({
-                url: configlink,
-                method: "GET",
-                cache: USE_CACHE
-            });
-            let getTemplate = $.ajax({
-                url: $(layout).data('template'),
-                method: "GET",
-                cache: USE_CACHE
-            });
-            let getCSS = $.ajax({
-                url: $(layout).data('css'),
-                method: "GET",
-                cache: USE_CACHE
-            });
-
-            $.when(getTemplate, getConfig, getCSS).done((templateRes, configRes, cssRes) => {
-                layoutLoading.hide();
-                //console.log({ template: templateRes[0], config: configRes[0], css: cssRes[0], meta, name, configlink });
-                callback({ template: templateRes[0], config: configRes[0], css: cssRes[0], meta, name, configlink });
-            }).fail(function () {
-                layoutLoading.hide();
-            });
-        }).fail(function () {
+        let loadedLayout = (id !== null) ? this._loadedLayouts.get(id) : null;
+        if (loadedLayout) {
             layoutLoading.hide();
-        });
+            //console.log({ template: templateRes[0], config: configRes[0], css: cssRes[0], meta, name, configlink });
+            callback(loadedLayout);
+        } else {
+            var that = this;
+
+            const metalink: string | null = $(layout).data('meta') || null;
+            if (metalink) {
+                $.ajax({
+                    url: metalink || '',
+                    method: "GET",
+                    cache: USE_CACHE
+                }).done((metaRes) => {
+                    const meta: MetaDataValue = jsyaml.load(metaRes);
+                    const name = meta.name;
+
+                    const configlink: string | null = $(layout).data('config') || null;
+                    const template: string | null = $(layout).data('template') || null;
+                    const css: string | null = $(layout).data('css') || null;
+
+                    if (configlink && template && css) {
+                        let getConfig = $.ajax({
+                            url: configlink || '',
+                            method: "GET",
+                            cache: USE_CACHE || false
+                        });
+                        let getTemplate = $.ajax({
+                            url: template || '',
+                            method: "GET",
+                            cache: USE_CACHE || false
+                        });
+                        let getCSS = $.ajax({
+                            url: css || '',
+                            method: "GET",
+                            cache: USE_CACHE || false
+                        });
+
+                        $.when(getTemplate, getConfig, getCSS).done((templateRes, configRes, cssRes) => {
+                            const loadedLayout: LoadedLayoutValue = {
+                                id: id || '',
+                                template: templateRes[0] || '',
+                                config: configRes[0] || {},
+                                css: cssRes[0] || '',
+                                meta: meta,
+                                name: name || '',
+                                configlink: configlink || ''
+                            };
+                            if (id !== null) {
+                                that._loadedLayouts.put(id, loadedLayout, CACHE_LOADED_LAYOUT_MAX_TIME_MS);
+                            }
+                            layoutLoading.hide();
+                            //console.log(loadedLayout);
+                            callback(loadedLayout);
+                        }).fail(function () {
+                            layoutLoading.hide();
+                        });
+                    } else {
+                        layoutLoading.hide();
+                        console.error('loadLayout', 'configlink, template or are null or empty', { configlink, template, css });
+                    }
+                }).fail(function () {
+                    layoutLoading.hide();
+                });
+            } else {
+                layoutLoading.hide();
+                console.error('loadLayout', 'metalink is null or empty');
+            }
+        }
     }
-    
+
 
     generateLayoutList() {
         let templates = [];
@@ -170,7 +210,7 @@ export class Layouts {
                 right: 2
             }]
         };
-        
+
         var that = this;
         this._layoutsList = new List('layouts-list', options, templates);
         this._layoutsList.on('updated', function () {
@@ -180,16 +220,16 @@ export class Layouts {
     }
 
     clearLayoutInfo() {
-        $('#msgLayoutPatternInfo').hide();
+        $('#msgLayoutPatternInfo').removeAttr('data-layout-id').hide();
     }
 
-    updateLayoutInfo(meta: any) {
+    updateLayoutInfo(meta: MetaDataValue) {
         if (meta === null) {
             console.error('updateLayoutInfo', 'meta is null');
             return;
         }
-        this._currentLayoutId = meta.id;
 
+        const id = meta.id;
         const author = meta.author || '&lt;Unknown&gt;';
         const authorLink = meta.author_link || '';
         const description = meta.description || '';
@@ -198,23 +238,26 @@ export class Layouts {
         const license = meta.license || '';
         const more = meta.more || '';
 
-        let header = (link === '')? name : '<a href="' + link + '" target="_blank">' + name + '</a>';
+        this._appData.currentLayoutId = id;
+
+        let header = (link === '') ? name : '<a href="' + link + '" target="_blank">' + name + '</a>';
         header += site.data.strings.info.by_author + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
 
         $('#msgLayoutPatternInfoHeader').html(header);
         $('#msgLayoutPatternInfoDescription').html(description);
         $('#msgLayoutPatternInfoLicense').html(license);
         $('#msgLayoutPatternInfoMore').html(more);
-        $('#msgLayoutPatternInfo').show();
+        $('#msgLayoutPatternInfo').data('layout-id', id).show();
     }
 
-    
-    private overrideLayout (layout: any) {
+
+    private overrideLayout(layout: HTMLElement) {
         //console.debug('layout-pattern dblclick', layout);
 
         var that = this;
-        this.loadLayout(layout, function (data: any) {
-            const keywordsStr: string = $(layout).data('keywords');
+        this.loadLayout(layout, function (data) {
+            //const id: string | null = $(layout).data('id') || null;
+            const keywordsStr: string = $(layout).data('keywords') || '';
 
             //console.debug('overrideLayout', 'loadLayout', data);
             that.updateLayoutInfo(data.meta);
@@ -223,7 +266,7 @@ export class Layouts {
             const css: string = data.css;
             const config = (that._appData.isLockConfig) ? that._appData.configJson : data.config;
 
-            let configJson = {};
+            let configJson: unknown = {};
             try {
                 if (typeof config === 'string' || config instanceof String) {
                     configJson = js_beautify(parseJson(config as string));
@@ -236,8 +279,8 @@ export class Layouts {
 
             that._appData.templateCode = template;
             that._appData.configJson = configJson;
-            that._appData.updateConfigCodesStr();
             that._appData.cssCode = css_beautify(css);
+            that._appData.updateConfigCodesStr();
 
             that._appListener.initEditors();
             that._appListener.generateHTML();
@@ -262,14 +305,15 @@ export class Layouts {
         });
     };
 
-    private previewLayout (layout: any) {
+    private previewLayout(layout: HTMLElement) {
         //console.debug('layout-pattern click', layout);
 
         var that = this;
-        this.loadLayout(layout, function (data: any) {
+        this.loadLayout(layout, function (data) {
             //console.debug('previewLayout', 'loadLayout', data);
+            that._appData.currentLayoutId = data.id;
             that.updateLayoutInfo(data.meta);
-            that._appListener.generateHTMLFromTemplate(data.template, data.config, data.css, true);
+            that._appListener.generateHTMLFromTemplate(that._appData.currentLayoutId, data.template, data.config, data.css, true);
             that._appListener.selectPreviewTab();
         });
     };

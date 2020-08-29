@@ -14,9 +14,7 @@ const TEMPLATE_EDITOR_NAME_ACE = 'ace';
 
 export class TemplateEditor {
     
-    private _templateEditor: any = null;
-    private _templateWYSIWYGEditor: any = null;
-    private _currentWYSIWYGTemplateEditorName: string = '';
+    private _templateEditor: ace.Editor | null = null;
     private _currentTemplateEditorName: string = '';
 
     private _appData: ApplicationData;
@@ -71,18 +69,26 @@ export class TemplateEditor {
         this._templateEditor = ace.edit("txtTemplate");
         this._templateEditor.setTheme('ace/theme/dracula');
         this._templateEditor.session.setMode('ace/mode/html');
-        this._templateEditor.session.on('change', function (delta: any) {
+        this._templateEditor.session.on('change', function (delta) {
             // delta.start, delta.end, delta.lines, delta.action
-            onChangeTemplateEditor(that._templateEditor.getValue());
+            if (that._templateEditor) {
+                console.log(delta);
+                //if () {
+                //    this._appData.currentLayoutId = null;
+                //}
+                onChangeTemplateEditor(that._templateEditor.getValue());
+            }
         });
         this._currentTemplateEditorName = TEMPLATE_EDITOR_NAME_ACE;
     }
 
     setTemplateEditorValue(code: string) {
-        this._templateEditor.setValue(code);
         this.updateTemplateLinesOfCodeBadges(code);
 
-        this._templateEditor.clearSelection();
+        if (this._templateEditor) {
+            this._templateEditor.setValue(code);
+            this._templateEditor.clearSelection();
+        }
     }
     
     initEditor() {

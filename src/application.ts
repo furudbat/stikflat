@@ -1,7 +1,8 @@
-import { site } from './site'
+import { site, USE_CACHE } from './site'
 import Handlebars from 'handlebars';
 import * as jsb from 'js-beautify'
 import ClipboardJS from 'clipboard';
+import cache from 'memory-cache'
 import parseJson from 'json-parse-better-errors';
 import { ApplicationData, CONFIG_CONTENT_MODE_YAML, CONFIG_CONTENT_MODE_JSON } from './application.data'
 import { ApplicationListener } from './application.listener'
@@ -16,6 +17,7 @@ import { PreviewEditor } from './preview.editor';
 const html_beautify = jsb.html_beautify;
 
 const CLIPBOARD_POPOVER_DELAY_MS: number = 1200;
+const HANDLEBARS_CACHE_MAX_TIME_MS: number = 60 * 60 * 1000;
 
 export class Application implements ApplicationListener {
 
@@ -28,6 +30,8 @@ export class Application implements ApplicationListener {
     private _configEditor: ConfigEditor = new ConfigEditor(this._appData, this._configs, this);
     private _previewEditor: PreviewEditor = new PreviewEditor();
 
+    private _hbTemplatesCache: cache.CacheClass<string, HandlebarsTemplateDelegate<unknown>> = new cache.Cache<string, HandlebarsTemplateDelegate<unknown>> ();
+
     private _btnPreviewCodeCopy: ClipboardJS | null = null;
     private _btnPreviewCodeCopySpoiler: ClipboardJS | null = null;
     private _btnPreviewCodeCopySpoilerPreview: ClipboardJS | null = null;
@@ -39,7 +43,7 @@ export class Application implements ApplicationListener {
         this._configEditor.initEditor();
     }
 
-    generateHTMLFromTemplate(template: string, json: any, css: string, onlypreview: boolean = false) {
+    generateHTMLFromTemplate(id: string | null, template: string, json: unknown, css: string, onlypreview: boolean = false) {
         if (typeof json === 'string' || json instanceof String) {
             this._configEditor.clearConfigError();
             try {
@@ -60,11 +64,28 @@ export class Application implements ApplicationListener {
         if (json !== null) {
             this._templateEditor.clearTemplateError();
             try {
-                const handlebars_template = Handlebars.compile(template);
-                const htmlstr = handlebars_template(json);
-                this._preview.setHTMLPreview(htmlstr, css);
-                if (onlypreview === false) {
-                    this._previewEditor.codePreview = html_beautify(htmlstr);
+                var that = this;
+                var renderHTML = function(handlebars_template: HandlebarsTemplateDelegate<unknown>){
+                    const htmlstr = handlebars_template(json);
+                    that._preview.setHTMLPreview(htmlstr, css);
+                    if (onlypreview === false) {
+                        that._previewEditor.codePreview = html_beautify(htmlstr);
+                    }
+                };
+
+                let handlebars_template: HandlebarsTemplateDelegate<unknown> | null = null;
+                if (USE_CACHE && id != null) {
+                    handlebars_template = this._hbTemplatesCache.get(id);
+                }
+                
+                if (handlebars_template) {
+                    renderHTML(handlebars_template);
+                } else {
+                    handlebars_template = Handlebars.compile<unknown>(template);
+                    if (USE_CACHE && id != null) {
+                        this._hbTemplatesCache.put(id, handlebars_template, HANDLEBARS_CACHE_MAX_TIME_MS);
+                    }
+                    renderHTML(handlebars_template);
                 }
             } catch (error) {
                 console.error(error);
@@ -82,10 +103,11 @@ export class Application implements ApplicationListener {
 
 
     generateHTML() {
+        const id = this._appData.currentLayoutId;
         const template = this._appData.templateCode;
         const json = this._appData.configCodeJSON;
         const css = this._appData.cssCode;
-        this.generateHTMLFromTemplate(template, json, css);
+        this.generateHTMLFromTemplate(id, template, json, css);
     }
 
     changeConfigMode(mode: string) {

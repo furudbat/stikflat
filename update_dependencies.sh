@@ -15,7 +15,8 @@ npm i brace
 npm i localforage
 
 npm i --save-dev typescript
-npm i --save-dev browserify tsify uglify-es envify 
+npm i --save-dev browserify tsify
+npm i --save-dev unassertify envify uglifyify common-shakeify browser-pack-flat uglify-es
 npm i --save-dev @tsconfig/recommended
 npm i --save-dev @types/node
 npm i --save-dev @types/jquery
