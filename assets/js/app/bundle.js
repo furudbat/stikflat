@@ -41201,6 +41201,9 @@ var ApplicationData = (function () {
         this.configYamlStr = this.configCodeYAML;
     };
     Object.defineProperty(ApplicationData.prototype, "configJsonStr", {
+        get: function () {
+            return this._configJsonStr;
+        },
         set: function (jsonstr) {
             this._configJsonStr = jsonstr;
             localStorage.setItem(STORAGE_KEY_CONFIG_CODE_JSON, this._configJsonStr);
@@ -41209,6 +41212,9 @@ var ApplicationData = (function () {
         configurable: true
     });
     Object.defineProperty(ApplicationData.prototype, "configYamlStr", {
+        get: function () {
+            return this._configYamlStr;
+        },
         set: function (yamlstr) {
             this._configYamlStr = yamlstr;
             localStorage.setItem(STORAGE_KEY_CONFIG_CODE_YAML, this._configYamlStr);
@@ -41259,7 +41265,6 @@ var ApplicationData = (function () {
     return ApplicationData;
 }());
 exports.ApplicationData = ApplicationData;
-
 },{"js-yaml":41}],94:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
@@ -41618,7 +41623,6 @@ var Application = (function () {
     return Application;
 }());
 exports.Application = Application;
-
 },{"./application.data":93,"./config.editor":95,"./configs":96,"./css.editor":97,"./layouts":98,"./preview":101,"./preview.editor":100,"./site":102,"./template.editor":103,"clipboard":16,"js-beautify":17,"json-parse-better-errors":71,"mustache":91}],95:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
@@ -41750,7 +41754,6 @@ var ConfigEditor = (function () {
     return ConfigEditor;
 }());
 exports.ConfigEditor = ConfigEditor;
-
 },{"./application.data":93,"./site":102,"brace":5,"brace/ext/beautify":1,"brace/ext/error_marker":2,"brace/ext/spellcheck":3,"brace/ext/textarea":4,"brace/mode/json":9,"brace/mode/yaml":10,"brace/theme/dracula":11,"brace/worker/json":15,"js-yaml":41,"json-parse-better-errors":71}],96:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -41916,7 +41919,6 @@ var SavedConfigs = (function () {
     return SavedConfigs;
 }());
 exports.SavedConfigs = SavedConfigs;
-
 },{"./site":102}],97:[function(require,module,exports){
 "use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) {
@@ -41977,7 +41979,6 @@ var CssEditor = (function () {
     return CssEditor;
 }());
 exports.CssEditor = CssEditor;
-
 },{"./site":102,"brace":5,"brace/ext/beautify":1,"brace/ext/error_marker":2,"brace/ext/textarea":4,"brace/mode/css":6,"brace/theme/dracula":11,"brace/worker/css":12}],98:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
@@ -42226,7 +42227,6 @@ var Layouts = (function () {
     return Layouts;
 }());
 exports.Layouts = Layouts;
-
 },{"./site":102,"js-beautify":17,"js-yaml":41,"json-parse-better-errors":71,"list.js":75}],99:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -42236,7 +42236,6 @@ $(document).ready(function () {
     var app = new application_1.Application();
     app.init();
 });
-
 },{"./application":94,"./site":102}],100:[function(require,module,exports){
 "use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) {
@@ -42280,7 +42279,6 @@ var PreviewEditor = (function () {
     return PreviewEditor;
 }());
 exports.PreviewEditor = PreviewEditor;
-
 },{"brace":5,"brace/ext/beautify":1,"brace/ext/error_marker":2,"brace/ext/textarea":4,"brace/mode/html":8,"brace/theme/dracula":11,"brace/worker/html":13}],101:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -42305,7 +42303,6 @@ var Preview = (function () {
     return Preview;
 }());
 exports.Preview = Preview;
-
 },{"./site":102}],102:[function(require,module,exports){
 'use strict';
 String.prototype.format = function () {
@@ -42382,7 +42379,6 @@ module.exports = {
     countlines: countlines,
     makeDoubleClick: makeDoubleClick
 };
-
 },{}],103:[function(require,module,exports){
 "use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) {
@@ -42477,5 +42473,5 @@ var TemplateEditor = (function () {
     return TemplateEditor;
 }());
 exports.TemplateEditor = TemplateEditor;
-
-},{"./site":102,"brace":5,"brace/ext/beautify":1,"brace/ext/error_marker":2,"brace/ext/textarea":4,"brace/mode/handlebars":7,"brace/mode/html":8,"brace/theme/dracula":11,"brace/worker/html":13}]},{},[99]);
+},{"./site":102,"brace":5,"brace/ext/beautify":1,"brace/ext/error_marker":2,"brace/ext/textarea":4,"brace/mode/handlebars":7,"brace/mode/html":8,"brace/theme/dracula":11,"brace/worker/html":13}]},{},[99])
+//# sourceMappingURL=bundle.map.js

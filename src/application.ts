@@ -142,7 +142,6 @@ export class Application implements ApplicationListener {
         $('#btnClearSavedConfigsStorage').click(function () {
             that._appData.clearSavedConfigsStorage();
         });
-
     }
 
 

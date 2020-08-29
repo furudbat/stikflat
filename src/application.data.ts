@@ -196,6 +196,13 @@ export class ApplicationData {
         localStorage.setItem(STORAGE_KEY_CONFIG_CODE_YAML, this._configYamlStr);
     }
 
+    get configJsonStr() {
+        return this._configJsonStr;
+    }
+    get configYamlStr() {
+        return this._configYamlStr;
+    }
+
     lockConfig() {
         this._lockConfigCode = true;
         localStorage.setItem(STORAGE_KEY_LOCK_CONFIG_CODE, this._lockConfigCode.toString());
