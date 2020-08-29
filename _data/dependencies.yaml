@@ -8,32 +8,8 @@
   link: https://github.com/FortAwesome/Font-Awesome
 - name: Mustache
   link: https://github.com/janl/mustache.js
-- name: beautify-web
-  link: https://github.com/beautify-web/js-beautify
-- name: Linkify
-  link: https://github.com/SoapBox/linkifyjs
-- name: esprima
-  link: https://github.com/jquery/esprima
-- name: JS-YAML
-  link: https://github.com/nodeca/js-yaml
-- name: Froala Editor
-  link: https://froala.com/wysiwyg-editor/
-  isWYSIWYG: true
-- name: TinyMCE
-  link: https://github.com/tinymce/tinymce
-  isWYSIWYG: true
-- name: Codemirror
-  link: https://github.com/codemirror/codemirror
+- name: Handlebars
+  link: https://github.com/handlebars-lang/handlebars.js
   disabled: true
 - name: Ace
   link: https://github.com/ajaxorg/ace
-- name: clipboard.js
-  link: https://github.com/zenorocha/clipboard.js
-- name: csslint
-  link: https://github.com/CSSLint/csslint
-  disabled: true
-- name: HTMLHint
-  link: https://github.com/htmlhint/HTMLHint
-  disabled: true
-- name: jsonlint
-  link: https://github.com/zaach/jsonlint

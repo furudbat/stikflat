@@ -8,10 +8,15 @@ layouts:
   search_placeholder: "Search"
 content:
   header: Saved Configs
-  header_help: Select a Config by clicking to preview or double-click to edit.<br>Configs are saved localy, but don't relay on it. It is recommended to also save your Templates and Configs somewhere else as backup.
+  header_help: >-
+    Select a Config by clicking to preview or double-click to edit.<br/>
+    Configs are saved localy, but don't relay on it. 
+    It is recommended to also save your Templates and Configs somewhere else as backup.
   content_default_prefix: 'Content #'
 preview:
-  help: "This preview is using the default bootstrap theme and may vary from TOYHOU.SE theme.<br>Not all Font Awesome Icons are avaiable, you can use Pro Icon in TOYHOU.SE but they aren't shown in this preview."
+  help: >-
+    This preview is using the default bootstrap theme and may vary from TOYHOU.SE theme.<br/>
+    Not all Font Awesome Icons are avaiable, you can use Pro Icon in TOYHOU.SE but they aren't shown in this preview.
   goto_preview_code: 'Go to "generated Code" <i class="fas fa-arrow-down"></i>'
 editor:
   header: Editor
@@ -20,7 +25,17 @@ editor:
   css_tab: CSS
   lines: '{} LOC'
   template:
-    template_help: 'Put your <a href="https://mustache.github.io/" target="_blank">mustache</a> template here.<br>Use <code>{{name}}</code> as an tag from your Config or <code>{{{name}}}</code> for an unescape tag (for URLS, HTML, ...). Some HTML tags are filterd by <a href ="https://toyhou.se/~forums/16.htmlcss-graphics/16.html-css-whitelist-tweaks">toyhou.se</a> like <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code> or <code>&lt;dl&gt;</code> be aware.'
+    template_help_handlebars: >-
+      Put your <a href="https://handlebarsjs.com/guide/expressions.html/" target="_blank">handlebars</a> template here.<br>
+      Handlebars expressions are some contents enclosed by double curly braces <code>{{}}</code>, the values returned by the <code>{{expression}}</code> are HTML-escaped. 
+      Say, if the expression contains <code>&amp;</code>, then the returned HTML-escaped output is genarated as <code>&amp;amp;</code>. If you don't want Handlebars to escape a value, use the "triple-stash", <code>{{{</code> (useful for URLS, HTML and custom code).<br/> 
+      <strong>Handlebars does not allow space between the opening <code>{{ </code>, avoids spaces </strong> always wrtie <code>{{name}}</code> or <code>{{[name}}}</code>.<br/>
+      Some HTML tags are filterd out by <a href ="https://toyhou.se/~forums/16.htmlcss-graphics/16.html-css-whitelist-tweaks">toyhou.se</a> like <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code> or <code>&lt;dl&gt;</code> be aware.
+    template_help_mustache: >-
+      Put your <a href="https://mustache.github.io/mustache.5.html" target="_blank">mustache</a> template here.<br>
+      Mustache tags are some contents enclosed by double curly braces (the double mustaches) <code>{{}}</code>, the values returned by the <code>{{name}}</code> are HTML-escaped. 
+      Say, if the expression contains <code>&amp;</code>, then the returned HTML-escaped output is genarated as <code>&amp;amp;</code>. If you don't want Mustache to escape a value, use the "triple mustache", <code>{{{name}}}</code> (useful for URLS, HTML and custom code).<br/> 
+      Some HTML tags are filterd out by <a href ="https://toyhou.se/~forums/16.htmlcss-graphics/16.html-css-whitelist-tweaks">toyhou.se</a> like <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code> or <code>&lt;dl&gt;</code> be aware.
     css_help: "Put your CSS here."
     enabled_WYSIWYG_editor_btn: WYSIWYG Editor enabled
     disabled_WYSIWYG_editor_btn: WYSIWYG Editor disabled
@@ -29,12 +44,16 @@ editor:
   config:
     header: 'Config <i class="fas fa-compress-alt"></i>'
     header_short: '<i class="fas fa-expand-alt"></i>'
-    help: 'Put your <a href="https://mustache.github.io/" target="_blank">mustache</a> hash/object (<a href="https://www.w3schools.com/js/js_json_syntax.asp" target="_blank">json</a>/<a href="https://yaml.org/" target="_blank">yaml</a>) here.<br>Mustache works by expanding tags from your template by using provided values from this config.'
+    help: >-
+      Put your input object here (<a href="https://www.w3schools.com/js/js_json_syntax.asp" target="_blank">json</a>/<a href="https://yaml.org/" target="_blank">yaml</a>) here.<br/>
+      Use YAML for larger text, it's easier to edit in YAML :)
     lock_config_help: "Config Locked, Don't override config when selecting Layout."
     unlock_config_help: "Config Unlocked, Override config when selecting Layout."
     add_btn: '<i class="fas fa-plus"></i>'
     save_btn: '<i class="fas fa-save"></i>'
-    keywords_help: 'Keywords available in this template: {}<br/>See <a href="{}" target="_blank">original config</a> for more details.'
+    keywords_help: >-
+      Keywords available in this template: {}<br/>
+      See <a href="{}" target="_blank">original config</a> for more details.
     mode_json: 'JSON'
     mode_yaml: 'YAML'
   generate_btn: Generate
@@ -49,7 +68,7 @@ code:
   copycode_spoiler_preview_credit: "with credit, spoiler and preview"
   popover_copied: "Copied to clipoard!"
 misc:
-  clear_template_storage_btn: Clear Settings
+  clear_template_storage_btn: Clear Session
   clear_template_storage_help: "Delete all Settings and Editor-Inputs from local storage."
   clear_saved_configs_storage_btn: Clear Saved Configs
   clear_saved_configs_storage_help: "Delete all Settings and Editor-Inputs from local storage."

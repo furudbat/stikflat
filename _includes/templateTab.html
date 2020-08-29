@@ -1,38 +1,20 @@
-{% if site.options.withWYSIWYGEditor %}
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label class="checkbox-inline">
-                                <input id="chbLivePreview" type="checkbox" data-toggle="toggle" />
-                                <span id="chbLivePreviewHelp"></span>
-                            </label>
-                        </div>
-                        <button id="btnEnableWYSIWYGEditor" type="button" class="btn btn-outline-secondary"></button>
-                    </div>
-                    <div class="form-group">
-                        <div class="main-template-editors-editor-container">
-                            <textarea id="txtTemplate" aria-describedby="templateHelp"></textarea>
-                        </div>
-                        <div class="main-template-editors-WYSIWYG-editor-container">
-                            <textarea id="txtTemplateWYSIWYG" aria-describedby="templateHelp"></textarea>
-                        </div>
-                        <div id="templateError" class="mt-1 alert alert-danger" role="alert"></div>
-                        <small id="templateHelp"
-                            class="form-text text-muted">{{ site.data.strings.editor.template.template_help }}</small>
-                    </div>
-                    {% else %}
-                    <div class="form-group">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="chbLivePreview" />
-                            <label id="chbLivePreviewHelp" class="custom-control-label" for="chbLivePreview"></label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div
-                            class="mt-1 pt-2 main-template-editors-editor-container main-template-editors-no-WYSIWYG-container">
-                            <textarea id="txtTemplate" aria-describedby="templateHelp"></textarea>
-                        </div>
-                        <div id="templateError" class="mt-1 alert alert-danger" role="alert"></div>
-                        <small id="templateHelp"
-                            class="form-text text-muted">{{ site.data.strings.editor.template.template_help }}</small>
-                    </div>
-                    {% endif %}
+<div class="form-group">
+    <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="chbLivePreview" />
+        <label id="chbLivePreviewHelp" class="custom-control-label" for="chbLivePreview"></label>
+    </div>
+</div>
+<div class="form-group">
+    <div
+        class="mt-1 pt-2 main-template-editors-editor-container main-template-editors-no-WYSIWYG-container">
+        <textarea id="txtTemplate" aria-describedby="templateHelp"></textarea>
+    </div>
+    <div id="templateError" class="mt-1 alert alert-danger" role="alert"></div>
+    <small id="templateHelp" class="form-text text-muted">
+        {%- if site.options.useHandlebars -%}
+        {{ site.data.strings.editor.template.template_help_handlebars }}
+        {%- else -%}
+        {{ site.data.strings.editor.template.template_help_mustache }}
+        {%- endif -%}
+    </small>
+</div>

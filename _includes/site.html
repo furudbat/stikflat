@@ -1,3 +1,16 @@
+<script type='text/javascript' >  
+    {%- if site.options.useCache -%}
+    const USE_CACHE = true;
+    {%- else -%}
+    const USE_CACHE = false;
+    {%- endif -%}
+    {%- if site.options.useHandlebars -%}
+    const USE_HANDLEBARS = true;
+    {%- else -%}
+    const USE_HANDLEBARS = false;
+    {%- endif -%}
+</script>
+
 <section id="sectionLayouts">
     <h2>{{ site.data.strings.layouts.header }}</h2>
     <div class="row mb-4 mx-2">
@@ -125,9 +138,9 @@
         <div class="col-md-12 main-misc-container">
             <div class="row">
                 <div class="col-3">
-                    <button id="btnClearTemplateStorage" type="button" class="btn btn-warning"
-                        aria-describedby="clearTemplateStorageHelp">{{ site.data.strings.misc.clear_template_storage_btn }}</button>
-                    <small id="clearTemplateStorageHelp"
+                    <button id="btnClearSessionStorage" type="button" class="btn btn-warning"
+                        aria-describedby="btnClearSessionStorageHelp">{{ site.data.strings.misc.clear_template_storage_btn }}</button>
+                    <small id="btnClearSessionStorageHelp"
                         class="form-text text-muted">{{ site.data.strings.misc.clear_template_storage_help }}</small>
                 </div>
                 <div class="col-3">
@@ -140,5 +153,3 @@
         </div>
     </div>
 </section>
-
-<script src="{{ '/assets/js/site.js' | relative_url }}"></script>
