@@ -57,7 +57,7 @@ export class Layouts {
 
             $.when(getTemplate, getConfig, getCSS).done((templateRes, configRes, cssRes) => {
                 layoutLoading.hide();
-                console.log({ template: templateRes[0], config: configRes[0], css: cssRes[0], meta, name, configlink });
+                //console.log({ template: templateRes[0], config: configRes[0], css: cssRes[0], meta, name, configlink });
                 callback({ template: templateRes[0], config: configRes[0], css: cssRes[0], meta, name, configlink });
             }).fail(function () {
                 layoutLoading.hide();

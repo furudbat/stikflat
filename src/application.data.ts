@@ -72,7 +72,7 @@ export class ApplicationData {
 
             //console.debug('loadFromStorage', { _templateCode, _configJson, _cssCode, _lockConfigCode, _enableWYSIWYGTemplateEditor, _enableLivePreview, _currentConfigIndex, _savedConfigs });
         } else {
-            console.log('no local storage available');
+            console.error('no local storage available');
         }
     }
 
