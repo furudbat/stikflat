@@ -1,5 +1,6 @@
 import { site, USE_CACHE } from './site'
 import Handlebars from 'handlebars';
+//import Mustache from 'mustache';
 import * as jsb from 'js-beautify'
 import ClipboardJS from 'clipboard';
 import cache from 'memory-cache'
@@ -65,8 +66,9 @@ export class Application implements ApplicationListener {
             this._templateEditor.clearTemplateError();
             try {
                 var that = this;
-                var renderHTML = function(handlebars_template: HandlebarsTemplateDelegate<unknown>){
+                var renderHTMLWithHandlebars = function(handlebars_template: HandlebarsTemplateDelegate<unknown>) {
                     const htmlstr = handlebars_template(json);
+                    console.log('renderHTMLWithHandlebars', template, json, htmlstr, handlebars_template);
                     that._preview.setHTMLPreview(htmlstr, css);
                     if (onlypreview === false) {
                         that._previewEditor.codePreview = html_beautify(htmlstr);
@@ -79,13 +81,13 @@ export class Application implements ApplicationListener {
                 }
                 
                 if (handlebars_template) {
-                    renderHTML(handlebars_template);
+                    renderHTMLWithHandlebars(handlebars_template);
                 } else {
-                    handlebars_template = Handlebars.compile<unknown>(template);
+                    handlebars_template = Handlebars.compile(template);
                     if (USE_CACHE && id != null) {
                         this._hbTemplatesCache.put(id, handlebars_template, HANDLEBARS_CACHE_MAX_TIME_MS);
                     }
-                    renderHTML(handlebars_template);
+                    renderHTMLWithHandlebars(handlebars_template);
                 }
             } catch (error) {
                 console.error(error);

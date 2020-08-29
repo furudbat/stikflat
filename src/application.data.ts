@@ -1,6 +1,5 @@
 import * as jsyaml from 'js-yaml';
 import localForage from "localforage";
-import cache from 'memory-cache';
 import { SavedConfigValue } from './savedconfig.values';
 import { assert } from 'console';
 
@@ -238,5 +237,7 @@ export class ApplicationData {
 
     set currentConfigIndex(index: number | null) {
         this._currentConfigIndex = index;
+        assert(this._currentConfigIndex !== undefined);
+        this._storeSession.setItem(STORAGE_KEY_CURRENT_CONFIG_INDEX, this._currentConfigIndex);
     }
 }

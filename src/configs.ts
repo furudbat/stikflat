@@ -1,5 +1,4 @@
 import { site, makeDoubleClick } from './site'
-import { Cache } from 'memory-cache'
 import { ApplicationData } from './application.data.js'
 import { ApplicationListener } from './application.listener';
 import { SavedConfigBaseJsonValue } from './savedconfig.value';

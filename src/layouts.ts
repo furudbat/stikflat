@@ -19,7 +19,7 @@ const CACHE_LOADED_LAYOUT_MAX_TIME_MS = 8 * 60 * 60 * 1000;
 export class Layouts {
 
     private _layoutsList: List | null = null;
-    private _loadedLayouts: cache.CacheClass<string, LoadedLayoutValue> = new cache.Cache<string, any>();
+    private _loadedLayouts: cache.CacheClass<string, LoadedLayoutValue> = new cache.Cache<string, LoadedLayoutValue>();
 
     private _appData: ApplicationData;
     private _appListener: ApplicationListener;
@@ -38,7 +38,7 @@ export class Layouts {
         let loadedLayout = (id !== null) ? this._loadedLayouts.get(id) : null;
         if (loadedLayout) {
             layoutLoading.hide();
-            //console.log({ template: templateRes[0], config: configRes[0], css: cssRes[0], meta, name, configlink });
+            console.log('loadLayout from cache', loadedLayout);
             callback(loadedLayout);
         } else {
             var that = this;
