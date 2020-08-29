@@ -1,5 +1,5 @@
 import { site } from './site'
-import Mustache from 'mustache';
+import Handlebars from 'handlebars';
 import * as jsb from 'js-beautify'
 import ClipboardJS from 'clipboard';
 import parseJson from 'json-parse-better-errors';
@@ -14,6 +14,8 @@ import { Preview } from './preview';
 import { PreviewEditor } from './preview.editor';
 
 const html_beautify = jsb.html_beautify;
+
+const CLIPBOARD_POPOVER_DELAY_MS: number = 1200;
 
 export class Application implements ApplicationListener {
 
@@ -58,7 +60,8 @@ export class Application implements ApplicationListener {
         if (json !== null) {
             this._templateEditor.clearTemplateError();
             try {
-                const htmlstr = Mustache.render(template, json);
+                const handlebars_template = Handlebars.compile(template);
+                const htmlstr = handlebars_template(json);
                 this._preview.setHTMLPreview(htmlstr, css);
                 if (onlypreview === false) {
                     this._previewEditor.codePreview = html_beautify(htmlstr);
@@ -104,25 +107,26 @@ export class Application implements ApplicationListener {
     }
 
     init() {
-        this._appData.loadFromStorage();
-
-        this.initLayouts();
-
-        this.initSavedConfigs();
-
-        this.initCodePreviewEditor();
-        this.initTemplateEditor();
-        this.initCssEditor();
-        this.initConfigEditor();
-
-        this.initPreview();
-
-        this.initTabs();
-
         $('[data-toggle="popover"]').popover();
-        this.initClipboardButtons();
 
         var that = this;
+        this._appData.loadFromStorage().then(function () {
+            that.initLayouts();
+    
+            that.initSavedConfigs();
+    
+            that.initCodePreviewEditor();
+            that.initTemplateEditor();
+            that.initCssEditor();
+            that.initConfigEditor();
+    
+            that.initPreview();
+        });
+        
+        this.initTabs();
+    
+        this.initClipboardButtons();
+
         $('.generate-btn').each(function (index) {
             $(this).click(function () {
                 that.generateHTML();
@@ -136,8 +140,8 @@ export class Application implements ApplicationListener {
                 }
             });
         });
-        $('#btnClearTemplateStorage').click(function () {
-            that._appData.clearTemplateStorage();
+        $('#btnClearSessionStorage').click(function () {
+            that._appData.clearSessionStorage();
         });
         $('#btnClearSavedConfigsStorage').click(function () {
             that._appData.clearSavedConfigsStorage();
@@ -145,7 +149,7 @@ export class Application implements ApplicationListener {
     }
 
 
-    private initTabs() {
+    private async initTabs() {
         var that = this;
         $('#templateTabs a[href="#previewTabContent"]').on('click', function (e) {
             that.selectPreviewTab();
@@ -166,7 +170,7 @@ export class Application implements ApplicationListener {
         */
     }
 
-    private initPreview() {
+    private async initPreview() {
         if (this._appData.isLivePreviewEnabled) {
             $('#chbLivePreview').prop('checked', true);
             this._preview.enableLivePreview();
@@ -181,7 +185,7 @@ export class Application implements ApplicationListener {
         //$('.main-template-editors-preview-container').resizable();
     }
 
-    private initConfigEditor() {
+    private async initConfigEditor() {
         this._configEditor.clearConfigError();
         this._configEditor.generateConfigEditor();
 
@@ -251,12 +255,12 @@ export class Application implements ApplicationListener {
         });
     }
 
-    private initCssEditor() {
+    private async initCssEditor() {
         $('#cssEditorLinesBadge').hide();
         this._cssEditor.generateCssEditor();
     }
 
-    private initTemplateEditor() {
+    private async initTemplateEditor() {
         this._templateEditor.clearTemplateError();
         $('#templateEditorLinesBadge').hide();
 
@@ -275,21 +279,21 @@ export class Application implements ApplicationListener {
         });
     }
 
-    private initCodePreviewEditor() {
+    private async initCodePreviewEditor() {
         this._previewEditor.generateCodePreviewEditor();
     }
 
-    private initSavedConfigs() {
+    private async initSavedConfigs() {
         this._configs.generateSavedConfigsFromList();
         this._configs.initSaveConfigControls();
     }
 
-    private initLayouts() {
+    private async initLayouts() {
         this._layouts.generateLayoutList();
         this._layouts.clearLayoutInfo();
     }
 
-    private initClipboardButtons(){
+    private async initClipboardButtons(){
         var that = this;
         this._btnPreviewCodeCopy = new ClipboardJS('#btnPreviewCodeCopy', {
             text: function (trigger) {
@@ -345,7 +349,7 @@ export class Application implements ApplicationListener {
         this._btnPreviewCodeCopySpoilerPreviewCredit = new ClipboardJS('#btnPreviewCodeCopySpoilerPreviewCredit', {
             text: function (trigger) {
                 const code = that._previewEditor.codePreview;
-                var encoded_code = $('<div />').text(code).html();
+                const encoded_code = $('<div />').text(code).html();
                 return [
                     '<p>', $('#msgLayoutPatternInfo').html(), '</p>',
                     '',
@@ -370,7 +374,7 @@ export class Application implements ApplicationListener {
             var $pop = $(this);
             setTimeout(function () {
                 $pop.popover('hide');
-            }, 1200);
+            }, CLIPBOARD_POPOVER_DELAY_MS);
         });
     }
 }

@@ -24,6 +24,7 @@ export class PreviewEditor {
         this._codePreviewEditor.setTheme('ace/theme/dracula');
         this._codePreviewEditor.session.setMode('ace/mode/html');
         this._codePreviewEditor.setReadOnly(true);
+        this._codePreviewEditor.setShowPrintMargin(false);
     }
 
     set codePreview(code: string) {

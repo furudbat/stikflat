@@ -8,8 +8,8 @@
     "url": "https://github.com/furudbat/stikflat.git"
   },
   "scripts": {
-    "build": "browserify src/main.ts -p [ tsify ] > ./assets/js/app/bundle.js",
-    "build-debug": "browserify src/main.ts --debug -p [ tsify ] | exorcist ./assets/js/app/bundle.map.js > ./assets/js/app/bundle.js",
+    "build": "browserify src/main.ts -p [ tsify ] -t [ envify --NODE_ENV production ] | uglifyjs -cm > ./assets/js/app/bundle.min.js",
+    "build-dev": "browserify src/main.ts --debug -p [ tsify ] -t [ envify --NODE_ENV development ] | exorcist ./assets/js/app/bundle.map.js > ./assets/js/app/bundle.js",
     "start": "bundle exec jekyll serve"
   },
   "dependencies": {
@@ -28,6 +28,7 @@
     "json-parse-better-errors": "^1.0.2",
     "jsonlint": "^1.6.3",
     "list.js": "^1.5.0",
+    "localforage": "^1.9.0",
     "mustache": "^4.0.1"
   },
   "devDependencies": {
@@ -47,9 +48,12 @@
     "@types/mustache": "^4.0.1",
     "@types/node": "^14.6.1",
     "browserify": "^16.5.2",
+    "envify": "^4.1.0",
     "exorcist": "^1.0.1",
     "ts-loader": "^8.0.3",
     "tsify": "^5.0.2",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.2",
+    "uglify-es": "^3.3.9",
+    "uglifyify": "^5.0.2"
   }
 }

@@ -12,9 +12,10 @@ npm i list.js
 npm i js-beautify json-parse-better-errors htmlhint
 npm i esprima js-yaml
 npm i brace
+npm i localforage
 
 npm i --save-dev typescript
-npm i --save-dev browserify tsify
+npm i --save-dev browserify tsify uglify-es envify 
 npm i --save-dev @tsconfig/recommended
 npm i --save-dev @types/node
 npm i --save-dev @types/jquery

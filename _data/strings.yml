@@ -49,7 +49,7 @@ code:
   copycode_spoiler_preview_credit: "with credit, spoiler and preview"
   popover_copied: "Copied to clipoard!"
 misc:
-  clear_template_storage_btn: Clear Settings
+  clear_template_storage_btn: Clear Session
   clear_template_storage_help: "Delete all Settings and Editor-Inputs from local storage."
   clear_saved_configs_storage_btn: Clear Saved Configs
   clear_saved_configs_storage_help: "Delete all Settings and Editor-Inputs from local storage."

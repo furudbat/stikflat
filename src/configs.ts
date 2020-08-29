@@ -96,7 +96,7 @@ export class SavedConfigs {
     }
 
     initSaveConfigControls() {
-        var savedConfigs = $('.' + SAVED_CONFIG_BUTTON_CLASS);
+        let savedConfigs = $('.' + SAVED_CONFIG_BUTTON_CLASS);
 
         var that = this;
         if (savedConfigs && savedConfigs.length) {
