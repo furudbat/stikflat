@@ -1,6 +1,6 @@
-import { site, USE_CACHE } from './site'
+import { site, USE_CACHE, USE_HANDLEBARS } from './site'
 import Handlebars from 'handlebars';
-//import Mustache from 'mustache';
+import Mustache from 'mustache';
 import * as jsb from 'js-beautify'
 import ClipboardJS from 'clipboard';
 import cache from 'memory-cache'
@@ -66,28 +66,39 @@ export class Application implements ApplicationListener {
             this._templateEditor.clearTemplateError();
             try {
                 var that = this;
-                var renderHTMLWithHandlebars = function(handlebars_template: HandlebarsTemplateDelegate<unknown>) {
-                    const htmlstr = handlebars_template(json);
-                    console.log('renderHTMLWithHandlebars', template, json, htmlstr, handlebars_template);
+                var renderHTML = function(htmlstr: string) {
+                    //console.log('renderHTML', template, json, htmlstr);
                     that._preview.setHTMLPreview(htmlstr, css);
                     if (onlypreview === false) {
                         that._previewEditor.codePreview = html_beautify(htmlstr);
                     }
                 };
-
-                let handlebars_template: HandlebarsTemplateDelegate<unknown> | null = null;
-                if (USE_CACHE && id != null) {
-                    handlebars_template = this._hbTemplatesCache.get(id);
-                }
                 
-                if (handlebars_template) {
-                    renderHTMLWithHandlebars(handlebars_template);
-                } else {
-                    handlebars_template = Handlebars.compile(template);
+                /// @NOTE: can't switch =/ ... [Handlebars not fully compatible with mustache as claimed.](https://github.com/handlebars-lang/handlebars.js/issues/425)
+                if (USE_HANDLEBARS) {
+                    var renderHTMLWithHandlebars = function(handlebars_template: HandlebarsTemplateDelegate<unknown>) {
+                        const htmlstr = handlebars_template(json);
+                        //console.log('renderHTMLWithHandlebars', template, json, htmlstr, handlebars_template);
+                        renderHTML(htmlstr);
+                    };
+
+                    let handlebars_template: HandlebarsTemplateDelegate<unknown> | null = null;
                     if (USE_CACHE && id != null) {
-                        this._hbTemplatesCache.put(id, handlebars_template, HANDLEBARS_CACHE_MAX_TIME_MS);
+                        handlebars_template = this._hbTemplatesCache.get(id);
                     }
-                    renderHTMLWithHandlebars(handlebars_template);
+                    
+                    if (handlebars_template) {
+                        renderHTMLWithHandlebars(handlebars_template);
+                    } else {
+                        handlebars_template = Handlebars.compile(template);
+                        if (USE_CACHE && id != null) {
+                            this._hbTemplatesCache.put(id, handlebars_template, HANDLEBARS_CACHE_MAX_TIME_MS);
+                        }
+                        renderHTMLWithHandlebars(handlebars_template);
+                    }
+                } else {
+                    const htmlstr = Mustache.render(template, json);
+                    renderHTML(htmlstr);
                 }
             } catch (error) {
                 console.error(error);

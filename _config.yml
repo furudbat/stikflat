@@ -52,6 +52,7 @@ exclude:
   - update_dependencies.sh
 
 options:
+  useHandlebars: false
   useCache: false
 
 version: '0.4.1'

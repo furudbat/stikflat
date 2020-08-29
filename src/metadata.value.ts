@@ -6,4 +6,5 @@ export interface MetaDataValue {
     name: string | null;
     license: string | null;
     more: string | null;
+    use_handlebars: boolean | undefined;
 }

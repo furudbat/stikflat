@@ -1,4 +1,4 @@
-import { site, makeDoubleClick, isOnScreen, USE_CACHE } from './site';
+import { site, makeDoubleClick, isOnScreen, USE_CACHE, USE_HANDLEBARS } from './site';
 import cache from 'memory-cache';
 import parseJson from 'json-parse-better-errors';
 import * as jsyaml from 'js-yaml';
@@ -82,7 +82,8 @@ export class Layouts {
                                 css: cssRes[0] || '',
                                 meta: meta,
                                 name: name || '',
-                                configlink: configlink || ''
+                                configlink: configlink || '',
+                                use_handlebars: meta.use_handlebars || false
                             };
                             if (id !== null) {
                                 that._loadedLayouts.put(id, loadedLayout, CACHE_LOADED_LAYOUT_MAX_TIME_MS);
@@ -145,29 +146,31 @@ export class Layouts {
                 inlineauthorstyle = 'display: inline !important;';
             }
 
-            templates.push({
-                colstyle: colstyle,
-                style: style,
-                template: site.data.templates_url + template.template,
-                css: site.data.templates_url + template.css,
-                config: site.data.templates_url + template.config,
-                meta: site.data.templates_url + template.meta,
-                keywords: template.keywords.join(', '),
-                id: template.id,
-                preview: preview,
-                previewstyle: previewstyle,
-                cardbodystyle: cardbodystyle,
-                inlinebodystyle: inlinebodystyle,
-                inlineauthorstyle: inlineauthorstyle,
-                name: template.name,
-                layoutloadingid: 'layout-loading-' + template.id,
-                type: type,
-                author: site.data.strings.layouts.by_author + template.author
-            });
+            if ((USE_HANDLEBARS && template.use_handlebars) || (!USE_HANDLEBARS && !template.use_handlebars)) {
+                templates.push({
+                    colstyle: colstyle,
+                    style: style,
+                    template: site.data.templates_url + template.template,
+                    css: site.data.templates_url + template.css,
+                    config: site.data.templates_url + template.config,
+                    meta: site.data.templates_url + template.meta,
+                    keywords: template.keywords.join(', '),
+                    id: template.id,
+                    preview: preview,
+                    previewstyle: previewstyle,
+                    cardbodystyle: cardbodystyle,
+                    inlinebodystyle: inlinebodystyle,
+                    inlineauthorstyle: inlineauthorstyle,
+                    name: template.name,
+                    layoutloadingid: 'layout-loading-' + template.id,
+                    type: type,
+                    author: site.data.strings.layouts.by_author + template.author
+                });
+            }
         }
 
         const item = `<div class="d-inline colstyle" style="">
-            <button type="button" class="btn btn-link card d-inline mr-1 mb-1 layout-pattern style template meta css config keywords id" 
+            <button type="button" class="btn btn-link card d-inline mr-1 mb-1 layout-pattern style template meta css config keywords id usehandlebars" 
                 style="" data-template="" data-css="" data-config="" data-meta="" data-id="" data-keywords="">
                 <div class="d-flex flex-wrap align-items-center preview previewstyle" style="">
                 </div>

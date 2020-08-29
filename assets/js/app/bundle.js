@@ -509,7 +509,7 @@ var objectKeys = Object.keys || function (obj) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"object-assign":132,"util/":4}],2:[function(require,module,exports){
+},{"object-assign":133,"util/":4}],2:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -1132,7 +1132,7 @@ function hasOwnProperty(obj, prop) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./support/isBuffer":3,"_process":133,"inherits":2}],5:[function(require,module,exports){
+},{"./support/isBuffer":3,"_process":134,"inherits":2}],5:[function(require,module,exports){
 ace.define("ace/ext/beautify/php_rules",["require","exports","module","ace/token_iterator"], function(acequire, exports, module) {
 "use strict";
 var TokenIterator = acequire("ace/token_iterator").TokenIterator;
@@ -29976,7 +29976,7 @@ function consoleAssert(expression) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"assert":1,"util":148}],23:[function(require,module,exports){
+},{"assert":1,"util":149}],23:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -30492,7 +30492,7 @@ exports['default'] = CodeGen;
 module.exports = exports['default'];
 
 
-},{"../utils":54,"source-map":144}],29:[function(require,module,exports){
+},{"../utils":54,"source-map":145}],29:[function(require,module,exports){
 /* eslint-disable new-cap */
 
 'use strict';
@@ -45205,7 +45205,7 @@ module.exports = function(id, options, values) {
   init.start();
 };
 
-},{"./add-async":111,"./filter":112,"./fuzzy-search":113,"./item":115,"./pagination":116,"./parse":117,"./search":118,"./sort":119,"./templater":120,"./utils/classes":121,"./utils/events":122,"./utils/extend":123,"./utils/get-attribute":125,"./utils/get-by-class":126,"./utils/index-of":127,"./utils/to-array":128,"./utils/to-string":129,"string-natural-compare":145}],115:[function(require,module,exports){
+},{"./add-async":111,"./filter":112,"./fuzzy-search":113,"./item":115,"./pagination":116,"./parse":117,"./search":118,"./sort":119,"./templater":120,"./utils/classes":121,"./utils/events":122,"./utils/extend":123,"./utils/get-attribute":125,"./utils/get-by-class":126,"./utils/index-of":127,"./utils/to-array":128,"./utils/to-string":129,"string-natural-compare":146}],115:[function(require,module,exports){
 module.exports = function(list) {
   return function(initValues, element, notCreate) {
     var item = this;
@@ -49314,6 +49314,748 @@ module.exports = new Cache();
 module.exports.Cache = Cache;
 
 },{}],132:[function(require,module,exports){
+// This file has been generated from mustache.mjs
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global = global || self, global.Mustache = factory());
+}(this, (function () { 'use strict';
+
+  /*!
+   * mustache.js - Logic-less {{mustache}} templates with JavaScript
+   * http://github.com/janl/mustache.js
+   */
+
+  var objectToString = Object.prototype.toString;
+  var isArray = Array.isArray || function isArrayPolyfill (object) {
+    return objectToString.call(object) === '[object Array]';
+  };
+
+  function isFunction (object) {
+    return typeof object === 'function';
+  }
+
+  /**
+   * More correct typeof string handling array
+   * which normally returns typeof 'object'
+   */
+  function typeStr (obj) {
+    return isArray(obj) ? 'array' : typeof obj;
+  }
+
+  function escapeRegExp (string) {
+    return string.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&');
+  }
+
+  /**
+   * Null safe way of checking whether or not an object,
+   * including its prototype, has a given property
+   */
+  function hasProperty (obj, propName) {
+    return obj != null && typeof obj === 'object' && (propName in obj);
+  }
+
+  /**
+   * Safe way of detecting whether or not the given thing is a primitive and
+   * whether it has the given property
+   */
+  function primitiveHasOwnProperty (primitive, propName) {
+    return (
+      primitive != null
+      && typeof primitive !== 'object'
+      && primitive.hasOwnProperty
+      && primitive.hasOwnProperty(propName)
+    );
+  }
+
+  // Workaround for https://issues.apache.org/jira/browse/COUCHDB-577
+  // See https://github.com/janl/mustache.js/issues/189
+  var regExpTest = RegExp.prototype.test;
+  function testRegExp (re, string) {
+    return regExpTest.call(re, string);
+  }
+
+  var nonSpaceRe = /\S/;
+  function isWhitespace (string) {
+    return !testRegExp(nonSpaceRe, string);
+  }
+
+  var entityMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+    '/': '&#x2F;',
+    '`': '&#x60;',
+    '=': '&#x3D;'
+  };
+
+  function escapeHtml (string) {
+    return String(string).replace(/[&<>"'`=\/]/g, function fromEntityMap (s) {
+      return entityMap[s];
+    });
+  }
+
+  var whiteRe = /\s*/;
+  var spaceRe = /\s+/;
+  var equalsRe = /\s*=/;
+  var curlyRe = /\s*\}/;
+  var tagRe = /#|\^|\/|>|\{|&|=|!/;
+
+  /**
+   * Breaks up the given `template` string into a tree of tokens. If the `tags`
+   * argument is given here it must be an array with two string values: the
+   * opening and closing tags used in the template (e.g. [ "<%", "%>" ]). Of
+   * course, the default is to use mustaches (i.e. mustache.tags).
+   *
+   * A token is an array with at least 4 elements. The first element is the
+   * mustache symbol that was used inside the tag, e.g. "#" or "&". If the tag
+   * did not contain a symbol (i.e. {{myValue}}) this element is "name". For
+   * all text that appears outside a symbol this element is "text".
+   *
+   * The second element of a token is its "value". For mustache tags this is
+   * whatever else was inside the tag besides the opening symbol. For text tokens
+   * this is the text itself.
+   *
+   * The third and fourth elements of the token are the start and end indices,
+   * respectively, of the token in the original template.
+   *
+   * Tokens that are the root node of a subtree contain two more elements: 1) an
+   * array of tokens in the subtree and 2) the index in the original template at
+   * which the closing tag for that section begins.
+   *
+   * Tokens for partials also contain two more elements: 1) a string value of
+   * indendation prior to that tag and 2) the index of that tag on that line -
+   * eg a value of 2 indicates the partial is the third tag on this line.
+   */
+  function parseTemplate (template, tags) {
+    if (!template)
+      return [];
+    var lineHasNonSpace = false;
+    var sections = [];     // Stack to hold section tokens
+    var tokens = [];       // Buffer to hold the tokens
+    var spaces = [];       // Indices of whitespace tokens on the current line
+    var hasTag = false;    // Is there a {{tag}} on the current line?
+    var nonSpace = false;  // Is there a non-space char on the current line?
+    var indentation = '';  // Tracks indentation for tags that use it
+    var tagIndex = 0;      // Stores a count of number of tags encountered on a line
+
+    // Strips all whitespace tokens array for the current line
+    // if there was a {{#tag}} on it and otherwise only space.
+    function stripSpace () {
+      if (hasTag && !nonSpace) {
+        while (spaces.length)
+          delete tokens[spaces.pop()];
+      } else {
+        spaces = [];
+      }
+
+      hasTag = false;
+      nonSpace = false;
+    }
+
+    var openingTagRe, closingTagRe, closingCurlyRe;
+    function compileTags (tagsToCompile) {
+      if (typeof tagsToCompile === 'string')
+        tagsToCompile = tagsToCompile.split(spaceRe, 2);
+
+      if (!isArray(tagsToCompile) || tagsToCompile.length !== 2)
+        throw new Error('Invalid tags: ' + tagsToCompile);
+
+      openingTagRe = new RegExp(escapeRegExp(tagsToCompile[0]) + '\\s*');
+      closingTagRe = new RegExp('\\s*' + escapeRegExp(tagsToCompile[1]));
+      closingCurlyRe = new RegExp('\\s*' + escapeRegExp('}' + tagsToCompile[1]));
+    }
+
+    compileTags(tags || mustache.tags);
+
+    var scanner = new Scanner(template);
+
+    var start, type, value, chr, token, openSection;
+    while (!scanner.eos()) {
+      start = scanner.pos;
+
+      // Match any text between tags.
+      value = scanner.scanUntil(openingTagRe);
+
+      if (value) {
+        for (var i = 0, valueLength = value.length; i < valueLength; ++i) {
+          chr = value.charAt(i);
+
+          if (isWhitespace(chr)) {
+            spaces.push(tokens.length);
+            indentation += chr;
+          } else {
+            nonSpace = true;
+            lineHasNonSpace = true;
+            indentation += ' ';
+          }
+
+          tokens.push([ 'text', chr, start, start + 1 ]);
+          start += 1;
+
+          // Check for whitespace on the current line.
+          if (chr === '\n') {
+            stripSpace();
+            indentation = '';
+            tagIndex = 0;
+            lineHasNonSpace = false;
+          }
+        }
+      }
+
+      // Match the opening tag.
+      if (!scanner.scan(openingTagRe))
+        break;
+
+      hasTag = true;
+
+      // Get the tag type.
+      type = scanner.scan(tagRe) || 'name';
+      scanner.scan(whiteRe);
+
+      // Get the tag value.
+      if (type === '=') {
+        value = scanner.scanUntil(equalsRe);
+        scanner.scan(equalsRe);
+        scanner.scanUntil(closingTagRe);
+      } else if (type === '{') {
+        value = scanner.scanUntil(closingCurlyRe);
+        scanner.scan(curlyRe);
+        scanner.scanUntil(closingTagRe);
+        type = '&';
+      } else {
+        value = scanner.scanUntil(closingTagRe);
+      }
+
+      // Match the closing tag.
+      if (!scanner.scan(closingTagRe))
+        throw new Error('Unclosed tag at ' + scanner.pos);
+
+      if (type == '>') {
+        token = [ type, value, start, scanner.pos, indentation, tagIndex, lineHasNonSpace ];
+      } else {
+        token = [ type, value, start, scanner.pos ];
+      }
+      tagIndex++;
+      tokens.push(token);
+
+      if (type === '#' || type === '^') {
+        sections.push(token);
+      } else if (type === '/') {
+        // Check section nesting.
+        openSection = sections.pop();
+
+        if (!openSection)
+          throw new Error('Unopened section "' + value + '" at ' + start);
+
+        if (openSection[1] !== value)
+          throw new Error('Unclosed section "' + openSection[1] + '" at ' + start);
+      } else if (type === 'name' || type === '{' || type === '&') {
+        nonSpace = true;
+      } else if (type === '=') {
+        // Set the tags for the next time around.
+        compileTags(value);
+      }
+    }
+
+    stripSpace();
+
+    // Make sure there are no open sections when we're done.
+    openSection = sections.pop();
+
+    if (openSection)
+      throw new Error('Unclosed section "' + openSection[1] + '" at ' + scanner.pos);
+
+    return nestTokens(squashTokens(tokens));
+  }
+
+  /**
+   * Combines the values of consecutive text tokens in the given `tokens` array
+   * to a single token.
+   */
+  function squashTokens (tokens) {
+    var squashedTokens = [];
+
+    var token, lastToken;
+    for (var i = 0, numTokens = tokens.length; i < numTokens; ++i) {
+      token = tokens[i];
+
+      if (token) {
+        if (token[0] === 'text' && lastToken && lastToken[0] === 'text') {
+          lastToken[1] += token[1];
+          lastToken[3] = token[3];
+        } else {
+          squashedTokens.push(token);
+          lastToken = token;
+        }
+      }
+    }
+
+    return squashedTokens;
+  }
+
+  /**
+   * Forms the given array of `tokens` into a nested tree structure where
+   * tokens that represent a section have two additional items: 1) an array of
+   * all tokens that appear in that section and 2) the index in the original
+   * template that represents the end of that section.
+   */
+  function nestTokens (tokens) {
+    var nestedTokens = [];
+    var collector = nestedTokens;
+    var sections = [];
+
+    var token, section;
+    for (var i = 0, numTokens = tokens.length; i < numTokens; ++i) {
+      token = tokens[i];
+
+      switch (token[0]) {
+        case '#':
+        case '^':
+          collector.push(token);
+          sections.push(token);
+          collector = token[4] = [];
+          break;
+        case '/':
+          section = sections.pop();
+          section[5] = token[2];
+          collector = sections.length > 0 ? sections[sections.length - 1][4] : nestedTokens;
+          break;
+        default:
+          collector.push(token);
+      }
+    }
+
+    return nestedTokens;
+  }
+
+  /**
+   * A simple string scanner that is used by the template parser to find
+   * tokens in template strings.
+   */
+  function Scanner (string) {
+    this.string = string;
+    this.tail = string;
+    this.pos = 0;
+  }
+
+  /**
+   * Returns `true` if the tail is empty (end of string).
+   */
+  Scanner.prototype.eos = function eos () {
+    return this.tail === '';
+  };
+
+  /**
+   * Tries to match the given regular expression at the current position.
+   * Returns the matched text if it can match, the empty string otherwise.
+   */
+  Scanner.prototype.scan = function scan (re) {
+    var match = this.tail.match(re);
+
+    if (!match || match.index !== 0)
+      return '';
+
+    var string = match[0];
+
+    this.tail = this.tail.substring(string.length);
+    this.pos += string.length;
+
+    return string;
+  };
+
+  /**
+   * Skips all text until the given regular expression can be matched. Returns
+   * the skipped string, which is the entire tail if no match can be made.
+   */
+  Scanner.prototype.scanUntil = function scanUntil (re) {
+    var index = this.tail.search(re), match;
+
+    switch (index) {
+      case -1:
+        match = this.tail;
+        this.tail = '';
+        break;
+      case 0:
+        match = '';
+        break;
+      default:
+        match = this.tail.substring(0, index);
+        this.tail = this.tail.substring(index);
+    }
+
+    this.pos += match.length;
+
+    return match;
+  };
+
+  /**
+   * Represents a rendering context by wrapping a view object and
+   * maintaining a reference to the parent context.
+   */
+  function Context (view, parentContext) {
+    this.view = view;
+    this.cache = { '.': this.view };
+    this.parent = parentContext;
+  }
+
+  /**
+   * Creates a new context using the given view with this context
+   * as the parent.
+   */
+  Context.prototype.push = function push (view) {
+    return new Context(view, this);
+  };
+
+  /**
+   * Returns the value of the given name in this context, traversing
+   * up the context hierarchy if the value is absent in this context's view.
+   */
+  Context.prototype.lookup = function lookup (name) {
+    var cache = this.cache;
+
+    var value;
+    if (cache.hasOwnProperty(name)) {
+      value = cache[name];
+    } else {
+      var context = this, intermediateValue, names, index, lookupHit = false;
+
+      while (context) {
+        if (name.indexOf('.') > 0) {
+          intermediateValue = context.view;
+          names = name.split('.');
+          index = 0;
+
+          /**
+           * Using the dot notion path in `name`, we descend through the
+           * nested objects.
+           *
+           * To be certain that the lookup has been successful, we have to
+           * check if the last object in the path actually has the property
+           * we are looking for. We store the result in `lookupHit`.
+           *
+           * This is specially necessary for when the value has been set to
+           * `undefined` and we want to avoid looking up parent contexts.
+           *
+           * In the case where dot notation is used, we consider the lookup
+           * to be successful even if the last "object" in the path is
+           * not actually an object but a primitive (e.g., a string, or an
+           * integer), because it is sometimes useful to access a property
+           * of an autoboxed primitive, such as the length of a string.
+           **/
+          while (intermediateValue != null && index < names.length) {
+            if (index === names.length - 1)
+              lookupHit = (
+                hasProperty(intermediateValue, names[index])
+                || primitiveHasOwnProperty(intermediateValue, names[index])
+              );
+
+            intermediateValue = intermediateValue[names[index++]];
+          }
+        } else {
+          intermediateValue = context.view[name];
+
+          /**
+           * Only checking against `hasProperty`, which always returns `false` if
+           * `context.view` is not an object. Deliberately omitting the check
+           * against `primitiveHasOwnProperty` if dot notation is not used.
+           *
+           * Consider this example:
+           * ```
+           * Mustache.render("The length of a football field is {{#length}}{{length}}{{/length}}.", {length: "100 yards"})
+           * ```
+           *
+           * If we were to check also against `primitiveHasOwnProperty`, as we do
+           * in the dot notation case, then render call would return:
+           *
+           * "The length of a football field is 9."
+           *
+           * rather than the expected:
+           *
+           * "The length of a football field is 100 yards."
+           **/
+          lookupHit = hasProperty(context.view, name);
+        }
+
+        if (lookupHit) {
+          value = intermediateValue;
+          break;
+        }
+
+        context = context.parent;
+      }
+
+      cache[name] = value;
+    }
+
+    if (isFunction(value))
+      value = value.call(this.view);
+
+    return value;
+  };
+
+  /**
+   * A Writer knows how to take a stream of tokens and render them to a
+   * string, given a context. It also maintains a cache of templates to
+   * avoid the need to parse the same template twice.
+   */
+  function Writer () {
+    this.templateCache = {
+      _cache: {},
+      set: function set (key, value) {
+        this._cache[key] = value;
+      },
+      get: function get (key) {
+        return this._cache[key];
+      },
+      clear: function clear () {
+        this._cache = {};
+      }
+    };
+  }
+
+  /**
+   * Clears all cached templates in this writer.
+   */
+  Writer.prototype.clearCache = function clearCache () {
+    if (typeof this.templateCache !== 'undefined') {
+      this.templateCache.clear();
+    }
+  };
+
+  /**
+   * Parses and caches the given `template` according to the given `tags` or
+   * `mustache.tags` if `tags` is omitted,  and returns the array of tokens
+   * that is generated from the parse.
+   */
+  Writer.prototype.parse = function parse (template, tags) {
+    var cache = this.templateCache;
+    var cacheKey = template + ':' + (tags || mustache.tags).join(':');
+    var isCacheEnabled = typeof cache !== 'undefined';
+    var tokens = isCacheEnabled ? cache.get(cacheKey) : undefined;
+
+    if (tokens == undefined) {
+      tokens = parseTemplate(template, tags);
+      isCacheEnabled && cache.set(cacheKey, tokens);
+    }
+    return tokens;
+  };
+
+  /**
+   * High-level method that is used to render the given `template` with
+   * the given `view`.
+   *
+   * The optional `partials` argument may be an object that contains the
+   * names and templates of partials that are used in the template. It may
+   * also be a function that is used to load partial templates on the fly
+   * that takes a single argument: the name of the partial.
+   *
+   * If the optional `tags` argument is given here it must be an array with two
+   * string values: the opening and closing tags used in the template (e.g.
+   * [ "<%", "%>" ]). The default is to mustache.tags.
+   */
+  Writer.prototype.render = function render (template, view, partials, tags) {
+    var tokens = this.parse(template, tags);
+    var context = (view instanceof Context) ? view : new Context(view, undefined);
+    return this.renderTokens(tokens, context, partials, template, tags);
+  };
+
+  /**
+   * Low-level method that renders the given array of `tokens` using
+   * the given `context` and `partials`.
+   *
+   * Note: The `originalTemplate` is only ever used to extract the portion
+   * of the original template that was contained in a higher-order section.
+   * If the template doesn't use higher-order sections, this argument may
+   * be omitted.
+   */
+  Writer.prototype.renderTokens = function renderTokens (tokens, context, partials, originalTemplate, tags) {
+    var buffer = '';
+
+    var token, symbol, value;
+    for (var i = 0, numTokens = tokens.length; i < numTokens; ++i) {
+      value = undefined;
+      token = tokens[i];
+      symbol = token[0];
+
+      if (symbol === '#') value = this.renderSection(token, context, partials, originalTemplate);
+      else if (symbol === '^') value = this.renderInverted(token, context, partials, originalTemplate);
+      else if (symbol === '>') value = this.renderPartial(token, context, partials, tags);
+      else if (symbol === '&') value = this.unescapedValue(token, context);
+      else if (symbol === 'name') value = this.escapedValue(token, context);
+      else if (symbol === 'text') value = this.rawValue(token);
+
+      if (value !== undefined)
+        buffer += value;
+    }
+
+    return buffer;
+  };
+
+  Writer.prototype.renderSection = function renderSection (token, context, partials, originalTemplate) {
+    var self = this;
+    var buffer = '';
+    var value = context.lookup(token[1]);
+
+    // This function is used to render an arbitrary template
+    // in the current context by higher-order sections.
+    function subRender (template) {
+      return self.render(template, context, partials);
+    }
+
+    if (!value) return;
+
+    if (isArray(value)) {
+      for (var j = 0, valueLength = value.length; j < valueLength; ++j) {
+        buffer += this.renderTokens(token[4], context.push(value[j]), partials, originalTemplate);
+      }
+    } else if (typeof value === 'object' || typeof value === 'string' || typeof value === 'number') {
+      buffer += this.renderTokens(token[4], context.push(value), partials, originalTemplate);
+    } else if (isFunction(value)) {
+      if (typeof originalTemplate !== 'string')
+        throw new Error('Cannot use higher-order sections without the original template');
+
+      // Extract the portion of the original template that the section contains.
+      value = value.call(context.view, originalTemplate.slice(token[3], token[5]), subRender);
+
+      if (value != null)
+        buffer += value;
+    } else {
+      buffer += this.renderTokens(token[4], context, partials, originalTemplate);
+    }
+    return buffer;
+  };
+
+  Writer.prototype.renderInverted = function renderInverted (token, context, partials, originalTemplate) {
+    var value = context.lookup(token[1]);
+
+    // Use JavaScript's definition of falsy. Include empty arrays.
+    // See https://github.com/janl/mustache.js/issues/186
+    if (!value || (isArray(value) && value.length === 0))
+      return this.renderTokens(token[4], context, partials, originalTemplate);
+  };
+
+  Writer.prototype.indentPartial = function indentPartial (partial, indentation, lineHasNonSpace) {
+    var filteredIndentation = indentation.replace(/[^ \t]/g, '');
+    var partialByNl = partial.split('\n');
+    for (var i = 0; i < partialByNl.length; i++) {
+      if (partialByNl[i].length && (i > 0 || !lineHasNonSpace)) {
+        partialByNl[i] = filteredIndentation + partialByNl[i];
+      }
+    }
+    return partialByNl.join('\n');
+  };
+
+  Writer.prototype.renderPartial = function renderPartial (token, context, partials, tags) {
+    if (!partials) return;
+
+    var value = isFunction(partials) ? partials(token[1]) : partials[token[1]];
+    if (value != null) {
+      var lineHasNonSpace = token[6];
+      var tagIndex = token[5];
+      var indentation = token[4];
+      var indentedValue = value;
+      if (tagIndex == 0 && indentation) {
+        indentedValue = this.indentPartial(value, indentation, lineHasNonSpace);
+      }
+      return this.renderTokens(this.parse(indentedValue, tags), context, partials, indentedValue, tags);
+    }
+  };
+
+  Writer.prototype.unescapedValue = function unescapedValue (token, context) {
+    var value = context.lookup(token[1]);
+    if (value != null)
+      return value;
+  };
+
+  Writer.prototype.escapedValue = function escapedValue (token, context) {
+    var value = context.lookup(token[1]);
+    if (value != null)
+      return mustache.escape(value);
+  };
+
+  Writer.prototype.rawValue = function rawValue (token) {
+    return token[1];
+  };
+
+  var mustache = {
+    name: 'mustache.js',
+    version: '4.0.1',
+    tags: [ '{{', '}}' ],
+    clearCache: undefined,
+    escape: undefined,
+    parse: undefined,
+    render: undefined,
+    Scanner: undefined,
+    Context: undefined,
+    Writer: undefined,
+    /**
+     * Allows a user to override the default caching strategy, by providing an
+     * object with set, get and clear methods. This can also be used to disable
+     * the cache by setting it to the literal `undefined`.
+     */
+    set templateCache (cache) {
+      defaultWriter.templateCache = cache;
+    },
+    /**
+     * Gets the default or overridden caching object from the default writer.
+     */
+    get templateCache () {
+      return defaultWriter.templateCache;
+    }
+  };
+
+  // All high-level mustache.* functions use this writer.
+  var defaultWriter = new Writer();
+
+  /**
+   * Clears all cached templates in the default writer.
+   */
+  mustache.clearCache = function clearCache () {
+    return defaultWriter.clearCache();
+  };
+
+  /**
+   * Parses and caches the given template in the default writer and returns the
+   * array of tokens it contains. Doing this ahead of time avoids the need to
+   * parse templates on the fly as they are rendered.
+   */
+  mustache.parse = function parse (template, tags) {
+    return defaultWriter.parse(template, tags);
+  };
+
+  /**
+   * Renders the `template` with the given `view` and `partials` using the
+   * default writer. If the optional `tags` argument is given here it must be an
+   * array with two string values: the opening and closing tags used in the
+   * template (e.g. [ "<%", "%>" ]). The default is to mustache.tags.
+   */
+  mustache.render = function render (template, view, partials, tags) {
+    if (typeof template !== 'string') {
+      throw new TypeError('Invalid template! Template should be a "string" ' +
+                          'but "' + typeStr(template) + '" was given as the first ' +
+                          'argument for mustache#render(template, view, partials)');
+    }
+
+    return defaultWriter.render(template, view, partials, tags);
+  };
+
+  // Export the escaping function so that the user may override it.
+  // See https://github.com/janl/mustache.js/issues/244
+  mustache.escape = escapeHtml;
+
+  // Export these mainly for testing, but also for advanced usage.
+  mustache.Scanner = Scanner;
+  mustache.Context = Context;
+  mustache.Writer = Writer;
+
+  return mustache;
+
+})));
+
+},{}],133:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -49405,7 +50147,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],133:[function(require,module,exports){
+},{}],134:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -49591,7 +50333,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],134:[function(require,module,exports){
+},{}],135:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -49714,7 +50456,7 @@ ArraySet.prototype.toArray = function ArraySet_toArray() {
 
 exports.ArraySet = ArraySet;
 
-},{"./util":143}],135:[function(require,module,exports){
+},{"./util":144}],136:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -49856,7 +50598,7 @@ exports.decode = function base64VLQ_decode(aStr, aIndex, aOutParam) {
   aOutParam.rest = aIndex;
 };
 
-},{"./base64":136}],136:[function(require,module,exports){
+},{"./base64":137}],137:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -49925,7 +50667,7 @@ exports.decode = function (charCode) {
   return -1;
 };
 
-},{}],137:[function(require,module,exports){
+},{}],138:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -50038,7 +50780,7 @@ exports.search = function search(aNeedle, aHaystack, aCompare, aBias) {
   return index;
 };
 
-},{}],138:[function(require,module,exports){
+},{}],139:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2014 Mozilla Foundation and contributors
@@ -50119,7 +50861,7 @@ MappingList.prototype.toArray = function MappingList_toArray() {
 
 exports.MappingList = MappingList;
 
-},{"./util":143}],139:[function(require,module,exports){
+},{"./util":144}],140:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -50235,7 +50977,7 @@ exports.quickSort = function (ary, comparator) {
   doQuickSort(ary, comparator, 0, ary.length - 1);
 };
 
-},{}],140:[function(require,module,exports){
+},{}],141:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -51382,7 +52124,7 @@ IndexedSourceMapConsumer.prototype._parseMappings =
 
 exports.IndexedSourceMapConsumer = IndexedSourceMapConsumer;
 
-},{"./array-set":134,"./base64-vlq":135,"./binary-search":137,"./quick-sort":139,"./util":143}],141:[function(require,module,exports){
+},{"./array-set":135,"./base64-vlq":136,"./binary-search":138,"./quick-sort":140,"./util":144}],142:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -51809,7 +52551,7 @@ SourceMapGenerator.prototype.toString =
 
 exports.SourceMapGenerator = SourceMapGenerator;
 
-},{"./array-set":134,"./base64-vlq":135,"./mapping-list":138,"./util":143}],142:[function(require,module,exports){
+},{"./array-set":135,"./base64-vlq":136,"./mapping-list":139,"./util":144}],143:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -52224,7 +52966,7 @@ SourceNode.prototype.toStringWithSourceMap = function SourceNode_toStringWithSou
 
 exports.SourceNode = SourceNode;
 
-},{"./source-map-generator":141,"./util":143}],143:[function(require,module,exports){
+},{"./source-map-generator":142,"./util":144}],144:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -52714,7 +53456,7 @@ function computeSourceURL(sourceRoot, sourceURL, sourceMapURL) {
 }
 exports.computeSourceURL = computeSourceURL;
 
-},{}],144:[function(require,module,exports){
+},{}],145:[function(require,module,exports){
 /*
  * Copyright 2009-2011 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE.txt or:
@@ -52724,7 +53466,7 @@ exports.SourceMapGenerator = require('./lib/source-map-generator').SourceMapGene
 exports.SourceMapConsumer = require('./lib/source-map-consumer').SourceMapConsumer;
 exports.SourceNode = require('./lib/source-node').SourceNode;
 
-},{"./lib/source-map-consumer":140,"./lib/source-map-generator":141,"./lib/source-node":142}],145:[function(require,module,exports){
+},{"./lib/source-map-consumer":141,"./lib/source-map-generator":142,"./lib/source-node":143}],146:[function(require,module,exports){
 'use strict';
 
 var alphabet;
@@ -52850,11 +53592,11 @@ Object.defineProperties(naturalCompare, {
 
 module.exports = naturalCompare;
 
-},{}],146:[function(require,module,exports){
+},{}],147:[function(require,module,exports){
 arguments[4][2][0].apply(exports,arguments)
-},{"dup":2}],147:[function(require,module,exports){
+},{"dup":2}],148:[function(require,module,exports){
 arguments[4][3][0].apply(exports,arguments)
-},{"dup":3}],148:[function(require,module,exports){
+},{"dup":3}],149:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -53445,7 +54187,7 @@ function hasOwnProperty(obj, prop) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./support/isBuffer":147,"_process":133,"inherits":146}],149:[function(require,module,exports){
+},{"./support/isBuffer":148,"_process":134,"inherits":147}],150:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -53835,7 +54577,7 @@ var ApplicationData = (function () {
     return ApplicationData;
 }());
 exports.ApplicationData = ApplicationData;
-},{"console":22,"js-yaml":80,"localforage":130}],150:[function(require,module,exports){
+},{"console":22,"js-yaml":80,"localforage":130}],151:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -53899,6 +54641,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Application = void 0;
 var site_1 = require("./site");
 var handlebars_1 = __importDefault(require("handlebars"));
+var mustache_1 = __importDefault(require("mustache"));
 var jsb = __importStar(require("js-beautify"));
 var clipboard_1 = __importDefault(require("clipboard"));
 var memory_cache_1 = __importDefault(require("memory-cache"));
@@ -53959,27 +54702,35 @@ var Application = (function () {
             this._templateEditor.clearTemplateError();
             try {
                 var that = this;
-                var renderHTMLWithHandlebars = function (handlebars_template) {
-                    var htmlstr = handlebars_template(json);
-                    console.log('renderHTMLWithHandlebars', template, json, htmlstr, handlebars_template);
+                var renderHTML = function (htmlstr) {
                     that._preview.setHTMLPreview(htmlstr, css);
                     if (onlypreview === false) {
                         that._previewEditor.codePreview = html_beautify(htmlstr);
                     }
                 };
-                var handlebars_template = null;
-                if (site_1.USE_CACHE && id != null) {
-                    handlebars_template = this._hbTemplatesCache.get(id);
-                }
-                if (handlebars_template) {
-                    renderHTMLWithHandlebars(handlebars_template);
+                if (site_1.USE_HANDLEBARS) {
+                    var renderHTMLWithHandlebars = function (handlebars_template) {
+                        var htmlstr = handlebars_template(json);
+                        renderHTML(htmlstr);
+                    };
+                    var handlebars_template = null;
+                    if (site_1.USE_CACHE && id != null) {
+                        handlebars_template = this._hbTemplatesCache.get(id);
+                    }
+                    if (handlebars_template) {
+                        renderHTMLWithHandlebars(handlebars_template);
+                    }
+                    else {
+                        handlebars_template = handlebars_1.default.compile(template);
+                        if (site_1.USE_CACHE && id != null) {
+                            this._hbTemplatesCache.put(id, handlebars_template, HANDLEBARS_CACHE_MAX_TIME_MS);
+                        }
+                        renderHTMLWithHandlebars(handlebars_template);
+                    }
                 }
                 else {
-                    handlebars_template = handlebars_1.default.compile(template);
-                    if (site_1.USE_CACHE && id != null) {
-                        this._hbTemplatesCache.put(id, handlebars_template, HANDLEBARS_CACHE_MAX_TIME_MS);
-                    }
-                    renderHTMLWithHandlebars(handlebars_template);
+                    var htmlstr = mustache_1.default.render(template, json);
+                    renderHTML(htmlstr);
                 }
             }
             catch (error) {
@@ -54306,7 +55057,7 @@ var Application = (function () {
     return Application;
 }());
 exports.Application = Application;
-},{"./application.data":149,"./config.editor":151,"./configs":152,"./css.editor":153,"./layouts":154,"./preview":157,"./preview.editor":156,"./site":158,"./template.editor":159,"clipboard":21,"handlebars":55,"js-beautify":56,"json-parse-better-errors":110,"memory-cache":131}],151:[function(require,module,exports){
+},{"./application.data":150,"./config.editor":152,"./configs":153,"./css.editor":154,"./layouts":155,"./preview":158,"./preview.editor":157,"./site":159,"./template.editor":160,"clipboard":21,"handlebars":55,"js-beautify":56,"json-parse-better-errors":110,"memory-cache":131,"mustache":132}],152:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -54437,7 +55188,7 @@ var ConfigEditor = (function () {
     return ConfigEditor;
 }());
 exports.ConfigEditor = ConfigEditor;
-},{"./application.data":149,"./site":158,"brace":9,"brace/ext/beautify":5,"brace/ext/error_marker":6,"brace/ext/spellcheck":7,"brace/ext/textarea":8,"brace/mode/json":13,"brace/mode/yaml":14,"brace/theme/dracula":15,"brace/worker/json":19,"js-yaml":80,"json-parse-better-errors":110}],152:[function(require,module,exports){
+},{"./application.data":150,"./site":159,"brace":9,"brace/ext/beautify":5,"brace/ext/error_marker":6,"brace/ext/spellcheck":7,"brace/ext/textarea":8,"brace/mode/json":13,"brace/mode/yaml":14,"brace/theme/dracula":15,"brace/worker/json":19,"js-yaml":80,"json-parse-better-errors":110}],153:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SavedConfigs = void 0;
@@ -54606,7 +55357,7 @@ var SavedConfigs = (function () {
     return SavedConfigs;
 }());
 exports.SavedConfigs = SavedConfigs;
-},{"./site":158}],153:[function(require,module,exports){
+},{"./site":159}],154:[function(require,module,exports){
 "use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -54666,7 +55417,7 @@ var CssEditor = (function () {
     return CssEditor;
 }());
 exports.CssEditor = CssEditor;
-},{"./site":158,"brace":9,"brace/ext/beautify":5,"brace/ext/error_marker":6,"brace/ext/textarea":8,"brace/mode/css":10,"brace/theme/dracula":15,"brace/worker/css":16}],154:[function(require,module,exports){
+},{"./site":159,"brace":9,"brace/ext/beautify":5,"brace/ext/error_marker":6,"brace/ext/textarea":8,"brace/mode/css":10,"brace/theme/dracula":15,"brace/worker/css":16}],155:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -54757,7 +55508,8 @@ var Layouts = (function () {
                                 css: cssRes[0] || '',
                                 meta: meta,
                                 name: name || '',
-                                configlink: configlink || ''
+                                configlink: configlink || '',
+                                use_handlebars: meta.use_handlebars || false
                             };
                             if (id !== null) {
                                 that._loadedLayouts.put(id, loadedLayout, CACHE_LOADED_LAYOUT_MAX_TIME_MS);
@@ -54821,27 +55573,29 @@ var Layouts = (function () {
                 inlinebodystyle = 'display: inline !important;';
                 inlineauthorstyle = 'display: inline !important;';
             }
-            templates.push({
-                colstyle: colstyle,
-                style: style,
-                template: site_1.site.data.templates_url + template.template,
-                css: site_1.site.data.templates_url + template.css,
-                config: site_1.site.data.templates_url + template.config,
-                meta: site_1.site.data.templates_url + template.meta,
-                keywords: template.keywords.join(', '),
-                id: template.id,
-                preview: preview,
-                previewstyle: previewstyle,
-                cardbodystyle: cardbodystyle,
-                inlinebodystyle: inlinebodystyle,
-                inlineauthorstyle: inlineauthorstyle,
-                name: template.name,
-                layoutloadingid: 'layout-loading-' + template.id,
-                type: type,
-                author: site_1.site.data.strings.layouts.by_author + template.author
-            });
+            if ((site_1.USE_HANDLEBARS && template.use_handlebars) || (!site_1.USE_HANDLEBARS && !template.use_handlebars)) {
+                templates.push({
+                    colstyle: colstyle,
+                    style: style,
+                    template: site_1.site.data.templates_url + template.template,
+                    css: site_1.site.data.templates_url + template.css,
+                    config: site_1.site.data.templates_url + template.config,
+                    meta: site_1.site.data.templates_url + template.meta,
+                    keywords: template.keywords.join(', '),
+                    id: template.id,
+                    preview: preview,
+                    previewstyle: previewstyle,
+                    cardbodystyle: cardbodystyle,
+                    inlinebodystyle: inlinebodystyle,
+                    inlineauthorstyle: inlineauthorstyle,
+                    name: template.name,
+                    layoutloadingid: 'layout-loading-' + template.id,
+                    type: type,
+                    author: site_1.site.data.strings.layouts.by_author + template.author
+                });
+            }
         }
-        var item = "<div class=\"d-inline colstyle\" style=\"\">\n            <button type=\"button\" class=\"btn btn-link card d-inline mr-1 mb-1 layout-pattern style template meta css config keywords id\" \n                style=\"\" data-template=\"\" data-css=\"\" data-config=\"\" data-meta=\"\" data-id=\"\" data-keywords=\"\">\n                <div class=\"d-flex flex-wrap align-items-center preview previewstyle\" style=\"\">\n                </div>\n                <div class=\"card-body cardbodystyle\">\n                    <div class=\"spinner-border layoutloadingid\" style=\"display: none\" role=\"status\" id=\"\">\n                        <span class=\"sr-only\">Loading...</span>\n                    </div>\n                    <p class=\"card-text inlinebodystyle\">\n                        <span class=\"text-left name\"></span>\n                        <span class=\"text-right type\"></span>\n                    </p>\n                    <p class=\"card-subtitle author inlineauthorstyle\"></p>\n                </div>\n            </div>\n        </div>";
+        var item = "<div class=\"d-inline colstyle\" style=\"\">\n            <button type=\"button\" class=\"btn btn-link card d-inline mr-1 mb-1 layout-pattern style template meta css config keywords id usehandlebars\" \n                style=\"\" data-template=\"\" data-css=\"\" data-config=\"\" data-meta=\"\" data-id=\"\" data-keywords=\"\">\n                <div class=\"d-flex flex-wrap align-items-center preview previewstyle\" style=\"\">\n                </div>\n                <div class=\"card-body cardbodystyle\">\n                    <div class=\"spinner-border layoutloadingid\" style=\"display: none\" role=\"status\" id=\"\">\n                        <span class=\"sr-only\">Loading...</span>\n                    </div>\n                    <p class=\"card-text inlinebodystyle\">\n                        <span class=\"text-left name\"></span>\n                        <span class=\"text-right type\"></span>\n                    </p>\n                    <p class=\"card-subtitle author inlineauthorstyle\"></p>\n                </div>\n            </div>\n        </div>";
         var options = {
             valueNames: [
                 'preview', 'name', 'type', 'author',
@@ -54965,7 +55719,7 @@ var Layouts = (function () {
     return Layouts;
 }());
 exports.Layouts = Layouts;
-},{"./site":158,"js-beautify":56,"js-yaml":80,"json-parse-better-errors":110,"list.js":114,"memory-cache":131}],155:[function(require,module,exports){
+},{"./site":159,"js-beautify":56,"js-yaml":80,"json-parse-better-errors":110,"list.js":114,"memory-cache":131}],156:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./site");
@@ -54974,7 +55728,7 @@ $(document).ready(function () {
     var app = new application_1.Application();
     app.init();
 });
-},{"./application":150,"./site":158}],156:[function(require,module,exports){
+},{"./application":151,"./site":159}],157:[function(require,module,exports){
 "use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -55018,7 +55772,7 @@ var PreviewEditor = (function () {
     return PreviewEditor;
 }());
 exports.PreviewEditor = PreviewEditor;
-},{"brace":9,"brace/ext/beautify":5,"brace/ext/error_marker":6,"brace/ext/textarea":8,"brace/mode/html":12,"brace/theme/dracula":15,"brace/worker/html":17}],157:[function(require,module,exports){
+},{"brace":9,"brace/ext/beautify":5,"brace/ext/error_marker":6,"brace/ext/textarea":8,"brace/mode/html":12,"brace/theme/dracula":15,"brace/worker/html":17}],158:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Preview = void 0;
@@ -55041,7 +55795,7 @@ var Preview = (function () {
     return Preview;
 }());
 exports.Preview = Preview;
-},{"./site":158}],158:[function(require,module,exports){
+},{"./site":159}],159:[function(require,module,exports){
 'use strict';
 String.prototype.format = function () {
     var args = arguments;
@@ -55110,6 +55864,7 @@ var makeDoubleClick = function (element, doDoubleClickAction, doClickAction) {
     });
 };
 module.exports = {
+    USE_HANDLEBARS: USE_HANDLEBARS,
     USE_CACHE: USE_CACHE,
     site: site,
     getUrlParameter: getUrlParameter,
@@ -55117,7 +55872,7 @@ module.exports = {
     countlines: countlines,
     makeDoubleClick: makeDoubleClick
 };
-},{}],159:[function(require,module,exports){
+},{}],160:[function(require,module,exports){
 "use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -55217,5 +55972,5 @@ var TemplateEditor = (function () {
     return TemplateEditor;
 }());
 exports.TemplateEditor = TemplateEditor;
-},{"./site":158,"brace":9,"brace/ext/beautify":5,"brace/ext/error_marker":6,"brace/ext/textarea":8,"brace/mode/handlebars":11,"brace/mode/html":12,"brace/theme/dracula":15,"brace/worker/html":17}]},{},[155])
+},{"./site":159,"brace":9,"brace/ext/beautify":5,"brace/ext/error_marker":6,"brace/ext/textarea":8,"brace/mode/handlebars":11,"brace/mode/html":12,"brace/theme/dracula":15,"brace/worker/html":17}]},{},[156])
 //# sourceMappingURL=bundle.js.map

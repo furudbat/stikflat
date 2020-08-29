@@ -1,3 +1,16 @@
+<script type='text/javascript' >  
+    {%- if site.options.useCache -%}
+    const USE_CACHE = true;
+    {%- else -%}
+    const USE_CACHE = false;
+    {%- endif -%}
+    {%- if site.options.useHandlebars -%}
+    const USE_HANDLEBARS = true;
+    {%- else -%}
+    const USE_HANDLEBARS = false;
+    {%- endif -%}
+</script>
+
 <section id="sectionLayouts">
     <h2>{{ site.data.strings.layouts.header }}</h2>
     <div class="row mb-4 mx-2">
