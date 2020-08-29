@@ -21,6 +21,7 @@ export class PreviewEditor {
     generateCodePreviewEditor() {
         $('#txtPreviewCode').replaceWith('<pre id="txtPreviewCode" class="pre-ace-editor"></pre>');
         this._codePreviewEditor = ace.edit('txtPreviewCode');
+        this._codePreviewEditor.$blockScrolling = Infinity;
         this._codePreviewEditor.setTheme('ace/theme/dracula');
         this._codePreviewEditor.session.setMode('ace/mode/html');
         this._codePreviewEditor.setReadOnly(true);

@@ -1,5 +1,9 @@
 #! /bin/sh
 
+# install dep. for python ./scripts
+#pip install -r requirements.txt
+
+
 # A useful script to download the latest version of bootstrap and jquery
 
 rm -rf node_modules package-lock.json

@@ -24,6 +24,7 @@ export class CssEditor {
     generateCssEditor() {
         $('#txtCSS').replaceWith('<pre id="txtCSS" class="pre-ace-editor"></pre>');
         this._cssEditor = ace.edit("txtCSS");
+        this._cssEditor.$blockScrolling = Infinity;
         //_cssEditor.setTheme("ace/theme/dracula");
         this._cssEditor.session.setMode("ace/mode/json");
 

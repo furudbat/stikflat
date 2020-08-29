@@ -38,7 +38,7 @@ export class Layouts {
         let loadedLayout = (id !== null) ? this._loadedLayouts.get(id) : null;
         if (loadedLayout) {
             layoutLoading.hide();
-            console.log('loadLayout from cache', loadedLayout);
+            //console.log('loadLayout from cache', loadedLayout);
             callback(loadedLayout);
         } else {
             var that = this;

@@ -20,7 +20,7 @@ export class SavedConfigs {
     generateButtonFromConfig(config: SavedConfigBaseJsonValue, index: number | null = null) {
         const cssclass: string = 'mr-1 mt-1 mb-2 btn ' + SAVED_CONFIG_BUTTON_CLASS + ' ' + SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS;
 
-        let name: string = site.data.strings.content.content_default_prefix + ((index !== null) ? (index + 1) : '');
+        let name: string = site.data.strings.content.content_default_prefix.format(((index !== null) ? (index + 1) : ''));
         if (config) {
             if (config.title) {
                 name = config.title;

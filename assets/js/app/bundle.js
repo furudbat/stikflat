@@ -55120,6 +55120,7 @@ var ConfigEditor = (function () {
         var that = this;
         $('#txtConfigJSON').replaceWith('<pre id="txtConfigJSON" class="pre-ace-editor"></pre>');
         this._configEditorJSON = brace_1.default.edit('txtConfigJSON');
+        this._configEditorJSON.$blockScrolling = Infinity;
         this._configEditorJSON.setTheme('ace/theme/dracula');
         this._configEditorJSON.session.setMode('ace/mode/json');
         this._configEditorJSON.session.on('change', function (delta) {
@@ -55127,6 +55128,7 @@ var ConfigEditor = (function () {
         });
         $('#txtConfigYAML').replaceWith('<pre id="txtConfigYAML" class="pre-ace-editor"></pre>');
         this._configEditorYAML = brace_1.default.edit('txtConfigYAML');
+        this._configEditorYAML.$blockScrolling = Infinity;
         this._configEditorYAML.setTheme('ace/theme/dracula');
         this._configEditorYAML.session.setMode('ace/mode/yaml');
         this._configEditorYAML.session.on('change', function (delta) {
@@ -55204,7 +55206,7 @@ var SavedConfigs = (function () {
     SavedConfigs.prototype.generateButtonFromConfig = function (config, index) {
         if (index === void 0) { index = null; }
         var cssclass = 'mr-1 mt-1 mb-2 btn ' + SAVED_CONFIG_BUTTON_CLASS + ' ' + SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS;
-        var name = site_1.site.data.strings.content.content_default_prefix + ((index !== null) ? (index + 1) : '');
+        var name = site_1.site.data.strings.content.content_default_prefix.format(((index !== null) ? (index + 1) : ''));
         if (config) {
             if (config.title) {
                 name = config.title;
@@ -55381,6 +55383,7 @@ var CssEditor = (function () {
     CssEditor.prototype.generateCssEditor = function () {
         $('#txtCSS').replaceWith('<pre id="txtCSS" class="pre-ace-editor"></pre>');
         this._cssEditor = brace_1.default.edit("txtCSS");
+        this._cssEditor.$blockScrolling = Infinity;
         this._cssEditor.session.setMode("ace/mode/json");
         var that = this;
         this._cssEditor.session.on('change', function (delta) {
@@ -55764,6 +55767,7 @@ var PreviewEditor = (function () {
     PreviewEditor.prototype.generateCodePreviewEditor = function () {
         $('#txtPreviewCode').replaceWith('<pre id="txtPreviewCode" class="pre-ace-editor"></pre>');
         this._codePreviewEditor = brace_1.default.edit('txtPreviewCode');
+        this._codePreviewEditor.$blockScrolling = Infinity;
         this._codePreviewEditor.setTheme('ace/theme/dracula');
         this._codePreviewEditor.session.setMode('ace/mode/html');
         this._codePreviewEditor.setReadOnly(true);
@@ -55928,6 +55932,7 @@ var TemplateEditor = (function () {
         };
         $('#txtTemplate').replaceWith('<pre id="txtTemplate" class="pre-ace-editor"></pre>');
         this._templateEditor = brace_1.default.edit("txtTemplate");
+        this._templateEditor.$blockScrolling = Infinity;
         this._templateEditor.setTheme('ace/theme/dracula');
         this._templateEditor.session.setMode('ace/mode/html');
         this._templateEditor.session.on('change', function (delta) {

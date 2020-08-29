@@ -67,6 +67,7 @@ export class TemplateEditor {
 
         $('#txtTemplate').replaceWith('<pre id="txtTemplate" class="pre-ace-editor"></pre>');
         this._templateEditor = ace.edit("txtTemplate");
+        this._templateEditor.$blockScrolling = Infinity;
         this._templateEditor.setTheme('ace/theme/dracula');
         this._templateEditor.session.setMode('ace/mode/html');
         this._templateEditor.session.on('change', function (delta) {

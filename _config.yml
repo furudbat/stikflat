@@ -50,6 +50,7 @@ exclude:
   - scripts
   - requirements.txt
   - update_dependencies.sh
+  - build.sh
 
 options:
   useHandlebars: false

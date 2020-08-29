@@ -41,6 +41,7 @@ export class ConfigEditor {
 
         $('#txtConfigJSON').replaceWith('<pre id="txtConfigJSON" class="pre-ace-editor"></pre>');
         this._configEditorJSON = ace.edit('txtConfigJSON');
+        this._configEditorJSON.$blockScrolling = Infinity;
         this._configEditorJSON.setTheme('ace/theme/dracula');
         this._configEditorJSON.session.setMode('ace/mode/json');
         this._configEditorJSON.session.on('change', function (delta) {
@@ -50,6 +51,7 @@ export class ConfigEditor {
 
         $('#txtConfigYAML').replaceWith('<pre id="txtConfigYAML" class="pre-ace-editor"></pre>');
         this._configEditorYAML = ace.edit('txtConfigYAML');
+        this._configEditorYAML.$blockScrolling = Infinity;
         this._configEditorYAML.setTheme('ace/theme/dracula');
         this._configEditorYAML.session.setMode('ace/mode/yaml');
         this._configEditorYAML.session.on('change', function (delta) {
