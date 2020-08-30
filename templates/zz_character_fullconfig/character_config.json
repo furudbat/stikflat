@@ -25,7 +25,7 @@
     "role": "job/role/title", 
     "location": "home", 
     "background": "story", 
-    "icon": "umbrella", 
+    "icon": "fas fa-umbrella", 
     "aliases": "character alias/AKA", 
     "mbti": "content", 
     "occupation": "My Occupation", 

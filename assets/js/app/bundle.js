@@ -55455,7 +55455,8 @@ var list_js_1 = __importDefault(require("list.js"));
 var css_beautify = jsb.css_beautify;
 var js_beautify = jsb.js_beautify;
 exports.SCROLL_TO_ANIMATION_TIME_MS = 600;
-var CACHE_LOADED_LAYOUT_MAX_TIME_MS = 8 * 60 * 60 * 1000;
+var CACHE_LOADED_LAYOUT_MAX_TIME_MS = 2 * 60 * 60 * 1000;
+var LAYOUTS_PER_PAGE = 12;
 var Layouts = (function () {
     function Layouts(appData, appListener) {
         this._layoutsList = null;
@@ -55616,7 +55617,7 @@ var Layouts = (function () {
                 { name: 'inlineauthorstyle', attr: 'style' }
             ],
             item: item,
-            page: 10,
+            page: LAYOUTS_PER_PAGE,
             pagination: [{
                     paginationClass: "paginationBottom",
                     innerWindow: 5,

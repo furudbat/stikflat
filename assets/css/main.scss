@@ -135,6 +135,24 @@ ul.pagination {
     }
 }
 
+.rounded-circle {
+    border-radius: 50%;
+}
 .bg-faded {
     background-color: lighten($body-bg, 10%);
+}
+.user-content img {
+    max-width: 100%;
+    height: auto;
+}
+.fr-view img.fr-rounded {
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+.fr-view img {
+    height: auto;
 }

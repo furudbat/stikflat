@@ -1,0 +1,77 @@
+{{#icon}}
+<div class="text-center" style="color: {{{colors.accent}}}; margin-bottom:-50px;">
+    • <i class='{{{icon}}}' style='color: {{{colors.accent2}}};'></i> •
+</div>
+{{/icon}}
+
+<div class="container p-5 h-100 owoordion"
+    style="margin-top:100px;padding-top:300px;min-height:720px; color:{{{colors.text}}};">
+    <div class="row no-gutters justify-content-center">
+        <div class="col-12 col-md-4">
+            <div class="text-center" style="z-index:100;width:inherit;position:absolute;top:-90px;left:0;">
+                <div class="rounded-circle"
+                    style="background-color: {{{colors.accent}}}; display:inline-block;max-width:100%;padding:5px;">
+                    <a data-toggle="collapse" href="#circle"
+                        style="background-color:#;display:inline-block;width:220px;max-width:100%;padding:10px;">
+                        <img class="fr-rounded p-3 btn btn-outline-primary tooltipster" data-placement="bottom"
+                            src="{{{images.avatar}}}"
+                            style="width:200px;height:200px; border:2px dashed {{{colors.accent2}}};"
+                            title="Click for More"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="collapse" id="circle">
+        <div class="row justify-content-center">
+            <div class="d-block col-lg-5 col-xs-12 px-4 pb-4 rounded" data-parent="#owo" id="open"
+                style="padding-top:130px;border:2px solid {{{colors.accent}}};border-top:10px solid {{{colors.accent}}}; border-bottom:10px solid {{{colors.accent}}}; background-color: {{{colors.background}}};">
+                {{#name}}
+                <div class="text-center display-4">
+                    {{name}}
+                </div>
+                {{/name}}
+
+                {{#description}}
+                <div class="text-center mb-4" style="color:{{{colors.secondary_text}}};">
+                    <p>{{{description}}}</p>
+                </div>
+                {{/description}}
+
+                <div class="ui-accordion">
+                    {{#about}}
+                    <div class="ui-accordion-content card-block p-0" style="height:200px;text-align:center;">
+                        {{{about}}}
+                    </div>
+                    {{/about}}
+
+                    <hr class="w-100" style="border-width: 4px; border-color: {{{colors.secondary_text}}};">
+                    {{#gallery.length}}
+                    <div class="gallery-row">
+                        {{#gallery}}
+                        <div class="col-md-3 col-sm-6 text-center gallery-thumb character-thumb mb-4">
+                            <div class="thumb-image">
+                                <a class="imgurl" href="#"><img class="rounded-circle tooltipster" src="{{{img}}}"
+                                        title="{{caption}}"></a>
+                            </div>
+                            <div class="thumb-caption">
+                                <span class="thumb-character-name"><a class="btn btn-sm character-name-badge"
+                                        href="{{{link}}}"
+                                        style=" font-size: 12px; background-color: {{{colors.accent}}}; color: {{{colors.accent2}}};">{{{caption}}}</a></span>
+                            </div>
+                        </div>
+                        {{/gallery}}
+                    </div>
+                    {{/gallery.length}}
+                </div>
+            </div>
+        </div>
+
+        <!--====== CREDIT =================================-->
+        <div class="container col-md-5 p-0">
+            <p class="text-right small pt-1"><a href="https://toyhou.se/BunBox" style="color:#f3efef;"
+                    title="get the code here!"><i class="fad fa-rabbit-fast"></i></a>
+            </p>
+        </div>
+    </div>
+</div>

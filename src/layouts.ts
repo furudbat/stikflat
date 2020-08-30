@@ -14,7 +14,9 @@ const js_beautify = jsb.js_beautify;
 
 export const SCROLL_TO_ANIMATION_TIME_MS = 600;
 
-const CACHE_LOADED_LAYOUT_MAX_TIME_MS = 8 * 60 * 60 * 1000;
+const CACHE_LOADED_LAYOUT_MAX_TIME_MS = 2 * 60 * 60 * 1000;
+
+const LAYOUTS_PER_PAGE = 12;
 
 export class Layouts {
 
@@ -205,7 +207,7 @@ export class Layouts {
                 { name: 'inlineauthorstyle', attr: 'style' }
             ],
             item: item,
-            page: 10,
+            page: LAYOUTS_PER_PAGE,
             pagination: [{
                 paginationClass: "paginationBottom",
                 innerWindow: 5,

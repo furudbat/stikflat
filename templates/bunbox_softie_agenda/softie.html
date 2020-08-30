@@ -1,0 +1,196 @@
+<div class="container p-0">
+    <div class="row no-gutters">
+        <div class="col-md-4 row no-gutters">
+
+            <div class="col-12 p-1" style="height: 300px;">
+                <div class="img-thumbnail p-3 h-100 w-100"
+                    style="background-image:url({{{avatar.images}}}); background-color: {{{colors.focal_image_bg}}}; border: 3px solid {{{colors.light_borders}}}; background-position: center center;">
+                    <div style="position:absolute;right:.6rem;bottom:.45rem;color: {{{colors.accent}}};">
+                        <a class="tooltipster" href="{{{avatar_credit_link}}}" style="color: inherit;"
+                            title="{{avatar_credit}}"><i class="fad fa-image"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            {{#description}}
+            <div class="col-12 p-1">
+                <div class="card p-3 h-100 text-center text-truncate" style="border-radius: 10px; border: 3px solid {{{colors.dark_borders}}}; background-color: {{{colors.accent}}};
+                            font-size:2em; font-weight:400; color: {{{colors.header}}};">
+                    <p>
+                        {{{description}}}
+                    </p>
+                </div>
+            </div>
+            {{/description}}
+
+            {{#notes.length}}
+            <div class="col-12 p-1">
+                <div class="card" style="border-radius: 10px; border: 3px solid {{{colors.dark_borders}}};">
+                    <p class="card-inverse card-header text-uppercase"
+                        style="border-top-right-radius:10px;
+                               border-top-left-radius:10px;background-color: {{{colors.accent}}}; font-size:2em; font-weight:400; color: {{{colors.header}}};">
+                        Notices
+                    </p>
+                    <div class="card-block"
+                        style="height: 300px; overflow-y: scroll; list-style-position: outside; padding-left: 0;">
+                        <ul>
+                            {{#notes}}
+                            <li class="pb-2">{{{.}}}</li>
+                            {{/notes}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {{/notes.length}}
+
+            <div class="col-12 p-1">
+                <div class="rounded-0 px-3 h-100 text-center"
+                    style="border-top: 3px solid {{{colors.dark_borders}}}; font-size:2em; font-weight:400;">
+                    {{#socialmedia.twitter}}
+                    <a class="px-2" href="{{{socialmedia.twitter}}}" style="color: {{{colors.accent}}}"><i
+                            class="fab fa-twitter"></i></a>
+                    {{/socialmedia.twitter}}
+
+                    {{#socialmedia.discord}}
+                    <i class="px-2 fab fa-discord tooltipster" data-toggle="tooltip" data-placement="top"
+                        title="{{socialmedia.discord}}" style="color: {{{colors.accent}}}"></i>
+                    {{/socialmedia.discord}}
+
+                    {{#socialmedia.instagram}}
+                    <a class="px-2" href="{{{socialmedia.instagram}}}" style="color: {{{colors.accent}}}"><i
+                            class="fab fa-instagram"></i></a>
+                    {{/socialmedia.instagram}}
+
+                    {{#socialmedia.tumblr}}
+                    <a class="px-2" href="{{{socialmedia.tumblr}}}" style="color: {{{colors.accent}}}"><i
+                            class="fab fa-tumblr"></i></a>
+                    {{/socialmedia.tumblr}}
+
+                    {{#socialmedia.deviantart}}
+                    <a class="px-2" href="{{{socialmedia.deviantart}}}" style="color: {{{colors.accent}}}"><i
+                            class="fab fa-deviantart"></i></a>
+                    {{/socialmedia.deviantart}}
+
+                    {{#socialmedia.furaffinity}}
+                    <a class="px-2" href="{{{socialmedia.furaffinity}}}" style="color: {{{colors.accent}}}"><i
+                            class="fas fa-paw"></i></a>
+                    {{/socialmedia.furaffinity}}
+
+                    {{#links.shop}}
+                    <a class="px-2" href="{{{links.shop}}}" style="color: {{{colors.accent}}}"><i
+                            class="far fa-dollar-sign"></i></a>
+                    {{/links.shop}}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 row no-gutters px-1 px-md-4 ">
+            <div class="col-12 pt-1">
+                <p class="text-uppercase"
+                    style="font-size:4rem; margin-top: -4%; margin-bottom: -2%; font-weight:700; color: {{{colors.accent}}};">
+                    {{name}}
+                </p>
+
+                {{#about}}
+                <div class="col-12 p-1">
+                    <div class="card" style="border-radius: 10px; border: 3px solid {{{colors.dark_borders}}};">
+                        <p class="card-inverse card-header text-uppercase"
+                            style="border-top-right-radius:10px;border-top-left-radius:10px;
+                               background-color: {{{colors.accent}}}; font-size:2em; font-weight:400; color: {{{colors.header}}};">
+                            <i class="fad fa-sparkles"></i> ABOUT
+                        </p>
+                        <div class="card-block" style="height: 350px; overflow-y: scroll;">
+                            <p>{{{about}}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{/about}}
+            </div>
+
+
+            <div class="col-12">
+                <div class="row">
+                    {{#interests.length}}
+                    <div class="col-md-6 pr-md-1 h-100">
+                        <div class="col-12 p-1">
+                            <div class="card" style="border-radius: 10px; border: 3px solid {{{colors.dark_borders}}};">
+                                <p class="card-inverse card-header text-uppercase"
+                                    style="border-top-right-radius:10px;
+                                          border-top-left-radius:10px;background-color: {{{colors.accent}}}; font-size:2em; font-weight:400; color: {{{colors.header}}};">
+                                    Interests
+                                </p>
+                                <div class="card-block"
+                                    style="height: 200px; overflow-y: scroll;  list-style-position: outside; padding-left: 0;">
+                                    <ul>
+                                        {{#interests}}
+                                        <li class="pb-2">{{{.}}}</li>
+                                        {{/interests}}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/interests.length}}
+
+                    {{#friends.length}}
+                    <div class="col-md-6 pl-1 h-100">
+                        <div class="col-12 p-1">
+                            <div class="card" style="border-radius: 10px; border: 3px solid {{{colors.dark_borders}}};">
+                                <p class="card-inverse card-header text-uppercase"
+                                    style="border-top-right-radius:10px;border-top-left-radius:10px;
+                                          background-color: {{{colors.accent}}}; font-size:2em; font-weight:400; color: {{{colors.header}}};">
+                                    Friends
+                                </p>
+                                <div class="card-block p-0 py-2" style="height: 200px; overflow-y: scroll;">
+                                    {{#friends}}
+                                    <div class="row no-gutters mb-2">
+                                        <div class="col-4 px-1">
+                                            <img src="{{{img}}}" class="img-thumbnail"
+                                                style=" border: 3px solid {{{colors.dark_borders}}}; background-color: {{{colors.icon}}};">
+                                        </div>
+                                        <div class="col-8 p-1 my-auto">
+                                            <p class="w-50 text-uppercase" style="color: inherit;">
+                                                {{{summary}}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    {{/friends}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/friends.length}}
+                </div>
+            </div>
+        </div>
+
+        {{#characters.length}}
+        <div class="col-md-2">
+            <div class="hidden-sm-up text-center col-12 mt-2">
+                <p class="text-uppercase" style="font-size:2em; font-weight:400; color: {{{colors.accent}}};">
+                    Featured Characters
+                </p>
+            </div>
+
+            <div class="ui-accordion" style="border: 3px solid {{{colors.dark_borders}}}; border-radius: 10px;">
+                <div class="ui-accordion-content m-0 p-2" style="height:792px; overflow-x: hidden;">
+                    <div class="row">
+                        {{#characters}}
+                        <a class="col-6 col-md-12 mb-2" href="{{{link}}}">
+                            <img src="{{{img}}}" class="img-thumbnail"
+                                style=" border: 3px solid {{{colors.light_borders}}};background-color: {{{colors.icon}}};">
+                        </a>
+                        {{/characters}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/characters.length}}
+    </div>
+
+    <!--====== CREDIT DO NOT REMOVE=================================-->
+    <div class="container col-md-12">
+        <p class="text-right small pt-1 text-muted">layout design by <a href="https://toyhou.se/needlegutz">needlegutz</a> <i class="px-1 fad fa-rabbit-fast"></i>
+            code by <a href="https://toyhou.se/BunBox">BunBox</a></p>
+    </div>
+</div>

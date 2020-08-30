@@ -2,19 +2,19 @@
     "title": "Likes/Dislikes",
     "list": [
         {
-            "fa-icon": "fas fa-heart",
+            "icon": "fas fa-heart",
             "content": "Pizza"
         },
         {
-            "fa-icon": "fas fa-heart",
+            "icon": "fas fa-heart",
             "content": "Cats"
         },
         {
-            "fa-icon": "fas fa-ban",
+            "icon": "fas fa-ban",
             "content": "Loud noices"
         },
         {
-            "fa-icon": "fas fa-ban",
+            "icon": "fas fa-ban",
             "content": "Lorem ipsum dolor sit amet"
         }
     ]
