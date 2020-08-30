@@ -36,6 +36,15 @@
             "description": "Skill 2 description."
         }
     ], 
+    "colors": {
+        "text": "#333",
+        "frontground": "CCEEFF",
+        "background": "#EFEFEF",
+        "header": "#225588",
+        "header_text": "white",
+        "border": "white",
+        "icon": "white"
+    },
     "images": {
         "avatar": "https://via.placeholder.com/200x200", 
         "signature": "https://via.placeholder.com/520x160"

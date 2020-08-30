@@ -74,7 +74,6 @@
     "avatar_credit": "image credit",
     "avatar_credit_link": "#",
     "images": {
-        "avatar": "https://via.placeholder.com/200x200",
-        "header": "https://via.placeholder.com/1140x180"
+        "avatar": "https://via.placeholder.com/200x200"
     }
 }

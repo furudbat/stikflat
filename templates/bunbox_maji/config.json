@@ -37,27 +37,27 @@
     "stats": [
         {
             "name": "Creativity", 
-            "value": "60"
+            "value": 60
         }, 
         {
             "name": "Intelligence", 
-            "value": "30"
+            "value": 30
         }, 
         {
             "name": "Confidence", 
-            "value": "80"
+            "value": 80
         },
         {
             "name": "Humor", 
-            "value": "60"
+            "value": 60
         },
         {
             "name": "Empathy", 
-            "value": "55"
+            "value": 55
         },
         {
             "name": "Charisma", 
-            "value": "45"
+            "value": 45
         }
     ], 
     "relationships": [

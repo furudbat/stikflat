@@ -133,15 +133,15 @@
     "stats": [
         {
             "name": "STATISTIC 1", 
-            "value": "100"
+            "value": 100
         }, 
         {
             "name": "STATISTIC 2", 
-            "value": "0"
+            "value": 0
         }, 
         {
             "name": "STATISTIC 3", 
-            "value": "60"
+            "value": 60
         }
     ], 
     "skills": [

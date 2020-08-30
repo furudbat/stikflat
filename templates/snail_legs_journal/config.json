@@ -13,19 +13,19 @@
     "stats": [
         {
             "name": "DEX", 
-            "value": "60"
+            "value": 60
         }, 
         {
             "name": "INT", 
-            "value": "30"
+            "value": 30
         }, 
         {
             "name": "STR", 
-            "value": "80"
+            "value": 80
         },
         {
             "name": "WIS", 
-            "value": "60"
+            "value": 60
         }
     ], 
     "entries": [

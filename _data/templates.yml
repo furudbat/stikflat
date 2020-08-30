@@ -147,7 +147,6 @@
   - about
   - name
   - description
-  - colors
   - images
   - gallery
   - icon
@@ -218,6 +217,7 @@
   - theme_link
   - residence
   - age
+  - colors
   - eyes
   - height
   - hair
@@ -848,14 +848,13 @@
   id: zodia_simple_profile
   keywords:
   - about
-  - description
-  - created
-  - images
-  - value
   - name
+  - created
+  - description
+  - value
   - for_sale
   - colors
-  - species
+  - images
   - credits
   - ok_to_draw
   - icon
