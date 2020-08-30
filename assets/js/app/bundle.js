@@ -55470,7 +55470,6 @@ var Layouts = (function () {
         var loadedLayout = (id !== null) ? this._loadedLayouts.get(id) : null;
         if (loadedLayout) {
             layoutLoading.hide();
-            console.log('loadLayout from cache', loadedLayout);
             callback(loadedLayout);
         }
         else {
@@ -55902,7 +55901,7 @@ var TemplateEditor = (function () {
     }
     Object.defineProperty(TemplateEditor.prototype, "templateError", {
         set: function (error) {
-            $('#configError').html(error).show();
+            $('#templateError').html(error).show();
         },
         enumerable: false,
         configurable: true
@@ -55935,6 +55934,7 @@ var TemplateEditor = (function () {
         this._templateEditor.$blockScrolling = Infinity;
         this._templateEditor.setTheme('ace/theme/dracula');
         this._templateEditor.session.setMode('ace/mode/html');
+        this._templateEditor.setShowPrintMargin(false);
         this._templateEditor.session.on('change', function (delta) {
             if (that._templateEditor) {
                 var value = that._templateEditor.getValue();

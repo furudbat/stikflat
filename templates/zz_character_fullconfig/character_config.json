@@ -10,7 +10,7 @@
     "height": "1.82 m (6 ft.)", 
     "build": "content", 
     "species": "Dog", 
-    "interests": "Some info on your character's hobbies and interests. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
+    "interest": "Some info on your character's hobbies and interests. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
     "info": "My Info", 
     "birthplace": "My Birthplace", 
     "family": "My parents, siblings, spouses, etc.", 

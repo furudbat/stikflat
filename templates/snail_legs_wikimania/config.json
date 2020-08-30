@@ -3,7 +3,7 @@
     "gender": "gender", 
     "age": "age", 
     "birthday": "dd/mm/yyyy", 
-    "interests": "Some info on your character's hobbies and interests. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
+    "interest": "Some info on your character's hobbies and interests. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
     "role": "job/role/title", 
     "location": "home", 
     "background": "story", 

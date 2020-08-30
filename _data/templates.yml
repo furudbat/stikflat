@@ -41,6 +41,101 @@
   style: 'background-color: #acdbdf; color: #383838;'
   template: bunbox_bunnytab/bunnytab.html
   type: character
+- author: BunBox
+  author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/BunBox
+  author_link: https://toyhou.se/BunBox
+  config: bunbox_choose_wisely_blue_pill/config.json
+  css: bunbox_choose_wisely_blue_pill/pill.css
+  description: Super simple character profile Inspired by pill capsules! Made two
+    different versions of it, can double as a simple user page too of wanted.
+  id: bunbox_choose_wisely_blue_pill
+  keywords:
+  - about
+  - name
+  - avatar_credit_link
+  - images
+  - avatar_credit
+  - description
+  license: '- please do not remove credit! <br/> - please dont sell/resell this code
+    for its F2U <br/> - Feel free to make as much edits to it as you like! <br/> -
+    Please comment under the designated forum or code post that you are using it!
+    I''d love to see what you do with it <v>'
+  link: https://toyhou.se/6645706.choose-wisely
+  meta: bunbox_choose_wisely_blue_pill/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139882.-bunbox-codes-f2u-p2u-html-4-20-'>BunBox
+    Codes</a>
+  name: Choose Wisely - Red Pill
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6645706?1587418810
+  style: 'background-color: #acdbdf; color: #383838;'
+  template: bunbox_choose_wisely_blue_pill/pill.html
+  type: character
+- author: BunBox
+  author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/BunBox
+  author_link: https://toyhou.se/BunBox
+  config: bunbox_choose_wisely_red_pill/config.json
+  css: bunbox_choose_wisely_red_pill/pill.css
+  description: Super simple character profile Inspired by pill capsules! Made two
+    different versions of it, can double as a simple user page too of wanted.
+  id: bunbox_choose_wisely_red_pill
+  keywords:
+  - about
+  - name
+  - avatar_credit_link
+  - images
+  - avatar_credit
+  - description
+  license: '- please do not remove credit! <br/> - please dont sell/resell this code
+    for its F2U <br/> - Feel free to make as much edits to it as you like! <br/> -
+    Please comment under the designated forum or code post that you are using it!
+    I''d love to see what you do with it <v>'
+  link: https://toyhou.se/6645706.choose-wisely
+  meta: bunbox_choose_wisely_red_pill/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139882.-bunbox-codes-f2u-p2u-html-4-20-'>BunBox
+    Codes</a>
+  name: Choose Wisely - Blue Pill
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6645706?1587418810
+  style: 'background-color: #acdbdf; color: #383838;'
+  template: bunbox_choose_wisely_red_pill/pill.html
+  type: character
+- author: BunBox
+  author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/BunBox
+  author_link: https://toyhou.se/BunBox
+  config: bunbox_maji/config.json
+  css: bunbox_maji/maji.css
+  description: boostrap friendly
+  id: bunbox_maji
+  keywords:
+  - status
+  - interests
+  - about
+  - trivias
+  - stats
+  - name
+  - images
+  - relationships
+  - theme_link
+  - gender
+  - age
+  - character
+  - avatar_credit_link
+  - traits
+  - theme
+  - quote
+  - avatar_credit
+  - species
+  license: '- please do not remove credit! <br/> - please dont sell/resell this code
+    for its F2U <br/> - Feel free to make as much edits to it as you like! <br/> -
+    Please comment under the designated forum or code post that you are using it!
+    I''d love to see what you do with it <v>'
+  link: https://toyhou.se/7661974.maji
+  meta: bunbox_maji/meta.yml
+  more: <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139882.-bunbox-codes-f2u-p2u-html-4-20-'>BunBox
+    Codes</a>
+  name: Maji
+  preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7661974?1597282255
+  style: 'background-color: #acdbdf; color: #383838;'
+  template: bunbox_maji/mai.html
+  type: character
 - author: Circlejourney
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/circlejourney
   author_link: https://toyhou.se/circlejourney
@@ -525,19 +620,19 @@
     maintain credit!
   id: snail_legs_wikimania
   keywords:
-  - interests
+  - relationships
   - bio
   - about
   - name
-  - relationships
   - gender
   - age
-  - colorpallete
+  - background
   - summary
+  - colorpallete
   - birthday
   - role
   - location
-  - background
+  - interest
   - personality
   - images
   - trivia

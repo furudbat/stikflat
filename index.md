@@ -5,7 +5,7 @@ layout: home
 {{ site.title }} is a Tool to generating HTML-Code with template engine magic.  
 There are some basic Layouts and Codesnippets you can use and edit.  
 
-### How to 
+### How to
 
  1. Select a layout by double-click
  2. Edit the config

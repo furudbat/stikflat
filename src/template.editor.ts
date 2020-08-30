@@ -26,7 +26,7 @@ export class TemplateEditor {
     }
     
     set templateError(error: string) {
-        $('#configError').html(error).show();
+        $('#templateError').html(error).show();
     }
     clearTemplateError() {
         $('#templateError').hide().empty();
@@ -70,6 +70,7 @@ export class TemplateEditor {
         this._templateEditor.$blockScrolling = Infinity;
         this._templateEditor.setTheme('ace/theme/dracula');
         this._templateEditor.session.setMode('ace/mode/html');
+        this._templateEditor.setShowPrintMargin(false);
         this._templateEditor.session.on('change', function (delta) {
             // delta.start, delta.end, delta.lines, delta.action
             if (that._templateEditor) {
