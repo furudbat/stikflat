@@ -1,0 +1,29 @@
+<div class="m-auto col-md-4 p-0"
+    style="box-shadow: 2px 2px 7px 1px #000000;border-radius:100px;vborder-0; height: 600px;">
+    <div class="card bg-info"
+        style="border-top-right-radius:100px; border-top-left-radius:100px; border-bottom-right-radius:0px; border-bottom-left-radius:0px; height: 300px; background-image:url({{{images.avatar}}}); background-repeat:no-repeat; background-position: center; background-size:cover;">
+        <div style="position:absolute; right:.5rem; bottom:.25rem; font-size:12px;">
+            <a class="tooltipster small text-white pr-1" href="{{{avatar_credit_link}}}" style="color: inherit;"
+                title="{{avatar_credit}}"><i class="fad fa-image fa-swap-opacity"></i></a>
+        </div>
+    </div>
+
+    <div class="ui-accordion card pt-3 border-0 bg-white text-dark"
+        style="border-top-right-radius:0px; border-top-left-radius:0px; border-bottom-right-radius:100px; border-bottom-left-radius:100px; height: 300px;">
+        {{#name}}<h1 class="px-4" style="font-size:2rem">{{name}}</h1>{{/name}}
+
+        {{#description}}<h3 class="px-4">{{{description}}}</h3>{{/description}}
+
+        {{#description}}
+        <div class="ui-accordion-content" style="height:150px;">
+            {{{description}}}
+        </div>
+        {{/description}}
+    </div>
+
+    <!--====== CREDIT =================================-->
+    <div style="position:absolute;right:.5rem;bottom:.25rem;font-size:12px;">
+        <a class="tooltipster small text-white" href="https://toyhou.se/BunBox" style="color: inherit;"
+            title="get the code here"><i class="fad fa-rabbit-fast"></i></a>
+    </div>
+</div>
