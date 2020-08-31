@@ -36,7 +36,6 @@ export class Application implements ApplicationListener {
     private _btnPreviewCodeCopy: ClipboardJS | null = null;
     private _btnPreviewCodeCopySpoiler: ClipboardJS | null = null;
     private _btnPreviewCodeCopySpoilerPreview: ClipboardJS | null = null;
-    private _btnPreviewCodeCopySpoilerPreviewCredit: ClipboardJS | null = null;
 
     initEditors() {
         this._templateEditor.initEditor();
@@ -382,30 +381,6 @@ export class Application implements ApplicationListener {
         });
         this._btnPreviewCodeCopySpoilerPreview.on('success', function (e) {
             $('#btnPreviewCodeCopySpoilerPreview').popover('show');
-            e.clearSelection();
-        });
-
-        this._btnPreviewCodeCopySpoilerPreviewCredit = new ClipboardJS('#btnPreviewCodeCopySpoilerPreviewCredit', {
-            text: function (trigger) {
-                const code = that._previewEditor.codePreview;
-                const encoded_code = $('<div />').text(code).html();
-                return [
-                    '<p>', $('#msgLayoutPatternInfo').html(), '</p>',
-                    '',
-                    '<h2>Code</h2>',
-                    '<div class="fr-spoiler">',
-                    '<pre><code>',
-                    encoded_code,
-                    '</pre></code>',
-                    '</div>',
-                    '',
-                    '<h2>Preview</h2>',
-                    code,
-                ].join('\n');
-            }
-        });
-        this._btnPreviewCodeCopySpoilerPreviewCredit.on('success', function (e) {
-            $('#btnPreviewCodeCopySpoilerPreviewCredit').popover('show');
             e.clearSelection();
         });
 

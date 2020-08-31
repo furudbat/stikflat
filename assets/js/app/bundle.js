@@ -54671,7 +54671,6 @@ var Application = (function () {
         this._btnPreviewCodeCopy = null;
         this._btnPreviewCodeCopySpoiler = null;
         this._btnPreviewCodeCopySpoilerPreview = null;
-        this._btnPreviewCodeCopySpoilerPreviewCredit = null;
     }
     Application.prototype.initEditors = function () {
         this._templateEditor.initEditor();
@@ -55019,29 +55018,6 @@ var Application = (function () {
                 });
                 this._btnPreviewCodeCopySpoilerPreview.on('success', function (e) {
                     $('#btnPreviewCodeCopySpoilerPreview').popover('show');
-                    e.clearSelection();
-                });
-                this._btnPreviewCodeCopySpoilerPreviewCredit = new clipboard_1.default('#btnPreviewCodeCopySpoilerPreviewCredit', {
-                    text: function (trigger) {
-                        var code = that._previewEditor.codePreview;
-                        var encoded_code = $('<div />').text(code).html();
-                        return [
-                            '<p>', $('#msgLayoutPatternInfo').html(), '</p>',
-                            '',
-                            '<h2>Code</h2>',
-                            '<div class="fr-spoiler">',
-                            '<pre><code>',
-                            encoded_code,
-                            '</pre></code>',
-                            '</div>',
-                            '',
-                            '<h2>Preview</h2>',
-                            code,
-                        ].join('\n');
-                    }
-                });
-                this._btnPreviewCodeCopySpoilerPreviewCredit.on('success', function (e) {
-                    $('#btnPreviewCodeCopySpoilerPreviewCredit').popover('show');
                     e.clearSelection();
                 });
                 $('.copy-to-clipboard[data-toggle="popover"]').on('shown.bs.popover', function () {

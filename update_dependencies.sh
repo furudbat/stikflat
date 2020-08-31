@@ -38,6 +38,7 @@ npm i --save-dev @types/clipboard
 npm i --save-dev @types/localforage
 npm i --save-dev @types/memory-cache
 
+
 cp node_modules/jquery/dist/jquery.min.* assets/js
 
 mkdir assets/js/bootstrap
