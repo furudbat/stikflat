@@ -1,25 +1,25 @@
 {
-    "name": "name here",
-    "pronouns": "pronouns here",
-    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin erat quis congue aliquet. Quisque eu maximus nisl. Suspendisse nec ornare mi. In turpis odio, finibus ac risus vel, malesuada.",
+    "name": "name here", 
+    "pronouns": "pronouns here", 
+    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin erat quis congue aliquet. Quisque eu maximus nisl. Suspendisse nec ornare mi. In turpis odio, finibus ac risus vel, malesuada.", 
     "credits": [
         {
-            "by": "BG by ",
-            "name": "Guillaume Galtier",
-            "link": "https://unsplash.com/@paititi"
+            "link": "https://unsplash.com/@paititi", 
+            "by": "BG by ", 
+            "name": "Guillaume Galtier"
         }
-    ],
+    ], 
     "colors": {
         "card": "rgba(255,255,255,.65)"
-    },
+    }, 
     "socialmedia": {
-        "instagram": "https://www.instagram.com/",
-        "tumblr": "https://www.tumblr.com/",
-        "deviantart": "https://www.deviantart.com/",
+        "tumblr": "https://www.tumblr.com/", 
+        "deviantart": "https://www.deviantart.com/", 
+        "instagram": "https://www.instagram.com/", 
         "twitter": "https://www.twitter.com/"
-    },
+    }, 
     "images": {
-        "avatar": "https://via.placeholder.com/150",
+        "avatar": "https://via.placeholder.com/150", 
         "background": "https://images.unsplash.com/photo-1514477917009-389c76a86b68?ixlib=rb-1.2.1&auto=format&fit=crop&w=1261&q=80"
     }
 }

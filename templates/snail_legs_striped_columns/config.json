@@ -1,14 +1,14 @@
 {
-    "name": "Character Name",
-    "quote": "A quote or song lyrics",
-    "description": " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    "trivia": "Trivia Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "bio": "Bio Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "name": "Character Name", 
+    "quote": "A quote or song lyrics", 
+    "trivia": "Trivia Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
+    "description": " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor", 
+    "bio": "Bio Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
     "notes": [
-        "Lorem ipsum",
-        "Lorem ipsum",
+        "Lorem ipsum", 
+        "Lorem ipsum", 
         "Lorem ipsum"
-    ],
+    ], 
     "images": {
         "avatar": "https://via.placeholder.com/200x200"
     }

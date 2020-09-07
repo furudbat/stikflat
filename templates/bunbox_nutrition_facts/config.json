@@ -1,22 +1,22 @@
 {
-    "title": "Name",
-    "name": "[info]",
-    "age": "[info]",
-    "height": "[info]",
-    "occupation": "[info]",
-    "orientation": "[info]",
-    "theme": "Theme",
-    "theme_link": "#",
-    "description": "trait . trait . trait",
-    "about": "About Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.",
+    "title": "Name", 
+    "name": "[info]", 
+    "age": "[info]", 
+    "height": "[info]", 
+    "orientation": "[info]", 
+    "occupation": "[info]", 
+    "theme": "Theme", 
+    "theme_link": "#", 
+    "about": "About Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
+    "description": "trait . trait . trait", 
     "colors": {
-        "background": "#d6e6f2",
-        "background_side": "#f7fbfc",
-        "accent": "#6fd0f1",
-        "text": "#504d4d",
-        "dividers": "#537791"
-    },
-    "avatar_credit": "image credit",
+        "background_side": "#f7fbfc", 
+        "dividers": "#537791", 
+        "accent": "#6fd0f1", 
+        "background": "#d6e6f2", 
+        "text": "#504d4d"
+    }, 
+    "avatar_credit": "image credit", 
     "images": {
         "avatar": "https://via.placeholder.com/200?text=Profile"
     }

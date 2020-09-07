@@ -1,51 +1,51 @@
 {
     "attributes": [
         {
-            "title": "Melee",
             "stats": [
                 {
-                    "name": "STR",
-                    "value": 75,
-                    "text": "Awesome"
-                },
+                    "text": "Awesome", 
+                    "name": "STR", 
+                    "value": 75
+                }, 
                 {
-                    "name": "DEF",
+                    "name": "DEF", 
                     "value": 60
-                },
+                }, 
                 {
-                    "name": "EVA",
+                    "name": "EVA", 
                     "value": 40
                 }
-            ]
-        },
+            ], 
+            "title": "Melee"
+        }, 
         {
-            "title": "Magic",
             "stats": [
                 {
-                    "name": "Mag.DEF",
+                    "name": "Mag.DEF", 
                     "value": 60
-                },
+                }, 
                 {
-                    "name": "INT",
-                    "value": 55,
-                    "text": "55"
+                    "text": "55", 
+                    "name": "INT", 
+                    "value": 55
                 }
-            ]
-        },
+            ], 
+            "title": "Magic"
+        }, 
         {
-            "title": "Misc",
             "stats": [
                 {
-                    "name": "AGI",
-                    "value": 88,
-                    "text": "Great"
-                },
+                    "text": "Great", 
+                    "name": "AGI", 
+                    "value": 88
+                }, 
                 {
-                    "name": "DEX",
-                    "value": 70,
-                    "text": "Good"
+                    "text": "Good", 
+                    "name": "DEX", 
+                    "value": 70
                 }
-            ]
+            ], 
+            "title": "Misc"
         }
     ]
 }

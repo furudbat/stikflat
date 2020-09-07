@@ -2,7 +2,7 @@
 
 Usage:
   sort_configs.py
-  sort_configs.py [--only-check] [--input=<templates-path>]
+  sort_configs.py [--only-check] [--strict] [--input=<templates-path>]
   sort_configs.py (-h | --help)
   sort_configs.py --version
 
@@ -16,16 +16,18 @@ Options:
 from docopt import docopt
 import os
 import collections
+import re
 import json
 import yaml
+import pystache
 from jsonmerge import Merger
 
 
 def sort_json(data):
     first_ordered = collections.OrderedDict()
-    objects = {}
-    arrays = {}
-    others = {}
+    objects = dict()
+    arrays = dict()
+    others = dict()
     others_ordered = collections.OrderedDict()
     arrays_ordered = collections.OrderedDict()
     long_others = collections.OrderedDict()
@@ -141,6 +143,11 @@ def sort_json(data):
     long_others = collections.OrderedDict(
         sorted(long_others.items(), key=lambda x: len(x[1])))
 
+    others = dict(sorted(others.items(), reverse=True))
+    long_others = dict(sorted(long_others.items(), reverse=True))
+    objects = dict(sorted(objects.items(), reverse=True))
+    arrays = dict(sorted(arrays.items(), reverse=True))
+
     newdata = collections.OrderedDict()
     for key, value in first_ordered.items():
         newdata[key] = value
@@ -182,39 +189,90 @@ def sort_json(data):
 
 
 def check_keys(config_filename, data):
-    if 'job' in data:
-        print('{}: "job" found use "occupation" instead'.format(config_filename))
-    if 'role' in data:
-        print('{}: "role" found use "occupation" instead'.format(config_filename))
 
     if 'bio' in data.keys() and 'about' in data:
         print("{}: beware of \"mixing\" or using 'bio' instead of 'about', 'about is an INFO about an character and Bio is about HISTORY/BACKGROUND'".format(config_filename))
+
 
     if 'theme' in data.keys() and not 'theme_link' in data:
         print('{}: "theme" is set but "theme_link" is missing'.format(config_filename))
     elif 'theme_link' in data.keys() and not 'theme' in data:
         print('{}: "theme_link" is set but "theme" is missing'.format(config_filename))
         
+
     if 'background' in data:
         print('{}: "background" found use "ethnicity" instead'.format(config_filename))
 
+    if 'aesthetic' in data:
+        print('{}: "aesthetic" found use "appearance" instead'.format(config_filename))
 
-def sortConfig(input_path, input_paths, type='', only_checks=False):
+    if 'residence' in data:
+        print('{}: "residence" found use "location" instead'.format(config_filename))
+    
+    if 'job' in data:
+        print('{}: "job" found use "occupation" instead'.format(config_filename))
+    if 'role' in data:
+        print('{}: "role" found use "occupation" instead'.format(config_filename))
+        
+    
+    if 'icon' in data and not data['icon'].startswith('f'):
+        print('{}: Are you sure "icon" is a Fonr Awesome Icon'.format(config_filename))
+
+
+    if ('interests' in data and (not isinstance(data['interests'], list))) or ('interest' in data and (isinstance(data['interest'], list))):
+        print('{}: use "interests" for a list and "interest" for singe entry'.format(config_filename))
+        
+    if ('notes' in data and (not isinstance(data['notes'], list))) or ('note' in data and (isinstance(data['note'], list))):
+        print('{}: use "notes" for a list and "note" for singe entry'.format(config_filename))
+
+    if ('trivias' in data and (not isinstance(data['trivias'], list))) or ('trivia' in data and (isinstance(data['trivia'], list))):
+        print('{}: use "trivias" for a list and "trivia" for singe entry'.format(config_filename))
+
+    if ('traits' in data and (not isinstance(data['traits'], list))) or ('trait' in data and (isinstance(data['trait'], list))):
+        print('{}: use "traits" for a list and "trait" for singe entry'.format(config_filename))
+
+def test_mustache(template_filename, config_filename):
+    with open(template_filename, 'r') as template_file:
+        template = template_file.read().decode('utf-8')
+        with open(config_filename, 'r') as config_file:
+            config_str=config_file.read()
+            config = json.loads(config_str)
+
+            try:
+                renderer = pystache.Renderer(missing_tags='strict')
+                parsed = pystache.parse(template)
+                rendered = renderer.render(parsed, config)
+                if not rendered:
+                    print('{}: template or result is empty'.format(template_filename))
+            except pystache.context.KeyNotFoundError as e:
+                if not re.match(".*.length", e.key):
+                    print('{}: {} not found in config'.format(config_filename, e.key))
+
+def sortConfig(input_path, input_paths, type='', only_checks=False, strict=False):
     merged_config=None
     keys=collections.OrderedDict()
     files_counter=0
 
     for path in input_paths:
         for root, directories, files in os.walk(path, topdown=False):
+            config_filename=None
+            template_filename=None
+            meta_yml_filename=None
+            meta={}
+            template_engine_mustache=False
             for file in files:
+                extensions=file.split('.')[1:]
                 ext=os.path.splitext(file)[-1].lower()
 
+                if (ext == '.html' and (len(extensions) == 1 or 'mustache' in extensions)) or ext == '.mustache':
+                    template_engine_mustache=True
+                if ext == '.html' or ext == '.mustache':
+                    template_filename = os.path.abspath(os.path.join(root, file))
                 if ext == '.json':
-                    meta={}
-                    meta_yml_filename=os.path.abspath(
-                        os.path.join(root, 'meta.yml'))
+                    meta_yml_filename=os.path.abspath(os.path.join(root, 'meta.yml'))
                     with open(meta_yml_filename) as yml_file:
                         meta=yaml.load(yml_file, Loader=yaml.FullLoader)
+
                     config_filename=os.path.abspath(os.path.join(root, file))
                     with open(config_filename, 'r+') as json_file:
                         if not only_checks:
@@ -243,6 +301,9 @@ def sortConfig(input_path, input_paths, type='', only_checks=False):
                             json_file.truncate()
                     if not only_checks:
                         print('Sorted - ' + config_filename)
+            if template_engine_mustache:
+                if strict:
+                    test_mustache(template_filename, config_filename)
 
     merged_config=sort_json(merged_config)
 
@@ -275,6 +336,7 @@ def sortConfig(input_path, input_paths, type='', only_checks=False):
 def main(args):
     input_path=args['--input']
     only_checks=args['--only-check']
+    strict=args['--strict']
     input_paths=[]
 
     for root, directories, files in os.walk(input_path, topdown=False):
@@ -282,8 +344,8 @@ def main(args):
             if name != 'zz_character_fullconfig' and name != 'zz_user_fullconfig' and name != 'zz_character_minimalconfig' and name != 'zz_user_minimalconfig':
                 input_paths.append(os.path.join(root, name))
 
-    sortConfig(input_path, input_paths, 'character', only_checks)
-    sortConfig(input_path, input_paths, 'user', only_checks)
+    sortConfig(input_path, input_paths, 'character', only_checks, strict)
+    sortConfig(input_path, input_paths, 'user', only_checks, strict)
 
 
 if __name__ == '__main__':

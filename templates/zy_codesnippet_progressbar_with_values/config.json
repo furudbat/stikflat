@@ -1,47 +1,47 @@
 {
     "attributes": [
         {
-            "title": "Melee",
             "stats": [
                 {
-                    "name": "STR",
+                    "name": "STR", 
                     "value": 75
-                },
+                }, 
                 {
-                    "name": "DEF",
+                    "name": "DEF", 
                     "value": 60
-                },
+                }, 
                 {
-                    "name": "EVA",
+                    "name": "EVA", 
                     "value": 40
                 }
-            ]
-        },
+            ], 
+            "title": "Melee"
+        }, 
         {
-            "title": "Magic",
             "stats": [
                 {
-                    "name": "Mag.DEF",
+                    "name": "Mag.DEF", 
                     "value": 60
-                },
+                }, 
                 {
-                    "name": "INT",
+                    "name": "INT", 
                     "value": 55
                 }
-            ]
-        },
+            ], 
+            "title": "Magic"
+        }, 
         {
-            "title": "Misc",
             "stats": [
                 {
-                    "name": "AGI",
+                    "name": "AGI", 
                     "value": 88
-                },
+                }, 
                 {
-                    "name": "DEX",
+                    "name": "DEX", 
                     "value": 70
                 }
-            ]
+            ], 
+            "title": "Misc"
         }
     ]
 }

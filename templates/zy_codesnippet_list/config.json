@@ -1,21 +1,21 @@
 {
-    "title": "Likes/Dislikes",
+    "title": "Likes/Dislikes", 
     "list": [
         {
-            "icon": "fas fa-heart",
-            "content": "Pizza"
-        },
+            "content": "Pizza", 
+            "icon": "fas fa-heart"
+        }, 
         {
-            "icon": "fas fa-heart",
-            "content": "Cats"
-        },
+            "content": "Cats", 
+            "icon": "fas fa-heart"
+        }, 
         {
-            "icon": "fas fa-ban",
-            "content": "Loud noices"
-        },
+            "content": "Loud noices", 
+            "icon": "fas fa-ban"
+        }, 
         {
-            "icon": "fas fa-ban",
-            "content": "Lorem ipsum dolor sit amet"
+            "content": "Lorem ipsum dolor sit amet", 
+            "icon": "fas fa-ban"
         }
     ]
 }

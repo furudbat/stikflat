@@ -1,19 +1,19 @@
 {
-    "name": "Character Name",
-    "description": "pronouns | title/quote",
-    "bio": "Bio Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    "trivias": [
-        "Lorem ipsum dolor sit amet",
-        "Suspendisse a felis molestie",
-        "Integer fermentum est vitae",
-        "Fusce quis velit vel sem",
-        "Aliquam vulputate lacus consequat"
-    ],
+    "name": "Character Name", 
+    "bio": "Bio Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", 
+    "description": "pronouns | title/quote", 
     "notes": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    ],
+    ], 
+    "trivias": [
+        "Lorem ipsum dolor sit amet", 
+        "Suspendisse a felis molestie", 
+        "Integer fermentum est vitae", 
+        "Fusce quis velit vel sem", 
+        "Aliquam vulputate lacus consequat"
+    ], 
     "images": {
         "avatar": "https://via.placeholder.com/200x300"
     }

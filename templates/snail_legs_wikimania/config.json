@@ -1,39 +1,39 @@
 {
-    "name": "Character Name",
-    "gender": "gender",
-    "age": "age",
-    "birthday": "dd/mm/yyyy",
-    "interest": "Some info on your character's hobbies and interests. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "occupation": "job/role/title",
-    "location": "home",
-    "background": "story",
-    "aliases": "character alias/AKA",
-    "summary": "A brief summary of who your character is and what they're about. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "trivia": "Any other information you want to share about your character! Likes, dislikes, bad habits, design notes, etc. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "about": "An explaination of your character's role in the story/universe they live in.  Could be helpful to change the heading of this section to something more story-specific. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "personality": "A more detailed explaination of your character's personality. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "bio": "The backstory of your character- an explaination of what's happened in thier past. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "name": "Character Name", 
+    "gender": "gender", 
+    "age": "age", 
+    "birthday": "dd/mm/yyyy", 
+    "aliases": "character alias/AKA", 
+    "ethnicity": "story", 
+    "location": "home", 
+    "interest": "Some info on your character's hobbies and interests. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
+    "occupation": "job/role/title", 
+    "personality": "A more detailed explaination of your character's personality. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    "about": "An explaination of your character's role in the story/universe they live in.  Could be helpful to change the heading of this section to something more story-specific. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
+    "trivia": "Any other information you want to share about your character! Likes, dislikes, bad habits, design notes, etc. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
+    "bio": "The backstory of your character- an explaination of what's happened in thier past. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    "summary": "A brief summary of who your character is and what they're about. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
     "relationships": [
         {
-            "link": "#LINK",
-            "name": "Character",
-            "img": "https://via.placeholder.com/250",
+            "link": "#LINK", 
+            "name": "Character", 
+            "img": "https://via.placeholder.com/250", 
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
-        },
+        }, 
         {
-            "link": "#LINK",
-            "name": "Character 2",
-            "img": "https://via.placeholder.com/250",
+            "link": "#LINK", 
+            "name": "Character 2", 
+            "img": "https://via.placeholder.com/250", 
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
         }
-    ],
+    ], 
     "colorpallete": [
-        "#ea9248",
-        "#d17d74",
-        "#b869a1",
-        "#9e54cd",
+        "#ea9248", 
+        "#d17d74", 
+        "#b869a1", 
+        "#9e54cd", 
         "#853ff9"
-    ],
+    ], 
     "images": {
         "avatar": "https://via.placeholder.com/200x200"
     }

@@ -1,79 +1,79 @@
 {
-    "title": "Name here",
-    "name": "content",
-    "gender": "content",
-    "age": "content",
-    "height": "content",
-    "build": "content",
-    "species": "(or species)",
-    "demeanor": "content",
-    "mbti": "content",
-    "occupation": "content",
-    "theme": "link a song",
-    "theme_link": "SONG LINK",
-    "quote": "Write a quote here....",
-    "description": "adjective &#8226 adjective &#8226 adjective",
-    "personality": "You can write a small personality summary here, or just leave it at stats only.",
-    "about": "About Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.",
+    "title": "Name here", 
+    "name": "content", 
+    "gender": "content", 
+    "age": "content", 
+    "height": "content", 
+    "build": "content", 
+    "species": "(or species)", 
+    "demeanor": "content", 
+    "mbti": "content", 
+    "occupation": "content", 
+    "theme": "link a song", 
+    "theme_link": "SONG LINK", 
+    "quote": "Write a quote here....", 
+    "about": "About Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
+    "description": "adjective &#8226 adjective &#8226 adjective", 
+    "personality": "You can write a small personality summary here, or just leave it at stats only.", 
     "character": {
         "confidence": [
-            "star",
+            "star", 
             "star-half"
-        ],
+        ], 
         "intellect": [
-            "star",
-            "star",
+            "star", 
+            "star", 
             "star-half"
-        ],
+        ], 
         "charisma": [
-            "star",
-            "star",
-            "star",
-            "star",
+            "star", 
+            "star", 
+            "star", 
+            "star", 
             "star"
-        ],
+        ], 
         "kindness": [
-            "star",
-            "star",
-            "star",
-            "star",
+            "star", 
+            "star", 
+            "star", 
+            "star", 
             "star-half"
-        ],
+        ], 
         "integrity": [
-            "star",
-            "star",
+            "star", 
+            "star", 
             "star"
-        ],
+        ], 
         "temper": [
-            "star",
-            "star",
-            "star",
+            "star", 
+            "star", 
+            "star", 
             "star"
         ]
-    },
+    }, 
     "relationships": [
         {
-            "status": "[ relationship ]",
-            "link": "#LINK",
-            "name": "Character",
-            "img": "https://via.placeholder.com/250",
+            "status": "[ relationship ]", 
+            "link": "#LINK", 
+            "name": "Character", 
+            "img": "https://via.placeholder.com/250", 
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
-        },
+        }, 
         {
-            "status": "[ relationship ]",
-            "link": "#LINK",
-            "name": "Character 2",
-            "img": "https://via.placeholder.com/250",
+            "status": "[ relationship ]", 
+            "link": "#LINK", 
+            "name": "Character 2", 
+            "img": "https://via.placeholder.com/250", 
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
         }
-    ],
+    ], 
     "notes": [
-        "Lorem ipsum",
-        "Suspendisse",
-        "Integer",
-        "Fusce quis",
+        "Lorem ipsum", 
+        "Suspendisse", 
+        "Integer", 
+        "Fusce quis", 
         "Aliquam"
-    ],
+    ], 
     "images": {
         "avatar": "https://via.placeholder.com/550x700"
     }

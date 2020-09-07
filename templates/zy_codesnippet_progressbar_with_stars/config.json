@@ -1,73 +1,73 @@
 {
     "attributes": [
         {
-            "title": "Melee",
             "stats": [
                 {
-                    "name": "STR",
+                    "name": "STR", 
                     "value": [
-                        "star",
+                        "star", 
                         "star"
                     ]
-                },
+                }, 
                 {
-                    "name": "DEF",
+                    "name": "DEF", 
                     "value": [
-                        "star",
-                        "star",
+                        "star", 
+                        "star", 
                         "star"
                     ]
-                },
+                }, 
                 {
-                    "name": "EVA",
+                    "name": "EVA", 
                     "value": [
-                        "star",
+                        "star", 
                         "star"
                     ]
                 }
-            ]
-        },
+            ], 
+            "title": "Melee"
+        }, 
         {
-            "title": "Magic",
             "stats": [
                 {
-                    "name": "Mag.DEF",
+                    "name": "Mag.DEF", 
                     "value": [
-                        "star",
+                        "star", 
                         "star-half"
                     ]
-                },
+                }, 
                 {
-                    "name": "INT",
+                    "name": "INT", 
                     "value": [
-                        "star",
+                        "star", 
                         "star"
                     ]
                 }
-            ]
-        },
+            ], 
+            "title": "Magic"
+        }, 
         {
-            "title": "Misc",
             "stats": [
                 {
-                    "name": "AGI",
+                    "name": "AGI", 
                     "value": [
-                        "star",
-                        "star",
-                        "star",
+                        "star", 
+                        "star", 
+                        "star", 
                         "star"
                     ]
-                },
+                }, 
                 {
-                    "name": "DEX",
+                    "name": "DEX", 
                     "value": [
-                        "star",
-                        "star",
-                        "star",
+                        "star", 
+                        "star", 
+                        "star", 
                         "star-half"
                     ]
                 }
-            ]
+            ], 
+            "title": "Misc"
         }
     ]
 }

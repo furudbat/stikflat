@@ -2,52 +2,59 @@
     "title": "Max the Doggo", 
     "name": "Max", 
     "sex": "Male", 
-    "gender": "gender", 
-    "pronouns": "My pronouns", 
-    "age": "age", 
+    "gender": "gender here", 
+    "pronouns": "He/Him", 
+    "age": "age here", 
     "birthday": "dd/mm/yyyy", 
     "weight": "58 kg (128 Ibs)", 
     "height": "1.82 m (6 ft.)", 
     "build": "content", 
     "species": "Dog", 
-    "interest": "Some info on your character's hobbies and interests. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
-    "info": "My Info", 
-    "birthplace": "My Birthplace", 
+    "orientation": "orientation here", 
     "family": "My parents, siblings, spouses, etc.", 
-    "bloodtype": "My blood type", 
-    "dob": "content", 
-    "residence": "My Place of Residence", 
-    "eyes": "My eye colour", 
-    "value": "$$$", 
     "sign": "content", 
     "hair": "My hair colour", 
-    "demeanor": "content",  
+    "demeanor": "content", 
+    "education": "content", 
+    "looking_for": "content", 
+    "children": "content", 
+    "ethnicity": "story", 
+    "occupation": "occupation here", 
+    "birthplace": "My Birthplace", 
+    "designer_link": "#", 
     "location": "home", 
-    "background": "story", 
-    "icon": "fas fa-umbrella", 
+    "interest": "Some info on your character's hobbies and interests. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
+    "alignment": "alignment here", 
     "aliases": "character alias/AKA", 
+    "worth": "worth here", 
+    "status": "[info]", 
+    "eyes": "My eye colour", 
+    "designer": "designer here", 
+    "relationship": "content", 
+    "icon": "far fa-circle", 
+    "info": "My Info", 
+    "bloodtype": "My blood type", 
+    "lifestyle": "content", 
+    "created": "xx/xx/xxxx", 
+    "dob": "content", 
+    "value": "$xxx.xx", 
+    "for_sale": "Yes / No", 
     "mbti": "content", 
-    "occupation": "My Occupation", 
+    "ok_to_draw": "Yes / No", 
     "theme": "link a song", 
     "theme_link": "SONG LINK", 
-    "quote": "Write a quote here....", 
-    "description": "adjective &#8226 adjective &#8226 adjective", 
-    "personality": "INFP (introversion, intuition, feeling, perception)", 
+    "bio": "Bio Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
+    "about": "About Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque.", 
+    "description": "info | info | info", 
+    "extra": "Extra Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
+    "quote": "A quote or song lyrics", 
+    "appearance": "Appearance Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
     "summary": "A brief summary of who your character is and what they're about. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
     "trivia": "Any other information you want to share about your character! Likes, dislikes, bad habits, design notes, etc. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
-    "about": "An explaination of your character's role in the story/universe they live in.  Could be helpful to change the heading of this section to something more story-specific. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
-    "bio": "Bio --- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
-    "extra": "Extra --- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
-    "appearance": "Appearance --- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
+    "personality": "INFP (introversion, intuition, feeling, perception)", 
     "character": {
-        "charisma": [
-            "star", 
-            "star", 
-            "star", 
-            "star", 
-            "star"
-        ], 
-        "courage": [
+        "judging_perceiving": 33, 
+        "confidence": [
             "star", 
             "star-half"
         ], 
@@ -62,6 +69,26 @@
             "star", 
             "star"
         ], 
+        "temper": [
+            "star", 
+            "star", 
+            "star", 
+            "star"
+        ], 
+        "introvert_extrovert": 60, 
+        "charisma": [
+            "star", 
+            "star", 
+            "star", 
+            "star", 
+            "star"
+        ], 
+        "courage": [
+            "star", 
+            "star-half"
+        ], 
+        "sensing_intuition": 90, 
+        "thinking_feeling": 40, 
         "kindness": [
             "star", 
             "star", 
@@ -78,16 +105,6 @@
             "star", 
             "star", 
             "star-half"
-        ], 
-        "confidence": [
-            "star", 
-            "star-half"
-        ], 
-        "temper": [
-            "star", 
-            "star", 
-            "star", 
-            "star"
         ]
     }, 
     "pros": [
@@ -110,17 +127,24 @@
     ], 
     "relationships": [
         {
-            "link": "#LINK", 
+            "status": "[ relationship ]", 
             "name": "Character", 
-            "img": "https://via.placeholder.com/250", 
+            "img": "https://via.placeholder.com/150", 
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
         }, 
         {
-            "link": "#LINK", 
+            "status": "[ relationship ]", 
             "name": "Character 2", 
-            "img": "https://via.placeholder.com/250", 
+            "img": "https://via.placeholder.com/150", 
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
         }
+    ], 
+    "interests": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
+        "Suspendisse a felis molestie, porttitor est eget, euismod mauris.", 
+        "Integer fermentum est vitae dui pretium fermentum.", 
+        "Fusce quis velit vel sem pellentesque iaculis congue non lorem.", 
+        "Aliquam vulputate lacus consequat, volutpat ex ut, blandit lacus."
     ], 
     "trivias": [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
@@ -131,16 +155,32 @@
     ], 
     "stats": [
         {
-            "name": "STATISTIC 1", 
-            "value": 100
-        }, 
-        {
-            "name": "STATISTIC 2", 
-            "value": 0
-        }, 
-        {
-            "name": "STATISTIC 3", 
+            "name": "DEX", 
             "value": 60
+        }, 
+        {
+            "name": "INT", 
+            "value": 30
+        }, 
+        {
+            "name": "STR", 
+            "value": 80
+        }, 
+        {
+            "name": "WIS", 
+            "value": 60
+        }
+    ], 
+    "credits": [
+        {
+            "link": "https://toyhou.se/", 
+            "by": "character image by", 
+            "name": "artist credit"
+        }, 
+        {
+            "link": "https://unsplash.com/@tavi004", 
+            "by": "aesthetic image by", 
+            "name": "octavian rosca"
         }
     ], 
     "skills": [
@@ -155,10 +195,40 @@
     ], 
     "notes": [
         "Lorem ipsum", 
-        "Suspendisse", 
-        "Integer fermentum", 
-        "Fusce quis", 
-        "Aliquam"
+        "Lorem ipsum", 
+        "Lorem ipsum"
+    ], 
+    "entries": [
+        {
+            "name": "Entry #1", 
+            "title": "Dear Diary,", 
+            "signed": "-Signed, character name", 
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", 
+            "date": "dd/mm/yyyy", 
+            "id": "entry-1-tab"
+        }, 
+        {
+            "name": "Entry #2", 
+            "title": "Dear Diary,", 
+            "signed": "-Signed, character name", 
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", 
+            "date": "dd/mm/yyyy", 
+            "id": "entry-2"
+        }, 
+        {
+            "name": "Entry #3", 
+            "title": "Dear Diary,", 
+            "signed": "-Signed, character name", 
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", 
+            "date": "dd/mm/yyyy", 
+            "id": "entry-3"
+        }
+    ], 
+    "colorpallete": [
+        "#ff6666", 
+        "#6666ff", 
+        "#ffff66", 
+        "#66ff66"
     ], 
     "themes": [
         {
@@ -170,11 +240,52 @@
             "theme": "Theme 2"
         }
     ], 
+    "traits": [
+        "trait", 
+        "trait", 
+        "trait", 
+        "trait"
+    ], 
+    "stamps": [
+        "https://img00.deviantart.net/8cb7/i/2005/323/4/1/stamp_template_by_kencho.png", 
+        "https://img00.deviantart.net/8cb7/i/2005/323/4/1/stamp_template_by_kencho.png", 
+        "https://img00.deviantart.net/8cb7/i/2005/323/4/1/stamp_template_by_kencho.png", 
+        "https://img00.deviantart.net/8cb7/i/2005/323/4/1/stamp_template_by_kencho.png"
+    ], 
+    "references": [
+        {
+            "caption": "A caption for the above image.", 
+            "link": "https://toyhou.se/", 
+            "img": "https://via.placeholder.com/500x300"
+        }, 
+        {
+            "caption": "A caption for the above image.", 
+            "link": "https://toyhou.se/", 
+            "img": "https://via.placeholder.com/500x300"
+        }
+    ], 
     "marks": [
         "black spots", 
         "black nose", 
         "fluffy Tail", 
         "white fur"
+    ], 
+    "gallery": [
+        {
+            "caption": "name", 
+            "link": "https://toyhou.se/", 
+            "img": "https://via.placeholder.com/250"
+        }, 
+        {
+            "caption": "name", 
+            "link": "https://toyhou.se/", 
+            "img": "https://via.placeholder.com/250"
+        }, 
+        {
+            "caption": "name", 
+            "link": "https://toyhou.se/", 
+            "img": "https://via.placeholder.com/250"
+        }
     ], 
     "projects": [
         {
@@ -193,6 +304,22 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque."
         }
     ], 
+    "colors": {
+        "background_side": "#f7fbfc", 
+        "frontground": "CCEEFF", 
+        "color": "#2e2e2e", 
+        "text": "#333", 
+        "dividers": "#537791", 
+        "accent": "#6fd0f1", 
+        "header": "#225588", 
+        "background_main": "#fefefe", 
+        "header_text": "white", 
+        "background": "#ffaa00", 
+        "link": "#ffaa00", 
+        "line": "#ddd", 
+        "border": "white", 
+        "icon": "white"
+    }, 
     "socialmedia": {
         "tumblr": "https://www.tumblr.com/", 
         "deviantart": "https://www.deviantart.com/", 
@@ -201,15 +328,20 @@
         "discord": "Blabla#1234"
     }, 
     "moodboard": [
-        "https://via.placeholder.com/300x200", 
-        "https://via.placeholder.com/300x200", 
-        "https://via.placeholder.com/300x200", 
-        "https://via.placeholder.com/300x200"
+        "https://via.placeholder.com/200x300", 
+        "https://via.placeholder.com/200x300", 
+        "https://via.placeholder.com/200x300", 
+        "https://via.placeholder.com/200x300"
     ], 
+    "avatar_credit": "image credit", 
+    "avatar_credit_link": "#", 
     "images": {
-        "header": "https://via.placeholder.com/1000x250", 
-        "avatar": "https://via.placeholder.com/150", 
+        "header": "https://via.placeholder.com/500x300", 
+        "background_right": "https://images.unsplash.com/photo-1487235829740-e0ac5a286e1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1348&q=80", 
+        "avatar": "https://via.placeholder.com/200", 
         "background": "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/pia23647.jpg", 
-        "signature": "https://via.placeholder.com/520x160"
+        "signature": "https://via.placeholder.com/520x160", 
+        "sidebar": "https://via.placeholder.com/300x500", 
+        "background_left": "https://via.placeholder.com/250"
     }
 }

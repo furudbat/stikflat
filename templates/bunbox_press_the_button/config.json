@@ -1,25 +1,32 @@
 {
-    "name": "\u00e2\u0153\u00a7 Name \u00e2\u0153\u00a7",
-    "icon": "fas fa-award fa-2x",
-    "description": "\u00e2\u20ac\u00a2 trait \u00e2\u20ac\u00a2 trait \u00e2\u20ac\u00a2 trait \u00e2\u20ac\u00a2",
-    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.",
+    "name": "\u00e2\u0153\u00a7 Name \u00e2\u0153\u00a7", 
+    "icon": "fas fa-award fa-2x", 
+    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
+    "description": "\u00e2\u20ac\u00a2 trait \u00e2\u20ac\u00a2 trait \u00e2\u20ac\u00a2 trait \u00e2\u20ac\u00a2", 
     "gallery": [
         {
-            "link": "https://toyhou.se/",
-            "img": "https://via.placeholder.com/250",
-            "caption": "name"
-        },
+            "caption": "name", 
+            "link": "https://toyhou.se/", 
+            "img": "https://via.placeholder.com/250"
+        }, 
         {
-            "link": "https://toyhou.se/",
-            "img": "https://via.placeholder.com/250",
-            "caption": "name"
-        },
+            "caption": "name", 
+            "link": "https://toyhou.se/", 
+            "img": "https://via.placeholder.com/250"
+        }, 
         {
-            "link": "https://toyhou.se/",
-            "img": "https://via.placeholder.com/250",
-            "caption": "name"
+            "caption": "name", 
+            "link": "https://toyhou.se/", 
+            "img": "https://via.placeholder.com/250"
         }
-    ],
+    ], 
+    "colors": {
+        "background": "#FFFFFF", 
+        "accent": "#6fd0f1", 
+        "accent2": "#f3efef", 
+        "text": "#504d4d",
+        "secondary_text": "#62778c"
+    }, 
     "images": {
         "avatar": "https://via.placeholder.com/200/f3efef/6fd0f1?text=CHARACTER+IMAGE"
     }

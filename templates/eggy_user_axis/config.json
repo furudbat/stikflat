@@ -1,51 +1,51 @@
 {
-    "name": "Name Here",
-    "description": "age . gender . adj",
-    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum     enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere    nulla, eget lobortis ante. Aliquam magna libero, dictum sit amet scelerisque ac, scelerisque tincidunt    magna. Nulla et consectetur diam. Aliquam ipsum mi, tristique sed vestibulum ac, aliquet eget magna.    Aliquam quis fringilla erat. Morbi sollicitudin id lorem eu efficitur. Mauris varius id magna vitae    ullamcorper. In gravida libero consectetur, lobortis nisl sit amet, pellentesque ligula. Suspendisse    tincidunt feugiat posuere. Duis dui erat, accumsan a aliquam eu, efficitur a tortor. Nunc molestie,    leo in commodo aliquam, tellus augue tempor velit, non placerat ex sem non nisi.",
+    "name": "Name Here", 
+    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum     enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere    nulla, eget lobortis ante. Aliquam magna libero, dictum sit amet scelerisque ac, scelerisque tincidunt    magna. Nulla et consectetur diam. Aliquam ipsum mi, tristique sed vestibulum ac, aliquet eget magna.    Aliquam quis fringilla erat. Morbi sollicitudin id lorem eu efficitur. Mauris varius id magna vitae    ullamcorper. In gravida libero consectetur, lobortis nisl sit amet, pellentesque ligula. Suspendisse    tincidunt feugiat posuere. Duis dui erat, accumsan a aliquam eu, efficitur a tortor. Nunc molestie,    leo in commodo aliquam, tellus augue tempor velit, non placerat ex sem non nisi.", 
+    "description": "age . gender . adj", 
     "artstatus": {
-        "commissions": "closed",
-        "trades": "closed",
-        "requests": "closed"
-    },
+        "commissions": "closed", 
+        "requests": "closed", 
+        "trades": "closed"
+    }, 
     "notes": [
-        "Lorem ipsum dolor",
-        "Suspendisse a felis",
-        "Integer fermentum est",
-        "Fusce quis",
+        "Lorem ipsum dolor", 
+        "Suspendisse a felis", 
+        "Integer fermentum est", 
+        "Fusce quis", 
         "Aliquam vulputate"
-    ],
+    ], 
     "characters": [
         {
-            "link": "https://toyhou.se/",
+            "link": "https://toyhou.se/", 
             "img": "https://via.placeholder.com/200x150"
-        },
+        }, 
         {
-            "link": "https://toyhou.se/",
+            "link": "https://toyhou.se/", 
             "img": "https://via.placeholder.com/200x150"
-        },
+        }, 
         {
-            "link": "https://toyhou.se/",
+            "link": "https://toyhou.se/", 
             "img": "https://via.placeholder.com/200x150"
-        },
+        }, 
         {
-            "link": "https://toyhou.se/",
+            "link": "https://toyhou.se/", 
             "img": "https://via.placeholder.com/200x150"
         }
-    ],
+    ], 
     "socialmedia": {
-        "furaffinity": "https://www.furaffinity.net/",
-        "tumblr": "https://www.tumblr.com/",
-        "deviantart": "https://www.deviantart.com/",
-        "twitter": "https://www.twitter.com/",
+        "furaffinity": "https://www.furaffinity.net/", 
+        "tumblr": "https://www.tumblr.com/", 
+        "deviantart": "https://www.deviantart.com/", 
+        "twitter": "https://www.twitter.com/", 
         "discord": "####name"
-    },
+    }, 
     "links": {
-        "trades": "https://toyhou.se/",
-        "sales": "https://toyhou.se/",
+        "trades": "https://toyhou.se/", 
+        "sales": "https://toyhou.se/", 
         "wishlist": "https://toyhou.se/"
-    },
+    }, 
     "images": {
-        "avatar": "https://via.placeholder.com/200x200",
-        "header": "https://via.placeholder.com/1140x180"
+        "header": "https://via.placeholder.com/1140x180", 
+        "avatar": "https://via.placeholder.com/200x200"
     }
 }

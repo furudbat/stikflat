@@ -1,35 +1,35 @@
 {
-    "title": "Title here",
-    "name": "Name Here",
-    "gender": "gender",
-    "age": "age",
-    "description": "adj",
-    "about": "I really just wanted to make a template that used the little astronaut user icon cuz I love it. You can fiddle with the colors if you want.",
+    "title": "Title here", 
+    "name": "Name Here", 
+    "gender": "gender", 
+    "age": "age", 
+    "about": "I really just wanted to make a template that used the little astronaut user icon cuz I love it. You can fiddle with the colors if you want.", 
+    "description": "adj", 
     "characters": [
         {
-            "link": "https://toyhou.se/",
+            "link": "https://toyhou.se/", 
             "img": "https://via.placeholder.com/300x200"
-        },
+        }, 
         {
-            "link": "https://toyhou.se/",
+            "link": "https://toyhou.se/", 
             "img": "https://via.placeholder.com/300x200"
-        },
+        }, 
         {
-            "link": "https://toyhou.se/",
+            "link": "https://toyhou.se/", 
             "img": "https://via.placeholder.com/300x200"
-        },
+        }, 
         {
-            "link": "https://toyhou.se/",
+            "link": "https://toyhou.se/", 
             "img": "https://via.placeholder.com/300x200"
         }
-    ],
+    ], 
     "socialmedia": {
-        "furaffinity": "https://www.furaffinity.net/",
-        "tumblr": "https://www.tumblr.com/",
-        "deviantart": "https://www.deviantart.com/",
-        "twitter": "https://www.twitter.com/",
+        "furaffinity": "https://www.furaffinity.net/", 
+        "tumblr": "https://www.tumblr.com/", 
+        "deviantart": "https://www.deviantart.com/", 
+        "twitter": "https://www.twitter.com/", 
         "discord": "####name"
-    },
+    }, 
     "images": {
         "avatar": "https://via.placeholder.com/200x200"
     }

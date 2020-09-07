@@ -1,24 +1,24 @@
 {
     "gallery": [
         {
-            "link": "https://toyhou.se/",
-            "img": "https://via.placeholder.com/300x200",
-            "caption": "A caption for the above image."
-        },
+            "caption": "A caption for the above image.", 
+            "link": "https://toyhou.se/", 
+            "img": "https://via.placeholder.com/300x200"
+        }, 
         {
-            "link": "https://toyhou.se/",
-            "img": "https://via.placeholder.com/300x200",
-            "caption": "A caption for the above image."
-        },
+            "caption": "A caption for the above image.", 
+            "link": "https://toyhou.se/", 
+            "img": "https://via.placeholder.com/300x200"
+        }, 
         {
-            "link": "https://toyhou.se/",
-            "img": "https://via.placeholder.com/300x200",
-            "caption": "A caption for the above image."
-        },
+            "caption": "A caption for the above image.", 
+            "link": "https://toyhou.se/", 
+            "img": "https://via.placeholder.com/300x200"
+        }, 
         {
-            "link": "https://toyhou.se/",
-            "img": "https://via.placeholder.com/300x200",
-            "caption": "A caption for the above image."
+            "caption": "A caption for the above image.", 
+            "link": "https://toyhou.se/", 
+            "img": "https://via.placeholder.com/300x200"
         }
     ]
 }
