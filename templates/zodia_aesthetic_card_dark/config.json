@@ -2,12 +2,6 @@
     "name": "name here",
     "pronouns": "pronouns here",
     "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin erat quis congue aliquet. Quisque eu maximus nisl. Suspendisse nec ornare mi. In turpis odio, finibus ac risus vel, malesuada.",
-    "socialmedia": {
-        "instagram": "https://www.instagram.com/",
-        "tumblr": "https://www.tumblr.com/",
-        "deviantart": "https://www.deviantart.com/",
-        "twitter": "https://www.twitter.com/"
-    },
     "credits": [
         {
             "by": "BG by ",
@@ -17,6 +11,12 @@
     ],
     "colors": {
         "card": "rgba(0,0,0,.55)"
+    },
+    "socialmedia": {
+        "instagram": "https://www.instagram.com/",
+        "tumblr": "https://www.tumblr.com/",
+        "deviantart": "https://www.deviantart.com/",
+        "twitter": "https://www.twitter.com/"
     },
     "images": {
         "avatar": "https://via.placeholder.com/150",

@@ -32,17 +32,17 @@
             "img": "https://via.placeholder.com/200x150"
         }
     ],
-    "links": {
-        "trades": "https://toyhou.se/",
-        "sales": "https://toyhou.se/",
-        "wishlist": "https://toyhou.se/"
-    },
     "socialmedia": {
         "furaffinity": "https://www.furaffinity.net/",
         "tumblr": "https://www.tumblr.com/",
         "deviantart": "https://www.deviantart.com/",
         "twitter": "https://www.twitter.com/",
         "discord": "####name"
+    },
+    "links": {
+        "trades": "https://toyhou.se/",
+        "sales": "https://toyhou.se/",
+        "wishlist": "https://toyhou.se/"
     },
     "images": {
         "avatar": "https://via.placeholder.com/200x200",

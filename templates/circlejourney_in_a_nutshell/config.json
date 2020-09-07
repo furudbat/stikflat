@@ -1,39 +1,39 @@
 {
-    "name": "Name", 
-    "pronouns": "Pronouns", 
-    "age": "Age", 
-    "about": "About Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque.", 
+    "name": "Name",
+    "pronouns": "Pronouns",
+    "age": "Age",
+    "about": "About Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque.",
     "notes": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    ], 
+    ],
     "projects": [
         {
-            "link": "LINK", 
-            "name": "Project 1", 
+            "link": "LINK",
+            "name": "Project 1",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque."
-        }, 
+        },
         {
-            "link": "LINK", 
-            "name": "Project 2", 
+            "link": "LINK",
+            "name": "Project 2",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque."
-        }, 
+        },
         {
-            "link": "LINK", 
-            "name": "Project 3", 
+            "link": "LINK",
+            "name": "Project 3",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed elit quam. Nunc semper purus sit amet malesuada euismod. Donec vel nibh quis ligula fringilla laoreet. Quisque feugiat lorem eu faucibus auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla porta tincidunt nulla eget pellentesque."
         }
-    ], 
+    ],
     "socialmedia": {
-        "tumblr": "https://www.tumblr.com/", 
-        "deviantart": "https://www.deviantart.com/", 
-        "instagram": "https://www.instagram.com/", 
-        "twitter": "https://www.twitter.com/", 
+        "tumblr": "https://www.tumblr.com/",
+        "deviantart": "https://www.deviantart.com/",
+        "instagram": "https://www.instagram.com/",
+        "twitter": "https://www.twitter.com/",
         "discord": "Blabla#1234"
-    }, 
+    },
     "images": {
-        "header": "https://via.placeholder.com/1000x250", 
+        "header": "https://via.placeholder.com/1000x250",
         "avatar": "https://via.placeholder.com/200x200"
     }
 }

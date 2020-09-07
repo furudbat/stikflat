@@ -10,12 +10,12 @@
         "Aliquam vulputate"
     ],
     "interests": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
-        "Suspendisse a felis molestie, porttitor est eget, euismod mauris.", 
-        "Integer fermentum est vitae dui pretium fermentum.", 
-        "Fusce quis velit vel sem pellentesque iaculis congue non lorem.", 
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Suspendisse a felis molestie, porttitor est eget, euismod mauris.",
+        "Integer fermentum est vitae dui pretium fermentum.",
+        "Fusce quis velit vel sem pellentesque iaculis congue non lorem.",
         "Aliquam vulputate lacus consequat, volutpat ex ut, blandit lacus."
-    ], 
+    ],
     "friends": [
         {
             "img": "https://via.placeholder.com/200x150",
@@ -52,8 +52,13 @@
             "img": "https://via.placeholder.com/200x150"
         }
     ],
-    "links": {
-        "store": "https://toyhou.se/"
+    "colors": {
+        "accent": "#A2C6FA",
+        "light_borders": "#A2C6FA",
+        "icon": "#F4EEFF",
+        "focal_image_bg": "#F4EEFF",
+        "dark_borders": "#1b262c",
+        "header": "#fff"
     },
     "socialmedia": {
         "furaffinity": "https://www.furaffinity.net/",
@@ -63,13 +68,8 @@
         "twitter": "https://www.twitter.com/",
         "discord": "DISCORD#0000"
     },
-    "colors": {
-        "accent": "#A2C6FA",
-        "light_borders": "#A2C6FA",
-        "icon": "#F4EEFF",
-        "focal_image_bg": "#F4EEFF",
-        "dark_borders": "#1b262c",
-        "header": "#fff" 
+    "links": {
+        "store": "https://toyhou.se/"
     },
     "avatar_credit": "image credit",
     "avatar_credit_link": "#",

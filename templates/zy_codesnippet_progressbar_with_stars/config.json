@@ -6,22 +6,22 @@
                 {
                     "name": "STR",
                     "value": [
-                        "star", 
+                        "star",
                         "star"
                     ]
                 },
                 {
                     "name": "DEF",
-                    "value":[
-                        "star", 
-                        "star", 
+                    "value": [
+                        "star",
+                        "star",
                         "star"
                     ]
                 },
                 {
                     "name": "EVA",
                     "value": [
-                        "star", 
+                        "star",
                         "star"
                     ]
                 }
@@ -33,14 +33,14 @@
                 {
                     "name": "Mag.DEF",
                     "value": [
-                        "star", 
+                        "star",
                         "star-half"
                     ]
                 },
                 {
                     "name": "INT",
                     "value": [
-                        "star", 
+                        "star",
                         "star"
                     ]
                 }
@@ -52,8 +52,8 @@
                 {
                     "name": "AGI",
                     "value": [
-                        "star", 
-                        "star", 
+                        "star",
+                        "star",
                         "star",
                         "star"
                     ]
@@ -61,9 +61,9 @@
                 {
                     "name": "DEX",
                     "value": [
-                        "star", 
-                        "star", 
-                        "star", 
+                        "star",
+                        "star",
+                        "star",
                         "star-half"
                     ]
                 }

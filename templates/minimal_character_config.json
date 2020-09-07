@@ -1,0 +1,13 @@
+{
+    "title": "Max the Doggo",
+    "name": "Max",
+    "images": {
+        "avatar": "https://via.placeholder.com/200",
+        "signature": "https://via.placeholder.com/520x160",
+        "background": "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/pia23647.jpg",
+        "header": "https://via.placeholder.com/500x300",
+        "sidebar": "https://via.placeholder.com/300x500",
+        "background_left": "https://via.placeholder.com/250",
+        "background_right": "https://images.unsplash.com/photo-1487235829740-e0ac5a286e1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1348&q=80"
+    }
+}

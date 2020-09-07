@@ -1,19 +1,19 @@
 {
     "name": "Name",
-    "age": "[info]",
     "gender": "[info]",
+    "age": "[info]",
     "species": "[info]",
     "status": "[info]",
-    "quote": "Write a quote here....", 
-    "theme": " Party Of Rainy Day - LUNA 2", 
-    "theme_link": "https://www.youtube.com/embed/kmbsLiwTpXU", 
-    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.", 
+    "theme": " Party Of Rainy Day - LUNA 2",
+    "theme_link": "https://www.youtube.com/embed/kmbsLiwTpXU",
+    "quote": "Write a quote here....",
+    "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet nulla a dolor blandit malesuada sit amet sed magna. Sed vehicula est vitae molestie fringilla. Sed ultricies nulla sapien, ac pharetra ipsum porta a. Nulla non accumsan urna, vel scelerisque magna. Donec tempus nisi est, eu ultricies lectus consequat ut. Pellentesque et tincidunt nisi, id vestibulum augue. Nulla sit amet dictum velit. Aliquam eget metus sed nibh dictum aliquam vel non velit. Duis laoreet ipsum diam, id scelerisque velit volutpat et. Nullam volutpat tellus sed turpis tincidunt vehicula. Nam at diam et leo egestas rutrum in vel est. Duis auctor magna ac purus placerat venenatis. Fusce non arcu sed velit suscipit tempor laoreet maximus eros. Proin aliquam volutpat diam vitae vehicula. Suspendisse faucibus aliquet iaculis. Fusce nec orci laoreet, pulvinar lorem ac, tincidunt lectus.",
     "character": {
         "introvert_extrovert": 60,
         "thinking_feeling": 40,
         "sensing_intuition": 90,
         "judging_perceiving": 33
-    }, 
+    },
     "traits": [
         "trait",
         "trait",
@@ -21,68 +21,68 @@
         "trait"
     ],
     "trivias": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
-        "Suspendisse a felis molestie, porttitor est eget, euismod mauris.", 
-        "Integer fermentum est vitae dui pretium fermentum.", 
-        "Fusce quis velit vel sem pellentesque iaculis congue non lorem.", 
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Suspendisse a felis molestie, porttitor est eget, euismod mauris.",
+        "Integer fermentum est vitae dui pretium fermentum.",
+        "Fusce quis velit vel sem pellentesque iaculis congue non lorem.",
         "Aliquam vulputate lacus consequat, volutpat ex ut, blandit lacus."
-    ], 
+    ],
     "interests": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
-        "Suspendisse a felis molestie, porttitor est eget, euismod mauris.", 
-        "Integer fermentum est vitae dui pretium fermentum.", 
-        "Fusce quis velit vel sem pellentesque iaculis congue non lorem.", 
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Suspendisse a felis molestie, porttitor est eget, euismod mauris.",
+        "Integer fermentum est vitae dui pretium fermentum.",
+        "Fusce quis velit vel sem pellentesque iaculis congue non lorem.",
         "Aliquam vulputate lacus consequat, volutpat ex ut, blandit lacus."
-    ], 
+    ],
     "stats": [
         {
-            "name": "Creativity", 
+            "name": "Creativity",
             "value": 60
-        }, 
+        },
         {
-            "name": "Intelligence", 
+            "name": "Intelligence",
             "value": 30
-        }, 
+        },
         {
-            "name": "Confidence", 
+            "name": "Confidence",
             "value": 80
         },
         {
-            "name": "Humor", 
+            "name": "Humor",
             "value": 60
         },
         {
-            "name": "Empathy", 
+            "name": "Empathy",
             "value": 55
         },
         {
-            "name": "Charisma", 
+            "name": "Charisma",
             "value": 45
         }
-    ], 
+    ],
     "relationships": [
         {
-            "name": "Character", 
+            "name": "Character",
             "link": "#",
             "status": "Relationship",
-            "img": "https://via.placeholder.com/150", 
+            "img": "https://via.placeholder.com/150",
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
-        }, 
+        },
         {
-            "name": "Character 2", 
+            "name": "Character 2",
             "status": "Relationship",
-            "img": "https://via.placeholder.com/150", 
+            "img": "https://via.placeholder.com/150",
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante.",
             "avatar_right": true
-        }, 
+        },
         {
-            "name": "Character 3", 
+            "name": "Character 3",
             "link": "#",
             "status": "Relationship",
-            "img": "https://via.placeholder.com/150", 
+            "img": "https://via.placeholder.com/150",
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet massa blandit, fermentum enim a, scelerisque velit. Integer interdum urna ac dui sollicitudin sollicitudin. In feugiat posuere nulla, eget lobortis ante."
         }
-    ], 
+    ],
     "avatar_credit": "image credit",
     "avatar_credit_link": "#",
     "images": {
