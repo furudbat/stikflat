@@ -1,0 +1,111 @@
+<div class="col-md-10 card card-block mx-auto py-0"
+    style="color: {{{colors.text}}}; min-height: 500px; height: auto; border: 2px solid {{{colors.background}}}; border-top: 30px solid {{{colors.accent}}}; border-bottom:30px solid {{{colors.accent}}}; background-color: {{{colors.background}}};">
+
+    <div class="row">
+        <div class="card card-block col-md-4 m-auto" style="background-color: {{{colors.background_side}}}; min-height: 350px; height: auto; border-color: {{{colors.background}}}; border-width: 2px; 
+            background-image: url('{{{images.avatar}}}'); 
+            background-repeat: no-repeat; 
+            background-position: center;
+            background-size: cover;" title="{{avatar_credit}}">
+        </div>
+
+        <div class="card rounded-0 card-block col-md-5"
+            style="background-color: {{{colors.background_side}}}; min-height: 440px; height: auto; border: 3px solid {{{colors.accent}}}; letter-spacing:1px;">
+            <h1 class="mb-0" style="font-variant: small-caps; font-weight:700; letter-spacing:0.1px; font-size:2rem;">
+                {{title}}</h1>
+
+            <p style="">{{{description}}}</p>
+
+            <hr class="w-100 mt-5 mb-1" style="border-color: {{{colors.dividers}}}; border-width: 10px;">
+
+            <div class="ui-accordion" style="height: auto">
+                <div class="ui-accordion-content card-block p-0 pb-3" style="min-height:295px; height: auto">
+
+                    <ul class="list-unstyled">
+                        {{#name}}
+                        <li class="mb-3">
+                            <span class="mb-0 font-weight-bold">
+                                Name
+                            </span>
+                            <span class="pull-right mb-0">
+                                {{name}}
+                            </span>
+                            <hr class="mt-1" style="border: 1px {{{colors.dividers}}} solid">
+                        </li>
+                        {{/name}}
+
+                        {{#age}}
+                        <li class="mb-3">
+                            <span class="mb-0 font-weight-bold">
+                                Age
+                            </span>
+                            <span class="pull-right mb-0">
+                                {{age}}
+                            </span>
+                            <hr class="mt-1" style="border: 1px {{{colors.dividers}}} solid">
+                        </li>
+                        {{/age}}
+
+                        {{#height}}
+                        <li class="mb-3">
+                            <span class="mb-0 font-weight-bold">
+                                Height
+                            </span>
+                            <span class="pull-right mb-0">
+                                {{height}}
+                            </span>
+                            <hr class="mt-1" style="border: 1px {{{colors.dividers}}} solid">
+                        </li>
+                        {{/height}}
+
+                        {{#occupation}}
+                        <li class="mb-3">
+                            <span class="mb-0 font-weight-bold">
+                                Occupation
+                            </span>
+                            <span class="pull-right mb-0">
+                                {{occupation}}
+                            </span>
+                            <hr class="mt-1" style="border: 1px {{{colors.dividers}}} solid">
+                        </li>
+                        {{/occupation}}
+
+                        {{#orientation}}
+                        <li class="mb-3">
+                            <span class="mb-0 font-weight-bold">
+                                Orientation
+                            </span>
+                            <span class="pull-right mb-0">
+                                {{orientation}}
+                            </span>
+                            <hr class="mt-1" style="border: 1px {{{colors.dividers}}} solid">
+                        </li>
+                        {{/orientation}}
+
+                        {{#theme}}
+                        <li class="mb-3">
+                            <span class="mb-0 font-weight-bold">
+                                Theme
+                            </span>
+                            <span class="pull-right mb-0">
+                                <a title="{{theme}}" href="{{{theme_link}}}" style="color:{{{colors.dividers}}};"><i
+                                        class="fas fa-headphones-alt"></i></a>
+                            </span>
+                            <hr class="mt-1" style="border: 1px {{{colors.dividers}}} solid">
+                        </li>
+                        {{/theme}}
+                    </ul>
+
+                    {{{bio}}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--====== CREDIT =================================-->
+<div class="container col-md-10 p-0">
+    <p class="text-right small pt-1"><a href="https://toyhou.se/BunBox" style="color:{{{colors.dividers}}};"
+            title="get the code here!"><i class="fad fa-rabbit-fast"></i></a>
+    </p>
+</div>
