@@ -21,10 +21,10 @@
         }
     ], 
     "colors": {
-        "background": "#FFFFFF", 
-        "accent": "#6fd0f1", 
+        "text": "#504d4d", 
         "accent2": "#f3efef", 
-        "text": "#504d4d",
+        "accent": "#6fd0f1", 
+        "background": "#FFFFFF", 
         "secondary_text": "#62778c"
     }, 
     "images": {
