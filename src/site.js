@@ -1,3 +1,4 @@
+/*global require, exports, module */
 /*global localStorage, console, clearTimeout, setTimeout, $, window, CodeMirrorSpellChecker, CodeMirror, setTimeout, document, Mustache, html_beautify, js_beautify, css_beautify */
 /*global site, USE_CACHE */
 'use strict';
@@ -86,8 +87,6 @@ var makeDoubleClick = function (element, doDoubleClickAction, doClickAction) {
 };
 
 module.exports = {
-    USE_CACHE,
-    site,
     getUrlParameter,
     isOnScreen,
     countlines,

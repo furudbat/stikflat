@@ -1,5 +1,11 @@
 import { site, USE_CACHE } from './site'
-import cons from 'consolidate'
+import 'mustache'
+import 'handlebars'
+import 'hugon'
+import 'pug'
+import 'underscore'
+import 'dot'
+import cons from '../lib/consolidate'
 import * as jsb from 'js-beautify'
 import ClipboardJS from 'clipboard'
 import parseJson from 'json-parse-better-errors';

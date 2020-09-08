@@ -10,7 +10,7 @@ rm -rf node_modules package-lock.json
 npm i bootstrap@4 jquery@3 jquery-ui
 npm i bootstrap-toggle
 npm i @fortawesome/fontawesome-free
-npm i consolidate mustache handlebars hogan.js
+npm i mustache handlebars hogan.js pug underscore dot
 npm i clipboard
 npm i list.js
 npm i js-beautify json-parse-better-errors
@@ -27,10 +27,12 @@ npm i --save-dev @types/jquery
 npm i --save-dev @types/jqueryui
 npm i --save-dev @types/bootstrap
 npm i --save-dev @types/bootstrap-toggle
-npm i --save-dev @types/consolidate
 npm i --save-dev @types/mustache
 npm i --save-dev @types/handlebars
 npm i --save-dev @types/hogan.js
+npm i --save-dev @types/pug
+npm i --save-dev @types/underscore
+npm i --save-dev @types/dot
 npm i --save-dev @types/list.js
 npm i --save-dev @types/json-parse-better-errors
 npm i --save-dev @types/js-beautify

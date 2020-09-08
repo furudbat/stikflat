@@ -42,7 +42,6 @@
     "@types/bootstrap": "^4.5.0",
     "@types/bootstrap-toggle": "^2.2.1",
     "@types/clipboard": "^2.0.1",
-    "@types/consolidate": "^0.14.0",
     "@types/dot": "^1.1.4",
     "@types/handlebars": "^4.1.0",
     "@types/hogan.js": "^3.0.0",
