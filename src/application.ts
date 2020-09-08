@@ -1,7 +1,7 @@
 import { site, USE_CACHE } from './site'
 import 'mustache'
 import 'handlebars'
-import 'hugon'
+import 'hogan.js'
 import 'pug'
 import 'underscore'
 import 'dot'
