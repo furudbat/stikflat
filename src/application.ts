@@ -319,6 +319,8 @@ export class Application implements ApplicationListener {
                 that._preview.disableLivePreview();
             }
         });
+        
+        this._templateEditor.updateHelp();
     }
 
     private async initCodePreviewEditor() {

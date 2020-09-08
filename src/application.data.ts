@@ -46,7 +46,7 @@ export class ApplicationData {
     private _enableLivePreview: boolean = true;
     private _configContentMode = CONFIG_CONTENT_MODE_JSON;
     private _currentLayoutId: string | null = null;
-    private _currentTemplateEngine: string | null = null;
+    private _currentTemplateEngine: string = TEMPLATE_ENGINE_MUSTACHE;
 
     private _currentConfigIndex: number | null = null;
     private _savedConfigs: SavedConfigValue[] = [];
@@ -159,7 +159,7 @@ export class ApplicationData {
     }
 
     
-    set currentTemplateEngine(template_engine: string | null) {
+    set currentTemplateEngine(template_engine: string) {
         this._currentTemplateEngine = template_engine;
         assert(this._currentTemplateEngine !== undefined);
         this._storeSession.setItem(STORAGE_KEY_CURRENT_TEMPLATE_ENGINE, this._currentTemplateEngine);

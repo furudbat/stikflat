@@ -87,6 +87,8 @@ var makeDoubleClick = function (element, doDoubleClickAction, doClickAction) {
 };
 
 module.exports = {
+    site,
+    USE_CACHE,
     getUrlParameter,
     isOnScreen,
     countlines,

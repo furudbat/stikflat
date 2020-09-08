@@ -24,7 +24,6 @@ type SupportedTemplateEngines =
     | 'hamlet'
     | 'handlebars'
     | 'hogan'
-    | 'htmling'
     | 'jade'
     | 'jazz'
     | 'jqtpl'
@@ -41,11 +40,9 @@ type SupportedTemplateEngines =
     | 'squirrelly'
     | 'swig'
     | 'templayed'
-    | 'twig'
     | 'underscore'
     | 'vash'
     | 'velocityjs'
-    | 'walrus'
     | 'whiskers';
 
 type Requires = SupportedTemplateEngines | 'extend' | 'ReactDOM' | 'babel';
