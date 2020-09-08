@@ -63,7 +63,7 @@ def main(args):
                 elif len(extensions) == 1 and ext == '.html':
                     template_engine = 'mustache'
 
-                if ext == '.html' or ext == '.mustache' or ext == '.hbs' or ext == '.pug':
+                if ext == '.html' or ext == '.mustache' or ext == '.handlebars' or ext == '.hbs' or ext == '.hugon' or ext == '.pug' or ext == '.underscore' or ext == '.dot':
                     template['template'] = os.path.normpath(os.path.relpath(os.path.abspath(
                         os.path.join(root, file)), templates_target_path)).replace('\\', '/')
                 elif ext == '.css':

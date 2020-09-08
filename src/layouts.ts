@@ -167,7 +167,7 @@ export class Layouts {
                 layoutloadingid: 'layout-loading-' + template.id,
                 type: type,
                 author: site.data.strings.layouts.by_author + template.author,
-                template_engine: template.template_engine
+                templateengine: template.template_engine
             });
         }
 

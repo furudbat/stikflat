@@ -1110,6 +1110,82 @@
   type: user
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
+  config: zyy_character_template/config.json
+  css: zyy_character_template/template.css
+  description: Minimal Character Template to copy and use as a blueprint
+  id: zyy_character_template
+  keywords:
+  - about
+  - name
+  - title
+  license: Free to use and modify
+  link: https://github.com/furudbat/stikflat/tree/master/templates
+  meta: zyy_character_template/meta.yml
+  name: Character Template
+  style: 'background-color: #E74C3C; color: #ffffff'
+  template: zyy_character_template/template.html
+  template_engine: mustache
+  type: template
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: zyy_character_template_handlebars/config.json
+  css: zyy_character_template_handlebars/template.css
+  description: Minimal Character Template to copy and use as a blueprint, use handlebars
+    as template engine
+  id: zyy_character_template_handlebars
+  keywords:
+  - about
+  - name
+  - title
+  license: Free to use and modify
+  link: https://github.com/furudbat/stikflat/tree/master/templates
+  meta: zyy_character_template_handlebars/meta.yml
+  name: Character Template - Handlebars
+  style: 'background-color: #E74C3C; color: #ffffff'
+  template: zyy_character_template_handlebars/template.handlebars
+  template_engine: handlebars
+  type: template
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: zyy_user_template/config.json
+  css: zyy_user_template/template.css
+  description: Minimal User Template to copy and use as a blueprint
+  id: zyy_user_template
+  keywords:
+  - about
+  - socialmedia
+  - name
+  - title
+  license: Free to use and modify
+  link: https://github.com/furudbat/stikflat/tree/master/templates
+  meta: zyy_user_template/meta.yml
+  name: User Template
+  style: 'background-color: #E74C3C; color: #ffffff'
+  template: zyy_user_template/template.html
+  template_engine: mustache
+  type: template
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
+  config: zyy_user_template_handlebars/config.json
+  css: zyy_user_template_handlebars/template.css
+  description: Minimal User Template to copy and use as a blueprint, use handlebars
+    as template engine
+  id: zyy_user_template_handlebars
+  keywords:
+  - about
+  - socialmedia
+  - name
+  - title
+  license: Free to use and modify
+  link: https://github.com/furudbat/stikflat/tree/master/templates
+  meta: zyy_user_template_handlebars/meta.yml
+  name: User Template - Handlebars
+  style: 'background-color: #E74C3C; color: #ffffff'
+  template: zyy_user_template_handlebars/template.handlebars
+  template_engine: handlebars
+  type: template
+- author: furudbat
+  author_link: https://toyhou.se/FurudBat
   config: zy_codesnippet_characters/config.json
   css: zy_codesnippet_characters/snippet.css
   description: Use this Layout to generate Character-List with img and link
@@ -1285,7 +1361,7 @@
   - tabs
   - id
   license: Free to use and modify
-  link: https://github.com/furudbat/thhg/tree/master/templates
+  link: https://github.com/furudbat/stikflat/tree/master/templates
   meta: zy_codesnippet_tabs/meta.yml
   name: Tabs
   style: 'background-color: #2a5a7e; color: #f7fdf5'

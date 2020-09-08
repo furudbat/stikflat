@@ -1,0 +1,8 @@
+  name: 'Character Template'
+  description: 'Minimal Character Template to copy and use as a blueprint'
+  style: 'background-color: #E74C3C; color: #ffffff'
+  author: 'furudbat'
+  author_link: 'https://toyhou.se/FurudBat'
+  license: 'Free to use and modify'
+  link: 'https://github.com/furudbat/stikflat/tree/master/templates'
+  type: 'template'
