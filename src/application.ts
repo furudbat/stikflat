@@ -1,24 +1,27 @@
-import { site, USE_CACHE, USE_HANDLEBARS } from './site'
-import Handlebars from 'handlebars';
-import Mustache from 'mustache';
+import { site, USE_CACHE } from './site'
+import 'mustache'
+import 'handlebars'
+import 'hogan.js'
+import 'pug'
+import 'underscore'
+import 'dot'
+import cons from '../lib/consolidate'
 import * as jsb from 'js-beautify'
-import ClipboardJS from 'clipboard';
-import cache from 'memory-cache'
+import ClipboardJS from 'clipboard'
 import parseJson from 'json-parse-better-errors';
-import { ApplicationData, CONFIG_CONTENT_MODE_YAML, CONFIG_CONTENT_MODE_JSON } from './application.data'
+import { ApplicationData, CONFIG_CONTENT_MODE_YAML, CONFIG_CONTENT_MODE_JSON, TEMPLATE_ENGINE_MUSTACHE, TEMPLATE_ENGINE_HANDLEBARS, TEMPLATE_ENGINE_HUGON, TEMPLATE_ENGINE_PUG, TEMPLATE_ENGINE_UNDERSCORE, TEMPLATE_ENGINE_DOT } from './application.data'
 import { ApplicationListener } from './application.listener'
-import { Layouts, SCROLL_TO_ANIMATION_TIME_MS } from './layouts';
-import { SavedConfigs } from './configs';
-import { TemplateEditor } from './template.editor';
-import { CssEditor } from './css.editor';
-import { ConfigEditor } from './config.editor';
-import { Preview } from './preview';
-import { PreviewEditor } from './preview.editor';
+import { Layouts, SCROLL_TO_ANIMATION_TIME_MS } from './layouts'
+import { SavedConfigs } from './configs'
+import { TemplateEditor } from './template.editor'
+import { CssEditor } from './css.editor'
+import { ConfigEditor } from './config.editor'
+import { Preview } from './preview'
+import { PreviewEditor } from './preview.editor'
 
 const html_beautify = jsb.html_beautify;
 
 const CLIPBOARD_POPOVER_DELAY_MS: number = 1200;
-const HANDLEBARS_CACHE_MAX_TIME_MS: number = 60 * 60 * 1000;
 
 export class Application implements ApplicationListener {
 
@@ -31,8 +34,6 @@ export class Application implements ApplicationListener {
     private _configEditor: ConfigEditor = new ConfigEditor(this._appData, this._configs, this);
     private _previewEditor: PreviewEditor = new PreviewEditor();
 
-    private _hbTemplatesCache: cache.CacheClass<string, HandlebarsTemplateDelegate<unknown>> = new cache.Cache<string, HandlebarsTemplateDelegate<unknown>> ();
-
     private _btnPreviewCodeCopy: ClipboardJS | null = null;
     private _btnPreviewCodeCopySpoiler: ClipboardJS | null = null;
     private _btnPreviewCodeCopySpoilerPreview: ClipboardJS | null = null;
@@ -43,7 +44,7 @@ export class Application implements ApplicationListener {
         this._configEditor.initEditor();
     }
 
-    generateHTMLFromTemplate(id: string | null, template: string, json: unknown, css: string, onlypreview: boolean = false) {
+    generateHTMLFromTemplate(template_engine: string, template: string, json: any, css: string, onlypreview: boolean = false) {
         if (typeof json === 'string' || json instanceof String) {
             this._configEditor.clearConfigError();
             try {
@@ -65,40 +66,43 @@ export class Application implements ApplicationListener {
             this._templateEditor.clearTemplateError();
             try {
                 var that = this;
-                var renderHTML = function(htmlstr: string) {
+                var renderHTML = function (htmlstr: string) {
                     //console.log('renderHTML', template, json, htmlstr);
                     that._preview.setHTMLPreview(htmlstr, css);
                     if (onlypreview === false) {
                         that._previewEditor.codePreview = html_beautify(htmlstr);
                     }
                 };
-                
-                /// @NOTE: can't switch =/ ... [Handlebars not fully compatible with mustache as claimed.](https://github.com/handlebars-lang/handlebars.js/issues/425)
-                if (USE_HANDLEBARS) {
-                    var renderHTMLWithHandlebars = function(handlebars_template: HandlebarsTemplateDelegate<unknown>) {
-                        const htmlstr = handlebars_template(json);
-                        //console.log('renderHTMLWithHandlebars', template, json, htmlstr, handlebars_template);
-                        renderHTML(htmlstr);
-                    };
 
-                    let handlebars_template: HandlebarsTemplateDelegate<unknown> | null = null;
-                    if (USE_CACHE && id != null) {
-                        handlebars_template = this._hbTemplatesCache.get(id);
-                    }
-                    
-                    if (handlebars_template) {
-                        renderHTMLWithHandlebars(handlebars_template);
-                    } else {
-                        handlebars_template = Handlebars.compile(template);
-                        if (USE_CACHE && id != null) {
-                            this._hbTemplatesCache.put(id, handlebars_template, HANDLEBARS_CACHE_MAX_TIME_MS);
-                        }
-                        renderHTMLWithHandlebars(handlebars_template);
-                    }
-                } else {
-                    const htmlstr = Mustache.render(template, json);
-                    renderHTML(htmlstr);
+
+                if (USE_CACHE) {
+                    json.cache = true;
                 }
+
+                let con: Promise<string> = (() => {
+                    if (template_engine === TEMPLATE_ENGINE_MUSTACHE) {
+                        return cons.mustache(template, json);
+                    } else if (template_engine === TEMPLATE_ENGINE_HANDLEBARS) {
+                        return cons.handlebars(template, json);
+                    } else if (template_engine === TEMPLATE_ENGINE_HUGON) {
+                        return cons.hogan(template, json);
+                    } else if (template_engine === TEMPLATE_ENGINE_PUG) {
+                        return cons.pug(template, json);
+                    } else if (template_engine === TEMPLATE_ENGINE_UNDERSCORE) {
+                        return cons.underscore(template, json);
+                    } else if (template_engine === TEMPLATE_ENGINE_DOT) {
+                        return cons.dot(template, json);
+                    }
+
+                    return cons.mustache(template, json);
+                })();
+
+                con.then(function (htmlstr: string) {
+                    renderHTML(htmlstr);
+                })
+                    .catch(function (err) {
+                        throw err;
+                    });
             } catch (error) {
                 console.error(error);
 
@@ -115,12 +119,12 @@ export class Application implements ApplicationListener {
 
 
     generateHTML() {
-        const id = this._appData.currentLayoutId;
+        const template_engine = this._appData.currentTemplateEngine || TEMPLATE_ENGINE_MUSTACHE;
         const template = this._appData.templateCode;
         const json = this._appData.configCodeJSON;
         const css = this._appData.cssCode;
-        //console.log('generateHTML', {id, template, json, css});
-        this.generateHTMLFromTemplate(id, template, json, css);
+        //console.log('generateHTML', {template_engine, template, json, css});
+        this.generateHTMLFromTemplate(template_engine, template, json, css);
     }
 
     changeConfigMode(mode: string) {
@@ -147,23 +151,23 @@ export class Application implements ApplicationListener {
         var that = this;
         this._appData.loadFromStorage().then(function () {
             that.initLayouts();
-    
+
             that.initSavedConfigs();
-    
+
             that.initCodePreviewEditor();
             that.initTemplateEditor();
             that.initCssEditor();
             that.initConfigEditor();
-    
+
             that.initEditors();
             that.initPreview();
             if (that._appData.currentLayoutId) {
                 that._layouts.reloadLayoutInfo(that._appData.currentLayoutId);
             }
         });
-        
+
         this.initTabs();
-    
+
         this.initClipboardButtons();
 
         $('.generate-btn').each(function (index) {
@@ -171,7 +175,7 @@ export class Application implements ApplicationListener {
                 that.generateHTML();
 
                 const sectionPreviewCode = $('#sectionPreviewCode') || null;
-                const sectionPreviewCodeOffset = (sectionPreviewCode !== null)? sectionPreviewCode.offset() : null;
+                const sectionPreviewCodeOffset = (sectionPreviewCode !== null) ? sectionPreviewCode.offset() : null;
                 if (sectionPreviewCodeOffset) {
                     $('html, body').animate({
                         scrollTop: sectionPreviewCodeOffset.top
@@ -199,7 +203,7 @@ export class Application implements ApplicationListener {
         $('#templateTabs a[href="#cssTabContent"]').on('click', function (e) {
             that.selectCssTab();
         });
-        
+
         /*
         if (getTemplateCode() === '') {
             selectPreviewTab();
@@ -232,7 +236,7 @@ export class Application implements ApplicationListener {
         } else {
             $('#chbConfigMode').bootstrapToggle('off');
         }
-        
+
         if (this._appData.isLockConfig) {
             $('#chbLockConfig').bootstrapToggle('on');
             this._configEditor.lockConfig();
@@ -240,9 +244,9 @@ export class Application implements ApplicationListener {
             $('#chbLockConfig').bootstrapToggle('off');
             this._configEditor.unlockConfig();
         }
-        
+
         $('#collapseConfig').collapse('show');
-        
+
         var that = this;
         $('#chbLockConfig').change(function () {
             const checked = $(this).prop('checked');
@@ -260,7 +264,7 @@ export class Application implements ApplicationListener {
                 that.changeConfigMode(CONFIG_CONTENT_MODE_JSON);
             }
         });
-        
+
         $('#collapseConfig').on('show.bs.collapse', function () {
             $('.main-template-editors-preview-container').removeClass('bigger-preview');
 
@@ -306,7 +310,7 @@ export class Application implements ApplicationListener {
 
         this._templateEditor.generateTemplateEditor();
         this._templateEditor.disableWYSIWYGEditor();
-        
+
         $('#chbLivePreview').change(function () {
             const checked = $(this).prop('checked');
             if (checked) {
@@ -315,6 +319,8 @@ export class Application implements ApplicationListener {
                 that._preview.disableLivePreview();
             }
         });
+        
+        this._templateEditor.updateHelp();
     }
 
     private async initCodePreviewEditor() {
@@ -331,7 +337,7 @@ export class Application implements ApplicationListener {
         this._layouts.clearLayoutInfo();
     }
 
-    private async initClipboardButtons(){
+    private async initClipboardButtons() {
         var that = this;
         this._btnPreviewCodeCopy = new ClipboardJS('#btnPreviewCodeCopy', {
             text: function (trigger) {

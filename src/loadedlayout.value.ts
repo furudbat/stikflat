@@ -8,5 +8,5 @@ export interface LoadedLayoutValue {
     meta: MetaDataValue;
     name: string;
     configlink: string;
-    use_handlebars: boolean;
+    template_engine: string;
 }

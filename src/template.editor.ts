@@ -7,7 +7,7 @@ import 'brace/mode/html';
 import 'brace/mode/handlebars';
 import 'brace/worker/html'
 import 'brace/theme/dracula';
-import { ApplicationData } from './application.data'
+import { ApplicationData, TEMPLATE_ENGINE_MUSTACHE, TEMPLATE_ENGINE_HANDLEBARS } from './application.data'
 import { ApplicationListener } from './application.listener';
 
 const TEMPLATE_EDITOR_NAME_ACE = 'ace';
@@ -98,6 +98,7 @@ export class TemplateEditor {
         const templateCode = this._appData.templateCode;
         this.setTemplateEditorValue(templateCode);
         this.updateTemplateLinesOfCodeBadges(templateCode);
+        this.updateHelp();
     }
 
     refresh() {
@@ -118,5 +119,15 @@ export class TemplateEditor {
         $('.main-template-editors-editor-container').show();
         $('.main-template-editors-WYSIWYG-editor-container').hide();
         $('#btnEnableWYSIWYGEditor').html(site.data.strings.editor.template.disabled_WYSIWYG_editor_btn).attr('class', 'btn btn-outline-secondary');
+    }
+
+    updateHelp(){
+        $('#lblTemplateEngine').html(this._appData.currentTemplateEngine);
+
+        if (this._appData.currentTemplateEngine == TEMPLATE_ENGINE_HANDLEBARS) {
+            $('#templateHelp').html(site.data.strings.editor.template.template_help_handlebars);
+        } else {
+            $('#templateHelp').html(site.data.strings.editor.template.template_help_mustache);
+        }
     }
 }

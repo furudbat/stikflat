@@ -1,6 +1,6 @@
 import * as jsyaml from 'js-yaml';
 import localForage from "localforage";
-import { SavedConfigValue } from './savedconfig.values';
+import { SavedConfigValue } from './savedconfig.value';
 import { assert } from 'console';
 
 const STORAGE_KEY_TEMPLATE_CODE = 'template_code';
@@ -15,9 +15,17 @@ const STORAGE_KEY_CURRENT_CONFIG_INDEX = 'current_config_index';
 const STORAGE_KEY_SAVED_CONFIGS = 'saved_configs';
 const STORAGE_KEY_CONFIG_CONTENT_MODE = 'config_content_mode';
 const STORAGE_KEY_CURRENT_LAYOUT_ID ='current_layout_id'
+const STORAGE_KEY_CURRENT_TEMPLATE_ENGINE ='current_template_engine'
 
 export const CONFIG_CONTENT_MODE_JSON = 'application/json';
 export const CONFIG_CONTENT_MODE_YAML = 'text/x-yaml';
+
+export const TEMPLATE_ENGINE_MUSTACHE = 'mustache';
+export const TEMPLATE_ENGINE_HANDLEBARS = 'handlebars';
+export const TEMPLATE_ENGINE_HUGON = 'hugon';
+export const TEMPLATE_ENGINE_PUG = 'pug';
+export const TEMPLATE_ENGINE_UNDERSCORE = 'underscore';
+export const TEMPLATE_ENGINE_DOT = 'dot';
 
 export class ApplicationData {
 
@@ -38,6 +46,7 @@ export class ApplicationData {
     private _enableLivePreview: boolean = true;
     private _configContentMode = CONFIG_CONTENT_MODE_JSON;
     private _currentLayoutId: string | null = null;
+    private _currentTemplateEngine: string = TEMPLATE_ENGINE_MUSTACHE;
 
     private _currentConfigIndex: number | null = null;
     private _savedConfigs: SavedConfigValue[] = [];
@@ -59,6 +68,7 @@ export class ApplicationData {
             this._enableLivePreview = await this._storeSession.getItem<boolean>(STORAGE_KEY_ENABLE_LIVE_PREVIEW) || this._enableLivePreview;
             this._configContentMode = await this._storeSession.getItem<string>(STORAGE_KEY_CONFIG_CONTENT_MODE) || this._configContentMode;
             this._currentLayoutId = await this._storeSession.getItem<string>(STORAGE_KEY_CURRENT_LAYOUT_ID) || this._currentLayoutId;
+            this._currentTemplateEngine = await this._storeSession.getItem<string>(STORAGE_KEY_CURRENT_TEMPLATE_ENGINE) || this._currentTemplateEngine;
 
             this._currentConfigIndex = await this._storeConfigs.getItem<number>(STORAGE_KEY_CURRENT_CONFIG_INDEX) || this._currentConfigIndex;
             this._savedConfigs = await this._storeConfigs.getItem<SavedConfigValue[]>(STORAGE_KEY_SAVED_CONFIGS) || this._savedConfigs;
@@ -146,6 +156,16 @@ export class ApplicationData {
     }
     get currentLayoutId() {
         return this._currentLayoutId;
+    }
+
+    
+    set currentTemplateEngine(template_engine: string) {
+        this._currentTemplateEngine = template_engine;
+        assert(this._currentTemplateEngine !== undefined);
+        this._storeSession.setItem(STORAGE_KEY_CURRENT_TEMPLATE_ENGINE, this._currentTemplateEngine);
+    }
+    get currentTemplateEngine() {
+        return this._currentTemplateEngine;
     }
 
     get savedConfigs() {

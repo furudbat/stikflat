@@ -1,4 +1,5 @@
-export interface SavedConfigBaseJsonValue {
-    title: string | null | undefined;
-    name: string | null | undefined;
+export interface SavedConfigValue {
+    json: unknown,
+    jsonstr: string,
+    yamlstr: string
 }
