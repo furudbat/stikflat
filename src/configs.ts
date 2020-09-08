@@ -1,7 +1,7 @@
 import { site, makeDoubleClick } from './site'
 import { ApplicationData } from './application.data.js'
 import { ApplicationListener } from './application.listener';
-import { SavedConfigBaseJsonValue } from './savedconfig.value';
+import { SavedConfigBaseJsonValue } from './basesavedconfig.value';
 
 const SAVED_CONFIG_SELECTED_BUTTON_CLASS = 'btn-primary';
 const SAVED_CONFIG_NOT_SELECTED_BUTTON_CLASS = 'btn-outline-secondary';
@@ -140,6 +140,7 @@ export class SavedConfigs {
 
     private overrideConfig (configButton: JQuery<HTMLElement>) {
         const id: string = ($(configButton).attr('data-id'))? $(configButton).data('id') : this._appData.currentLayoutId;
+        const template_engine: string = ($(configButton).attr('data-template-engine'))? $(configButton).data('template-engine') : this._appData.currentTemplateEngine;
         const index: number | null = ($(configButton).attr('data-index'))? $(configButton).data('index') : null;
         if (index === null) {
             console.error('overrideConfig', 'index is empty');
@@ -150,6 +151,7 @@ export class SavedConfigs {
         //console.log('overrideConfig', {currentLayoutId: this._appData.currentLayoutId, id, index});
 
         this._appData.currentLayoutId = id;
+        this._appData.currentTemplateEngine = template_engine;
         this._appData.currentConfigIndex = index;
         const savedConfig = this._appData.currentSavedConfigJson;
         if (savedConfig !== null) {
@@ -168,23 +170,15 @@ export class SavedConfigs {
     };
 
     private previewWithConfig (configButton: JQuery<HTMLElement>) {
-        const id: string = ($(configButton).attr('data-id'))? $(configButton).data('id') : this._appData.currentLayoutId;
-        const index: number | null = ($(configButton).attr('data-index'))? $(configButton).data('index') : null;
-        if (index === null) {
-            console.error('previewWithConfig', 'index is empty');
-            return;
-        }
+        const template_engine: string = ($(configButton).attr('data-template-engine'))? $(configButton).data('template-engine') : this._appData.currentTemplateEngine;
 
         //console.debug('previewWithConfig', {index, configButton});
-
-        this._appData.currentLayoutId = id;
-        this._appData.currentConfigIndex = index;
         const savedConfig = this._appData.currentSavedConfigJson;
         if (savedConfig !== null) {
             const template = this._appData.templateCode;
             const css = this._appData.cssCode;
 
-            this._appListener.generateHTMLFromTemplate(id, template, savedConfig.json, css, true);
+            this._appListener.generateHTMLFromTemplate(template_engine, template, savedConfig.json, css, true);
             this._appListener.selectPreviewTab();
         }
     };

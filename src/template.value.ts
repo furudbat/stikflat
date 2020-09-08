@@ -1,0 +1,22 @@
+export interface TemplateValue {
+    author: string | undefined;
+    author_avatar: string | undefined;
+    author_link: string | undefined;
+    config: string | undefined;
+    css: string | undefined;
+    description: string | undefined;
+    id: string | undefined;
+    keywords: string[] | undefined;
+    license: string | undefined;
+    link: string | undefined;
+    meta: string | undefined;
+    more: string | undefined;
+    name: string | undefined;
+    preview: string | undefined;
+    style: string | undefined;
+    template: string | undefined;
+    template_engine: string | undefined;
+    type: string | undefined;
+    disable: boolean | undefined;
+    disabled: boolean | undefined;
+}

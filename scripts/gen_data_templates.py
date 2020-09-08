@@ -41,12 +41,29 @@ def main(args):
             template = {}
             keywords = []
             disabled = False
+            template_engine = ''
 
             template['id'] = os.path.basename(os.path.normpath(root))
             for file in files:
+                extensions = file.split('.')[1:]
                 ext = os.path.splitext(file)[-1].lower()
 
-                if ext == '.html' or ext == '.mustache':
+                if (ext == '.html' and (len(extensions) >= 2 and 'mustache' == extensions[-2])) or ext == '.mustache':
+                    template_engine = 'mustache'
+                elif (ext == '.html' and len(extensions) >= 2 and 'handlebars' == extensions[-2]) or ext == '.handlebars' or ext == '.hbs':
+                    template_engine = 'handlebars'
+                elif (ext == '.html' and len(extensions) >= 2 and 'hugon' == extensions[-2]) or ext == '.hugon':
+                    template_engine = 'hugon'
+                elif (ext == '.html' and len(extensions) >= 2 and 'pug' == extensions[-2]) or ext == '.pug':
+                    template_engine = 'pug'
+                elif (ext == '.html' and len(extensions) >= 2 and 'underscore' == extensions[-2]) or ext == '.underscore':
+                    template_engine = 'underscore'
+                elif (ext == '.html' and len(extensions) >= 2 and 'dot' == extensions[-2]) or ext == '.dot':
+                    template_engine = 'dot'
+                elif len(extensions) == 1 and ext == '.html':
+                    template_engine = 'mustache'
+
+                if ext == '.html' or ext == '.mustache' or ext == '.hbs' or ext == '.pug':
                     template['template'] = os.path.normpath(os.path.relpath(os.path.abspath(
                         os.path.join(root, file)), templates_target_path)).replace('\\', '/')
                 elif ext == '.css':
@@ -71,6 +88,7 @@ def main(args):
                             'disabled' in meta and meta['disabled'])
 
             template['keywords'] = keywords
+            template['template_engine'] = template_engine
             if not disabled:
                 templates.append(template)
 
@@ -98,13 +116,13 @@ def main(args):
     creators = list(creatorsmap.values())
 
     print('write ' + output_templates_filename + ' ...')
-    #print(templates)
+    # print(templates)
     with open(output_templates_filename, 'w') as output:
         yaml.dump(templates, output)
         print('Done ' + output_templates_filename)
 
     print('write ' + output_creator_filename + ' ...')
-    #print(creators)
+    # print(creators)
     with open(output_creator_filename, 'w') as output:
         yaml.dump(creators, output)
         print('Done ' + output_creator_filename)

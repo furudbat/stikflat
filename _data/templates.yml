@@ -12,9 +12,10 @@
   - education
   - looking_for
   - children
+  - ethnicity
+  - occupation
   - relationships
   - theme
-  - role
   - build
   - worth
   - status
@@ -40,6 +41,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6627845
   style: 'background-color: #acdbdf; color: #383838;'
   template: bunbox_bunnytab/bunnytab.html
+  template_engine: mustache
   type: character
 - author: BunBox
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/BunBox
@@ -68,6 +70,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6645706?1587418810
   style: 'background-color: #acdbdf; color: #383838;'
   template: bunbox_choose_wisely_blue_pill/pill.html
+  template_engine: mustache
   type: character
 - author: BunBox
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/BunBox
@@ -96,6 +99,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6645706?1587418810
   style: 'background-color: #acdbdf; color: #383838;'
   template: bunbox_choose_wisely_red_pill/pill.html
+  template_engine: mustache
   type: character
 - author: BunBox
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/BunBox
@@ -106,13 +110,13 @@
   id: bunbox_maji
   keywords:
   - status
-  - interests
+  - relationships
   - about
   - trivias
   - stats
   - name
   - images
-  - relationships
+  - interests
   - theme_link
   - gender
   - age
@@ -135,6 +139,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7661974?1597282255
   style: 'background-color: #acdbdf; color: #383838;'
   template: bunbox_maji/mai.html
+  template_engine: mustache
   type: character
 - author: BunBox
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/BunBox
@@ -144,9 +149,8 @@
   description: A code inspired by nutrition fact labels!
   id: bunbox_nutrition_facts
   keywords:
-  - bio
+  - about
   - orientation
-  - name
   - title
   - theme_link
   - age
@@ -157,6 +161,7 @@
   - theme
   - avatar_credit
   - occupation
+  - name
   license: '- please do not remove credit! <br/> - please dont sell/resell this code
     for its F2U <br/> - Feel free to make as much edits to it as you like! <br/> -
     Please comment under the designated forum or code post that you are using it!
@@ -169,6 +174,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6718990?1587973167
   style: 'background-color: #acdbdf; color: #383838;'
   template: bunbox_nutrition_facts/facts.html
+  template_engine: mustache
   type: character
 - author: BunBox
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/BunBox
@@ -179,11 +185,12 @@
   id: bunbox_press_the_button
   keywords:
   - about
-  - name
   - description
+  - colors
   - images
-  - gallery
   - icon
+  - gallery
+  - name
   license: '- please do not remove credit! <br/> - please dont sell/resell this code
     for its F2U <br/> - Feel free to make as much edits to it as you like! <br/> -
     Please comment under the designated forum or code post that you are using it!
@@ -196,6 +203,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6639273?1587355060
   style: 'background-color: #acdbdf; color: #383838;'
   template: bunbox_press_the_button/press.html
+  template_engine: mustache
   type: character
 - author: BunBox
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/BunBox
@@ -230,6 +238,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7278749?1592509076
   style: 'background-color: #acdbdf; color: #383838;'
   template: bunbox_softie_agenda/softie.html
+  template_engine: mustache
   type: user
 - author: Circlejourney
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/circlejourney
@@ -243,24 +252,24 @@
   keywords:
   - relationships
   - bloodtype
-  - birthplace
-  - bio
+  - eyes
+  - colors
   - name
   - family
   - title
   - theme_link
-  - residence
   - age
-  - colors
-  - eyes
+  - birthplace
   - height
   - hair
   - skills
   - theme
   - birthday
-  - background
+  - location
   - pronouns
+  - about
   - images
+  - ethnicity
   - icon
   license: 100% free to use. You're allowed to edit them and frankenstein them with
     other code. Please don't remove credit, that is all I ask.
@@ -272,6 +281,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/3921250?1583384512
   style: 'background-color: #eee; color: #333'
   template: circlejourney_identity/identity.html
+  template_engine: mustache
   type: character
 - author: Circlejourney
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/circlejourney
@@ -312,6 +322,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6191922?1583386454
   style: 'background-color: #eee; color: #333'
   template: circlejourney_interstellar_dust/dust.html
+  template_engine: mustache
   type: character
 - author: Circlejourney
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/circlejourney
@@ -342,6 +353,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6351798?1584758416
   style: 'background-color: #eee; color: #333'
   template: circlejourney_in_a_nutshell/nutshell.html
+  template_engine: mustache
   type: character
 - author: Circlejourney
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/circlejourney
@@ -385,6 +397,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6388687?1585115598
   style: 'background-color: #eee; color: #333'
   template: circlejourney_super_special_double_deluxe/ssdd.html
+  template_engine: mustache
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/Eggy
@@ -394,16 +407,16 @@
   description: Character profiles. Can be used by all users.
   id: eggy_lil_bit
   keywords:
-  - bio
+  - about
   - name
   - title
   - gender
   - age
   - value
-  - role
   - quote
   - images
   - species
+  - occupation
   license: <a href="https://toyhou.se/~bulletins/40160.freebie-rules">Read the rules
     before using any freebies!</a>
   link: https://toyhou.se/3431124.-freebie-lil-bit
@@ -414,6 +427,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/3431124?1573423838
   style: 'background-color: #f8b526; color: #070707'
   template: eggy_lil_bit/lilbit.html
+  template_engine: mustache
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/Eggy
@@ -429,17 +443,18 @@
   - hobbies
   - images
   - species
+  - occupation
   - relationships
   - title
   - theme
-  - role
   - build
   - pronouns
   - moodboard
-  - bio
+  - description
   - theme_link
   - quote
   - sign
+  - about
   - name
   - dob
   - gender
@@ -456,6 +471,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4556624?1591832733
   style: 'background-color: #f8b526; color: #070707'
   template: eggy_open/open.html
+  template_engine: mustache
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/Eggy
@@ -473,17 +489,18 @@
   - hobbies
   - images
   - species
+  - occupation
   - relationships
   - title
   - character
   - theme
-  - role
   - build
   - pronouns
   - moodboard
-  - bio
+  - description
   - theme_link
   - quote
+  - about
   - name
   - dob
   - gender
@@ -500,6 +517,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4556624?1591832733
   style: 'background-color: #f8b526; color: #070707'
   template: eggy_open_collapse/open.html
+  template_engine: mustache
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/Eggy
@@ -510,25 +528,25 @@
   id: eggy_scale
   keywords:
   - relationships
-  - bio
+  - about
   - name
   - images
   - title
   - theme_link
   - gender
   - age
+  - description
   - character
   - height
   - demeanor
   - theme
-  - role
   - build
   - quote
   - notes
   - personality
   - mbti
   - species
-  - description
+  - occupation
   license: <a href="https://toyhou.se/~bulletins/40160.freebie-rules">Read the rules
     before using any freebies!</a>
   link: https://toyhou.se/5662687.-freebie-scale
@@ -539,6 +557,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/5662687?1577475276
   style: 'background-color: #f8b526; color: #070707'
   template: eggy_scale/scale.html
+  template_engine: mustache
   type: character
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/Eggy
@@ -567,6 +586,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6742833?1588169704
   style: 'background-color: #f8b526; color: #070707'
   template: eggy_user_axis/axis.html
+  template_engine: mustache
   type: user
 - author: <i class="fas fa-skull user-name-icon"></i>Eggy
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/Eggy
@@ -595,6 +615,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/2493596?1573439982
   style: 'background-color: #f8b526; color: #070707'
   template: eggy_user_space/userspace.html
+  template_engine: mustache
   type: user
 - author: snail-legs
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/snail-legs
@@ -627,6 +648,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7497816?1594383763
   style: 'background-color: #3a3639; color: #fcfbf6'
   template: snail_legs_journal/journal.html
+  template_engine: mustache
   type: character
 - author: snail-legs
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/snail-legs
@@ -654,6 +676,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7689827?1596293985
   style: 'background-color: #3a3639; color: #fcfbf6'
   template: snail_legs_side_by_side/side.html
+  template_engine: mustache
   type: character
 - author: snail-legs
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/snail-legs
@@ -678,6 +701,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6839883?1592936183
   style: 'background-color: #3a3639; color: #fcfbf6'
   template: snail_legs_simple_profile_card/simple.html
+  template_engine: mustache
   type: user
 - author: snail-legs
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/snail-legs
@@ -689,12 +713,12 @@
   id: snail_legs_striped_columns
   keywords:
   - bio
-  - description
+  - name
   - quote
   - notes
   - images
   - trivia
-  - name
+  - description
   license: Keep the code credit intact. <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes'>For
     more information, please visit [the snail's shell]</a>
   link: https://toyhou.se/6493313.layout-striped-columns
@@ -705,6 +729,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6493313?1592936291
   style: 'background-color: #3a3639; color: #fcfbf6'
   template: snail_legs_striped_columns/striped.html
+  template_engine: mustache
   type: character
 - author: snail-legs
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/snail-legs
@@ -719,19 +744,19 @@
   - relationships
   - bio
   - about
+  - trivia
   - name
   - gender
   - age
-  - background
-  - summary
   - colorpallete
+  - summary
   - birthday
-  - role
   - location
   - interest
   - personality
   - images
-  - trivia
+  - occupation
+  - ethnicity
   - aliases
   license: Keep the code credit intact. <a href='https://toyhou.se/~forums/16.htmlcss-graphics/139364.the-snail-s-shell-html-codes'>For
     more information, please visit [the snail's shell]</a>
@@ -743,6 +768,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7237649?1592426994
   style: 'background-color: #3a3639; color: #fcfbf6'
   template: snail_legs_wikimania/wikimania.html
+  template_engine: mustache
   type: character
 - author: Zodia
   author_avatar: https://file.toyhou.se/users/Zodia
@@ -770,6 +796,7 @@
   preview: https://file.toyhou.se/characters/4439093?1562121670
   style: 'background-color: #fff; color:#1e1e1e;'
   template: zodia_aesthetic_card_dark/card.html
+  template_engine: mustache
   type: user
 - author: Zodia
   author_avatar: https://file.toyhou.se/users/Zodia
@@ -797,6 +824,7 @@
   preview: https://file.toyhou.se/characters/4439093?1562121670
   style: 'background-color: #fff; color:#1e1e1e;'
   template: zodia_aesthetic_card_light/card.html
+  template_engine: mustache
   type: user
 - author: Zodia
   author_avatar: https://file.toyhou.se/users/Zodia
@@ -816,14 +844,14 @@
   - designer_link
   - colorpallete
   - worth
-  - name
   - credits
   - stamps
   - trivias
   - pronouns
+  - occupation
   - species
   - alignment
-  - occupation
+  - name
   license: <a href="https://toyhou.se/~bulletins/95096.code-rules">Please remember
     to read the rules before using!!</a>
   link: https://toyhou.se/4634664.-f2u-05-palette-profile
@@ -834,6 +862,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4634664?1570150052
   style: 'background-color: #fff; color:#1e1e1e;'
   template: zodia_palette_profile_dark/profile.html
+  template_engine: mustache
   type: character
 - author: Zodia
   author_avatar: https://file.toyhou.se/users/Zodia
@@ -853,14 +882,14 @@
   - designer_link
   - colorpallete
   - worth
-  - name
   - credits
   - stamps
   - trivias
   - pronouns
+  - occupation
   - species
   - alignment
-  - occupation
+  - name
   license: <a href="https://toyhou.se/~bulletins/95096.code-rules">Please remember
     to read the rules before using!!</a>
   link: https://toyhou.se/4634664.-f2u-05-palette-profile
@@ -871,6 +900,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/4634664?1570150052
   style: 'background-color: #fff; color:#1e1e1e;'
   template: zodia_palette_profile_light/profile.html
+  template_engine: mustache
   type: character
 - author: Zodia
   author_avatar: https://file.toyhou.se/users/Zodia
@@ -902,6 +932,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6545040?1586556611
   style: 'background-color: #fff; color:#1e1e1e;'
   template: zodia_simple_profile/profile.html
+  template_engine: mustache
   type: character
 - author: Zodia
   author_avatar: https://file.toyhou.se/users/Zodia
@@ -915,9 +946,9 @@
   - name
   - gender
   - age
+  - appearance
   - height
   - credits
-  - aesthetic
   - images
   - species
   - alignment
@@ -932,6 +963,7 @@
   preview: https://file.toyhou.se/characters/4432122?1562018377
   style: 'background-color: #fff; color:#1e1e1e;'
   template: zodia_split_boxes/split.html
+  template_engine: mustache
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -955,6 +987,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7917001?1597849483
   style: 'background-color: #1a4a6e; color: #f7fdf5'
   template: zx_chara_minimal/template.html
+  template_engine: mustache
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -989,6 +1022,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7916778?1597849219
   style: 'background-color: #1a4a6e; color: #f7fdf5'
   template: zx_chara_without_tabs/template.html
+  template_engine: mustache
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -1022,6 +1056,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7909361?1597848953
   style: 'background-color: #1a4a6e; color: #f7fdf5'
   template: zx_chara_with_tabs/template.html
+  template_engine: mustache
   type: character
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -1047,6 +1082,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7931345?1597869858
   style: 'background-color: #1a4a6e; color: #f7fdf5'
   template: zx_user_basic/template.html
+  template_engine: mustache
   type: user
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -1070,6 +1106,7 @@
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7909374?1597849808
   style: 'background-color: #1a4a6e; color: #f7fdf5'
   template: zx_user_card/template.html
+  template_engine: mustache
   type: user
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -1086,6 +1123,7 @@
   name: Character List
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zy_codesnippet_characters/snippet.html
+  template_engine: mustache
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -1102,6 +1140,7 @@
   name: Fields
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zy_codesnippet_fields/snippet.html
+  template_engine: mustache
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -1117,6 +1156,7 @@
   name: Gallery
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zy_codesnippet_gallery/snippet.html
+  template_engine: mustache
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -1133,6 +1173,7 @@
   name: List
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zy_codesnippet_list/snippet.html
+  template_engine: mustache
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -1148,6 +1189,7 @@
   name: Moodboard
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zy_codesnippet_moodboard/snippet.html
+  template_engine: mustache
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -1163,6 +1205,7 @@
   name: Stats with Progressbars
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zy_codesnippet_progressbar/snippet.html
+  template_engine: mustache
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -1178,6 +1221,7 @@
   name: Stats with Stars
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zy_codesnippet_progressbar_with_stars/snippet.html
+  template_engine: mustache
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -1193,6 +1237,7 @@
   name: Stats with Progressbars and Values
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zy_codesnippet_progressbar_with_values/snippet.html
+  template_engine: mustache
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -1210,6 +1255,7 @@
   name: Relationships List
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zy_codesnippet_relationships/snippet.html
+  template_engine: mustache
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -1227,6 +1273,7 @@
   name: Relationships List with Status
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zy_codesnippet_relationships_with_status/snippet.html
+  template_engine: mustache
   type: codesnippet
 - author: furudbat
   author_link: https://toyhou.se/FurudBat
@@ -1243,4 +1290,5 @@
   name: Tabs
   style: 'background-color: #2a5a7e; color: #f7fdf5'
   template: zy_codesnippet_tabs/snippet.html
+  template_engine: mustache
   type: codesnippet

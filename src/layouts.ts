@@ -1,13 +1,14 @@
-import { site, makeDoubleClick, isOnScreen, USE_CACHE, USE_HANDLEBARS } from './site';
+import { site, makeDoubleClick, isOnScreen, USE_CACHE } from './site';
 import cache from 'memory-cache';
 import parseJson from 'json-parse-better-errors';
 import * as jsyaml from 'js-yaml';
 import * as jsb from 'js-beautify';
 import List from 'list.js';
-import { ApplicationData } from './application.data'
+import { ApplicationData, TEMPLATE_ENGINE_MUSTACHE } from './application.data'
 import { ApplicationListener } from './application.listener'
 import { LoadedLayoutValue } from './loadedlayout.value';
 import { MetaDataValue } from './metadata.value';
+import { TemplateValue } from './template.value';
 
 const css_beautify = jsb.css_beautify;
 const js_beautify = jsb.js_beautify;
@@ -85,7 +86,7 @@ export class Layouts {
                                 meta: meta,
                                 name: name || '',
                                 configlink: configlink || '',
-                                use_handlebars: meta.use_handlebars || false
+                                template_engine: meta.template_engine || TEMPLATE_ENGINE_MUSTACHE
                             };
                             if (id !== null) {
                                 that._loadedLayouts.put(id, loadedLayout, CACHE_LOADED_LAYOUT_MAX_TIME_MS);
@@ -113,7 +114,7 @@ export class Layouts {
 
     generateLayoutList() {
         let templates = [];
-        for (const template of site.data.templates) {
+        for (const template of site.data.templates as TemplateValue[]) {
             if (('disable' in template && template.disable == true) || ('disabled' in template && template.disabled == true)) {
                 continue;
             }
@@ -148,32 +149,31 @@ export class Layouts {
                 inlineauthorstyle = 'display: inline !important;';
             }
 
-            if ((USE_HANDLEBARS && template.use_handlebars) || (!USE_HANDLEBARS && !template.use_handlebars)) {
-                templates.push({
-                    colstyle: colstyle,
-                    style: style,
-                    template: site.data.templates_url + template.template,
-                    css: site.data.templates_url + template.css,
-                    config: site.data.templates_url + template.config,
-                    meta: site.data.templates_url + template.meta,
-                    keywords: template.keywords.join(', '),
-                    id: template.id,
-                    preview: preview,
-                    previewstyle: previewstyle,
-                    cardbodystyle: cardbodystyle,
-                    inlinebodystyle: inlinebodystyle,
-                    inlineauthorstyle: inlineauthorstyle,
-                    name: template.name,
-                    layoutloadingid: 'layout-loading-' + template.id,
-                    type: type,
-                    author: site.data.strings.layouts.by_author + template.author
-                });
-            }
+            templates.push({
+                colstyle: colstyle,
+                style: style,
+                template: site.data.templates_url + template.template,
+                css: site.data.templates_url + template.css,
+                config: site.data.templates_url + template.config,
+                meta: site.data.templates_url + template.meta,
+                keywords: (template.keywords)? template.keywords.join(', ') : '',
+                id: template.id,
+                preview: preview,
+                previewstyle: previewstyle,
+                cardbodystyle: cardbodystyle,
+                inlinebodystyle: inlinebodystyle,
+                inlineauthorstyle: inlineauthorstyle,
+                name: template.name,
+                layoutloadingid: 'layout-loading-' + template.id,
+                type: type,
+                author: site.data.strings.layouts.by_author + template.author,
+                template_engine: template.template_engine
+            });
         }
 
         const item = `<div class="d-inline colstyle" style="">
-            <button type="button" class="btn btn-link card d-inline mr-1 mb-1 layout-pattern style template meta css config keywords id usehandlebars" 
-                style="" data-template="" data-css="" data-config="" data-meta="" data-id="" data-keywords="">
+            <button type="button" class="btn btn-link card d-inline mr-1 mb-1 layout-pattern style template meta css config keywords id templateengine" 
+                style="" data-template="" data-css="" data-config="" data-meta="" data-id="" data-keywords="" data-template-engine="">
                 <div class="d-flex flex-wrap align-items-center preview previewstyle" style="">
                 </div>
                 <div class="card-body cardbodystyle">
@@ -193,6 +193,7 @@ export class Layouts {
             valueNames: [
                 'preview', 'name', 'type', 'author',
                 { name: 'template', attr: 'data-template' },
+                { name: 'templateengine', attr: 'data-template-engine' },
                 { name: 'css', attr: 'data-css' },
                 { name: 'config', attr: 'data-config' },
                 { name: 'meta', attr: 'data-meta' },
@@ -244,8 +245,6 @@ export class Layouts {
 
         //console.log('updateLayoutInfo', {id, author, authorLink, link, name, license, more, meta});
 
-        this._appData.currentLayoutId = id;
-
         let header = (link === '') ? name : '<a href="' + link + '" target="_blank">' + name + '</a>';
         header += site.data.strings.info.by_author + '<a href="' + authorLink + '" target="_blank">' + author + '</a>';
 
@@ -254,6 +253,8 @@ export class Layouts {
         $('#msgLayoutPatternInfoLicense').html(license);
         $('#msgLayoutPatternInfoMore').html(more);
         $('#msgLayoutPatternInfo').data('layout-id', id).show();
+
+        this._appData.currentLayoutId = id;
     }
 
     reloadLayoutInfo(id: string) {
@@ -261,7 +262,6 @@ export class Layouts {
         this.loadLayout($('.layout-pattern[data-id="' + id + '"]').first(), function (data) {
             console.log('reloadLayoutInfo', 'loadLayout', data);
             that.updateLayoutInfo(id, data.meta);
-            that._appData.currentLayoutId = data.id;
         });
     };
 
@@ -330,7 +330,7 @@ export class Layouts {
         this.loadLayout(layout, function (data) {
             //console.debug('previewLayout', 'loadLayout', data);
             that.updateLayoutInfo(data.id, data.meta);
-            that._appListener.generateHTMLFromTemplate(data.id, data.template, data.config, data.css, true);
+            that._appListener.generateHTMLFromTemplate(data.template_engine, data.template, data.config, data.css, true);
             that._appListener.selectPreviewTab();
             that._appData.currentLayoutId = data.id;
         });

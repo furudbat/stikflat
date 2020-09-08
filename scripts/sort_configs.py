@@ -138,7 +138,7 @@ def sort_json(data):
                 long_others[key] = value
             else:
                 others[key] = value
-        #data.pop(key)
+        # data.pop(key)
 
     long_others = collections.OrderedDict(
         sorted(long_others.items(), key=lambda x: len(x[1])))
@@ -193,12 +193,10 @@ def check_keys(config_filename, data):
     if 'bio' in data.keys() and 'about' in data:
         print("{}: beware of \"mixing\" or using 'bio' instead of 'about', 'about is an INFO about an character and Bio is about HISTORY/BACKGROUND'".format(config_filename))
 
-
     if 'theme' in data.keys() and not 'theme_link' in data:
         print('{}: "theme" is set but "theme_link" is missing'.format(config_filename))
     elif 'theme_link' in data.keys() and not 'theme' in data:
         print('{}: "theme_link" is set but "theme" is missing'.format(config_filename))
-        
 
     if 'background' in data:
         print('{}: "background" found use "ethnicity" instead'.format(config_filename))
@@ -208,34 +206,37 @@ def check_keys(config_filename, data):
 
     if 'residence' in data:
         print('{}: "residence" found use "location" instead'.format(config_filename))
-    
+
     if 'job' in data:
         print('{}: "job" found use "occupation" instead'.format(config_filename))
     if 'role' in data:
         print('{}: "role" found use "occupation" instead'.format(config_filename))
-        
-    
+
     if 'icon' in data and not data['icon'].startswith('f'):
         print('{}: Are you sure "icon" is a Fonr Awesome Icon'.format(config_filename))
 
-
     if ('interests' in data and (not isinstance(data['interests'], list))) or ('interest' in data and (isinstance(data['interest'], list))):
-        print('{}: use "interests" for a list and "interest" for singe entry'.format(config_filename))
-        
+        print('{}: use "interests" for a list and "interest" for singe entry'.format(
+            config_filename))
+
     if ('notes' in data and (not isinstance(data['notes'], list))) or ('note' in data and (isinstance(data['note'], list))):
-        print('{}: use "notes" for a list and "note" for singe entry'.format(config_filename))
+        print('{}: use "notes" for a list and "note" for singe entry'.format(
+            config_filename))
 
     if ('trivias' in data and (not isinstance(data['trivias'], list))) or ('trivia' in data and (isinstance(data['trivia'], list))):
-        print('{}: use "trivias" for a list and "trivia" for singe entry'.format(config_filename))
+        print('{}: use "trivias" for a list and "trivia" for singe entry'.format(
+            config_filename))
 
     if ('traits' in data and (not isinstance(data['traits'], list))) or ('trait' in data and (isinstance(data['trait'], list))):
-        print('{}: use "traits" for a list and "trait" for singe entry'.format(config_filename))
+        print('{}: use "traits" for a list and "trait" for singe entry'.format(
+            config_filename))
+
 
 def test_mustache(template_filename, config_filename):
     with open(template_filename, 'r') as template_file:
         template = template_file.read().decode('utf-8')
         with open(config_filename, 'r') as config_file:
-            config_str=config_file.read()
+            config_str = config_file.read()
             config = json.loads(config_str)
 
             try:
@@ -243,56 +244,63 @@ def test_mustache(template_filename, config_filename):
                 parsed = pystache.parse(template)
                 rendered = renderer.render(parsed, config)
                 if not rendered:
-                    print('{}: template or result is empty'.format(template_filename))
+                    print('{}: template or result is empty'.format(
+                        template_filename))
             except pystache.context.KeyNotFoundError as e:
                 if not re.match(".*.length", e.key):
-                    print('{}: {} not found in config'.format(config_filename, e.key))
+                    print('{}: {} not found in config'.format(
+                        config_filename, e.key))
+
 
 def sortConfig(input_path, input_paths, type='', only_checks=False, strict=False):
-    merged_config=None
-    keys=collections.OrderedDict()
-    files_counter=0
+    merged_config = None
+    keys = collections.OrderedDict()
+    files_counter = 0
 
     for path in input_paths:
         for root, directories, files in os.walk(path, topdown=False):
-            config_filename=None
-            template_filename=None
-            meta_yml_filename=None
-            meta={}
-            template_engine_mustache=False
+            config_filename = None
+            template_filename = None
+            meta_yml_filename = None
+            meta = {}
+            template_engine_mustache = False
             for file in files:
-                extensions=file.split('.')[1:]
-                ext=os.path.splitext(file)[-1].lower()
+                extensions = file.split('.')[1:]
+                ext = os.path.splitext(file)[-1].lower()
 
-                if (ext == '.html' and (len(extensions) == 1 or 'mustache' in extensions)) or ext == '.mustache':
-                    template_engine_mustache=True
-                if ext == '.html' or ext == '.mustache':
-                    template_filename = os.path.abspath(os.path.join(root, file))
+                print(extensions)
+
+                if (ext == '.html' and (len(extensions) == 1 or 'mustache' == extensions[-2])) or ext == '.mustache':
+                    template_engine_mustache = True
+                if ext == '.html' or ext == '.mustache' or ext == '.handlebars' or ext == '.hbs' or ext == '.hugon' or ext == '.underscore' or ext == '.pug' or ext == '.dot':
+                    template_filename = os.path.abspath(
+                        os.path.join(root, file))
                 if ext == '.json':
-                    meta_yml_filename=os.path.abspath(os.path.join(root, 'meta.yml'))
+                    meta_yml_filename = os.path.abspath(
+                        os.path.join(root, 'meta.yml'))
                     with open(meta_yml_filename) as yml_file:
-                        meta=yaml.load(yml_file, Loader=yaml.FullLoader)
+                        meta = yaml.load(yml_file, Loader=yaml.FullLoader)
 
-                    config_filename=os.path.abspath(os.path.join(root, file))
+                    config_filename = os.path.abspath(os.path.join(root, file))
                     with open(config_filename, 'r+') as json_file:
                         if not only_checks:
                             print('progress {} ...'.format(config_filename))
 
-                        data=json.load(json_file)
-                        data=sort_json(data)
+                        data = json.load(json_file)
+                        data = sort_json(data)
 
                         check_keys(config_filename, data)
 
                         # print(json.dumps(data, indent=4, sort_keys=False))
-                        merger=Merger({})
+                        merger = Merger({})
                         if 'type' in meta and meta['type'] == type:
-                            merged_config=merger.merge(merged_config, data)
+                            merged_config = merger.merge(merged_config, data)
                             for key in data.keys():
                                 if key in keys:
-                                    keys[key]=keys[key] + 1
+                                    keys[key] = keys[key] + 1
                                 else:
-                                    keys[key]=1
-                            files_counter=files_counter+1
+                                    keys[key] = 1
+                            files_counter = files_counter+1
 
                         if not only_checks:
                             json_file.seek(0)
@@ -305,28 +313,31 @@ def sortConfig(input_path, input_paths, type='', only_checks=False, strict=False
                 if strict:
                     test_mustache(template_filename, config_filename)
 
-    merged_config=sort_json(merged_config)
+    merged_config = sort_json(merged_config)
 
-    sorted_keys={k: v for k, v in sorted(keys.items(), key=lambda item: item[1])}
-    max_sorted_keys=list(sorted_keys.values())[-1]
-    filter_keys=set({key: value for (key, value) in sorted_keys.items() if value == max_sorted_keys}.keys())
+    sorted_keys = {k: v for k, v in sorted(
+        keys.items(), key=lambda item: item[1])}
+    max_sorted_keys = list(sorted_keys.values())[-1]
+    filter_keys = set({key: value for (
+        key, value) in sorted_keys.items() if value == max_sorted_keys}.keys())
     filter_keys.add('title')
     filter_keys.add('name')
-    minimal_merged_config=collections.OrderedDict(filter(lambda elem: elem[0] in filter_keys, merged_config.items()))
+    minimal_merged_config = collections.OrderedDict(
+        filter(lambda elem: elem[0] in filter_keys, merged_config.items()))
 
     if not only_checks:
-        minimal_config_filename='minimal_' + type + '_config.json'
+        minimal_config_filename = 'minimal_' + type + '_config.json'
         check_keys(minimal_config_filename, minimal_merged_config)
 
-        minimal_merged_config_filename=os.path.abspath(
+        minimal_merged_config_filename = os.path.abspath(
             os.path.join(input_path, minimal_config_filename))
         with open(minimal_merged_config_filename, 'w') as minimal_merged_config_file:
             minimal_merged_config_file.write(json.dumps(
                 minimal_merged_config, indent=4, sort_keys=False))
 
-        config_filename=type + '_config.json'
+        config_filename = type + '_config.json'
         check_keys(config_filename, merged_config)
-        merged_config_filename=os.path.abspath(
+        merged_config_filename = os.path.abspath(
             os.path.join(input_path, config_filename))
         with open(merged_config_filename, 'w') as merged_config_file:
             merged_config_file.write(json.dumps(
@@ -334,10 +345,10 @@ def sortConfig(input_path, input_paths, type='', only_checks=False, strict=False
 
 
 def main(args):
-    input_path=args['--input']
-    only_checks=args['--only-check']
-    strict=args['--strict']
-    input_paths=[]
+    input_path = args['--input']
+    only_checks = args['--only-check']
+    strict = args['--strict']
+    input_paths = []
 
     for root, directories, files in os.walk(input_path, topdown=False):
         for name in directories:
@@ -349,5 +360,5 @@ def main(args):
 
 
 if __name__ == '__main__':
-    arguments=docopt(__doc__, version='0.1.0')
+    arguments = docopt(__doc__, version='0.1.0')
     main(arguments)

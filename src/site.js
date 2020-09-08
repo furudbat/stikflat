@@ -86,7 +86,6 @@ var makeDoubleClick = function (element, doDoubleClickAction, doClickAction) {
 };
 
 module.exports = {
-    USE_HANDLEBARS,
     USE_CACHE,
     site,
     getUrlParameter,
