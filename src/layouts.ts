@@ -271,6 +271,7 @@ export class Layouts {
         var that = this;
         this.loadLayout(layout, function (data) {
             const id: string | null = ($(layout).attr('data-id'))? $(layout).data('id') : null;
+            const template_engine: string = ($(layout).attr('data-template-engine'))? $(layout).data('template-engine') : that._appData.currentTemplateEngine;
             const keywordsStr: string = ($(layout).attr('data-keywords'))? $(layout).data('keywords') : '';
 
             //console.debug('overrideLayout', 'loadLayout', data);
@@ -295,6 +296,7 @@ export class Layouts {
             if (id) {
                 that._appData.currentLayoutId = id;
             }
+            that._appData.currentTemplateEngine = template_engine;
             that._appData.templateCode = template;
             that._appData.configJson = configJson;
             that._appData.cssCode = css_beautify(css);

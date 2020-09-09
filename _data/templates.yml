@@ -1115,7 +1115,7 @@
   description: Minimal Character Template to copy and use as a blueprint
   id: zyy_character_template
   keywords:
-  - about
+  - description
   - name
   - title
   license: Free to use and modify
@@ -1134,7 +1134,7 @@
     as template engine
   id: zyy_character_template_handlebars
   keywords:
-  - about
+  - description
   - name
   - title
   license: Free to use and modify
@@ -1142,7 +1142,7 @@
   meta: zyy_character_template_handlebars/meta.yml
   name: Character Template - Handlebars
   style: 'background-color: #E74C3C; color: #ffffff'
-  template: zyy_character_template_handlebars/template.handlebars
+  template: zyy_character_template_handlebars/template.handlebars.html
   template_engine: handlebars
   type: template
 - author: furudbat
