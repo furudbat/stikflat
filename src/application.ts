@@ -64,6 +64,17 @@ export class Application implements ApplicationListener {
 
         if (json !== null) {
             this._templateEditor.clearTemplateError();
+            var handleError = (error: Error) => {
+                console.error(error);
+
+                if (onlypreview) {
+                    this._preview.setHTMLPreview(error.toString(), css);
+                } else {
+                    this._templateEditor.templateError = error.toString();
+                    this._preview.setHTMLPreview(error.toString(), css);
+                    this._previewEditor.codePreview = error.toString();
+                }
+            };
             try {
                 var that = this;
                 var renderHTML = function (htmlstr: string) {
@@ -101,18 +112,10 @@ export class Application implements ApplicationListener {
                     renderHTML(htmlstr);
                 })
                     .catch(function (err) {
-                        throw err;
+                        handleError(err);
                     });
             } catch (error) {
-                console.error(error);
-
-                if (onlypreview) {
-                    this._preview.setHTMLPreview(error.toString(), css);
-                } else {
-                    this._templateEditor.templateError = error.toString();
-                    this._preview.setHTMLPreview(error.toString(), css);
-                    this._previewEditor.codePreview = error.toString();
-                }
+                handleError(error);
             }
         }
     }

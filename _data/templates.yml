@@ -40,8 +40,8 @@
   name: BunnyTab
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/6627845
   style: 'background-color: #acdbdf; color: #383838;'
-  template: bunbox_bunnytab/bunnytab.html
-  template_engine: mustache
+  template: bunbox_bunnytab/bunnytab.handlebars.html
+  template_engine: handlebars
   type: character
 - author: BunBox
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/BunBox

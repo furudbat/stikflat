@@ -8,31 +8,31 @@
 
             <div class="col-md-9 p-3">
                 <div class="text-muted">
-                    {{#name}}<h2>{{name}}</h2>{{/name}}
-                    {{#age}}<h2>{{age}}</h2>{{/age}}
-                    {{#gender}}<h2>{{gender}}</h2>{{/gender}}
+                    {{#if name}}<h2>{{name}}</h2>{{/if}}
+                    {{#if age}}<h2>{{age}}</h2>{{/if}}
+                    {{#if gender}}<h2>{{gender}}</h2>{{/if}}
                     <hr class="w-100" style="border-width:3px;">
 
                     <div class="text-muted d-flex justify-content-between px-5">
-                        {{#status}}<span>Status</span>{{/status}}
-                        {{#designer}}<span>Designer</span>{{/designer}}
-                        {{#worth}}<span>Worth</span>{{/worth}}
+                        {{#if status}}<span>Status</span>{{/if}}
+                        {{#if designer}}<span>Designer</span>{{/if}}
+                        {{#if worth}}<span>Worth</span>{{/if}}
                     </div>
 
                     <div class="d-flex justify-content-between px-5" style="font-weight:bold;">
-                        {{#status}}
+                        {{#if status}}
                         <span class="text-default">{{status}}</span>
-                        {{/status}}
+                        {{/if}}
 
-                        {{#designer}}
+                        {{#if designer}}
                         <span class="text-default">
                             {{{designer}}}
                         </span>
-                        {{/designer}}
+                        {{/if}}
 
-                        {{#worth}}
+                        {{#if worth}}
                         <span class="text-default">{{worth}}</span>
-                        {{/worth}}
+                        {{/if}}
                     </div>
                 </div>
             </div>
@@ -42,90 +42,90 @@
 
         <div class="row no-gutters">
             <div class="card card-block col-md-4 p-2">
-                {{#looking_for}}
+                {{#if looking_for}}
                 <div class="d-flex">
                     <span class="w-50 p-1 text-muted">Looking For</span> <span class="w-50 p-1 text-right"
                         style="font-weight:bold;">{{looking_for}}</span>
                 </div>
-                {{/looking_for}}
+                {{/if}}
 
-                {{#lifestyle}}
+                {{#if lifestyle}}
                 <div class="d-flex">
                     <span class="w-50 p-1 text-muted">Lifestyle Expectation</span> <span class="w-50 p-1 text-right"
                         style="font-weight:bold;">{{lifestyle}}</span>
                 </div>
-                {{/lifestyle}}
+                {{/if}}
 
-                {{#height}}
+                {{#if height}}
                 <div class="d-flex">
                     <span class="w-50 p-1 text-muted">Height</span> <span class="w-50 p-1 text-right"
                         style="font-weight:bold;">{{height}}</span>
                 </div>
-                {{/height}}
+                {{/if}}
 
-                {{#build}}
+                {{#if build}}
                 <div class="d-flex">
                     <span class="w-50 p-1 text-muted">Body Type</span> <span class="w-50 p-1 text-right"
                         style="font-weight:bold;">{{build}}</span>
                 </div>
-                {{/build}}
+                {{/if}}
 
-                {{#ethnicity}}
+                {{#if ethnicity}}
                 <div class="d-flex">
                     <span class="w-50 p-1 text-muted">Ethnicity</span> <span class="w-50 p-1 text-right"
                         style="font-weight:bold;">{{ethnicity}}</span>
                 </div>
-                {{/ethnicity}}
+                {{/if}}
 
-                {{#hair}}
+                {{#if hair}}
                 <div class="d-flex">
                     <span class="w-50 p-1 text-muted">Hair Color</span> <span class="w-50 p-1 text-right"
                         style="font-weight:bold;">{{hair}}</span>
                 </div>
-                {{/hair}}
+                {{/if}}
 
-                {{#eyes}}
+                {{#if eyes}}
                 <div class="d-flex">
                     <span class="w-50 p-1 text-muted">Eye Color</span> <span class="w-50 p-1 text-right"
                         style="font-weight:bold;">{{eyes}}</span>
                 </div>
-                {{/eyes}}
+                {{/if}}
 
-                {{#education}}
+                {{#if education}}
                 <div class="d-flex">
                     <span class="w-50 p-1 text-muted">Education</span> <span class="w-50 p-1 text-right"
                         style="font-weight:bold;">{{education}}</span>
                 </div>
-                {{/education}}
+                {{/if}}
 
-                {{#occupation}}
+                {{#if occupation}}
                 <div class="d-flex">
                     <span class="w-50 p-1 text-muted">Occupation</span> <span class="w-50 p-1 text-right"
                         style="font-weight:bold;">{{occupation}}</span>
                 </div>
-                {{/occupation}}
+                {{/if}}
 
-                {{#relationship}}
+                {{#if relationship}}
                 <div class="d-flex">
                     <span class="w-50 p-1 text-muted">Relationship</span> <span class="w-50 p-1 text-right"
                         style="font-weight:bold;">{{relationship}}</span>
                 </div>
-                {{/relationship}}
+                {{/if}}
 
-                {{#children}}
+                {{#if children}}
                 <div class="d-flex">
                     <span class="w-50 p-1 text-muted">Children</span> <span class="w-50 p-1 text-right"
                         style="font-weight:bold;">{{children}}</span>
                 </div>
-                {{/children}}
+                {{/if}}
 
-                {{#theme}}
+                {{#if theme}}
                 <div class="d-flex">
                     <span class="w-50 p-1 text-muted">Theme</span> <span class="w-50 p-1 text-right"
                         style="font-weight:bold;"><a href="{{{theme_link}}}" title="{{theme}}"><i
                                 class="fas fa-external-link-alt"></i></a></span>
                 </div>
-                {{/theme}}
+                {{/if}}
             </div>
 
             <div class="card-block bg-0 col-md-8 p-2">
@@ -148,18 +148,18 @@
                     <div class="tab-pane fade" id="PHOTOS">
                         <div class="card card-block p-3">
                             <div class="col-sm-12 px-0 mx-0">
-                                {{#gallery.length}}
+                                {{#if gallery.length}}
                                 <div class="carousel slide mx-auto p-1" data-ride="carousel" id="carousel">
                                     <ol class="carousel-indicators">
-                                        {{#gallery}}
-                                        <li data-slide-to="{{indicator}}" data-target="#carousel" {{#active}}class="active"{{/active}}>
+                                        {{#each gallery}}
+                                        <li data-slide-to="{{@index}}" data-target="#carousel" {{#if @first}}class="active"{{/if}}>
                                         </li>
-                                        {{/gallery}}
+                                        {{/each}}
                                     </ol>
 
                                     <div class="carousel-inner">
-                                        {{#gallery}}
-                                        <div class="carousel-item {{#active}}active{{/active}}">
+                                        {{#each gallery}}
+                                        <div class="carousel-item {{#if @first}}active{{/if}}">
                                             <div style="background-image: url({{{img}}}); height:290px; background-position: center; background-size: cover">
                                                 <div class="carousel-caption d-none d-md-block">
                                                     <div class="p-1"
@@ -169,7 +169,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{/gallery}}
+                                        {{/each}}
                                     </div>
                                     <a class="carousel-control-prev" data-slide="prev" href="#carousel"
                                         role="button"><span aria-hidden="true"
@@ -179,7 +179,7 @@
                                             class="carousel-control-next-icon"></span> <span
                                             class="sr-only">Next</span></a>
                                 </div>
-                                {{/gallery.length}}
+                                {{/if}}
                             </div>
                         </div>
                     </div>
@@ -200,7 +200,7 @@
                         <div class="ui-accordion">
                             <div class="ui-accordion-content card card-block p-3" style="height:330px;">
                                 <div>
-                                    {{#relationships}}
+                                    {{#each relationships}}
                                     <div class="media col-sm-12 p-0">
                                         <div class="media-body">
                                             <p class="text-right text-uppercase font-weight-bold"
@@ -217,14 +217,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{#img}}
+                                        {{#if img}}
                                         <div class="img-thumbnail rounded d-inline-block ml-2"
                                             style="background-image:url({{{img}}}); width:100px; height:130px; background-position: center; background-size: cover; background-repeat: no-repeat;">
                                         </div>
-                                        {{/img}}
+                                        {{/if}}
                                     </div>
                                     <hr>
-                                    {{/relationships}}
+                                    {{/each}}
                                 </div>
                             </div>
                         </div>

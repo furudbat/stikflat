@@ -36,15 +36,12 @@
     ], 
     "gallery": [
         {
-            "active": true, 
             "caption": "image by <a href='LINK'><i class='fab fa-deviantart fa-sm'></i> someone 1</a>", 
-            "indicator": 0, 
             "link": "https://toyhou.se/", 
             "img": "https://via.placeholder.com/250"
         }, 
         {
             "caption": "image by <a href='LINK'><i class='fab fa-deviantart fa-sm'></i> someone 2</a>", 
-            "indicator": 1, 
             "link": "https://toyhou.se/", 
             "img": "https://via.placeholder.com/250"
         }
