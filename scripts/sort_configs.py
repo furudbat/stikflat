@@ -272,7 +272,7 @@ def sortConfig(input_path, input_paths, type='', only_checks=False, strict=False
 
                 if (ext == '.html' and (len(extensions) == 1 or 'mustache' == extensions[-2])) or ext == '.mustache':
                     template_engine_mustache = True
-                if ext == '.html' or ext == '.mustache' or ext == '.handlebars' or ext == '.hbs' or ext == '.hugon' or ext == '.underscore' or ext == '.pug' or ext == '.dot':
+                if ext == '.html' or ext == '.mustache' or ext == '.handlebars' or ext == '.hbs' or ext == '.hugan' or ext == '.underscore' or ext == '.pug' or ext == '.dot':
                     template_filename = os.path.abspath(
                         os.path.join(root, file))
                 if ext == '.json':

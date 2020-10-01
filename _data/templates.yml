@@ -138,8 +138,8 @@
   name: Maji
   preview: https://f2.toyhou.se/file/f2-toyhou-se/characters/7661974?1597282255
   style: 'background-color: #acdbdf; color: #383838;'
-  template: bunbox_maji/mai.html
-  template_engine: mustache
+  template: bunbox_maji/maji.dot.html
+  template_engine: dot
   type: character
 - author: BunBox
   author_avatar: https://f2.toyhou.se/file/f2-toyhou-se/users/BunBox

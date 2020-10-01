@@ -1,6 +1,6 @@
 <div class="container p-0" style="min-height: calc(100vh - 253); max-width: 1280px">
     <div class="card text-light bg-dark py-1 px-3 border-0" style=" border-radius: 25px; font-size:2.5rem;">
-        {{name}}
+        {{! name }}
     </div>
 
     <div class="row no-gutters">
@@ -9,121 +9,120 @@
                 <div class="p-1 h-100">
                     <div class="col-12 mb-2 p-0" style="height: 300px;">
                         <div class="card h-100 w-100"
-                            style="background-image:url({{{images.avatar}}}); background-repeat: no-repeat; background-size: cover; background-position:center center; border-radius: 25px;">
+                            style="background-image: url({{= images.avatar }}); background-repeat: no-repeat; background-size: cover; background-position:center center; border-radius: 25px;">
                             <div class="text-light" style="position:absolute;right:.6rem;bottom:.45rem;">
-                                <a class="tooltipster" href="{{{avatar_credit_link}}}" style="color: inherit;"
-                                    title="{{avatar_credit}}"><i class="fad fa-image"></i></a>
+                                <a class="tooltipster" href="{{= avatar_credit_link }}" style="color: inherit;"
+                                    title="{{! avatar_credit }}"><i class="fad fa-image"></i></a>
                             </div>
                         </div>
                     </div>
 
-                    {{#quote}}
+                    {{? quote }}
                     <div class="card col-12 mb-2 p-3 text-center bg-dark text-light border-0"
                         style=" border-radius: 25px; height: 95px; overflow-y: auto;">
                         <p>
-                            {{{quote}}}
+                            {{= quote }}
                         </p>
                     </div>
-                    {{/quote}}
+                    {{?}}
 
                     <div class="col-12 p-3">
                         <div class="container p-0">
                             <ul class="list-unstyled my-1">
-                                {{#age}}
+                                {{? age}}
                                 <li class="my-1">
-                                    <p><span class="text-secondary" style="font-weight:700">Age:</span> {{age}}</p>
+                                    <p><span class="text-secondary" style="font-weight:700">Age:</span> {{! age }}</p>
                                 </li>
-                                {{/age}}
+                                {{?}}
 
-                                {{#gender}}
+                                {{? gender }}
                                 <li class="my-1">
-                                    <p><span class="text-secondary" style="font-weight:700">Gender:</span> {{gender}}
+                                    <p><span class="text-secondary" style="font-weight:700">Gender:</span> {{! gender }}
                                     </p>
                                 </li>
-                                {{/gender}}
+                                {{?}}
 
-                                {{#species}}
+                                {{? species }}
                                 <li class="my-1">
-                                    <p><span class="text-secondary" style="font-weight:700">Species:</span> {{species}}
+                                    <p><span class="text-secondary" style="font-weight:700">Species:</span> {{! species }}
                                     </p>
                                 </li>
-                                {{/species}}
+                                {{?}}
 
-                                {{#status}}
+                                {{? status }}
                                 <li class="my-1">
-                                    <p><span class="text-secondary" style="font-weight:700">Status:</span> {{status}}
+                                    <p><span class="text-secondary" style="font-weight:700">Status:</span> {{! status }}
                                     </p>
                                 </li>
-                                {{/status}}
+                                {{?}}
 
-                                {{#theme}}
+                                {{? theme }}
                                 <li class="my-1">
                                     <p><span class="text-secondary" style="font-weight:700">Theme:</span>
                                         <span class="card d-inline-block container-flex border-0 "><a
-                                                href="{{{theme_link}}}" class="position-relative"
+                                                href="{{= theme_link }}" class="position-relative"
                                                 style="color: inherit;">
                                                 <iframe allowfullscreen class="tooltipster d-none d-lg-flex"
-                                                    data-placement="top" frameborder="0" src="{{{theme_link}}}"
-                                                    title="{{theme}}"
-                                                    style="height:32px;width:32px;opacity:0.001;position:absolute;z-index:1000;top:8px;color: inherit;"></iframe>
+                                                    data-placement="top" frameborder="0" src="{{= theme_link }}"
+                                                    title="{{! theme }}"
+                                                    style="height: 32px; width: 32px; opacity: 0.001; position: absolute; z-index: 1000; top: 8px; color: inherit;"></iframe>
                                                 <i class="fas fa-headphones-alt fa-fw"></i></a>
                                         </span>
                                     </p>
                                 </li>
-                                {{/theme}}
+                                {{?}}
                             </ul>
                         </div>
 
-                        {{#character}}
+                        {{? character }}
                         <div class="container p-0 pt-1">
                             <p style="font-size: 2rem; font-weight:bold">Personality</p>
 
-                            {{#character.introvert_extrovert}}
+                            {{? character.introvert_extrovert }}
                             <div class="text-secondary container p-0 pb-1">
                                 <span>Introvert</span> <span class="text-right pull-right float-right">Extrovert</span>
                                 <div class="progress rounded-0 bg-muted">
                                     <div class="progress-bar"
-                                        style="width:{{{character.introvert_extrovert}}}%;background:transparent;border-right:10px solid gray;">
+                                        style="width:{{= character.introvert_extrovert }}%; background: transparent; border-right: 10px solid gray;">
                                     </div>
                                 </div>
                             </div>
-                            {{/character.introvert_extrovert}}
+                            {{?}}
 
-                            {{#character.thinking_feeling}}
+                            {{? character.thinking_feeling }}
                             <div class="text-secondary container p-0 pb-1">
                                 <span>Thinking</span> <span class="text-right pull-right float-right">Feeling</span>
                                 <div class="progress rounded-0 bg-muted">
-                                    <!-- change 'width:50%' to edit amount -->
                                     <div class="progress-bar"
-                                        style="width:{{{character.thinking_feeling}}}%;background:transparent;border-right:10px solid gray;">
+                                        style="width:{{= character.thinking_feeling }}%; background: transparent; border-right: 10px solid gray;">
                                     </div>
                                 </div>
                             </div>
-                            {{/character.thinking_feeling}}
+                            {{?}}
 
-                            {{#character.sensing_intuition}}
+                            {{? character.sensing_intuition }}
                             <div class="text-secondary container p-0 pb-1">
                                 <span>Sensing</span> <span class="text-right pull-right float-right">Intuition</span>
                                 <div class="progress rounded-0 bg-muted">
                                     <div class="progress-bar"
-                                        style="width:{{{character.sensing_intuition}}}%;background:transparent;border-right:10px solid gray;">
+                                        style="width:{{= character.sensing_intuition }}%; background: transparent; border-right: 10px solid gray;">
                                     </div>
                                 </div>
                             </div>
-                            {{/character.sensing_intuition}}
+                            {{?}}
 
-                            {{#character.judging_perceiving}}
+                            {{? character.judging_perceiving }}
                             <div class="text-secondary container p-0 pb-1">
                                 <span>Judging</span> <span class="text-right pull-right float-right">Perceiving</span>
                                 <div class="progress rounded-0 bg-muted">
                                     <div class="progress-bar"
-                                        style="width:{{{character.judging_perceiving}}}%;background:transparent;border-right:10px solid gray;">
+                                        style="width:{{= character.judging_perceiving }}%; background: transparent; border-right: 10px solid gray;">
                                     </div>
                                 </div>
                             </div>
-                            {{/character.judging_perceiving}}
+                            {{?}}
                         </div>
-                        {{/character}}
+                        {{?}}
                     </div>
                 </div>
             </div>
@@ -132,52 +131,52 @@
         <div class="col-md-5 row no-gutters">
             <div class="col-12 p-1">
                 <div class="p-1 h-100">
-                    {{#traits.length}}
+                    {{? traits.length }}
                     <div class="container p-0 pt-1" style="font-size:1.5rem;">
-                        {{#traits}}
-                        <span class="badge badge-default badge-pill" style="font-weight: normal; ">{{{.}}}</span>
-                        {{/traits}}
+                        {{~traits :t}}
+                        <span class="badge badge-default badge-pill" style="font-weight: normal;">{{= t }}</span>
+                        {{~}}
                     </div>
-                    {{/traits.length}}
+                    {{?}}
 
-                    {{#trivias.length}}
+                    {{? trivias.length }}
                     <div class="container p-0 pt-1 pb-3">
                         <p style="font-size: 2rem; font-weight:bold">Trivia</p>
                         <div class="container p-0" style="height: 150px; overflow-y: auto;">
                             <ul class="fa-ul mb-0">
-                                {{#trivias}}
+                                {{~trivias :t}}
                                 <li class="pb-2"><span class="fa-li"><i class="fas fa-comments"></i></span>
-                                    {{{.}}}
+                                    {{= t }}
                                 </li>
-                                {{/trivias}}
+                                {{~}}
                             </ul>
                         </div>
                     </div>
-                    {{/trivias.length}}
+                    {{?}}
 
-                    {{#interests.length}}
+                    {{? interests.length }}
                     <div class="container p-0 pt-1 pb-3">
                         <p style="font-size: 2rem; font-weight:bold">Interests</p>
                         <div class="container p-0" style="height: 200px; overflow-y: auto;">
                             <ul class="fa-ul mb-0">
-                                {{#interests}}
+                                {{~interests :i}}
                                 <li class="pb-2"><span class="fa-li"><i class="far fa-check"></i></span>
-                                    {{{.}}}
+                                    {{= i }}
                                 </li>
-                                {{/interests}}
+                                {{~}}
                             </ul>
                         </div>
                     </div>
-                    {{/interests.length}}
+                    {{?}}
 
-                    {{#about}}
+                    {{? about }}
                     <div class="card bg-dark text-light px-3 py-2 border-0" style=" border-radius: 25px;">
                         <p style="font-size: 2rem; font-weight:bold">About</p>
                         <div class="container p-0" style="height: 200px; overflow-y: auto;">
-                            {{{about}}}
+                            {{= about }}
                         </div>
                     </div>
-                    {{/about}}
+                    {{?}}
                 </div>
             </div>
         </div>
@@ -185,79 +184,77 @@
         <div class="col-md-4 row no-gutters">
             <div class="col-12 p-1">
                 <div class="p-1 h-100">
-                    {{#stats.length}}
+                    {{? stats.length }}
                     <div class="container p-0 pt-1 pb-3" style="height: 325px; overflow-y: auto;">
                         <p style="font-size: 2rem; font-weight:bold">Stats</p>
                         <div class="row no-gutters">
                             <div class="col-sm-12 p-1 d-flex">
                                 <div class="w-100 my-auto">
-                                    {{#stats}}
+                                    {{~ stats :s}}
                                     <div>
-                                        {{name}}
+                                        {{! s.name }}
                                     </div>
                                     <div class="progress mb-1 rounded-0">
-                                        <div class="progress-bar bg-secondary" style="width:{{{value}}}%;">
+                                        <div class="progress-bar bg-secondary" style="width:{{= s.value }}%;">
                                         </div>
                                     </div>
-                                    {{/stats}}
+                                    {{~}}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{/stats.length}}
+                    {{?}}
 
-                    {{#relationships.length}}
+                    {{? relationships.length }}
                     <div class="container p-0 pt-1">
                         <p style="font-size: 2rem; font-weight:bold">Relationships</p>
                         <div class="card card-block p-3" style="height:410px; overflow-y:auto; border-radius: 25px;">
                             <div>
-                                {{#relationships}}
-                                {{#avatar_right}}
+                                {{~ relationships :r:i}}
+                                {{? i % 2}}
                                 <div class="media col-sm-12 p-0">
                                     <div class="media-body">
                                         <p class="text-right text-uppercase font-weight-bold" style="font-size:18px">
-                                            <a style="color: inherit;" href="{{{link}}}">{{name}}</a><br>
-                                            <small>{{status}}<br>
-                                            </small>
+                                            <a style="color: inherit;" href="{{= r.link }}">{{! r.name }}</a><br>
+                                            <small>{{! status }}<br/></small>
                                         </p>
 
                                         <div class="ui-accordion">
                                             <div class="ui-accordion-content text-right p-0 text-small"
                                                 style="height:70px;">
-                                                <p>{{{summary}}}</p>
+                                                <p>{{=r.summary}}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="img-thumbnail rounded d-inline-block ml-2"
-                                        style="background-image:url({{{image}}}); width:150px; height:150px; background-position: center; background-size: cover; background-repeat: no-repeat;">
+                                        style="background-image:url({{= r.image }}); width:150px; height:150px; background-position: center; background-size: cover; background-repeat: no-repeat;">
                                     </div>
                                 </div>
-                                {{/avatar_right}}
-                                {{^avatar_right}}
+                                {{?}}
+                                {{? !(i%2) }}
                                 <div class="media col-sm-12 p-0">
                                     <div class="img-thumbnail rounded d-inline-block mr-2"
-                                        style="background-image:url({{{image}}}); width:150px; height:150px; background-position: center; background-size: cover; background-repeat: no-repeat;">
+                                        style="background-image:url({{= r.image }}); width:150px; height:150px; background-position: center; background-size: cover; background-repeat: no-repeat;">
                                     </div>
                                     <div class="media-body">
                                         <p class="text-uppercase font-weight-bold" style="font-size:18px">
-                                            <a style="color: inherit;" href="{{{link}}}">{{name}}</a><br>
-                                            <small>{{status}}<br>
-                                            </small>
+                                            <a style="color: inherit;" href="{{= r.link }}">{{! r.name }}</a><br>
+                                            <small>{{! status }}<br></small>
                                         </p>
                                         <div class="ui-accordion">
                                             <div class="ui-accordion-content p-0 text-small" style="height:70px;">
-                                                <p>{{{summary}}}</p>
+                                                <p>{{= r.summary }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                {{/avatar_right}}
+                                {{?}}
                                 <hr>
-                                {{/relationships}}
+                                {{~}}
                             </div>
                         </div>
                     </div>
-                    {{/relationships.length}}
+                    {{?}}
                 </div>
             </div>
         </div>

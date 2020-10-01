@@ -22,7 +22,7 @@ export const CONFIG_CONTENT_MODE_YAML = 'text/x-yaml';
 
 export const TEMPLATE_ENGINE_MUSTACHE = 'mustache';
 export const TEMPLATE_ENGINE_HANDLEBARS = 'handlebars';
-export const TEMPLATE_ENGINE_HUGON = 'hugon';
+export const TEMPLATE_ENGINE_HUGAN = 'hugan';
 export const TEMPLATE_ENGINE_PUG = 'pug';
 export const TEMPLATE_ENGINE_UNDERSCORE = 'underscore';
 export const TEMPLATE_ENGINE_DOT = 'dot';

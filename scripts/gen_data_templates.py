@@ -52,8 +52,8 @@ def main(args):
                     template_engine = 'mustache'
                 elif (ext == '.html' and len(extensions) >= 2 and 'handlebars' == extensions[-2]) or ext == '.handlebars' or ext == '.hbs':
                     template_engine = 'handlebars'
-                elif (ext == '.html' and len(extensions) >= 2 and 'hugon' == extensions[-2]) or ext == '.hugon':
-                    template_engine = 'hugon'
+                elif (ext == '.html' and len(extensions) >= 2 and 'hugan' == extensions[-2]) or ext == '.hugan':
+                    template_engine = 'hugan'
                 elif (ext == '.html' and len(extensions) >= 2 and 'pug' == extensions[-2]) or ext == '.pug':
                     template_engine = 'pug'
                 elif (ext == '.html' and len(extensions) >= 2 and 'underscore' == extensions[-2]) or ext == '.underscore':
@@ -63,7 +63,7 @@ def main(args):
                 elif len(extensions) == 1 and ext == '.html':
                     template_engine = 'mustache'
 
-                if ext == '.html' or ext == '.mustache' or ext == '.handlebars' or ext == '.hbs' or ext == '.hugon' or ext == '.pug' or ext == '.underscore' or ext == '.dot':
+                if ext == '.html' or ext == '.mustache' or ext == '.handlebars' or ext == '.hbs' or ext == '.hugan' or ext == '.pug' or ext == '.underscore' or ext == '.dot':
                     template['template'] = os.path.normpath(os.path.relpath(os.path.abspath(
                         os.path.join(root, file)), templates_target_path)).replace('\\', '/')
                 elif ext == '.css':

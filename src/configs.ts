@@ -170,6 +170,7 @@ export class SavedConfigs {
     };
 
     private previewWithConfig (configButton: JQuery<HTMLElement>) {
+        const id: string = ($(configButton).attr('data-id'))? $(configButton).data('id') : this._appData.currentLayoutId;
         const template_engine: string = ($(configButton).attr('data-template-engine'))? $(configButton).data('template-engine') : this._appData.currentTemplateEngine;
 
         //console.debug('previewWithConfig', {index, configButton});
@@ -178,7 +179,7 @@ export class SavedConfigs {
             const template = this._appData.templateCode;
             const css = this._appData.cssCode;
 
-            this._appListener.generateHTMLFromTemplate(template_engine, template, savedConfig.json, css, true);
+            this._appListener.generateHTMLFromTemplate(id, template_engine, template, savedConfig.json, css, true);
             this._appListener.selectPreviewTab();
         }
     };

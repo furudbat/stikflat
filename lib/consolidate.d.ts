@@ -72,13 +72,13 @@ interface Consolidate extends ConsolidateType {
 interface RendererInterface {
     render(str: string, fn: (err: Error, html: string) => any): any;
 
-    render(str: string, options: { cache?: boolean, [otherOptions: string]: any }, fn: (err: Error, html: string) => any): any;
+    render(str: string, options: { _cache?: boolean, [otherOptions: string]: any }, fn: (err: Error, html: string) => any): any;
 
-    render(str: string, options?: { cache?: boolean, [otherOptions: string]: any }): Promise<string>;
+    render(str: string, options?: { _cache?: boolean, [otherOptions: string]: any }): Promise<string>;
 
     (str: string, fn: (err: Error, html: string) => any): any;
 
-    (str: string, options: { cache?: boolean, [otherOptions: string]: any }, fn: (err: Error, html: string) => any): any;
+    (str: string, options: { _cache?: boolean, [otherOptions: string]: any }, fn: (err: Error, html: string) => any): any;
 
-    (str: string, options?: { cache?: boolean, [otherOptions: string]: any }): Promise<string>;
+    (str: string, options?: { _cache?: boolean, [otherOptions: string]: any }): Promise<string>;
 }

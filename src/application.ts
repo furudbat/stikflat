@@ -9,7 +9,7 @@ import cons from '../lib/consolidate'
 import * as jsb from 'js-beautify'
 import ClipboardJS from 'clipboard'
 import parseJson from 'json-parse-better-errors';
-import { ApplicationData, CONFIG_CONTENT_MODE_YAML, CONFIG_CONTENT_MODE_JSON, TEMPLATE_ENGINE_MUSTACHE, TEMPLATE_ENGINE_HANDLEBARS, TEMPLATE_ENGINE_HUGON, TEMPLATE_ENGINE_PUG, TEMPLATE_ENGINE_UNDERSCORE, TEMPLATE_ENGINE_DOT } from './application.data'
+import { ApplicationData, CONFIG_CONTENT_MODE_YAML, CONFIG_CONTENT_MODE_JSON, TEMPLATE_ENGINE_MUSTACHE, TEMPLATE_ENGINE_HANDLEBARS, TEMPLATE_ENGINE_HUGAN, TEMPLATE_ENGINE_PUG, TEMPLATE_ENGINE_UNDERSCORE, TEMPLATE_ENGINE_DOT } from './application.data'
 import { ApplicationListener } from './application.listener'
 import { Layouts, SCROLL_TO_ANIMATION_TIME_MS } from './layouts'
 import { SavedConfigs } from './configs'
@@ -44,7 +44,7 @@ export class Application implements ApplicationListener {
         this._configEditor.initEditor();
     }
 
-    generateHTMLFromTemplate(template_engine: string, template: string, json: any, css: string, onlypreview: boolean = false) {
+    generateHTMLFromTemplate(id: string | null, template_engine: string, template: string, json: any, css: string, onlypreview: boolean = false) {
         if (typeof json === 'string' || json instanceof String) {
             this._configEditor.clearConfigError();
             try {
@@ -77,43 +77,46 @@ export class Application implements ApplicationListener {
             };
             try {
                 var that = this;
-                var renderHTML = function (htmlstr: string) {
-                    //console.log('renderHTML', template, json, htmlstr);
-                    that._preview.setHTMLPreview(htmlstr, css);
+                if (USE_CACHE) {
+                    json._cache = true;
+                }
+                if (id) {
+                    json._id = id;
+                }
+
+                let renderHTML = function (html: string) {
+                    //console.log('renderHTML', template, json, html);
+                    that._preview.setHTMLPreview(html, css);
                     if (onlypreview === false) {
-                        that._previewEditor.codePreview = html_beautify(htmlstr);
+                        that._previewEditor.codePreview = html_beautify(html);
                     }
                 };
 
+                let handler = function (err: Error, html: string) {
+                    if(err) {
+                        handleError(err);
+                        return;
+                    }
+                    renderHTML(html);
+                };
 
-                if (USE_CACHE) {
-                    json.cache = true;
+                console.log('generateHTMLFromTemplate', {template_engine, template, json})
+
+                if (template_engine === TEMPLATE_ENGINE_MUSTACHE) {
+                    return cons.mustache.render(template, json, handler);
+                } else if (template_engine === TEMPLATE_ENGINE_HANDLEBARS) {
+                    return cons.handlebars.render(template, json, handler);
+                } else if (template_engine === TEMPLATE_ENGINE_HUGAN) {
+                    return cons.hogan.render(template, json, handler);
+                } else if (template_engine === TEMPLATE_ENGINE_PUG) {
+                    return cons.pug.render(template, json, handler);
+                } else if (template_engine === TEMPLATE_ENGINE_UNDERSCORE) {
+                    return cons.underscore.render(template, json, handler);
+                } else if (template_engine === TEMPLATE_ENGINE_DOT) {
+                    return cons.dot.render(template, json, handler);
                 }
 
-                let con: Promise<string> = (() => {
-                    if (template_engine === TEMPLATE_ENGINE_MUSTACHE) {
-                        return cons.mustache(template, json);
-                    } else if (template_engine === TEMPLATE_ENGINE_HANDLEBARS) {
-                        return cons.handlebars(template, json);
-                    } else if (template_engine === TEMPLATE_ENGINE_HUGON) {
-                        return cons.hogan(template, json);
-                    } else if (template_engine === TEMPLATE_ENGINE_PUG) {
-                        return cons.pug(template, json);
-                    } else if (template_engine === TEMPLATE_ENGINE_UNDERSCORE) {
-                        return cons.underscore(template, json);
-                    } else if (template_engine === TEMPLATE_ENGINE_DOT) {
-                        return cons.dot(template, json);
-                    }
-
-                    return cons.mustache(template, json);
-                })();
-
-                con.then(function (htmlstr: string) {
-                    renderHTML(htmlstr);
-                })
-                    .catch(function (err) {
-                        handleError(err);
-                    });
+                return cons.mustache.render(template, json);
             } catch (error) {
                 handleError(error);
             }
@@ -122,12 +125,13 @@ export class Application implements ApplicationListener {
 
 
     generateHTML() {
+        const id = this._appData.currentLayoutId || null;
         const template_engine = this._appData.currentTemplateEngine || TEMPLATE_ENGINE_MUSTACHE;
         const template = this._appData.templateCode;
         const json = this._appData.configCodeJSON;
         const css = this._appData.cssCode;
         //console.log('generateHTML', {template_engine, template, json, css});
-        this.generateHTMLFromTemplate(template_engine, template, json, css);
+        this.generateHTMLFromTemplate(id, template_engine, template, json, css);
     }
 
     changeConfigMode(mode: string) {

@@ -332,7 +332,7 @@ export class Layouts {
         this.loadLayout(layout, function (data) {
             //console.debug('previewLayout', 'loadLayout', data);
             that.updateLayoutInfo(data.id, data.meta);
-            that._appListener.generateHTMLFromTemplate(data.template_engine, data.template, data.config, data.css, true);
+            that._appListener.generateHTMLFromTemplate(data.id, data.template_engine, data.template, data.config, data.css, true);
             that._appListener.selectPreviewTab();
             that._appData.currentLayoutId = data.id;
         });
