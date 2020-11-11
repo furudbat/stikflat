@@ -26,7 +26,8 @@
       const USE_CACHE = true;
       {%- else -%}
       const USE_CACHE = false;
-      {%- endif -%}  
+      {%- endif -%}
+      
       const site = {
         data: {
           templates_url: '{{ "templates/" | absolute_url }}',
