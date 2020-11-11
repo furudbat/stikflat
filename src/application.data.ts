@@ -20,12 +20,16 @@ const STORAGE_KEY_CURRENT_TEMPLATE_ENGINE ='current_template_engine'
 export const CONFIG_CONTENT_MODE_JSON = 'application/json';
 export const CONFIG_CONTENT_MODE_YAML = 'text/x-yaml';
 
-export const TEMPLATE_ENGINE_MUSTACHE = 'mustache';
-export const TEMPLATE_ENGINE_HANDLEBARS = 'handlebars';
-export const TEMPLATE_ENGINE_HUGAN = 'hugan';
-export const TEMPLATE_ENGINE_PUG = 'pug';
-export const TEMPLATE_ENGINE_UNDERSCORE = 'underscore';
-export const TEMPLATE_ENGINE_DOT = 'dot';
+
+export enum TemplateEngine {
+    Mustache = 'mustache',
+    Handlebars = 'handlebars',
+    Hugan = 'hugan',
+    Pug = 'pug',
+    Underscore = 'underscore',
+    Dot = 'dot',
+    EJS = 'ejs'
+}
 
 export class ApplicationData {
 
@@ -46,7 +50,7 @@ export class ApplicationData {
     private _enableLivePreview: boolean = true;
     private _configContentMode = CONFIG_CONTENT_MODE_JSON;
     private _currentLayoutId: string | null = null;
-    private _currentTemplateEngine: string = TEMPLATE_ENGINE_MUSTACHE;
+    private _currentTemplateEngine: string = TemplateEngine.Mustache;
 
     private _currentConfigIndex: number | null = null;
     private _savedConfigs: SavedConfigValue[] = [];
@@ -73,7 +77,7 @@ export class ApplicationData {
             this._currentConfigIndex = await this._storeConfigs.getItem<number>(STORAGE_KEY_CURRENT_CONFIG_INDEX) || this._currentConfigIndex;
             this._savedConfigs = await this._storeConfigs.getItem<SavedConfigValue[]>(STORAGE_KEY_SAVED_CONFIGS) || this._savedConfigs;
 
-            //console.debug('loadFromStorage', { _templateCode, _configJson, _cssCode, _lockConfigCode, _enableWYSIWYGTemplateEditor, _enableLivePreview, _currentConfigIndex, _savedConfigs });
+            console.debug('loadFromStorage', this);
         } catch (err) {
             // This code runs if there were any errors.
             console.error('loadFromStorage', err);

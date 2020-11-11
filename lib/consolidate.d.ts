@@ -35,7 +35,6 @@ type SupportedTemplateEngines =
     | 'plates'
     | 'pug'
     | 'qejs'
-    | 'ractive'
     | 'slm'
     | 'squirrelly'
     | 'swig'

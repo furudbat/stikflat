@@ -5,17 +5,6 @@
 
   <body>
     {%- include header.html -%}
-    <script type='text/javascript' >  
-      const site = {
-        data: {
-          templates_url: '{{ "templates/" | absolute_url }}',
-          templates: {{ site.data.templates | jsonify }},
-          strings: {{ site.data.strings | jsonify }}
-        }
-      };
-
-      //console.debug({site});
-    </script>
 
     <div class="py-5 px-2" id="main-content">
       <div class="container-fluid px-5 page-content">
@@ -32,6 +21,22 @@
 
     <script src="{{ '/assets/js/font-awesome/all.min.js' | relative_url }}"></script>
 
+    <script type='text/javascript'>
+      {%- if site.options.useCache -%}
+      const USE_CACHE = true;
+      {%- else -%}
+      const USE_CACHE = false;
+      {%- endif -%}  
+      const site = {
+        data: {
+          templates_url: '{{ "templates/" | absolute_url }}',
+          templates: {{ site.data.templates | jsonify }},
+          strings: {{ site.data.strings | jsonify }}
+        }
+      };
+
+      //console.debug({USE_CACHE, site});
+    </script>
     {%- if jekyll.environment == "development" -%}
     <script src="{{ '/assets/js/app/bundle.js' | relative_url }}"></script>
     {%- else -%}

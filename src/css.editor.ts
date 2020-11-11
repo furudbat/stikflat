@@ -22,7 +22,7 @@ export class CssEditor {
     }
 
     generateCssEditor() {
-        $('#txtCSS').replaceWith('<pre id="txtCSS" class="pre-ace-editor"></pre>');
+        $('#txtCSS').replaceWith('<div id="txtCSS" class="div-ace-editor"></div>');
         this._cssEditor = ace.edit("txtCSS");
         this._cssEditor.$blockScrolling = Infinity;
         //_cssEditor.setTheme("ace/theme/dracula");

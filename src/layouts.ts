@@ -4,7 +4,7 @@ import parseJson from 'json-parse-better-errors';
 import * as jsyaml from 'js-yaml';
 import * as jsb from 'js-beautify';
 import List from 'list.js';
-import { ApplicationData, TEMPLATE_ENGINE_MUSTACHE } from './application.data'
+import { ApplicationData, TemplateEngine } from './application.data'
 import { ApplicationListener } from './application.listener'
 import { LoadedLayoutValue } from './loadedlayout.value';
 import { MetaDataValue } from './metadata.value';
@@ -51,7 +51,7 @@ export class Layouts {
                 $.ajax({
                     url: metalink || '',
                     method: "GET",
-                    cache: USE_CACHE
+                    cache: USE_CACHE || false
                 }).done((metaRes) => {
                     const meta: MetaDataValue = jsyaml.load(metaRes);
                     const name = meta.name;
@@ -86,7 +86,7 @@ export class Layouts {
                                 meta: meta,
                                 name: name || '',
                                 configlink: configlink || '',
-                                template_engine: meta.template_engine || TEMPLATE_ENGINE_MUSTACHE
+                                template_engine: meta.template_engine || TemplateEngine.Mustache
                             };
                             if (id !== null) {
                                 that._loadedLayouts.put(id, loadedLayout, CACHE_LOADED_LAYOUT_MAX_TIME_MS);

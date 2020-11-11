@@ -7,7 +7,7 @@ import 'brace/mode/html';
 import 'brace/mode/handlebars';
 import 'brace/worker/html'
 import 'brace/theme/dracula';
-import { ApplicationData, TEMPLATE_ENGINE_MUSTACHE, TEMPLATE_ENGINE_HANDLEBARS } from './application.data'
+import { ApplicationData, TemplateEngine } from './application.data'
 import { ApplicationListener } from './application.listener';
 
 const TEMPLATE_EDITOR_NAME_ACE = 'ace';
@@ -65,7 +65,7 @@ export class TemplateEditor {
             }
         };
 
-        $('#txtTemplate').replaceWith('<pre id="txtTemplate" class="pre-ace-editor"></pre>');
+        $('#txtTemplate').replaceWith('<div id="txtTemplate" class="div-ace-editor"></div>');
         this._templateEditor = ace.edit("txtTemplate");
         this._templateEditor.$blockScrolling = Infinity;
         this._templateEditor.setTheme('ace/theme/dracula');
@@ -121,13 +121,23 @@ export class TemplateEditor {
         $('#btnEnableWYSIWYGEditor').html(site.data.strings.editor.template.disabled_WYSIWYG_editor_btn).attr('class', 'btn btn-outline-secondary');
     }
 
-    updateHelp(){
+    updateHelp() {
         $('#lblTemplateEngine').html(this._appData.currentTemplateEngine);
 
-        if (this._appData.currentTemplateEngine == TEMPLATE_ENGINE_HANDLEBARS) {
-            $('#templateHelp').html(site.data.strings.editor.template.template_help_handlebars);
-        } else {
-            $('#templateHelp').html(site.data.strings.editor.template.template_help_mustache);
+        const template_engine = this._appData.currentTemplateEngine;
+        let template_help = site.data.strings.editor.template.template_help_mustache;
+        switch(template_engine) {
+            case TemplateEngine.Mustache:
+                template_help = site.data.strings.editor.template.template_help_mustache;
+                break;
+            case TemplateEngine.Handlebars:
+                template_help = site.data.strings.editor.template.template_help_handlebars;
+                break;
+            default:
+                console.warn('no template_help found for', template_engine);
+                break;
         }
+
+        $('#templateHelp').html(template_help);
     }
 }

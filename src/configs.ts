@@ -105,7 +105,7 @@ export class SavedConfigs {
                 makeDoubleClick($(this), that.overrideConfig.bind(that), that.previewWithConfig.bind(that));
             });
         }
-        $('#btnAddConfig').click(function () {
+        $('#btnAddConfig').on('click', function () {
             that._appData.addCurrentConfig();
             //console.debug('btnAddConfig', {_currentConfigIndex});
 
@@ -116,7 +116,7 @@ export class SavedConfigs {
             that.updateSavedConfigsSelection(that._appData.currentConfigIndex);
         });
 
-        $('#btnSaveConfig').click(function () {
+        $('#btnSaveConfig').on('click', function () {
             if (that._appData.currentConfigIndex !== null) {
                 that._appData.saveConfig(that._appData.currentConfigIndex, that._appData.configJson, that._appData.configJsonStr, that._appData.configYamlStr);
             } else {

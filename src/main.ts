@@ -1,7 +1,14 @@
 import './site'
 import { Application } from "./application";
 
-$( document ).ready(function() {
+var initialized = false;
+$(function() {
+    console.log('init app ...');
+
     var app = new Application();
-    app.init();
+    if (!initialized) {
+        app.init();
+    }
+    
+    initialized = true;
 });

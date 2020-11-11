@@ -9,7 +9,7 @@ import cons from '../lib/consolidate'
 import * as jsb from 'js-beautify'
 import ClipboardJS from 'clipboard'
 import parseJson from 'json-parse-better-errors';
-import { ApplicationData, CONFIG_CONTENT_MODE_YAML, CONFIG_CONTENT_MODE_JSON, TEMPLATE_ENGINE_MUSTACHE, TEMPLATE_ENGINE_HANDLEBARS, TEMPLATE_ENGINE_HUGAN, TEMPLATE_ENGINE_PUG, TEMPLATE_ENGINE_UNDERSCORE, TEMPLATE_ENGINE_DOT } from './application.data'
+import { ApplicationData, CONFIG_CONTENT_MODE_YAML, CONFIG_CONTENT_MODE_JSON, TemplateEngine } from './application.data'
 import { ApplicationListener } from './application.listener'
 import { Layouts, SCROLL_TO_ANIMATION_TIME_MS } from './layouts'
 import { SavedConfigs } from './configs'
@@ -102,21 +102,26 @@ export class Application implements ApplicationListener {
 
                 console.log('generateHTMLFromTemplate', {template_engine, template, json})
 
-                if (template_engine === TEMPLATE_ENGINE_MUSTACHE) {
-                    return cons.mustache.render(template, json, handler);
-                } else if (template_engine === TEMPLATE_ENGINE_HANDLEBARS) {
-                    return cons.handlebars.render(template, json, handler);
-                } else if (template_engine === TEMPLATE_ENGINE_HUGAN) {
-                    return cons.hogan.render(template, json, handler);
-                } else if (template_engine === TEMPLATE_ENGINE_PUG) {
-                    return cons.pug.render(template, json, handler);
-                } else if (template_engine === TEMPLATE_ENGINE_UNDERSCORE) {
-                    return cons.underscore.render(template, json, handler);
-                } else if (template_engine === TEMPLATE_ENGINE_DOT) {
-                    return cons.dot.render(template, json, handler);
+                switch (template_engine) {
+                    case TemplateEngine.Mustache:
+                        return cons.mustache.render(template, json, handler);
+                    case TemplateEngine.Handlebars:
+                        return cons.handlebars.render(template, json, handler);
+                    case TemplateEngine.Hugan:
+                        return cons.hogan.render(template, json, handler);
+                    case TemplateEngine.Pug:
+                        return cons.pug.render(template, json, handler);
+                    case TemplateEngine.Underscore:
+                        return cons.underscore.render(template, json, handler);
+                    case TemplateEngine.Dot:
+                        return cons.dot.render(template, json, handler);
+                    case TemplateEngine.EJS:
+                        return cons.ejs.render(template, json, handler);
                 }
 
-                return cons.mustache.render(template, json);
+                console.warn('template_engine uknown', {template_engine})
+                
+                return cons.mustache.render(template, json, handler);
             } catch (error) {
                 handleError(error);
             }
@@ -126,7 +131,7 @@ export class Application implements ApplicationListener {
 
     generateHTML() {
         const id = this._appData.currentLayoutId || null;
-        const template_engine = this._appData.currentTemplateEngine || TEMPLATE_ENGINE_MUSTACHE;
+        const template_engine = this._appData.currentTemplateEngine || TemplateEngine.Mustache;
         const template = this._appData.templateCode;
         const json = this._appData.configCodeJSON;
         const css = this._appData.cssCode;
@@ -155,7 +160,31 @@ export class Application implements ApplicationListener {
     init() {
         $('[data-toggle="popover"]').popover();
 
+        this.initTabs();
+
+        this.initClipboardButtons();
+
         var that = this;
+        $('.generate-btn').each(function (index) {
+            $(this).on('click', function () {
+                that.generateHTML();
+
+                const sectionPreviewCode = $('#sectionPreviewCode') || null;
+                const sectionPreviewCodeOffset = (sectionPreviewCode !== null) ? sectionPreviewCode.offset() : null;
+                if (sectionPreviewCodeOffset) {
+                    $('html, body').animate({
+                        scrollTop: sectionPreviewCodeOffset.top
+                    }, SCROLL_TO_ANIMATION_TIME_MS);
+                }
+            });
+        });
+        $('#btnClearSessionStorage').on('click', function () {
+            that._appData.clearSessionStorage();
+        });
+        $('#btnClearSavedConfigsStorage').on('click', function () {
+            that._appData.clearSavedConfigsStorage();
+        });
+        
         this._appData.loadFromStorage().then(function () {
             that.initLayouts();
 
@@ -171,31 +200,11 @@ export class Application implements ApplicationListener {
             if (that._appData.currentLayoutId) {
                 that._layouts.reloadLayoutInfo(that._appData.currentLayoutId);
             }
+
+            console.log('app data loaded from storage');
         });
 
-        this.initTabs();
-
-        this.initClipboardButtons();
-
-        $('.generate-btn').each(function (index) {
-            $(this).click(function () {
-                that.generateHTML();
-
-                const sectionPreviewCode = $('#sectionPreviewCode') || null;
-                const sectionPreviewCodeOffset = (sectionPreviewCode !== null) ? sectionPreviewCode.offset() : null;
-                if (sectionPreviewCodeOffset) {
-                    $('html, body').animate({
-                        scrollTop: sectionPreviewCodeOffset.top
-                    }, SCROLL_TO_ANIMATION_TIME_MS);
-                }
-            });
-        });
-        $('#btnClearSessionStorage').click(function () {
-            that._appData.clearSessionStorage();
-        });
-        $('#btnClearSavedConfigsStorage').click(function () {
-            that._appData.clearSavedConfigsStorage();
-        });
+        console.log('init done');
     }
 
 
@@ -255,7 +264,7 @@ export class Application implements ApplicationListener {
         $('#collapseConfig').collapse('show');
 
         var that = this;
-        $('#chbLockConfig').change(function () {
+        $('#chbLockConfig').on('change', function () {
             const checked = $(this).prop('checked');
             if (checked === true) {
                 that._configEditor.lockConfig();
@@ -263,7 +272,7 @@ export class Application implements ApplicationListener {
                 that._configEditor.unlockConfig();
             }
         });
-        $('#chbConfigMode').change(function () {
+        $('#chbConfigMode').on('change', function () {
             const checked = $(this).prop('checked');
             if (checked === true) {
                 that.changeConfigMode(CONFIG_CONTENT_MODE_YAML);
@@ -318,7 +327,7 @@ export class Application implements ApplicationListener {
         this._templateEditor.generateTemplateEditor();
         this._templateEditor.disableWYSIWYGEditor();
 
-        $('#chbLivePreview').change(function () {
+        $('#chbLivePreview').on('change', function () {
             const checked = $(this).prop('checked');
             if (checked) {
                 that._preview.enableLivePreview();

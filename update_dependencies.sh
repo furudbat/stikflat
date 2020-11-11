@@ -7,6 +7,7 @@
 # A useful script to download the latest version of bootstrap and jquery
 
 rm -rf node_modules package-lock.json
+npm install
 npm i bootstrap@4 jquery@3 jquery-ui
 npm i bootstrap-toggle
 npm i @fortawesome/fontawesome-free

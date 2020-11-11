@@ -39,7 +39,7 @@ export class ConfigEditor {
     generateConfigEditor() {
         var that = this;
 
-        $('#txtConfigJSON').replaceWith('<pre id="txtConfigJSON" class="pre-ace-editor"></pre>');
+        $('#txtConfigJSON').replaceWith('<div id="txtConfigJSON" class="div-ace-editor"></div>');
         this._configEditorJSON = ace.edit('txtConfigJSON');
         this._configEditorJSON.$blockScrolling = Infinity;
         this._configEditorJSON.setTheme('ace/theme/dracula');
@@ -49,7 +49,7 @@ export class ConfigEditor {
             that.onChangeConfigJSON((that._configEditorJSON)? that._configEditorJSON.getValue() : '');
         });
 
-        $('#txtConfigYAML').replaceWith('<pre id="txtConfigYAML" class="pre-ace-editor"></pre>');
+        $('#txtConfigYAML').replaceWith('<div id="txtConfigYAML" class="div-ace-editor"></div>');
         this._configEditorYAML = ace.edit('txtConfigYAML');
         this._configEditorYAML.$blockScrolling = Infinity;
         this._configEditorYAML.setTheme('ace/theme/dracula');
